@@ -11,6 +11,7 @@ let productFilter = '전체';
 let productSearch = '';
 let compareKws = ['흑임자', '유자', '제로슈거'];
 let selectedCat = '전체';
+let selectedBrand = null;
 const charts = {};
 
 /* ── Chart.js 공통 설정 ──────────────────────────────────── */
@@ -386,6 +387,7 @@ function renderCategoryCards() {
 
 function renderCategory(cat) {
   selectedCat = cat;
+  selectedBrand = null;
   renderCategoryCards();
   renderCatKeywordChart(cat);
   renderCatBrandStats(cat);
@@ -430,20 +432,41 @@ function renderCatBrandStats(cat) {
   const sorted = Object.entries(counts).sort((a,b) => b[1]-a[1]).slice(0,8);
   const max = sorted[0]?.[1] || 1;
   el.innerHTML = `
-    <p style="font-size:11px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--text-muted);margin-bottom:12px;">브랜드별 신제품 수</p>
-    ${sorted.map(([brand,cnt]) => `
-      <div class="rank-item">
-        <div class="rank-bar-wrap">
-          <div class="rank-name">${brand}</div>
-          <div class="rank-bar"><div class="rank-fill" style="width:0" data-w="${(cnt/max*100).toFixed(1)}"></div></div>
+    <p style="font-size:11px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--text-muted);margin-bottom:12px;">브랜드별 신제품 수 (클릭하여 제품 보기)</p>
+    ${sorted.map(([brand,cnt]) => {
+      const isOpen = selectedBrand === brand;
+      const brandProducts = list.filter(p => p.brand === brand);
+      return `
+      <div class="rank-item" style="cursor:pointer;flex-direction:column;align-items:stretch;" onclick="toggleBrand('${brand.replace(/'/g,"\\'")}')">
+        <div style="display:flex;align-items:center;gap:14px;">
+          <div class="rank-bar-wrap">
+            <div class="rank-name">${brand} <span style="font-size:9px;color:var(--text-muted);">${isOpen?'▲':'▼'}</span></div>
+            <div class="rank-bar"><div class="rank-fill" style="width:0" data-w="${(cnt/max*100).toFixed(1)}"></div></div>
+          </div>
+          <div class="rank-val" style="color:var(--accent)">${cnt}개</div>
         </div>
-        <div class="rank-val" style="color:var(--accent)">${cnt}개</div>
+        ${isOpen ? `
+          <div style="margin-top:10px;padding:4px 12px;background:var(--bg-card-hover);border-radius:var(--radius-sm);">
+            ${brandProducts.map((p,i) => `
+              <div style="display:flex;justify-content:space-between;align-items:center;gap:10px;padding:7px 0;${i<brandProducts.length-1?'border-bottom:1px solid var(--border);':''}font-size:12px;">
+                <span style="color:var(--text-primary);">${p.emoji} ${p.name}</span>
+                <span style="color:var(--text-muted);white-space:nowrap;">${p.price}</span>
+              </div>
+            `).join('')}
+          </div>
+        ` : ''}
       </div>
-    `).join('')}
+    `;
+    }).join('')}
   `;
   setTimeout(() => {
     el.querySelectorAll('.rank-fill').forEach(b => { b.style.width = b.dataset.w + '%'; });
   }, 120);
+}
+
+function toggleBrand(brand) {
+  selectedBrand = (selectedBrand === brand) ? null : brand;
+  renderCatBrandStats(selectedCat);
 }
 
 /* ════════════════════════════════════════════════════════════
