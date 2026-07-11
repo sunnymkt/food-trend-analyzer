@@ -744,6 +744,15 @@ function exportReport() {
     `## 주요 인사이트`,
     ...WEEKLY_SUMMARY.topInsights.map(i => `### ${i.title}\n${i.body}`),
     ``,
+    `## 카테고리별 가격대`,
+    ...CATEGORY_PRICE.map(d => `- ${d.category}: 평균 ${d.avg.toLocaleString()}원 (${d.min.toLocaleString()}~${d.max.toLocaleString()}원, ${d.count}개)`),
+    ``,
+    `## 브랜드별 신제품 출시속도 (최근 ${HISTORY_META.daysTracked}일)`,
+    ...BRAND_VELOCITY.map(d => `- ${d.brand}: ${d.count}개`),
+    ``,
+    `## 관련 뉴스`,
+    ...NEWS.slice(0,10).map(n => `- [${n.keyword}] ${n.title} (${n.link})`),
+    ``,
     `## 신제품 목록`,
     ...NEW_PRODUCTS.map(p => `- [${p.category}] ${p.brand} — ${p.name} (${p.price}) | 키워드: ${p.keywords.join(', ')}`)
   ];
@@ -800,6 +809,39 @@ function renderReportHighlights() {
   const worstKw = WEEKLY_SUMMARY.worstKeyword, worstKwData = worstKw ? KEYWORD_DATA[worstKw] : null;
   setText('hl-worst-kw', worstKw || '-');
   setText('hl-worst-kw-val', worstKwData ? `${worstKwData.changeRate}%` : '-');
+
+  const topPriceCat = CATEGORY_PRICE[0]; // buildCategoryPriceStats는 avg 내림차순 정렬됨
+  setText('hl-price-cat', topPriceCat ? topPriceCat.category : '-');
+  setText('hl-price-cat-val', topPriceCat ? `${topPriceCat.avg.toLocaleString()}원` : '-');
+
+  const topBrand = BRAND_VELOCITY[0];
+  setText('hl-brand', topBrand ? topBrand.brand : '-');
+  setText('hl-brand-val', topBrand ? `${topBrand.count}개` : '-');
+
+  renderReportNews();
+}
+
+/* 리포트용 뉴스 다이제스트 (최신 3건) */
+function renderReportNews() {
+  const el = document.getElementById('reportNews');
+  if(!el) return;
+  if(!NEWS.length) {
+    el.innerHTML = `<p style="font-size:12.5px;color:var(--text-muted);">수집된 뉴스가 없습니다.</p>`;
+    return;
+  }
+  const top3 = [...NEWS].sort((a,b) => new Date(b.pubDate) - new Date(a.pubDate)).slice(0,3);
+  el.innerHTML = top3.map(n => `
+    <div class="mini-row">
+      <div class="mini-left" style="min-width:0;">
+        <span class="mini-emoji">📰</span>
+        <div style="min-width:0;">
+          <a href="${n.link}" target="_blank" rel="noopener noreferrer" class="mini-name" style="color:var(--text-primary);display:block;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;">${n.title}</a>
+          <div class="mini-brand">${fmt(n.pubDate)}</div>
+        </div>
+      </div>
+      <span class="tag tag-o">#${n.keyword}</span>
+    </div>
+  `).join('');
 }
 
 function showDataError(err) {
