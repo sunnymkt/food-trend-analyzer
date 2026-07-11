@@ -200,7 +200,8 @@ function renderDonut() {
         tooltip:{
           ...CHART_DEFAULTS.plugins.tooltip,
           callbacks:{ label: ctx => ` ${ctx.label}: ${ctx.raw}개 신제품` }
-        }
+        },
+        datalabels:{ display:false }
       }
     }
   });
