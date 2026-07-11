@@ -178,15 +178,17 @@ def main():
     )
     print(f"[fetch_naver_trends] {OUTPUT_PATH} 갱신 완료 ({len(output)}개 키워드)")
 
-    meta = {}
+    meta_out = {}
     if META_PATH.exists():
-        meta = json.loads(META_PATH.read_text(encoding="utf-8"))
-    meta["lastUpdated"] = datetime.now(KST).isoformat()
-    meta["keywordSource"] = "naver_datalab"
-    meta["trendStartDate"] = start_date
-    meta["trendEndDate"] = end_date
-    meta.pop("note", None)
-    META_PATH.write_text(json.dumps(meta, ensure_ascii=False, indent=2), encoding="utf-8")
+        meta_out = json.loads(META_PATH.read_text(encoding="utf-8"))
+    now_iso = datetime.now(KST).isoformat()
+    meta_out["lastUpdated"] = now_iso
+    meta_out["naverUpdated"] = now_iso
+    meta_out["keywordSource"] = "naver_datalab"
+    meta_out["trendStartDate"] = start_date
+    meta_out["trendEndDate"] = end_date
+    meta_out.pop("note", None)
+    META_PATH.write_text(json.dumps(meta_out, ensure_ascii=False, indent=2), encoding="utf-8")
 
 
 if __name__ == "__main__":

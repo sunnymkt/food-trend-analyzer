@@ -238,6 +238,29 @@ body::before {
 .up   { color:var(--accent); }
 .down { color:var(--rose); }
 
+/* ── KPI 카드 호버 툴팁 ──────────────────────────────────── */
+.kpi-card { position:relative; }
+.kpi-tooltip {
+  position:absolute; left:50%; bottom:calc(100% + 12px);
+  transform:translateX(-50%) translateY(6px);
+  min-width:240px; max-width:320px;
+  background:rgba(15,23,42,.97); color:#e2e8f0;
+  padding:12px 14px; border-radius:var(--radius-sm);
+  font-size:12px; line-height:1.65; font-weight:400; text-align:left;
+  box-shadow:var(--shadow-lg);
+  opacity:0; visibility:hidden; pointer-events:none;
+  transition:opacity .18s var(--ease), transform .18s var(--ease);
+  z-index:60;
+}
+.kpi-tooltip strong { color:#fff; }
+.kpi-tooltip::after {
+  content:''; position:absolute; top:100%; left:50%; transform:translateX(-50%);
+  border:6px solid transparent; border-top-color:rgba(15,23,42,.97);
+}
+.kpi-card:hover .kpi-tooltip {
+  opacity:1; visibility:visible; transform:translateX(-50%) translateY(0);
+}
+
 /* ── 키워드 뱃지 ─────────────────────────────────────────── */
 .kw-grid { display:flex; flex-wrap:wrap; gap:9px; }
 .kw-badge {

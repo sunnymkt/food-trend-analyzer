@@ -786,6 +786,53 @@ function renderStatus() {
   setText('kpi-updated', '✅ 정상 수집 중');
   setText('nav-prod-badge', NEW_PRODUCTS.length);
   setText('nav-news-badge', NEWS.length);
+  renderKpiTooltips();
+}
+
+/* KPI 카드 호버 툴팁 내용 */
+function renderKpiTooltips() {
+  const kwEl = document.getElementById('kpi-kw-tooltip');
+  if(kwEl) {
+    const list = Object.keys(KEYWORD_DATA).join(', ');
+    kwEl.innerHTML = `<strong>추적 중인 키워드 ${Object.keys(KEYWORD_DATA).length}개</strong><br>${list}<br><br>출처: 네이버 데이터랩 검색어트렌드 (최근 30일)`;
+  }
+
+  const prodEl = document.getElementById('kpi-prod-tooltip');
+  if(prodEl) {
+    const byCat = {};
+    NEW_PRODUCTS.forEach(p => { byCat[p.category] = (byCat[p.category]||0)+1; });
+    const breakdown = Object.entries(byCat).sort((a,b)=>b[1]-a[1]).map(([c,n]) => `${c} ${n}`).join(' · ');
+    prodEl.innerHTML = `<strong>카테고리별 신제품</strong><br>${breakdown}<br><br>출처: 마켓컬리 검색결과 크롤링 (하루 1회)`;
+  }
+
+  const riseEl = document.getElementById('kpi-rise-tooltip');
+  if(riseEl) {
+    const rising = Object.entries(KEYWORD_DATA)
+      .filter(([,d]) => d.changeRate > 0)
+      .sort((a,b) => b[1].changeRate - a[1].changeRate)
+      .map(([k,d]) => `${k} +${d.changeRate}%`);
+    riseEl.innerHTML = rising.length
+      ? `<strong>전주 대비 상승 키워드</strong><br>${rising.join(', ')}`
+      : `이번 주기에는 상승 키워드가 없습니다.`;
+  }
+
+  const updatedEl = document.getElementById('kpi-updated-tooltip');
+  if(updatedEl) {
+    const fmtTime = (iso) => {
+      if(!iso) return '기록 없음';
+      const d = new Date(iso);
+      const hh = String(d.getHours()).padStart(2,'0'), mm = String(d.getMinutes()).padStart(2,'0');
+      return `${d.getMonth()+1}/${d.getDate()} ${hh}:${mm}`;
+    };
+    const m = META || {};
+    updatedEl.innerHTML = `
+      <strong>소스별 마지막 갱신</strong><br>
+      🔍 네이버 데이터랩: ${fmtTime(m.naverUpdated || m.lastUpdated)}<br>
+      🆕 마켓컬리: ${fmtTime(m.kurlyUpdated || m.lastUpdated)}<br>
+      📰 뉴스: ${fmtTime(m.newsUpdated)}<br><br>
+      GitHub Actions로 매일 07:00 KST 자동 갱신
+    `;
+  }
 }
 
 /* ── 리포트 상단 요약 / 하이라이트 카드 ───────────────────── */

@@ -264,13 +264,15 @@ def main():
     print(f"[crawl_kurly_products] {HISTORY_PATH} 갱신 완료 (누적 {len(history)}건, "
           f"최근 {HISTORY_WINDOW_DAYS}일 기준)")
 
-    meta = {}
+    meta_out = {}
     if META_PATH.exists():
-        meta = json.loads(META_PATH.read_text(encoding="utf-8"))
-    meta["lastUpdated"] = datetime.now(KST).isoformat()
-    meta["productSource"] = "kurly-search-crawler"
-    meta.pop("note", None)
-    META_PATH.write_text(json.dumps(meta, ensure_ascii=False, indent=2), encoding="utf-8")
+        meta_out = json.loads(META_PATH.read_text(encoding="utf-8"))
+    now_iso = datetime.now(KST).isoformat()
+    meta_out["lastUpdated"] = now_iso
+    meta_out["kurlyUpdated"] = now_iso
+    meta_out["productSource"] = "kurly-search-crawler"
+    meta_out.pop("note", None)
+    META_PATH.write_text(json.dumps(meta_out, ensure_ascii=False, indent=2), encoding="utf-8")
 
     if failed_keywords:
         # 일부 실패는 있지만 최소 1건은 수집했으므로 종료 코드는 0으로 유지한다.
