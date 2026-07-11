@@ -698,29 +698,37 @@ function renderReportChart() {
    NEWS (업계 뉴스)
    ════════════════════════════════════════════════════════════ */
 function renderNews() {
-  const listEl = document.getElementById('newsList');
-  const metaEl = document.getElementById('newsMeta');
+  const product = NEWS.filter(n => (n.category || 'product') === 'product');
+  const regulatory = NEWS.filter(n => n.category === 'regulatory');
+
+  renderNewsSection(product, 'newsListProduct', 'newsMetaProduct', 'tag-o');
+  renderNewsSection(regulatory, 'newsListRegulatory', 'newsMetaRegulatory', 'tag-r');
+}
+
+function renderNewsSection(items, listId, metaId, tagClass) {
+  const listEl = document.getElementById(listId);
+  const metaEl = document.getElementById(metaId);
   if(!listEl) return;
 
   if(metaEl) {
     metaEl.textContent = META && META.newsUpdated
-      ? `${fmt(META.newsUpdated)} 기준 · ${NEWS.length}건`
-      : `${NEWS.length}건`;
+      ? `${fmt(META.newsUpdated)} 기준 · ${items.length}건`
+      : `${items.length}건`;
   }
 
-  if(!NEWS.length) {
+  if(!items.length) {
     listEl.innerHTML = `<div class="empty"><div class="empty-icon">📰</div><h3>수집된 뉴스가 없습니다</h3><p>다음 자동 갱신을 기다려주세요</p></div>`;
     return;
   }
 
-  const sorted = [...NEWS].sort((a,b) => new Date(b.pubDate) - new Date(a.pubDate));
+  const sorted = [...items].sort((a,b) => new Date(b.pubDate) - new Date(a.pubDate));
   listEl.innerHTML = sorted.map(n => `
     <div class="insight-card">
       <div class="insight-icon">📰</div>
       <div style="flex:1;min-width:0;">
         <a href="${n.link}" target="_blank" rel="noopener noreferrer" class="insight-title" style="display:block;color:var(--text-primary);">${n.title}</a>
         <div style="display:flex;align-items:center;gap:8px;margin:4px 0 6px;">
-          <span class="tag tag-o">#${n.keyword}</span>
+          <span class="tag ${tagClass}">#${n.keyword}</span>
           <span style="font-size:11px;color:var(--text-muted);">${fmt(n.pubDate)}</span>
         </div>
         <div class="insight-body">${n.description}</div>

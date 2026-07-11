@@ -1,7 +1,9 @@
 #!/usr/bin/env python3
 """
-네이버 뉴스 검색 API로 키워드별 "OO 신제품" 관련 기사를 모아
-data/news.json 을 생성한다.
+네이버 뉴스 검색 API로 두 종류의 기사를 모아 data/news.json 을 생성한다.
+
+  1. product    — 추적 키워드별 "OO 신제품" 뉴스 (data/keywords_config.json)
+  2. regulatory — 식품 법규/제도 변화 뉴스 (data/regulatory_topics.json)
 
 필요 환경변수는 fetch_naver_trends.py 와 동일한 NAVER_CLIENT_ID / NAVER_CLIENT_SECRET.
 단, 이 API는 네이버 개발자센터에서 해당 애플리케이션에 "검색" 상품이 별도로
@@ -10,7 +12,8 @@ data/news.json 을 생성한다.
 
 사용법:
   python scripts/fetch_food_news.py
-  python scripts/fetch_food_news.py --keyword 흑임자   # 특정 키워드만 테스트
+  python scripts/fetch_food_news.py --keyword 흑임자   # product 카테고리 한 키워드만
+  python scripts/fetch_food_news.py --topic 소비기한   # regulatory 카테고리 한 주제만
 """
 
 import argparse
@@ -30,12 +33,13 @@ from _env import load_env_file  # noqa: E402
 ROOT = Path(__file__).resolve().parent.parent
 DATA_DIR = ROOT / "data"
 KEYWORDS_CONFIG_PATH = DATA_DIR / "keywords_config.json"
+REGULATORY_TOPICS_PATH = DATA_DIR / "regulatory_topics.json"
 OUTPUT_PATH = DATA_DIR / "news.json"
 META_PATH = DATA_DIR / "meta.json"
 
 NAVER_NEWS_URL = "https://openapi.naver.com/v1/search/news.json"
-DISPLAY_PER_KEYWORD = 5
-MAX_TOTAL = 40
+DISPLAY_PER_QUERY = 5
+MAX_PER_CATEGORY = {"product": 40, "regulatory": 24}
 KST = timezone(timedelta(hours=9))
 TAG_RE = re.compile(r"<[^>]+>")
 
@@ -43,7 +47,13 @@ TAG_RE = re.compile(r"<[^>]+>")
 def load_keywords_config():
     with open(KEYWORDS_CONFIG_PATH, encoding="utf-8") as f:
         cfg = json.load(f)
-    return cfg["keywords"]
+    return list(cfg["keywords"].keys())
+
+
+def load_regulatory_topics():
+    with open(REGULATORY_TOPICS_PATH, encoding="utf-8") as f:
+        cfg = json.load(f)
+    return cfg["topics"]  # [{"label": ..., "query": ...}, ...]
 
 
 def clean_text(s):
@@ -83,32 +93,15 @@ def call_news_api(client_id, client_secret, query, display, retries=3):
     raise RuntimeError(f"네이버 뉴스 검색 API 호출 실패: {last_err}")
 
 
-def main():
-    parser = argparse.ArgumentParser()
-    parser.add_argument("--keyword", help="이 키워드만 수집 (디버깅용)")
-    args = parser.parse_args()
-
-    load_env_file()
-    client_id = os.environ.get("NAVER_CLIENT_ID")
-    client_secret = os.environ.get("NAVER_CLIENT_SECRET")
-    if not client_id or not client_secret:
-        print("ERROR: NAVER_CLIENT_ID / NAVER_CLIENT_SECRET 환경변수가 필요합니다.", file=sys.stderr)
-        sys.exit(1)
-
-    keywords_cfg = load_keywords_config()
-    keyword_list = [args.keyword] if args.keyword else list(keywords_cfg.keys())
-
-    articles_by_link = {}
-    failed_keywords = []
-
-    for keyword in keyword_list:
-        query = f"{keyword} 신제품"
-        print(f"[fetch_food_news] '{query}' 검색 중…")
+def fetch_queries(client_id, client_secret, queries, category, articles_by_link, failed):
+    """queries: [(tag, query_string), ...]. articles_by_link 에 직접 채워 넣는다."""
+    for tag, query in queries:
+        print(f"[fetch_food_news] ({category}) '{query}' 검색 중…")
         try:
-            resp = call_news_api(client_id, client_secret, query, DISPLAY_PER_KEYWORD)
+            resp = call_news_api(client_id, client_secret, query, DISPLAY_PER_QUERY)
         except Exception as e:
             print(f"  -> 실패: {e}", file=sys.stderr)
-            failed_keywords.append(keyword)
+            failed.append(f"{category}:{tag}")
             continue
 
         for item in resp.get("items", []):
@@ -120,25 +113,60 @@ def main():
                 "description": clean_text(item.get("description")),
                 "link": link,
                 "pubDate": item.get("pubDate"),
-                "keyword": keyword,
+                "keyword": tag,
+                "category": category,
             }
         time.sleep(0.3)
 
-    if not articles_by_link:
+
+def sort_key(a):
+    try:
+        return datetime.strptime(a["pubDate"], "%a, %d %b %Y %H:%M:%S %z")
+    except (TypeError, ValueError):
+        return datetime.min.replace(tzinfo=KST)
+
+
+def main():
+    parser = argparse.ArgumentParser()
+    parser.add_argument("--keyword", help="product 카테고리에서 이 키워드만 수집 (디버깅용)")
+    parser.add_argument("--topic", help="regulatory 카테고리에서 이 주제(label)만 수집 (디버깅용)")
+    args = parser.parse_args()
+
+    load_env_file()
+    client_id = os.environ.get("NAVER_CLIENT_ID")
+    client_secret = os.environ.get("NAVER_CLIENT_SECRET")
+    if not client_id or not client_secret:
+        print("ERROR: NAVER_CLIENT_ID / NAVER_CLIENT_SECRET 환경변수가 필요합니다.", file=sys.stderr)
+        sys.exit(1)
+
+    product_keywords = [args.keyword] if args.keyword else load_keywords_config()
+    reg_topics_all = load_regulatory_topics()
+    if args.topic:
+        reg_topics_all = [t for t in reg_topics_all if t["label"] == args.topic]
+
+    product_queries = [(kw, f"{kw} 신제품") for kw in product_keywords]
+    regulatory_queries = [(t["label"], t["query"]) for t in reg_topics_all]
+
+    failed = []
+
+    # 카테고리별로 따로 모아서 각자 상한을 적용한다 (한쪽이 다른 쪽을 밀어내지 않도록).
+    product_links = {}
+    fetch_queries(client_id, client_secret, product_queries, "product", product_links, failed)
+    regulatory_links = {}
+    fetch_queries(client_id, client_secret, regulatory_queries, "regulatory", regulatory_links, failed)
+
+    if not product_links and not regulatory_links:
         print("ERROR: 수집된 기사가 0건입니다. 기존 data/news.json 을 유지하고 종료합니다.", file=sys.stderr)
         sys.exit(1)
 
-    def sort_key(a):
-        try:
-            return datetime.strptime(a["pubDate"], "%a, %d %b %Y %H:%M:%S %z")
-        except (TypeError, ValueError):
-            return datetime.min.replace(tzinfo=KST)
-
-    articles = sorted(articles_by_link.values(), key=sort_key, reverse=True)[:MAX_TOTAL]
+    product_articles = sorted(product_links.values(), key=sort_key, reverse=True)[:MAX_PER_CATEGORY["product"]]
+    regulatory_articles = sorted(regulatory_links.values(), key=sort_key, reverse=True)[:MAX_PER_CATEGORY["regulatory"]]
+    articles = product_articles + regulatory_articles
 
     OUTPUT_PATH.write_text(json.dumps(articles, ensure_ascii=False, indent=2), encoding="utf-8")
-    print(f"[fetch_food_news] {OUTPUT_PATH} 갱신 완료 ({len(articles)}건, "
-          f"실패 키워드 {len(failed_keywords)}개: {failed_keywords})")
+    print(f"[fetch_food_news] {OUTPUT_PATH} 갱신 완료 "
+          f"(신제품 {len(product_articles)}건, 법규 {len(regulatory_articles)}건, "
+          f"실패 {len(failed)}건: {failed})")
 
     meta = {}
     if META_PATH.exists():
@@ -146,8 +174,8 @@ def main():
     meta["newsUpdated"] = datetime.now(KST).isoformat()
     META_PATH.write_text(json.dumps(meta, ensure_ascii=False, indent=2), encoding="utf-8")
 
-    if failed_keywords:
-        print(f"경고: 일부 키워드 수집 실패 - {failed_keywords}", file=sys.stderr)
+    if failed:
+        print(f"경고: 일부 항목 수집 실패 - {failed}", file=sys.stderr)
 
 
 if __name__ == "__main__":
