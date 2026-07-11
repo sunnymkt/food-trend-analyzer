@@ -51,10 +51,10 @@
     "url": "https://www.kurly.com/goods/1001092169"
   },
   {
-    "id": "kurly-1001320019",
+    "id": "kurly-1002127189",
     "emoji": "🍱",
-    "name": "흑임자 앙금 찹쌀떡 (50g X 12개)",
-    "brand": "마음이가",
+    "name": "국산 흑임자 스프레드 230g",
+    "brand": "오넛티",
     "category": "간편식",
     "keywords": [
       "흑임자"
@@ -62,10 +62,10 @@
     "launchDate": "2026-07-11",
     "channel": "마켓컬리",
     "origin": "-",
-    "price": "13,900원",
+    "price": "29,900원",
     "rating": null,
     "source": "kurly-crawler",
-    "url": "https://www.kurly.com/goods/1001320019"
+    "url": "https://www.kurly.com/goods/1002127189"
   },
   {
     "id": "kurly-1000172525",
@@ -748,23 +748,6 @@
     "url": "https://www.kurly.com/goods/1000198198"
   },
   {
-    "id": "kurly-5056859",
-    "emoji": "🧃",
-    "name": "카스테라 2종 (택1)",
-    "brand": "무화당",
-    "category": "음료",
-    "keywords": [
-      "흑당"
-    ],
-    "launchDate": "2026-07-11",
-    "channel": "마켓컬리",
-    "origin": "-",
-    "price": "4,100원",
-    "rating": null,
-    "source": "kurly-crawler",
-    "url": "https://www.kurly.com/goods/5056859"
-  },
-  {
     "id": "kurly-1002152962",
     "emoji": "🧃",
     "name": "호두설기 (50gx20개입)",
@@ -814,5 +797,22 @@
     "rating": null,
     "source": "kurly-crawler",
     "url": "https://www.kurly.com/goods/1001547874"
+  },
+  {
+    "id": "kurly-1001747426",
+    "emoji": "🧃",
+    "name": "저당 말차 앙금절편 (40g X 10개)",
+    "brand": "청년떡집",
+    "category": "음료",
+    "keywords": [
+      "흑당"
+    ],
+    "launchDate": "2026-07-11",
+    "channel": "마켓컬리",
+    "origin": "-",
+    "price": "14,900원",
+    "rating": null,
+    "source": "kurly-crawler",
+    "url": "https://www.kurly.com/goods/1001747426"
   }
 ]
