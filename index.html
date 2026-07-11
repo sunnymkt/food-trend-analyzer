@@ -13,6 +13,7 @@
     rel="stylesheet">
   <link rel="stylesheet" href="css/styles.css">
   <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels@2"></script>
 </head>
 
 <body>
@@ -54,6 +55,10 @@
         </div>
         <div class="nav-item" data-view="category" onclick="navigate('category')">
           <span class="nav-icon">🗂️</span>카테고리 분석
+        </div>
+        <div class="nav-item" data-view="news" onclick="navigate('news')">
+          <span class="nav-icon">📰</span>업계 뉴스
+          <span class="nav-badge" id="nav-news-badge">0</span>
         </div>
 
         <span class="nav-group-title">리포트</span>
@@ -193,6 +198,21 @@
            ───────────────────────────────────────────── -->
         <section id="trends" class="view">
 
+          <!-- 키워드 기회 매트릭스 -->
+          <div class="card" style="margin-bottom:18px;">
+            <div class="card-header">
+              <div class="card-title"><span class="card-icon">🎯</span>키워드 기회 매트릭스</div>
+              <div class="card-meta" id="opportunityMeta">-</div>
+            </div>
+            <div class="chart-wrap" style="height:340px;">
+              <canvas id="opportunityChart"></canvas>
+            </div>
+            <p style="font-size:11.5px;color:var(--text-muted);margin-top:10px;line-height:1.6;">
+              가로축: 검색 지수 전주 대비 변화율 · 세로축: 최근 30일 누적 신제품 수(마켓컬리 기준).
+              오른쪽 아래(수요는 오르는데 제품이 적은 영역)가 상품기획 관점의 기회 구간입니다.
+            </p>
+          </div>
+
           <!-- 키워드 선택기 -->
           <div class="card" style="margin-bottom:18px;">
             <div class="card-header">
@@ -276,6 +296,28 @@
             </div>
           </div>
 
+          <!-- 카테고리별 가격대 분석 + 브랜드별 신제품 출시속도 -->
+          <div class="g2">
+            <div class="card">
+              <div class="card-header">
+                <div class="card-title"><span class="card-icon">💰</span>카테고리별 가격대</div>
+                <div class="card-meta">최저~최고 (점: 평균가)</div>
+              </div>
+              <div class="chart-wrap" style="height:280px;">
+                <canvas id="priceRangeChart"></canvas>
+              </div>
+            </div>
+            <div class="card">
+              <div class="card-header">
+                <div class="card-title"><span class="card-icon">🚀</span>브랜드별 신제품 출시속도</div>
+                <div class="card-meta" id="velocityMeta">-</div>
+              </div>
+              <div class="chart-wrap" style="height:280px;">
+                <canvas id="brandVelocityChart"></canvas>
+              </div>
+            </div>
+          </div>
+
         </section><!-- /category -->
 
 
@@ -330,6 +372,26 @@
           </div>
 
         </section><!-- /report -->
+
+
+        <!-- ─────────────────────────────────────────────
+           VIEW: NEWS
+           ───────────────────────────────────────────── -->
+        <section id="news" class="view">
+
+          <div class="card" style="margin-bottom:18px;">
+            <div class="card-header">
+              <div class="card-title"><span class="card-icon">📰</span>식품 신제품 관련 뉴스</div>
+              <div class="card-meta" id="newsMeta">-</div>
+            </div>
+            <p style="font-size:12px;color:var(--text-muted);margin-bottom:4px;">
+              네이버 뉴스 검색 기준, 추적 키워드별 최신 기사를 모았습니다.
+            </p>
+          </div>
+
+          <div id="newsList"></div>
+
+        </section><!-- /news -->
 
       </div><!-- /content -->
     </div><!-- /main-content -->

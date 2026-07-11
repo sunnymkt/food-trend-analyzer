@@ -34,7 +34,9 @@ DATA_DIR = ROOT / "data"
 KEYWORDS_CONFIG_PATH = DATA_DIR / "keywords_config.json"
 CATEGORIES_PATH = DATA_DIR / "categories.json"
 OUTPUT_PATH = DATA_DIR / "new_products.json"
+HISTORY_PATH = DATA_DIR / "product_history.json"
 META_PATH = DATA_DIR / "meta.json"
+HISTORY_WINDOW_DAYS = 30
 
 TOP_N_PER_KEYWORD = 4
 NAV_TIMEOUT_MS = 20000
@@ -154,6 +156,41 @@ def build_product(raw, keyword, kw_meta, category_emoji, today_str):
     }
 
 
+def update_history(products, today_str):
+    """오늘 발견한 상품들을 누적 히스토리에 병합한다.
+
+    같은 id가 이미 있으면 firstSeenDate는 유지하고 나머지 필드(가격 등)와
+    lastSeenDate만 갱신한다. 처음 보는 id면 firstSeenDate=lastSeenDate=오늘로
+    추가한다. HISTORY_WINDOW_DAYS보다 오래된(=lastSeenDate 기준) 항목은
+    파일이 무한히 커지지 않도록 정리한다.
+
+    이 히스토리는 "브랜드별 신제품 출시속도"와 "키워드 기회 매트릭스"의
+    누적 신제품 수 계산에 쓰인다.
+    """
+    history = {}
+    if HISTORY_PATH.exists():
+        try:
+            history = json.loads(HISTORY_PATH.read_text(encoding="utf-8"))
+        except json.JSONDecodeError:
+            history = {}
+
+    for p in products:
+        pid = p["id"]
+        entry = dict(p)
+        if pid in history:
+            entry["firstSeenDate"] = history[pid].get("firstSeenDate", today_str)
+        else:
+            entry["firstSeenDate"] = today_str
+        entry["lastSeenDate"] = today_str
+        history[pid] = entry
+
+    cutoff = (datetime.now(KST).date() - timedelta(days=HISTORY_WINDOW_DAYS)).isoformat()
+    history = {pid: e for pid, e in history.items() if e.get("lastSeenDate", today_str) >= cutoff}
+
+    HISTORY_PATH.write_text(json.dumps(history, ensure_ascii=False, indent=2), encoding="utf-8")
+    return history
+
+
 def main():
     parser = argparse.ArgumentParser()
     parser.add_argument("--keyword", help="이 키워드만 크롤링 (디버깅용)")
@@ -222,6 +259,10 @@ def main():
     OUTPUT_PATH.write_text(json.dumps(products, ensure_ascii=False, indent=2), encoding="utf-8")
     print(f"[crawl_kurly_products] {OUTPUT_PATH} 갱신 완료 ({len(products)}건, "
           f"실패 키워드 {len(failed_keywords)}개: {failed_keywords})")
+
+    history = update_history(products, today_str)
+    print(f"[crawl_kurly_products] {HISTORY_PATH} 갱신 완료 (누적 {len(history)}건, "
+          f"최근 {HISTORY_WINDOW_DAYS}일 기준)")
 
     meta = {}
     if META_PATH.exists():

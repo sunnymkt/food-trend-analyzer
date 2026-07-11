@@ -4,6 +4,7 @@
 
 /* ── 데이터 참조 (init에서 loadAppData 완료 후 채워짐) ────── */
 let KEYWORD_DATA, NEW_PRODUCTS, CATEGORIES, BRAND_DATA, WEEKLY_SUMMARY, DATES_30, META;
+let KEYWORD_OPPORTUNITY, BRAND_VELOCITY, CATEGORY_PRICE, HISTORY_META, NEWS;
 
 /* ── 상태 ────────────────────────────────────────────────── */
 let currentView = 'dashboard';
@@ -15,6 +16,8 @@ let selectedBrand = null;
 const charts = {};
 
 /* ── Chart.js 공통 설정 ──────────────────────────────────── */
+if (window.ChartDataLabels) Chart.register(window.ChartDataLabels);
+
 const CHART_DEFAULTS = {
   responsive: true,
   maintainAspectRatio: false,
@@ -32,7 +35,8 @@ const CHART_DEFAULTS = {
       titleColor: '#ffffff', bodyColor: '#cbd5e1',
       borderColor: 'rgba(255,255,255,.08)', borderWidth: 1,
       cornerRadius: 12, padding: 12,
-    }
+    },
+    datalabels: { display: false } // 차트별로 필요할 때만 켠다 (opportunityChart 등)
   },
   scales: {
     x: {
@@ -91,6 +95,7 @@ function navigate(viewId) {
     products:  ['🆕 신제품 트래킹', '일별 신제품 모니터링'],
     category:  ['🗂️ 카테고리 분석', '카테고리별 키워드 심층 분석'],
     report:    ['📋 주간 리포트',   '자동 생성 인사이트 리포트'],
+    news:      ['📰 업계 뉴스',     '식품 신제품 관련 최신 기사'],
   };
   if(TITLES[viewId]) {
     document.getElementById('topbar-title').textContent = TITLES[viewId][0];
@@ -101,6 +106,7 @@ function navigate(viewId) {
     if(viewId === 'dashboard') renderDashboard();
     if(viewId === 'trends')    renderTrends();
     if(viewId === 'category')  renderCategory(selectedCat);
+    if(viewId === 'news')      renderNews();
   }, 30);
 }
 
@@ -246,9 +252,81 @@ function renderLatestMini() {
    TRENDS (키워드 비교)
    ════════════════════════════════════════════════════════════ */
 function renderTrends() {
+  renderOpportunityMatrix();
   renderKwSelector();
   renderCompareChart();
   renderKwCards();
+}
+
+/* 키워드 기회 매트릭스: x=검색 변화율, y=누적 신제품 수 */
+function renderOpportunityMatrix() {
+  const ctx = document.getElementById('opportunityChart');
+  if(!ctx) return;
+  destroyChart('opportunity');
+
+  const metaEl = document.getElementById('opportunityMeta');
+  if(metaEl) {
+    metaEl.textContent = HISTORY_META.daysTracked > 0
+      ? `데이터 수집 ${HISTORY_META.daysTracked}일째 (${HISTORY_META.firstSeenDate}~) · 누적될수록 정확해집니다`
+      : '데이터 수집 시작 전';
+  }
+
+  const avgY = KEYWORD_OPPORTUNITY.reduce((s,d) => s + d.productCount, 0) / (KEYWORD_OPPORTUNITY.length || 1);
+
+  const quadrantGuides = {
+    id: 'quadrantGuides',
+    beforeDraw(chart) {
+      const { ctx, chartArea, scales } = chart;
+      if(!chartArea) return;
+      const xZero = scales.x.getPixelForValue(0);
+      const yAvg  = scales.y.getPixelForValue(avgY);
+      ctx.save();
+      ctx.strokeStyle = 'rgba(15,23,42,.15)';
+      ctx.setLineDash([4,4]);
+      ctx.lineWidth = 1;
+      ctx.beginPath(); ctx.moveTo(xZero, chartArea.top); ctx.lineTo(xZero, chartArea.bottom); ctx.stroke();
+      ctx.beginPath(); ctx.moveTo(chartArea.left, yAvg); ctx.lineTo(chartArea.right, yAvg); ctx.stroke();
+      ctx.restore();
+    }
+  };
+
+  charts.opportunity = new Chart(ctx, {
+    type: 'scatter',
+    data: {
+      datasets: [{
+        label: '키워드',
+        data: KEYWORD_OPPORTUNITY.map(d => ({ x: d.changeRate, y: d.productCount, kw: d.keyword })),
+        backgroundColor: KEYWORD_OPPORTUNITY.map(d => d.color),
+        borderColor: '#fcfcfb', borderWidth: 2,
+        pointRadius: 8, pointHoverRadius: 10,
+      }]
+    },
+    options: {
+      ...CHART_DEFAULTS,
+      plugins: {
+        ...CHART_DEFAULTS.plugins,
+        legend: { display: false },
+        datalabels: {
+          display: true,
+          align: 'top', offset: 6,
+          color: '#334155',
+          font: { size: 11, weight: '500', family: "'Noto Sans KR','Inter',sans-serif" },
+          formatter: (v) => v.kw,
+        },
+        tooltip: {
+          ...CHART_DEFAULTS.plugins.tooltip,
+          callbacks: {
+            label: (c) => ` ${c.raw.kw}: 변화율 ${c.raw.x>=0?'+':''}${c.raw.x}% · 누적 신제품 ${c.raw.y}개`
+          }
+        }
+      },
+      scales: {
+        x: { ...CHART_DEFAULTS.scales.x, title: { display:true, text:'검색 지수 변화율 (%)', color:'#64748b', font:{size:11} } },
+        y: { ...CHART_DEFAULTS.scales.y, beginAtZero:true, title: { display:true, text:'누적 신제품 수', color:'#64748b', font:{size:11} } }
+      }
+    },
+    plugins: [quadrantGuides]
+  });
 }
 
 function renderKwSelector() {
@@ -391,6 +469,103 @@ function renderCategory(cat) {
   renderCategoryCards();
   renderCatKeywordChart(cat);
   renderCatBrandStats(cat);
+  renderPriceRangeChart();
+  renderBrandVelocityChart();
+}
+
+/* 카테고리별 가격대: 최저~최고 범위 바 + 평균가 점 */
+function renderPriceRangeChart() {
+  const ctx = document.getElementById('priceRangeChart');
+  if(!ctx) return;
+  destroyChart('priceRange');
+  if(!CATEGORY_PRICE.length) return;
+
+  charts.priceRange = new Chart(ctx, {
+    data: {
+      labels: CATEGORY_PRICE.map(d => d.category),
+      datasets: [
+        {
+          type: 'bar',
+          label: '가격 범위',
+          data: CATEGORY_PRICE.map(d => [d.min, d.max]),
+          backgroundColor: 'rgba(37,99,235,.35)',
+          borderColor: '#2563eb', borderWidth: 1,
+          borderRadius: 6, borderSkipped: false,
+        },
+        {
+          type: 'line',
+          label: '평균가',
+          data: CATEGORY_PRICE.map(d => d.avg),
+          showLine: false,
+          pointBackgroundColor: '#ea580c',
+          pointBorderColor: '#fcfcfb', pointBorderWidth: 2,
+          pointRadius: 6, pointHoverRadius: 8,
+        }
+      ]
+    },
+    options: {
+      ...CHART_DEFAULTS,
+      indexAxis: 'y',
+      plugins: {
+        ...CHART_DEFAULTS.plugins,
+        legend: { display: true, position: 'top', labels: { ...CHART_DEFAULTS.plugins.legend.labels, boxWidth: 10 } },
+        tooltip: {
+          ...CHART_DEFAULTS.plugins.tooltip,
+          callbacks: {
+            label: (c) => {
+              const d = CATEGORY_PRICE[c.dataIndex];
+              return c.datasetIndex === 0
+                ? ` 범위: ${d.min.toLocaleString()}원 ~ ${d.max.toLocaleString()}원 (${d.count}개)`
+                : ` 평균: ${d.avg.toLocaleString()}원`;
+            }
+          }
+        }
+      },
+      scales: {
+        x: { ...CHART_DEFAULTS.scales.x, ticks: { ...CHART_DEFAULTS.scales.x.ticks, callback: v => v.toLocaleString()+'원' } },
+        y: { ...CHART_DEFAULTS.scales.y, grid: { display:false } }
+      }
+    }
+  });
+}
+
+/* 브랜드별 신제품 출시속도 (최근 30일 누적, 전체 카테고리 기준) */
+function renderBrandVelocityChart() {
+  const ctx = document.getElementById('brandVelocityChart');
+  if(!ctx) return;
+  destroyChart('brandVelocity');
+
+  const metaEl = document.getElementById('velocityMeta');
+  if(metaEl) {
+    metaEl.textContent = HISTORY_META.daysTracked > 0
+      ? `최근 ${HISTORY_META.daysTracked}일 누적 · 전체 카테고리`
+      : '데이터 수집 시작 전';
+  }
+
+  if(!BRAND_VELOCITY.length) return;
+
+  charts.brandVelocity = new Chart(ctx, {
+    type: 'bar',
+    data: {
+      labels: BRAND_VELOCITY.map(d => d.brand),
+      datasets: [{
+        label: '신제품 발견 건수',
+        data: BRAND_VELOCITY.map(d => d.count),
+        backgroundColor: 'rgba(234,88,12,.55)',
+        borderColor: '#ea580c', borderWidth: 1,
+        borderRadius: 6, borderSkipped: false,
+      }]
+    },
+    options: {
+      ...CHART_DEFAULTS,
+      indexAxis: 'y',
+      plugins: { ...CHART_DEFAULTS.plugins, legend: { display:false } },
+      scales: {
+        x: { ...CHART_DEFAULTS.scales.x, beginAtZero:true, ticks: { ...CHART_DEFAULTS.scales.x.ticks, stepSize:1 } },
+        y: { ...CHART_DEFAULTS.scales.y, grid: { display:false } }
+      }
+    }
+  });
 }
 
 function renderCatKeywordChart(cat) {
@@ -518,6 +693,41 @@ function renderReportChart() {
   });
 }
 
+/* ════════════════════════════════════════════════════════════
+   NEWS (업계 뉴스)
+   ════════════════════════════════════════════════════════════ */
+function renderNews() {
+  const listEl = document.getElementById('newsList');
+  const metaEl = document.getElementById('newsMeta');
+  if(!listEl) return;
+
+  if(metaEl) {
+    metaEl.textContent = META && META.newsUpdated
+      ? `${fmt(META.newsUpdated)} 기준 · ${NEWS.length}건`
+      : `${NEWS.length}건`;
+  }
+
+  if(!NEWS.length) {
+    listEl.innerHTML = `<div class="empty"><div class="empty-icon">📰</div><h3>수집된 뉴스가 없습니다</h3><p>다음 자동 갱신을 기다려주세요</p></div>`;
+    return;
+  }
+
+  const sorted = [...NEWS].sort((a,b) => new Date(b.pubDate) - new Date(a.pubDate));
+  listEl.innerHTML = sorted.map(n => `
+    <div class="insight-card">
+      <div class="insight-icon">📰</div>
+      <div style="flex:1;min-width:0;">
+        <a href="${n.link}" target="_blank" rel="noopener noreferrer" class="insight-title" style="display:block;color:var(--text-primary);">${n.title}</a>
+        <div style="display:flex;align-items:center;gap:8px;margin:4px 0 6px;">
+          <span class="tag tag-o">#${n.keyword}</span>
+          <span style="font-size:11px;color:var(--text-muted);">${fmt(n.pubDate)}</span>
+        </div>
+        <div class="insight-body">${n.description}</div>
+      </div>
+    </div>
+  `).join('');
+}
+
 /* ── 내보내기 ─────────────────────────────────────────────── */
 function exportReport() {
   const lines = [
@@ -564,6 +774,7 @@ function renderStatus() {
   setText('kpi-prod-note', META && (META.productSource||'').startsWith('kurly') ? '마켓컬리 자동 수집' : '예시 데이터 (seed)');
   setText('kpi-updated', '✅ 정상 수집 중');
   setText('nav-prod-badge', NEW_PRODUCTS.length);
+  setText('nav-news-badge', NEWS.length);
 }
 
 /* ── 리포트 상단 요약 / 하이라이트 카드 ───────────────────── */
@@ -615,7 +826,8 @@ async function init() {
   // 데이터 로드 (data/*.json)
   try {
     const data = await window.loadAppData();
-    ({ KEYWORD_DATA, NEW_PRODUCTS, CATEGORIES, BRAND_DATA, WEEKLY_SUMMARY, DATES_30, META } = data);
+    ({ KEYWORD_DATA, NEW_PRODUCTS, CATEGORIES, BRAND_DATA, WEEKLY_SUMMARY, DATES_30, META,
+       KEYWORD_OPPORTUNITY, BRAND_VELOCITY, CATEGORY_PRICE, HISTORY_META, NEWS } = data);
   } catch (err) {
     showDataError(err);
     return;

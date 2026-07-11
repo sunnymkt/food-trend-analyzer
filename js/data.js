@@ -5,11 +5,13 @@
 // ============================================================
 
 window.loadAppData = async function loadAppData() {
-  const [trendsRaw, products, categoriesCfg, meta] = await Promise.all([
+  const [trendsRaw, products, categoriesCfg, meta, historyRaw, newsRaw] = await Promise.all([
     fetchJson('data/keyword_trends.json'),
     fetchJson('data/new_products.json'),
     fetchJson('data/categories.json'),
     fetchJson('data/meta.json'),
+    fetchJsonOptional('data/product_history.json', {}),
+    fetchJsonOptional('data/news.json', []),
   ]);
 
   // 설정 파일에 섞여있는 "_comment" 같은 메타 키는 제외한다.
@@ -17,13 +19,22 @@ window.loadAppData = async function loadAppData() {
     Object.entries(trendsRaw).filter(([k]) => !k.startsWith('_'))
   );
   const NEW_PRODUCTS = products;
+  const HISTORY = Object.values(historyRaw);
 
   const CATEGORIES = buildCategories(categoriesCfg.categories, NEW_PRODUCTS);
   const BRAND_DATA = buildBrandData(NEW_PRODUCTS);
   const DATES_30 = buildDateLabels(meta, KEYWORD_DATA);
   const WEEKLY_SUMMARY = buildWeeklySummary(KEYWORD_DATA, NEW_PRODUCTS, CATEGORIES, meta);
+  const KEYWORD_OPPORTUNITY = buildKeywordOpportunity(KEYWORD_DATA, HISTORY);
+  const BRAND_VELOCITY = buildBrandVelocity(HISTORY);
+  const CATEGORY_PRICE = buildCategoryPriceStats(NEW_PRODUCTS);
+  const HISTORY_META = buildHistoryMeta(HISTORY);
+  const NEWS = Array.isArray(newsRaw) ? newsRaw : [];
 
-  return { KEYWORD_DATA, NEW_PRODUCTS, CATEGORIES, BRAND_DATA, WEEKLY_SUMMARY, DATES_30, META: meta };
+  return {
+    KEYWORD_DATA, NEW_PRODUCTS, CATEGORIES, BRAND_DATA, WEEKLY_SUMMARY, DATES_30, META: meta,
+    KEYWORD_OPPORTUNITY, BRAND_VELOCITY, CATEGORY_PRICE, HISTORY_META, NEWS,
+  };
 };
 
 async function fetchJson(path) {
@@ -41,6 +52,24 @@ async function fetchJson(path) {
   } catch (e) {
     throw new Error(`${path} 파싱 실패 (JSON 형식 오류): ${e.message}`);
   }
+}
+
+// 아직 한 번도 생성되지 않았을 수 있는 파일(product_history.json, news.json)은
+// 없어도 앱 전체가 죽지 않도록 실패 시 기본값으로 대체한다.
+async function fetchJsonOptional(path, fallback) {
+  try {
+    return await fetchJson(path);
+  } catch (e) {
+    console.warn(`[data.js] ${path} 를 불러오지 못해 기본값을 사용합니다:`, e.message);
+    return fallback;
+  }
+}
+
+function parsePriceToNumber(priceStr) {
+  if (!priceStr) return null;
+  const digits = String(priceStr).replace(/[^0-9]/g, '');
+  if (!digits) return null;
+  return parseInt(digits, 10);
 }
 
 function buildCategories(categoriesRaw, products) {
@@ -136,4 +165,55 @@ function buildWeeklySummary(keywordData, products, categories, meta) {
     worstKeyword: worstEntry ? worstEntry[0] : null,
     topInsights: insights,
   };
+}
+
+// 키워드 기회 매트릭스: x=검색 변화율, y=누적(최근 30일) 신제품 수.
+// 신제품 수는 product_history.json 기준이라 크롤러가 매일 쌓일수록 값이 붙는다.
+function buildKeywordOpportunity(keywordData, history) {
+  return Object.entries(keywordData).map(([kw, d]) => {
+    const productCount = history.filter(p => (p.keywords || []).includes(kw)).length;
+    return { keyword: kw, changeRate: d.changeRate, productCount, category: d.category, color: d.color };
+  });
+}
+
+// 브랜드별 신제품 출시속도: product_history.json(최근 30일 롤링) 기준 브랜드별 발견 건수.
+function buildBrandVelocity(history) {
+  const counts = {};
+  history.forEach(p => {
+    if (!p.brand || p.brand === '-') return;
+    counts[p.brand] = (counts[p.brand] || 0) + 1;
+  });
+  return Object.entries(counts)
+    .sort((a, b) => b[1] - a[1])
+    .slice(0, 10)
+    .map(([brand, count]) => ({ brand, count }));
+}
+
+function buildHistoryMeta(history) {
+  if (!history.length) return { daysTracked: 0, firstSeenDate: null, totalTracked: 0 };
+  const dates = history.map(p => p.firstSeenDate).filter(Boolean).sort();
+  const firstSeenDate = dates[0] || null;
+  const daysTracked = firstSeenDate
+    ? Math.max(1, Math.round((new Date() - new Date(firstSeenDate)) / 86400000) + 1)
+    : 0;
+  return { daysTracked, firstSeenDate, totalTracked: history.length };
+}
+
+// 카테고리별 가격대(최저~최고, 평균). "전체"는 제외 — 카테고리 비교가 목적.
+function buildCategoryPriceStats(products) {
+  const byCategory = {};
+  products.forEach(p => {
+    const price = parsePriceToNumber(p.price);
+    if (price == null) return;
+    (byCategory[p.category] = byCategory[p.category] || []).push(price);
+  });
+  return Object.entries(byCategory)
+    .map(([category, prices]) => ({
+      category,
+      min: Math.min(...prices),
+      max: Math.max(...prices),
+      avg: Math.round(prices.reduce((a, b) => a + b, 0) / prices.length),
+      count: prices.length,
+    }))
+    .sort((a, b) => b.avg - a.avg);
 }

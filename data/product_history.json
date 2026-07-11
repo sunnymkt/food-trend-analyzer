@@ -1,5 +1,5 @@
-[
-  {
+{
+  "kurly-1002305712": {
     "id": "kurly-1002305712",
     "emoji": "🍱",
     "name": "단백질 쉐이크 반값 특가 17종",
@@ -14,9 +14,11 @@
     "price": "19,500원",
     "rating": null,
     "source": "kurly-crawler",
-    "url": "https://www.kurly.com/goods/1002305712"
+    "url": "https://www.kurly.com/goods/1002305712",
+    "firstSeenDate": "2026-07-11",
+    "lastSeenDate": "2026-07-11"
   },
-  {
+  "kurly-1002296186": {
     "id": "kurly-1002296186",
     "emoji": "🥐",
     "name": "검정콩 소보로빵 (75g X 3개)",
@@ -31,9 +33,11 @@
     "price": "10,500원",
     "rating": null,
     "source": "kurly-crawler",
-    "url": "https://www.kurly.com/goods/1002296186"
+    "url": "https://www.kurly.com/goods/1002296186",
+    "firstSeenDate": "2026-07-11",
+    "lastSeenDate": "2026-07-11"
   },
-  {
+  "kurly-1002296184": {
     "id": "kurly-1002296184",
     "emoji": "🥐",
     "name": "검정콩 단팥빵 (75g X 3개)",
@@ -49,9 +53,11 @@
     "price": "10,500원",
     "rating": null,
     "source": "kurly-crawler",
-    "url": "https://www.kurly.com/goods/1002296184"
+    "url": "https://www.kurly.com/goods/1002296184",
+    "firstSeenDate": "2026-07-11",
+    "lastSeenDate": "2026-07-11"
   },
-  {
+  "kurly-1002296188": {
     "id": "kurly-1002296188",
     "emoji": "🥐",
     "name": "검정콩 크림빵 (75g X 2개)",
@@ -66,9 +72,11 @@
     "price": "7,500원",
     "rating": null,
     "source": "kurly-crawler",
-    "url": "https://www.kurly.com/goods/1002296188"
+    "url": "https://www.kurly.com/goods/1002296188",
+    "firstSeenDate": "2026-07-11",
+    "lastSeenDate": "2026-07-11"
   },
-  {
+  "kurly-1002278808": {
     "id": "kurly-1002278808",
     "emoji": "🧃",
     "name": "유자와사비 800g (대용량/냉동)",
@@ -83,9 +91,11 @@
     "price": "9,800원",
     "rating": null,
     "source": "kurly-crawler",
-    "url": "https://www.kurly.com/goods/1002278808"
+    "url": "https://www.kurly.com/goods/1002278808",
+    "firstSeenDate": "2026-07-11",
+    "lastSeenDate": "2026-07-11"
   },
-  {
+  "kurly-1002278810": {
     "id": "kurly-1002278810",
     "emoji": "🧃",
     "name": "유즈코쇼 38g (유자고추)",
@@ -100,9 +110,11 @@
     "price": "3,980원",
     "rating": null,
     "source": "kurly-crawler",
-    "url": "https://www.kurly.com/goods/1002278810"
+    "url": "https://www.kurly.com/goods/1002278810",
+    "firstSeenDate": "2026-07-11",
+    "lastSeenDate": "2026-07-11"
   },
-  {
+  "kurly-1002261321": {
     "id": "kurly-1002261321",
     "emoji": "🍦",
     "name": "프로즌 그릭요거트 아이스크림 350mL 2종",
@@ -117,9 +129,11 @@
     "price": "12,900원",
     "rating": null,
     "source": "kurly-crawler",
-    "url": "https://www.kurly.com/goods/1002261321"
+    "url": "https://www.kurly.com/goods/1002261321",
+    "firstSeenDate": "2026-07-11",
+    "lastSeenDate": "2026-07-11"
   },
-  {
+  "kurly-1002249156": {
     "id": "kurly-1002249156",
     "emoji": "🍦",
     "name": "NEW! 6월의 아이스크림 신상품 5종",
@@ -134,9 +148,11 @@
     "price": "1,400원",
     "rating": null,
     "source": "kurly-crawler",
-    "url": "https://www.kurly.com/goods/1002249156"
+    "url": "https://www.kurly.com/goods/1002249156",
+    "firstSeenDate": "2026-07-11",
+    "lastSeenDate": "2026-07-11"
   },
-  {
+  "kurly-1002325290": {
     "id": "kurly-1002325290",
     "emoji": "🧃",
     "name": "히야 제로 복숭아 200mL*24개입",
@@ -151,9 +167,11 @@
     "price": "10,900원",
     "rating": null,
     "source": "kurly-crawler",
-    "url": "https://www.kurly.com/goods/1002325290"
+    "url": "https://www.kurly.com/goods/1002325290",
+    "firstSeenDate": "2026-07-11",
+    "lastSeenDate": "2026-07-11"
   },
-  {
+  "kurly-1002310506": {
     "id": "kurly-1002310506",
     "emoji": "🧃",
     "name": "오늘 쌀소주 제로슈가 (13.2도 360mL)",
@@ -168,9 +186,11 @@
     "price": "3,200원",
     "rating": null,
     "source": "kurly-crawler",
-    "url": "https://www.kurly.com/goods/1002310506"
+    "url": "https://www.kurly.com/goods/1002310506",
+    "firstSeenDate": "2026-07-11",
+    "lastSeenDate": "2026-07-11"
   },
-  {
+  "kurly-1002247187": {
     "id": "kurly-1002247187",
     "emoji": "🧃",
     "name": "제로슈가 아이스티 4종 (5g X 10개) (택1)",
@@ -185,9 +205,11 @@
     "price": "4,200원",
     "rating": null,
     "source": "kurly-crawler",
-    "url": "https://www.kurly.com/goods/1002247187"
+    "url": "https://www.kurly.com/goods/1002247187",
+    "firstSeenDate": "2026-07-11",
+    "lastSeenDate": "2026-07-11"
   },
-  {
+  "kurly-1002247191": {
     "id": "kurly-1002247191",
     "emoji": "🧃",
     "name": "대용량 제로슈가 아이스티 2종 (5g X 40개) (택1)",
@@ -202,9 +224,11 @@
     "price": "11,900원",
     "rating": null,
     "source": "kurly-crawler",
-    "url": "https://www.kurly.com/goods/1002247191"
+    "url": "https://www.kurly.com/goods/1002247191",
+    "firstSeenDate": "2026-07-11",
+    "lastSeenDate": "2026-07-11"
   },
-  {
+  "kurly-1002308779": {
     "id": "kurly-1002308779",
     "emoji": "🍜",
     "name": "백닭라멘",
@@ -219,9 +243,11 @@
     "price": "9,900원",
     "rating": null,
     "source": "kurly-crawler",
-    "url": "https://www.kurly.com/goods/1002308779"
+    "url": "https://www.kurly.com/goods/1002308779",
+    "firstSeenDate": "2026-07-11",
+    "lastSeenDate": "2026-07-11"
   },
-  {
+  "kurly-1002308777": {
     "id": "kurly-1002308777",
     "emoji": "🍜",
     "name": "흑닭라멘",
@@ -236,9 +262,11 @@
     "price": "9,900원",
     "rating": null,
     "source": "kurly-crawler",
-    "url": "https://www.kurly.com/goods/1002308777"
+    "url": "https://www.kurly.com/goods/1002308777",
+    "firstSeenDate": "2026-07-11",
+    "lastSeenDate": "2026-07-11"
   },
-  {
+  "kurly-1002301459": {
     "id": "kurly-1002301459",
     "emoji": "🍜",
     "name": "정지선의 마파두부면",
@@ -253,9 +281,11 @@
     "price": "13,900원",
     "rating": null,
     "source": "kurly-crawler",
-    "url": "https://www.kurly.com/goods/1002301459"
+    "url": "https://www.kurly.com/goods/1002301459",
+    "firstSeenDate": "2026-07-11",
+    "lastSeenDate": "2026-07-11"
   },
-  {
+  "kurly-1002238862": {
     "id": "kurly-1002238862",
     "emoji": "🍜",
     "name": "마라우육탕면",
@@ -270,9 +300,11 @@
     "price": "8,900원",
     "rating": null,
     "source": "kurly-crawler",
-    "url": "https://www.kurly.com/goods/1002238862"
+    "url": "https://www.kurly.com/goods/1002238862",
+    "firstSeenDate": "2026-07-11",
+    "lastSeenDate": "2026-07-11"
   },
-  {
+  "kurly-1001556058": {
     "id": "kurly-1001556058",
     "emoji": "🥜",
     "name": "프레스코 크림파스타소스 3종 (택1)",
@@ -288,9 +320,11 @@
     "price": "7,980원",
     "rating": null,
     "source": "kurly-crawler",
-    "url": "https://www.kurly.com/goods/1001556058"
+    "url": "https://www.kurly.com/goods/1001556058",
+    "firstSeenDate": "2026-07-11",
+    "lastSeenDate": "2026-07-11"
   },
-  {
+  "kurly-1002312265": {
     "id": "kurly-1002312265",
     "emoji": "🥛",
     "name": "벨큐브 고메(월넛/어니언/트러플) 24큐브 치즈 125g",
@@ -305,9 +339,11 @@
     "price": "11,180원",
     "rating": null,
     "source": "kurly-crawler",
-    "url": "https://www.kurly.com/goods/1002312265"
+    "url": "https://www.kurly.com/goods/1002312265",
+    "firstSeenDate": "2026-07-11",
+    "lastSeenDate": "2026-07-11"
   },
-  {
+  "kurly-1002306246": {
     "id": "kurly-1002306246",
     "emoji": "🥜",
     "name": "저당 트러플 마요 270g",
@@ -322,9 +358,11 @@
     "price": "4,980원",
     "rating": null,
     "source": "kurly-crawler",
-    "url": "https://www.kurly.com/goods/1002306246"
+    "url": "https://www.kurly.com/goods/1002306246",
+    "firstSeenDate": "2026-07-11",
+    "lastSeenDate": "2026-07-11"
   },
-  {
+  "kurly-1002246015": {
     "id": "kurly-1002246015",
     "emoji": "🥜",
     "name": "[시즌2] 고추장/트러플/허브갈릭버터 130g 3종 (택1)",
@@ -339,9 +377,11 @@
     "price": "14,900원",
     "rating": null,
     "source": "kurly-crawler",
-    "url": "https://www.kurly.com/goods/1002246015"
+    "url": "https://www.kurly.com/goods/1002246015",
+    "firstSeenDate": "2026-07-11",
+    "lastSeenDate": "2026-07-11"
   },
-  {
+  "kurly-1002313355": {
     "id": "kurly-1002313355",
     "emoji": "🥐",
     "name": "아기 소음 완화 보호대 쑥자 디자인 100%오가닉코튼 국내 생산",
@@ -356,9 +396,11 @@
     "price": "31,900원",
     "rating": null,
     "source": "kurly-crawler",
-    "url": "https://www.kurly.com/goods/1002313355"
+    "url": "https://www.kurly.com/goods/1002313355",
+    "firstSeenDate": "2026-07-11",
+    "lastSeenDate": "2026-07-11"
   },
-  {
+  "kurly-1002248657": {
     "id": "kurly-1002248657",
     "emoji": "🥐",
     "name": "카스테라 완두찰떡 (85g x 5개입)",
@@ -374,9 +416,11 @@
     "price": "10,900원",
     "rating": null,
     "source": "kurly-crawler",
-    "url": "https://www.kurly.com/goods/1002248657"
+    "url": "https://www.kurly.com/goods/1002248657",
+    "firstSeenDate": "2026-07-11",
+    "lastSeenDate": "2026-07-11"
   },
-  {
+  "kurly-1002273810": {
     "id": "kurly-1002273810",
     "emoji": "🥐",
     "name": "꽃모양 앙금빵 3종 (택1)",
@@ -391,9 +435,11 @@
     "price": "2,500원",
     "rating": null,
     "source": "kurly-crawler",
-    "url": "https://www.kurly.com/goods/1002273810"
+    "url": "https://www.kurly.com/goods/1002273810",
+    "firstSeenDate": "2026-07-11",
+    "lastSeenDate": "2026-07-11"
   },
-  {
+  "kurly-1002288287": {
     "id": "kurly-1002288287",
     "emoji": "🥐",
     "name": "참쑥 젤라또 싱글컵 150mL",
@@ -408,9 +454,11 @@
     "price": "5,500원",
     "rating": null,
     "source": "kurly-crawler",
-    "url": "https://www.kurly.com/goods/1002288287"
+    "url": "https://www.kurly.com/goods/1002288287",
+    "firstSeenDate": "2026-07-11",
+    "lastSeenDate": "2026-07-11"
   },
-  {
+  "kurly-1002280034": {
     "id": "kurly-1002280034",
     "emoji": "🧃",
     "name": "칸탈로프멜론 크림 도넛 (100g X 3개)",
@@ -425,9 +473,11 @@
     "price": "12,500원",
     "rating": null,
     "source": "kurly-crawler",
-    "url": "https://www.kurly.com/goods/1002280034"
+    "url": "https://www.kurly.com/goods/1002280034",
+    "firstSeenDate": "2026-07-11",
+    "lastSeenDate": "2026-07-11"
   },
-  {
+  "kurly-5063596": {
     "id": "kurly-5063596",
     "emoji": "🧃",
     "name": "그래놀라 300g 6종, 택1",
@@ -442,9 +492,11 @@
     "price": "13,500원",
     "rating": null,
     "source": "kurly-crawler",
-    "url": "https://www.kurly.com/goods/5063596"
+    "url": "https://www.kurly.com/goods/5063596",
+    "firstSeenDate": "2026-07-11",
+    "lastSeenDate": "2026-07-11"
   },
-  {
+  "kurly-1002248303": {
     "id": "kurly-1002248303",
     "emoji": "🧃",
     "name": "비스트로 샤이니 한식 스푼 31종 (택1)",
@@ -459,9 +511,11 @@
     "price": "23,000원",
     "rating": null,
     "source": "kurly-crawler",
-    "url": "https://www.kurly.com/goods/1002248303"
+    "url": "https://www.kurly.com/goods/1002248303",
+    "firstSeenDate": "2026-07-11",
+    "lastSeenDate": "2026-07-11"
   },
-  {
+  "kurly-1002185948": {
     "id": "kurly-1002185948",
     "emoji": "🥐",
     "name": "말차라떼 롤케이크 390g",
@@ -476,9 +530,11 @@
     "price": "20,900원",
     "rating": null,
     "source": "kurly-crawler",
-    "url": "https://www.kurly.com/goods/1002185948"
+    "url": "https://www.kurly.com/goods/1002185948",
+    "firstSeenDate": "2026-07-11",
+    "lastSeenDate": "2026-07-11"
   },
-  {
+  "kurly-1001556065": {
     "id": "kurly-1001556065",
     "emoji": "🍱",
     "name": "프레스코 로제 파스타소스 2종 (택1)",
@@ -493,9 +549,11 @@
     "price": "7,480원",
     "rating": null,
     "source": "kurly-crawler",
-    "url": "https://www.kurly.com/goods/1001556065"
+    "url": "https://www.kurly.com/goods/1001556065",
+    "firstSeenDate": "2026-07-11",
+    "lastSeenDate": "2026-07-11"
   },
-  {
+  "kurly-1002339022": {
     "id": "kurly-1002339022",
     "emoji": "🍱",
     "name": "저당 아라비아따 파스타 소스 600g",
@@ -510,9 +568,11 @@
     "price": "10,480원",
     "rating": null,
     "source": "kurly-crawler",
-    "url": "https://www.kurly.com/goods/1002339022"
+    "url": "https://www.kurly.com/goods/1002339022",
+    "firstSeenDate": "2026-07-11",
+    "lastSeenDate": "2026-07-11"
   },
-  {
+  "kurly-1002313733": {
     "id": "kurly-1002313733",
     "emoji": "🍱",
     "name": "LIGHT&JOY 당을줄인컵누들 로제맛 51G*6입",
@@ -527,9 +587,11 @@
     "price": "9,480원",
     "rating": null,
     "source": "kurly-crawler",
-    "url": "https://www.kurly.com/goods/1002313733"
+    "url": "https://www.kurly.com/goods/1002313733",
+    "firstSeenDate": "2026-07-11",
+    "lastSeenDate": "2026-07-11"
   },
-  {
+  "kurly-1002313757": {
     "id": "kurly-1002313757",
     "emoji": "🥜",
     "name": "멕시칸 & 아메리칸 피자 2종 (택1)",
@@ -544,9 +606,11 @@
     "price": "8,980원",
     "rating": null,
     "source": "kurly-crawler",
-    "url": "https://www.kurly.com/goods/1002313757"
+    "url": "https://www.kurly.com/goods/1002313757",
+    "firstSeenDate": "2026-07-11",
+    "lastSeenDate": "2026-07-11"
   },
-  {
+  "kurly-1002314637": {
     "id": "kurly-1002314637",
     "emoji": "🥜",
     "name": "[리스토란테] 피자 4종 (택2)",
@@ -561,9 +625,11 @@
     "price": "6,480원",
     "rating": null,
     "source": "kurly-crawler",
-    "url": "https://www.kurly.com/goods/1002314637"
+    "url": "https://www.kurly.com/goods/1002314637",
+    "firstSeenDate": "2026-07-11",
+    "lastSeenDate": "2026-07-11"
   },
-  {
+  "kurly-1002314622": {
     "id": "kurly-1002314622",
     "emoji": "🥜",
     "name": "모짜렐라 피자",
@@ -578,9 +644,11 @@
     "price": "6,480원",
     "rating": null,
     "source": "kurly-crawler",
-    "url": "https://www.kurly.com/goods/1002314622"
+    "url": "https://www.kurly.com/goods/1002314622",
+    "firstSeenDate": "2026-07-11",
+    "lastSeenDate": "2026-07-11"
   },
-  {
+  "kurly-1002314627": {
     "id": "kurly-1002314627",
     "emoji": "🥜",
     "name": "마르게리따 피자",
@@ -595,9 +663,11 @@
     "price": "6,480원",
     "rating": null,
     "source": "kurly-crawler",
-    "url": "https://www.kurly.com/goods/1002314627"
+    "url": "https://www.kurly.com/goods/1002314627",
+    "firstSeenDate": "2026-07-11",
+    "lastSeenDate": "2026-07-11"
   },
-  {
+  "kurly-1002302167": {
     "id": "kurly-1002302167",
     "emoji": "🍦",
     "name": "티코 미니 쿠앤크 아이스크림 (17mL X 10개입)",
@@ -613,9 +683,11 @@
     "price": "6,000원",
     "rating": null,
     "source": "kurly-crawler",
-    "url": "https://www.kurly.com/goods/1002302167"
+    "url": "https://www.kurly.com/goods/1002302167",
+    "firstSeenDate": "2026-07-11",
+    "lastSeenDate": "2026-07-11"
   },
-  {
+  "kurly-1002096068": {
     "id": "kurly-1002096068",
     "emoji": "🍪",
     "name": "저당 딥크림 웨하스 2종, 택1",
@@ -630,9 +702,11 @@
     "price": "6,900원",
     "rating": null,
     "source": "kurly-crawler",
-    "url": "https://www.kurly.com/goods/1002096068"
+    "url": "https://www.kurly.com/goods/1002096068",
+    "firstSeenDate": "2026-07-11",
+    "lastSeenDate": "2026-07-11"
   },
-  {
+  "kurly-1002274541": {
     "id": "kurly-1002274541",
     "emoji": "🧃",
     "name": "클린 잇 제로 더 말차 도쿄 클렌징밤 100mL",
@@ -647,9 +721,11 @@
     "price": "20,000원",
     "rating": null,
     "source": "kurly-crawler",
-    "url": "https://www.kurly.com/goods/1002274541"
+    "url": "https://www.kurly.com/goods/1002274541",
+    "firstSeenDate": "2026-07-11",
+    "lastSeenDate": "2026-07-11"
   },
-  {
+  "kurly-1002099734": {
     "id": "kurly-1002099734",
     "emoji": "🧃",
     "name": "말차 만쥬 212g",
@@ -664,9 +740,11 @@
     "price": "14,900원",
     "rating": null,
     "source": "kurly-crawler",
-    "url": "https://www.kurly.com/goods/1002099734"
+    "url": "https://www.kurly.com/goods/1002099734",
+    "firstSeenDate": "2026-07-11",
+    "lastSeenDate": "2026-07-11"
   },
-  {
+  "kurly-1002303054": {
     "id": "kurly-1002303054",
     "emoji": "🥜",
     "name": "엠쉘 2종, 택1",
@@ -681,9 +759,11 @@
     "price": "6,300원",
     "rating": null,
     "source": "kurly-crawler",
-    "url": "https://www.kurly.com/goods/1002303054"
+    "url": "https://www.kurly.com/goods/1002303054",
+    "firstSeenDate": "2026-07-11",
+    "lastSeenDate": "2026-07-11"
   },
-  {
+  "kurly-1002326320": {
     "id": "kurly-1002326320",
     "emoji": "🥜",
     "name": "지지미 2종, 택1",
@@ -698,9 +778,11 @@
     "price": "2,560원",
     "rating": null,
     "source": "kurly-crawler",
-    "url": "https://www.kurly.com/goods/1002326320"
+    "url": "https://www.kurly.com/goods/1002326320",
+    "firstSeenDate": "2026-07-11",
+    "lastSeenDate": "2026-07-11"
   },
-  {
+  "kurly-1002203525": {
     "id": "kurly-1002203525",
     "emoji": "🥜",
     "name": "저당 콘스낵 2종, 택1",
@@ -715,9 +797,11 @@
     "price": "1,900원",
     "rating": null,
     "source": "kurly-crawler",
-    "url": "https://www.kurly.com/goods/1002203525"
+    "url": "https://www.kurly.com/goods/1002203525",
+    "firstSeenDate": "2026-07-11",
+    "lastSeenDate": "2026-07-11"
   },
-  {
+  "kurly-1002297836": {
     "id": "kurly-1002297836",
     "emoji": "🧃",
     "name": "당솔브 호두맛 200ml 18입",
@@ -732,9 +816,11 @@
     "price": "64,800원",
     "rating": null,
     "source": "kurly-crawler",
-    "url": "https://www.kurly.com/goods/1002297836"
+    "url": "https://www.kurly.com/goods/1002297836",
+    "firstSeenDate": "2026-07-11",
+    "lastSeenDate": "2026-07-11"
   },
-  {
+  "kurly-1002152962": {
     "id": "kurly-1002152962",
     "emoji": "🧃",
     "name": "호두설기 (50gx20개입)",
@@ -749,6 +835,8 @@
     "price": "13,400원",
     "rating": null,
     "source": "kurly-crawler",
-    "url": "https://www.kurly.com/goods/1002152962"
+    "url": "https://www.kurly.com/goods/1002152962",
+    "firstSeenDate": "2026-07-11",
+    "lastSeenDate": "2026-07-11"
   }
-]
+}
