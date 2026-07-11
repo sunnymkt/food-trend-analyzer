@@ -1,0 +1,13 @@
+# 비밀값
+.env
+
+# Python
+__pycache__/
+*.pyc
+.venv/
+venv/
+
+# Playwright / OS 잡파일
+.cache/
+Thumbs.db
+.DS_Store

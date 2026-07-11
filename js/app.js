@@ -1,0 +1,598 @@
+// ============================================================
+//  js/app.js — 식품 트렌드 분석기 메인 로직
+// ============================================================
+
+/* ── 데이터 참조 (init에서 loadAppData 완료 후 채워짐) ────── */
+let KEYWORD_DATA, NEW_PRODUCTS, CATEGORIES, BRAND_DATA, WEEKLY_SUMMARY, DATES_30, META;
+
+/* ── 상태 ────────────────────────────────────────────────── */
+let currentView = 'dashboard';
+let productFilter = '전체';
+let productSearch = '';
+let compareKws = ['흑임자', '유자', '제로슈거'];
+let selectedCat = '전체';
+const charts = {};
+
+/* ── Chart.js 공통 설정 ──────────────────────────────────── */
+const CHART_DEFAULTS = {
+  responsive: true,
+  maintainAspectRatio: false,
+  animation: { duration: 700, easing: 'easeOutQuart' },
+  plugins: {
+    legend: {
+      labels: {
+        color: '#334155',
+        font: { family: "'Noto Sans KR','Inter',sans-serif", size: 12 },
+        usePointStyle: true, pointStyleWidth: 8, padding: 18
+      }
+    },
+    tooltip: {
+      backgroundColor: 'rgba(15,23,42,0.95)',
+      titleColor: '#ffffff', bodyColor: '#cbd5e1',
+      borderColor: 'rgba(255,255,255,.08)', borderWidth: 1,
+      cornerRadius: 12, padding: 12,
+    }
+  },
+  scales: {
+    x: {
+      grid: { color: 'rgba(15,23,42,.07)', drawBorder: false },
+      ticks: { color: '#64748b', font: { size: 11 }, maxTicksLimit: 8 }
+    },
+    y: {
+      grid: { color: 'rgba(15,23,42,.07)', drawBorder: false },
+      ticks: { color: '#64748b', font: { size: 11 } }
+    }
+  }
+};
+
+/* ── 유틸리티 ────────────────────────────────────────────── */
+function fmt(dateStr) {
+  const d = new Date(dateStr);
+  return `${d.getMonth()+1}/${d.getDate()}`;
+}
+function isNew(dateStr, days=11) {
+  const diff = (new Date() - new Date(dateStr)) / 86400000;
+  return diff <= days;
+}
+function catTagClass(cat) {
+  const map = { 라면:'tag-r', 스낵:'tag-o', 음료:'tag-b', 간편식:'tag-p', 제과:'tag-y', 빙과:'tag-g', 유제품:'tag-gr', 베이커리:'tag-r', 건강식품:'tag-g', 건강기능식품:'tag-g' };
+  return map[cat] || 'tag-b';
+}
+function animNum(el, target, dur=1000) {
+  if(!el) return;
+  const start = performance.now();
+  const tick = (now) => {
+    const p = Math.min((now-start)/dur, 1);
+    const ease = 1 - Math.pow(1-p, 3);
+    el.textContent = Math.round(target * ease).toLocaleString();
+    if(p < 1) requestAnimationFrame(tick);
+  };
+  requestAnimationFrame(tick);
+}
+function destroyChart(key) {
+  if(charts[key]) { charts[key].destroy(); delete charts[key]; }
+}
+
+/* ── 네비게이션 ──────────────────────────────────────────── */
+function navigate(viewId) {
+  document.querySelectorAll('.view').forEach(v => v.classList.remove('active'));
+  document.querySelectorAll('.nav-item').forEach(n => n.classList.remove('active'));
+
+  const view = document.getElementById(viewId);
+  const navEl = document.querySelector(`[data-view="${viewId}"]`);
+  if(view) view.classList.add('active');
+  if(navEl) navEl.classList.add('active');
+  currentView = viewId;
+
+  const TITLES = {
+    dashboard: ['📊 대시보드',      '오늘의 식품 트렌드 종합 현황'],
+    trends:    ['📈 트렌드 분석',    '키워드 30일 시계열 비교'],
+    products:  ['🆕 신제품 트래킹', '일별 신제품 모니터링'],
+    category:  ['🗂️ 카테고리 분석', '카테고리별 키워드 심층 분석'],
+    report:    ['📋 주간 리포트',   '자동 생성 인사이트 리포트'],
+  };
+  if(TITLES[viewId]) {
+    document.getElementById('topbar-title').textContent = TITLES[viewId][0];
+    document.getElementById('topbar-sub').textContent   = TITLES[viewId][1];
+  }
+
+  setTimeout(() => {
+    if(viewId === 'dashboard') renderDashboard();
+    if(viewId === 'trends')    renderTrends();
+    if(viewId === 'category')  renderCategory(selectedCat);
+  }, 30);
+}
+
+/* ════════════════════════════════════════════════════════════
+   DASHBOARD
+   ════════════════════════════════════════════════════════════ */
+function renderDashboard() {
+  const risingCount = Object.values(KEYWORD_DATA).filter(d => d.changeRate > 50).length;
+  setTimeout(() => {
+    animNum(document.getElementById('kpi-kw'),   Object.keys(KEYWORD_DATA).length);
+    animNum(document.getElementById('kpi-prod'), NEW_PRODUCTS.length);
+    animNum(document.getElementById('kpi-rise'), risingCount);
+  }, 80);
+  renderMainChart();
+  renderDonut();
+  renderRankings();
+  renderLatestMini();
+}
+
+/* 30일 라인 차트 */
+function renderMainChart() {
+  const ctx = document.getElementById('mainChart');
+  if(!ctx) return;
+  destroyChart('main');
+  const KWS = ['흑임자','유자','제로슈거','마라','트러플'];
+  charts.main = new Chart(ctx, {
+    type:'line',
+    data:{
+      labels: DATES_30,
+      datasets: KWS.map(kw => {
+        const d = KEYWORD_DATA[kw];
+        return {
+          label:kw, data:d.data, borderColor:d.color, backgroundColor:d.color+'18',
+          borderWidth:2.5, tension:.42, fill:false,
+          pointRadius:0, pointHoverRadius:6,
+          pointHoverBackgroundColor:d.color, pointHoverBorderColor:'#fff', pointHoverBorderWidth:2,
+        };
+      })
+    },
+    options:{
+      ...CHART_DEFAULTS,
+      interaction:{ mode:'index', intersect:false },
+      plugins:{
+        ...CHART_DEFAULTS.plugins,
+        legend:{ ...CHART_DEFAULTS.plugins.legend, position:'top' }
+      }
+    }
+  });
+}
+
+/* 카테고리 도넛 차트 */
+function renderDonut() {
+  const ctx = document.getElementById('donutChart');
+  if(!ctx) return;
+  destroyChart('donut');
+  const cats = Object.entries(CATEGORIES).filter(([k]) => k !== '전체');
+  charts.donut = new Chart(ctx, {
+    type:'doughnut',
+    data:{
+      labels: cats.map(([k]) => k),
+      datasets:[{
+        data: cats.map(([,v]) => v.count),
+        backgroundColor: cats.map(([,v]) => v.color+'cc'),
+        borderColor: cats.map(([,v]) => v.color),
+        borderWidth:1.5, hoverOffset:10,
+      }]
+    },
+    options:{
+      responsive:true, maintainAspectRatio:false, cutout:'64%',
+      animation:{ duration:900, easing:'easeOutQuart' },
+      plugins:{
+        legend:{
+          position:'right',
+          labels:{ color:'#334155', font:{family:"'Noto Sans KR','Inter',sans-serif",size:11}, padding:10, usePointStyle:true, pointStyleWidth:8 }
+        },
+        tooltip:{
+          ...CHART_DEFAULTS.plugins.tooltip,
+          callbacks:{ label: ctx => ` ${ctx.label}: ${ctx.raw}개 신제품` }
+        }
+      }
+    }
+  });
+}
+
+/* 키워드 상승률 랭킹 */
+function renderRankings() {
+  const el = document.getElementById('rankings');
+  if(!el) return;
+  const sorted = Object.entries(KEYWORD_DATA)
+    .filter(([,v]) => v.changeRate > 0)
+    .sort((a,b) => b[1].changeRate - a[1].changeRate)
+    .slice(0,10);
+  const max = sorted[0][1].changeRate;
+  el.innerHTML = sorted.map(([kw,d],i) => `
+    <div class="rank-item">
+      <div class="rank-num ${i<3?'gold':''}">${i+1}</div>
+      <div class="rank-bar-wrap">
+        <div class="rank-name">${kw}</div>
+        <div class="rank-bar"><div class="rank-fill" style="width:0" data-w="${(d.changeRate/max*100).toFixed(1)}"></div></div>
+      </div>
+      <div class="rank-val">+${d.changeRate}%</div>
+    </div>
+  `).join('');
+  setTimeout(() => {
+    el.querySelectorAll('.rank-fill').forEach(b => { b.style.width = b.dataset.w + '%'; });
+  }, 150);
+}
+
+/* 최신 신제품 미니 리스트 */
+function renderLatestMini() {
+  const el = document.getElementById('latestMini');
+  if(!el) return;
+  el.innerHTML = NEW_PRODUCTS.slice(0,5).map(p => `
+    <div class="mini-row">
+      <div class="mini-left">
+        <span class="mini-emoji">${p.emoji}</span>
+        <div>
+          <div class="mini-name">${p.name}</div>
+          <div class="mini-brand">${p.brand} · ${fmt(p.launchDate)}</div>
+        </div>
+      </div>
+      <span class="tag ${catTagClass(p.category)}">${p.category}</span>
+    </div>
+  `).join('');
+}
+
+/* ════════════════════════════════════════════════════════════
+   TRENDS (키워드 비교)
+   ════════════════════════════════════════════════════════════ */
+function renderTrends() {
+  renderKwSelector();
+  renderCompareChart();
+  renderKwCards();
+}
+
+function renderKwSelector() {
+  const el = document.getElementById('kwSelector');
+  if(!el) return;
+  el.innerHTML = Object.entries(KEYWORD_DATA).map(([kw,d]) => {
+    const sel = compareKws.includes(kw);
+    return `
+      <div class="filter-btn ${sel?'active':''}" onclick="toggleKw('${kw}')" style="cursor:pointer;">
+        ${kw}&nbsp;
+        <span class="${d.changeRate>=0?'t-up':'t-down'}">${d.changeRate>=0?'+':''}${d.changeRate}%</span>
+      </div>`;
+  }).join('');
+}
+
+function renderCompareChart() {
+  const ctx = document.getElementById('compareChart');
+  if(!ctx) return;
+  destroyChart('compare');
+  charts.compare = new Chart(ctx, {
+    type:'line',
+    data:{
+      labels: DATES_30,
+      datasets: compareKws.map(kw => {
+        const d = KEYWORD_DATA[kw];
+        if(!d) return null;
+        return {
+          label:kw, data:d.data, borderColor:d.color, backgroundColor:d.color+'22',
+          borderWidth:2.5, tension:.42, fill:true,
+          pointRadius:0, pointHoverRadius:6,
+          pointHoverBackgroundColor:d.color, pointHoverBorderColor:'#fff', pointHoverBorderWidth:2,
+        };
+      }).filter(Boolean)
+    },
+    options:{
+      ...CHART_DEFAULTS,
+      interaction:{ mode:'index', intersect:false },
+    }
+  });
+}
+
+function renderKwCards() {
+  const el = document.getElementById('kwCards');
+  if(!el) return;
+  const sorted = Object.entries(KEYWORD_DATA).sort((a,b) => b[1].changeRate - a[1].changeRate);
+  el.innerHTML = sorted.map(([kw,d]) => `
+    <div class="card" style="cursor:pointer;" onclick="toggleKw('${kw}')">
+      <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:10px;">
+        <div>
+          <div style="font-size:15px;font-weight:900;color:var(--text-primary)">${kw}</div>
+          <div style="font-size:11px;color:var(--text-muted);margin-top:2px;">${d.category}</div>
+        </div>
+        <div style="font-size:19px;font-weight:900;color:${d.changeRate>=0?'var(--accent)':'var(--rose)'}">
+          ${d.changeRate>=0?'+':''}${d.changeRate}%
+        </div>
+      </div>
+      <div style="font-size:12px;color:var(--text-secondary);line-height:1.6;margin-bottom:12px;">${d.description}</div>
+      <div class="prog"><div class="prog-fill" style="width:${Math.min(100,Math.abs(d.changeRate)/2.5)}%;background:${d.color}"></div></div>
+      <div style="font-size:11px;color:var(--text-muted);margin-top:7px;">최신 지수: <strong style="color:${d.color}">${d.data[d.data.length-1]}</strong></div>
+    </div>
+  `).join('');
+}
+
+function toggleKw(kw) {
+  if(compareKws.includes(kw)) {
+    if(compareKws.length > 1) compareKws = compareKws.filter(k => k !== kw);
+  } else {
+    if(compareKws.length >= 5) compareKws.shift();
+    compareKws.push(kw);
+  }
+  renderTrends();
+}
+
+/* ════════════════════════════════════════════════════════════
+   PRODUCTS (신제품 트래킹)
+   ════════════════════════════════════════════════════════════ */
+function renderProducts() {
+  const el = document.getElementById('productsGrid');
+  if(!el) return;
+
+  let list = [...NEW_PRODUCTS];
+  if(productFilter !== '전체') list = list.filter(p => p.category === productFilter);
+  if(productSearch) {
+    const q = productSearch.trim().toLowerCase();
+    list = list.filter(p =>
+      p.name.includes(productSearch) ||
+      p.brand.includes(productSearch) ||
+      p.keywords.some(k => k.includes(productSearch)) ||
+      p.category.includes(productSearch)
+    );
+  }
+
+  if(!list.length) {
+    el.innerHTML = `<div class="empty" style="grid-column:1/-1"><div class="empty-icon">🔍</div><h3>검색 결과 없음</h3><p>다른 키워드로 검색해보세요</p></div>`;
+    return;
+  }
+
+  el.innerHTML = list.map(p => `
+    <div class="product-card ${isNew(p.launchDate,7)?'new-badge':''}">
+      <div class="p-emoji">${p.emoji}</div>
+      <div class="p-name">${p.name}</div>
+      <div class="p-brand">${p.brand} · ${p.channel}</div>
+      <div class="p-tags">
+        <span class="tag ${catTagClass(p.category)}">${p.category}</span>
+        ${p.keywords.map(k => `<span class="tag tag-b">#${k}</span>`).join('')}
+      </div>
+      <div class="p-footer">
+        <div class="p-date">📅 ${fmt(p.launchDate)}</div>
+        <div class="p-price">${p.price}</div>
+      </div>
+      <div class="p-rating">${p.rating != null ? `⭐ ${p.rating} · ` : ''}${p.origin && p.origin !== '-' ? p.origin : p.channel}</div>
+    </div>
+  `).join('');
+}
+
+function setProductFilter(f) {
+  productFilter = f;
+  document.querySelectorAll('.pf-btn').forEach(b => b.classList.toggle('active', b.dataset.f === f));
+  renderProducts();
+}
+
+/* ════════════════════════════════════════════════════════════
+   CATEGORY (카테고리 분석)
+   ════════════════════════════════════════════════════════════ */
+function renderCategoryCards() {
+  const el = document.getElementById('catCards');
+  if(!el) return;
+  el.innerHTML = Object.entries(CATEGORIES).map(([name,d]) => `
+    <div class="cat-card ${selectedCat===name?'active':''}" data-cat="${name}" onclick="renderCategory('${name}')">
+      <span class="cat-emoji">${d.emoji}</span>
+      <div class="cat-name">${name}</div>
+      <div class="cat-count">${d.count}개</div>
+    </div>
+  `).join('');
+}
+
+function renderCategory(cat) {
+  selectedCat = cat;
+  renderCategoryCards();
+  renderCatKeywordChart(cat);
+  renderCatBrandStats(cat);
+}
+
+function renderCatKeywordChart(cat) {
+  const ctx = document.getElementById('catKwChart');
+  if(!ctx) return;
+  destroyChart('catKw');
+
+  const catData = CATEGORIES[cat];
+  const kwList = catData?.topKeywords?.filter(k => KEYWORD_DATA[k]).slice(0,8)
+    ?? Object.keys(KEYWORD_DATA).slice(0,8);
+  const pairs = kwList.map(k => [k, KEYWORD_DATA[k]]);
+
+  charts.catKw = new Chart(ctx, {
+    type:'bar',
+    data:{
+      labels: pairs.map(([k]) => k),
+      datasets:[{
+        label:'검색 지수 (최신)',
+        data: pairs.map(([,v]) => v.data[v.data.length-1]),
+        backgroundColor: pairs.map(([,v]) => v.color+'aa'),
+        borderColor: pairs.map(([,v]) => v.color),
+        borderWidth:1.5, borderRadius:8, borderSkipped:false,
+      }]
+    },
+    options:{
+      ...CHART_DEFAULTS,
+      plugins:{ ...CHART_DEFAULTS.plugins, legend:{ display:false } },
+      scales:{ ...CHART_DEFAULTS.scales, y:{ ...CHART_DEFAULTS.scales.y, beginAtZero:true } }
+    }
+  });
+}
+
+function renderCatBrandStats(cat) {
+  const el = document.getElementById('catBrandStats');
+  if(!el) return;
+  let list = cat === '전체' ? NEW_PRODUCTS : NEW_PRODUCTS.filter(p => p.category === cat);
+  const counts = {};
+  list.forEach(p => { counts[p.brand] = (counts[p.brand]||0)+1; });
+  const sorted = Object.entries(counts).sort((a,b) => b[1]-a[1]).slice(0,8);
+  const max = sorted[0]?.[1] || 1;
+  el.innerHTML = `
+    <p style="font-size:11px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--text-muted);margin-bottom:12px;">브랜드별 신제품 수</p>
+    ${sorted.map(([brand,cnt]) => `
+      <div class="rank-item">
+        <div class="rank-bar-wrap">
+          <div class="rank-name">${brand}</div>
+          <div class="rank-bar"><div class="rank-fill" style="width:0" data-w="${(cnt/max*100).toFixed(1)}"></div></div>
+        </div>
+        <div class="rank-val" style="color:var(--accent)">${cnt}개</div>
+      </div>
+    `).join('')}
+  `;
+  setTimeout(() => {
+    el.querySelectorAll('.rank-fill').forEach(b => { b.style.width = b.dataset.w + '%'; });
+  }, 120);
+}
+
+/* ════════════════════════════════════════════════════════════
+   REPORT (주간 리포트)
+   ════════════════════════════════════════════════════════════ */
+function renderReport() {
+  const el = document.getElementById('reportInsights');
+  if(!el) return;
+  el.innerHTML = WEEKLY_SUMMARY.topInsights.map(i => `
+    <div class="insight-card">
+      <div class="insight-icon">${i.icon}</div>
+      <div>
+        <div class="insight-title">${i.title}</div>
+        <div class="insight-body">${i.body}</div>
+      </div>
+    </div>
+  `).join('');
+}
+
+function renderReportChart() {
+  const ctx = document.getElementById('reportChart');
+  if(!ctx) return;
+  destroyChart('report');
+  const sorted = Object.entries(KEYWORD_DATA).sort((a,b) => b[1].changeRate - a[1].changeRate);
+  charts.report = new Chart(ctx, {
+    type:'bar',
+    data:{
+      labels: sorted.map(([k]) => k),
+      datasets:[{
+        label:'변화율 (%)',
+        data: sorted.map(([,v]) => v.changeRate),
+        backgroundColor: sorted.map(([,v]) => v.changeRate>=0 ? v.color+'bb' : 'rgba(225,29,72,.55)'),
+        borderColor:     sorted.map(([,v]) => v.changeRate>=0 ? v.color : '#e11d48'),
+        borderWidth:1.5, borderRadius:7, borderSkipped:false,
+      }]
+    },
+    options:{
+      ...CHART_DEFAULTS,
+      plugins:{
+        ...CHART_DEFAULTS.plugins,
+        legend:{ display:false },
+        tooltip:{ ...CHART_DEFAULTS.plugins.tooltip, callbacks:{ label: c => ` 변화율: ${c.raw>0?'+':''}${c.raw}%` } }
+      },
+      scales:{
+        x:{ ...CHART_DEFAULTS.scales.x },
+        y:{ ...CHART_DEFAULTS.scales.y, ticks:{ ...CHART_DEFAULTS.scales.y.ticks, callback: v => `${v}%` } }
+      }
+    }
+  });
+}
+
+/* ── 내보내기 ─────────────────────────────────────────────── */
+function exportReport() {
+  const lines = [
+    `# 식품 트렌드 주간 리포트`,
+    `기간: ${WEEKLY_SUMMARY.period}`,
+    `분석 키워드: ${WEEKLY_SUMMARY.totalKeywords}개 | 신제품: ${WEEKLY_SUMMARY.newProducts}개`,
+    ``,
+    `## 이번 주 급상승 키워드`,
+    ...Object.entries(KEYWORD_DATA)
+      .filter(([,v])=>v.changeRate>0)
+      .sort((a,b)=>b[1].changeRate-a[1].changeRate)
+      .map(([k,v]) => `- ${k}: +${v.changeRate}%`),
+    ``,
+    `## 주요 인사이트`,
+    ...WEEKLY_SUMMARY.topInsights.map(i => `### ${i.title}\n${i.body}`),
+    ``,
+    `## 신제품 목록`,
+    ...NEW_PRODUCTS.map(p => `- [${p.category}] ${p.brand} — ${p.name} (${p.price}) | 키워드: ${p.keywords.join(', ')}`)
+  ];
+  const blob = new Blob([lines.join('\n')], { type:'text/plain;charset=utf-8' });
+  const url  = URL.createObjectURL(blob);
+  const a    = document.createElement('a');
+  const todayStr = new Date().toISOString().slice(0,10);
+  a.href = url; a.download = `food-trend-report-${todayStr}.txt`; a.click();
+  URL.revokeObjectURL(url);
+}
+
+/* ── 전역 검색 ───────────────────────────────────────────── */
+function handleSearch(q) {
+  productSearch = q;
+  if(currentView === 'products') renderProducts();
+}
+
+/* ── 상태 표시 (사이드바 / KPI 부가정보) ──────────────────── */
+function setText(id, text) {
+  const el = document.getElementById(id);
+  if(el) el.textContent = text;
+}
+
+function renderStatus() {
+  const d = META && META.lastUpdated ? new Date(META.lastUpdated) : new Date();
+  setText('statusDate', `${d.getFullYear()}년 ${d.getMonth()+1}월 ${d.getDate()}일 기준`);
+  setText('kpi-kw-note',   META && META.keywordSource === 'naver_datalab' ? '네이버 데이터랩 연동' : '예시 데이터 (seed)');
+  setText('kpi-prod-note', META && (META.productSource||'').startsWith('kurly') ? '마켓컬리 자동 수집' : '예시 데이터 (seed)');
+  setText('kpi-updated', '✅ 정상 수집 중');
+  setText('nav-prod-badge', NEW_PRODUCTS.length);
+}
+
+/* ── 리포트 상단 요약 / 하이라이트 카드 ───────────────────── */
+function renderReportHighlights() {
+  const metaEl = document.getElementById('reportMeta');
+  if(metaEl) {
+    metaEl.innerHTML = `
+      📅 ${WEEKLY_SUMMARY.period}&nbsp;&nbsp;|&nbsp;&nbsp;
+      🔍 분석 키워드 ${WEEKLY_SUMMARY.totalKeywords}개&nbsp;&nbsp;|&nbsp;&nbsp;
+      🆕 신제품 ${WEEKLY_SUMMARY.newProducts}개&nbsp;&nbsp;|&nbsp;&nbsp;
+      🚀 급상승 카테고리: ${WEEKLY_SUMMARY.risingCategories.join(', ') || '-'}
+    `;
+  }
+
+  const topKw = WEEKLY_SUMMARY.topKeyword, topKwData = topKw ? KEYWORD_DATA[topKw] : null;
+  setText('hl-top-kw', topKw || '-');
+  setText('hl-top-kw-val', topKwData ? `${topKwData.changeRate>=0?'+':''}${topKwData.changeRate}%` : '-');
+
+  const topCat = WEEKLY_SUMMARY.topCategory, topCatData = topCat ? CATEGORIES[topCat] : null;
+  setText('hl-top-cat', topCat || '-');
+  setText('hl-top-cat-val', topCatData ? `${topCatData.count}개` : '-');
+
+  const worstKw = WEEKLY_SUMMARY.worstKeyword, worstKwData = worstKw ? KEYWORD_DATA[worstKw] : null;
+  setText('hl-worst-kw', worstKw || '-');
+  setText('hl-worst-kw-val', worstKwData ? `${worstKwData.changeRate}%` : '-');
+}
+
+function showDataError(err) {
+  console.error('[food-trend-analyzer] 데이터 로드 실패:', err);
+  const banner = document.getElementById('dataErrorBanner');
+  if(banner) {
+    banner.style.display = 'block';
+    banner.textContent = `⚠️ 데이터를 불러오지 못했습니다: ${err.message}`;
+  }
+  setText('statusDate', '데이터 로드 실패');
+}
+
+/* ── 초기화 ──────────────────────────────────────────────── */
+async function init() {
+  // 검색
+  const searchEl = document.getElementById('globalSearch');
+  if(searchEl) searchEl.addEventListener('input', e => handleSearch(e.target.value));
+
+  // 신제품 필터 버튼
+  document.querySelectorAll('.pf-btn').forEach(btn => {
+    btn.addEventListener('click', () => setProductFilter(btn.dataset.f));
+  });
+
+  // 데이터 로드 (data/*.json)
+  try {
+    const data = await window.loadAppData();
+    ({ KEYWORD_DATA, NEW_PRODUCTS, CATEGORIES, BRAND_DATA, WEEKLY_SUMMARY, DATES_30, META } = data);
+  } catch (err) {
+    showDataError(err);
+    return;
+  }
+
+  // 리포트 & 카테고리 초기 렌더
+  renderStatus();
+  renderReport();
+  renderReportHighlights();
+  renderCategoryCards();
+  renderReportChart();
+  renderProducts();
+
+  // 첫 뷰 로드
+  navigate('dashboard');
+}
+
+document.addEventListener('DOMContentLoaded', init);

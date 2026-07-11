@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <title>FoodTrend AI — 식품 트렌드 분석기</title>
+  <meta name="description" content="실시간 식품 트렌드 분석 플랫폼 — 급상승 맛 키워드, 신제품 트래킹, 카테고리별 분석으로 상품기획을 지원합니다.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Noto+Sans+KR:wght@300;400;500;700;900&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+</head>
+
+<body>
+  <div id="dataErrorBanner" class="data-error-banner" style="display:none;"></div>
+  <div class="app">
+
+    <!-- ═══════════════════════════════════════════════
+       SIDEBAR
+       ═══════════════════════════════════════════════ -->
+    <aside class="sidebar">
+
+      <!-- 로고 -->
+      <div class="sidebar-logo">
+        <div class="logo-wrap">
+          <span class="logo-emoji">🍽️</span>
+          <div>
+            <div class="logo-name">FoodTrend AI</div>
+            <div class="logo-sub">식품 트렌드 분석기</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 네비게이션 -->
+      <nav class="sidebar-nav">
+        <span class="nav-group-title">메인</span>
+
+        <div class="nav-item" data-view="dashboard" onclick="navigate('dashboard')">
+          <span class="nav-icon">📊</span>대시보드
+        </div>
+        <div class="nav-item" data-view="trends" onclick="navigate('trends')">
+          <span class="nav-icon">📈</span>트렌드 분석
+        </div>
+
+        <span class="nav-group-title">모니터링</span>
+
+        <div class="nav-item" data-view="products" onclick="navigate('products')">
+          <span class="nav-icon">🆕</span>신제품 트래킹
+          <span class="nav-badge" id="nav-prod-badge">0</span>
+        </div>
+        <div class="nav-item" data-view="category" onclick="navigate('category')">
+          <span class="nav-icon">🗂️</span>카테고리 분석
+        </div>
+
+        <span class="nav-group-title">리포트</span>
+
+        <div class="nav-item" data-view="report" onclick="navigate('report')">
+          <span class="nav-icon">📋</span>주간 리포트
+          <span class="nav-dot"></span>
+        </div>
+      </nav>
+
+      <!-- 상태 -->
+      <div class="sidebar-footer">
+        <div class="status-dot-wrap">
+          <div class="status-dot"></div>
+        </div>
+        <div class="status-info">
+          <div class="status-label">데이터 최신화 ✅</div>
+          <div class="status-date" id="statusDate">로딩 중…</div>
+        </div>
+      </div>
+    </aside>
+
+    <!-- ═══════════════════════════════════════════════
+       MAIN
+       ═══════════════════════════════════════════════ -->
+    <div class="main-content">
+
+      <!-- 탑바 -->
+      <header class="topbar">
+        <div class="topbar-title-wrap">
+          <div class="topbar-title" id="topbar-title">📊 대시보드</div>
+          <div class="topbar-sub" id="topbar-sub">오늘의 식품 트렌드 종합 현황</div>
+        </div>
+
+        <div class="search-bar">
+          <span class="search-icon">🔍</span>
+          <input id="globalSearch" type="text" placeholder="키워드, 브랜드, 제품 검색…">
+        </div>
+
+        <div style="display:flex;gap:9px;">
+          <button class="btn btn-secondary" onclick="exportReport()">📥 내보내기</button>
+          <button class="btn btn-primary" onclick="navigate('report')">📋 리포트</button>
+        </div>
+      </header>
+
+      <!-- 콘텐츠 -->
+      <div class="content">
+
+        <!-- ─────────────────────────────────────────────
+           VIEW: DASHBOARD
+           ───────────────────────────────────────────── -->
+        <section id="dashboard" class="view">
+
+          <!-- KPI 카드 4개 -->
+          <div class="g4">
+            <div class="card card-glow-orange">
+              <span class="kpi-icon">🔍</span>
+              <div class="kpi-value" id="kpi-kw">0</div>
+              <div class="kpi-label">분석 키워드 수</div>
+              <div class="kpi-change up" id="kpi-kw-note">네이버 데이터랩 연동</div>
+            </div>
+            <div class="card card-glow-teal">
+              <span class="kpi-icon">🆕</span>
+              <div class="kpi-value" id="kpi-prod">0</div>
+              <div class="kpi-label">신제품 (마켓컬리)</div>
+              <div class="kpi-change up" id="kpi-prod-note">-</div>
+            </div>
+            <div class="card"
+              style="border-color:rgba(124,58,237,.28);background:linear-gradient(135deg,rgba(124,58,237,.09),rgba(37,99,235,.03));">
+              <span class="kpi-icon">🚀</span>
+              <div class="kpi-value" id="kpi-rise">0</div>
+              <div class="kpi-label">급상승 키워드</div>
+              <div class="kpi-change up">전주 대비 +50%p 이상</div>
+            </div>
+            <div class="card">
+              <span class="kpi-icon">📅</span>
+              <div class="kpi-value" style="font-size:24px;line-height:1.3;">일별</div>
+              <div class="kpi-label">데이터 수집 주기</div>
+              <div class="kpi-change up" id="kpi-updated">-</div>
+            </div>
+          </div>
+
+          <!-- 급상승 키워드 뱃지 -->
+          <div class="card" style="margin-bottom:18px;">
+            <div class="card-header">
+              <div class="card-title"><span class="card-icon">🔥</span>이번 주 급상승 키워드 TOP 10</div>
+              <button class="btn btn-secondary" style="padding:6px 12px;font-size:12px;" onclick="navigate('trends')">전체
+                분석 →</button>
+            </div>
+            <div class="kw-grid">
+              <div class="kw-badge t1"><span class="rank">#1</span>흑임자<span class="pct">+245%</span></div>
+              <div class="kw-badge t1"><span class="rank">#2</span>유자<span class="pct">+189%</span></div>
+              <div class="kw-badge t1"><span class="rank">#3</span>제로슈거<span class="pct">+156%</span></div>
+              <div class="kw-badge t2"><span class="rank">#4</span>마라<span class="pct">+75%</span></div>
+              <div class="kw-badge t2"><span class="rank">#5</span>트러플<span class="pct">+98%</span></div>
+              <div class="kw-badge t2"><span class="rank">#6</span>쑥<span class="pct">+87%</span></div>
+              <div class="kw-badge t2"><span class="rank">#7</span>얼그레이<span class="pct">+76%</span></div>
+              <div class="kw-badge t3"><span class="rank">#8</span>로제<span class="pct">+65%</span></div>
+              <div class="kw-badge t3"><span class="rank">#9</span>할라피뇨<span class="pct">+42%</span></div>
+              <div class="kw-badge t3"><span class="rank">#10</span>말차<span class="pct">+28%</span></div>
+            </div>
+          </div>
+
+          <!-- 30일 트렌드 차트 + 랭킹 -->
+          <div class="g73">
+            <div class="card">
+              <div class="card-header">
+                <div class="card-title"><span class="card-icon">📈</span>30일 키워드 트렌드 추이</div>
+                <div class="card-meta">검색 지수 기준</div>
+              </div>
+              <div class="chart-wrap" style="height:280px;">
+                <canvas id="mainChart"></canvas>
+              </div>
+            </div>
+            <div class="card">
+              <div class="card-header">
+                <div class="card-title"><span class="card-icon">🏆</span>상승률 순위</div>
+              </div>
+              <div id="rankings"></div>
+            </div>
+          </div>
+
+          <!-- 카테고리 도넛 + 최신 신제품 -->
+          <div class="g2">
+            <div class="card">
+              <div class="card-header">
+                <div class="card-title"><span class="card-icon">🗂️</span>카테고리별 신제품 현황</div>
+              </div>
+              <div class="chart-wrap" style="height:240px;">
+                <canvas id="donutChart"></canvas>
+              </div>
+            </div>
+            <div class="card">
+              <div class="card-header">
+                <div class="card-title"><span class="card-icon">🆕</span>최신 신제품</div>
+                <button class="btn btn-secondary" style="padding:6px 12px;font-size:12px;"
+                  onclick="navigate('products')">전체 →</button>
+              </div>
+              <div id="latestMini"></div>
+            </div>
+          </div>
+
+        </section><!-- /dashboard -->
+
+
+        <!-- ─────────────────────────────────────────────
+           VIEW: TRENDS
+           ───────────────────────────────────────────── -->
+        <section id="trends" class="view">
+
+          <!-- 키워드 선택기 -->
+          <div class="card" style="margin-bottom:18px;">
+            <div class="card-header">
+              <div class="card-title"><span class="card-icon">🎯</span>비교할 키워드 선택 <span
+                  style="font-size:12px;color:var(--text-muted);font-weight:400;">(최대 5개)</span></div>
+              <div class="card-meta">클릭하여 선택/해제</div>
+            </div>
+            <div id="kwSelector" class="kw-grid"></div>
+          </div>
+
+          <!-- 비교 차트 -->
+          <div class="card" style="margin-bottom:18px;">
+            <div class="card-header">
+              <div class="card-title"><span class="card-icon">📊</span>키워드 비교 분석 (30일)</div>
+            </div>
+            <div class="chart-wrap" style="height:360px;">
+              <canvas id="compareChart"></canvas>
+            </div>
+          </div>
+
+          <!-- 키워드 상세 카드 -->
+          <div id="kwCards" class="g3"></div>
+
+        </section><!-- /trends -->
+
+
+        <!-- ─────────────────────────────────────────────
+           VIEW: PRODUCTS
+           ───────────────────────────────────────────── -->
+        <section id="products" class="view">
+
+          <!-- 필터 -->
+          <div class="card" style="margin-bottom:18px;">
+            <div class="card-header">
+              <div class="card-title"><span class="card-icon">🗂️</span>카테고리 필터</div>
+              <div class="card-meta">총 <strong style="color:var(--primary)">20</strong>개 신제품</div>
+            </div>
+            <div class="filter-bar">
+              <button class="filter-btn pf-btn active" data-f="전체">🍽️ 전체</button>
+              <button class="filter-btn pf-btn" data-f="라면">🍜 라면</button>
+              <button class="filter-btn pf-btn" data-f="스낵">🥜 스낵</button>
+              <button class="filter-btn pf-btn" data-f="음료">🧃 음료</button>
+              <button class="filter-btn pf-btn" data-f="간편식">🍱 간편식</button>
+              <button class="filter-btn pf-btn" data-f="제과">🍪 제과</button>
+              <button class="filter-btn pf-btn" data-f="빙과">🍦 빙과</button>
+              <button class="filter-btn pf-btn" data-f="유제품">🥛 유제품</button>
+              <button class="filter-btn pf-btn" data-f="베이커리">🥐 베이커리</button>
+              <button class="filter-btn pf-btn" data-f="건강식품">💊 건강식품</button>
+            </div>
+          </div>
+
+          <div id="productsGrid" class="products-grid"></div>
+
+        </section><!-- /products -->
+
+
+        <!-- ─────────────────────────────────────────────
+           VIEW: CATEGORY
+           ───────────────────────────────────────────── -->
+        <section id="category" class="view">
+
+          <!-- 카테고리 선택 카드 -->
+          <div id="catCards" class="cat-grid"></div>
+
+          <!-- 키워드 차트 + 브랜드 분석 -->
+          <div class="g2">
+            <div class="card">
+              <div class="card-header">
+                <div class="card-title"><span class="card-icon">🏷️</span>카테고리별 인기 키워드</div>
+                <div class="card-meta">최신 검색 지수 기준</div>
+              </div>
+              <div class="chart-wrap" style="height:280px;">
+                <canvas id="catKwChart"></canvas>
+              </div>
+            </div>
+            <div class="card">
+              <div class="card-header">
+                <div class="card-title"><span class="card-icon">🏢</span>브랜드 분석</div>
+              </div>
+              <div id="catBrandStats"></div>
+            </div>
+          </div>
+
+        </section><!-- /category -->
+
+
+        <!-- ─────────────────────────────────────────────
+           VIEW: REPORT
+           ───────────────────────────────────────────── -->
+        <section id="report" class="view">
+
+          <div class="report-title">📋 주간 식품 트렌드 리포트</div>
+          <div class="report-meta" id="reportMeta">데이터 로딩 중…</div>
+
+          <!-- 하이라이트 3카드 -->
+          <div class="g3" style="margin-bottom:24px;">
+            <div class="card card-glow-orange">
+              <div style="font-size:28px;margin-bottom:8px;">🔥</div>
+              <div style="font-size:20px;font-weight:900;color:var(--primary);" id="hl-top-kw">-</div>
+              <div style="font-size:12px;color:var(--text-secondary);margin-top:3px;">이번 주 1위 키워드</div>
+              <div style="font-size:32px;font-weight:900;color:var(--primary);margin-top:8px;" id="hl-top-kw-val">-</div>
+            </div>
+            <div class="card card-glow-teal">
+              <div style="font-size:28px;margin-bottom:8px;">📦</div>
+              <div style="font-size:20px;font-weight:900;color:var(--accent);" id="hl-top-cat">-</div>
+              <div style="font-size:12px;color:var(--text-secondary);margin-top:3px;">신제품 최다 카테고리</div>
+              <div style="font-size:32px;font-weight:900;color:var(--accent);margin-top:8px;" id="hl-top-cat-val">-</div>
+            </div>
+            <div class="card card-glow-rose">
+              <div style="font-size:28px;margin-bottom:8px;">📉</div>
+              <div style="font-size:20px;font-weight:900;color:var(--rose);" id="hl-worst-kw">-</div>
+              <div style="font-size:12px;color:var(--text-secondary);margin-top:3px;">주의 필요 키워드</div>
+              <div style="font-size:32px;font-weight:900;color:var(--rose);margin-top:8px;" id="hl-worst-kw-val">-</div>
+            </div>
+          </div>
+
+          <!-- 인사이트 -->
+          <div class="card" style="margin-bottom:18px;">
+            <div class="card-header">
+              <div class="card-title"><span class="card-icon">💡</span>주요 인사이트</div>
+              <button class="btn btn-primary" onclick="exportReport()">📥 리포트 다운로드</button>
+            </div>
+            <div id="reportInsights"></div>
+          </div>
+
+          <!-- 전체 키워드 변화율 차트 -->
+          <div class="card">
+            <div class="card-header">
+              <div class="card-title"><span class="card-icon">📊</span>전체 키워드 변화율 비교</div>
+              <div class="card-meta">전주 대비 (%)</div>
+            </div>
+            <div class="chart-wrap" style="height:280px;">
+              <canvas id="reportChart"></canvas>
+            </div>
+          </div>
+
+        </section><!-- /report -->
+
+      </div><!-- /content -->
+    </div><!-- /main-content -->
+  </div><!-- /app -->
+
+  <script src="js/data.js"></script>
+  <script src="js/app.js"></script>
+</body>
+
+</html>
