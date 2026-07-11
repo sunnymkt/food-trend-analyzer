@@ -767,6 +767,7 @@ function exportReport() {
 /* ── 전역 검색 ───────────────────────────────────────────── */
 function handleSearch(q) {
   productSearch = q;
+  if(q && currentView !== 'products') navigate('products');
   if(currentView === 'products') renderProducts();
 }
 
