@@ -239,7 +239,7 @@ body::before {
 .down { color:var(--rose); }
 
 /* ── KPI 카드 호버 툴팁 ──────────────────────────────────── */
-.kpi-card { position:relative; }
+.kpi-card { position:relative; overflow:visible; }
 .kpi-tooltip {
   position:absolute; left:50%; bottom:calc(100% + 12px);
   transform:translateX(-50%) translateY(6px);
@@ -250,7 +250,7 @@ body::before {
   box-shadow:var(--shadow-lg);
   opacity:0; visibility:hidden; pointer-events:none;
   transition:opacity .18s var(--ease), transform .18s var(--ease);
-  z-index:60;
+  z-index:150;
 }
 .kpi-tooltip strong { color:#fff; }
 .kpi-tooltip::after {
