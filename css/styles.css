@@ -239,7 +239,11 @@ body::before {
 .down { color:var(--rose); }
 
 /* ── KPI 카드 호버 툴팁 ──────────────────────────────────── */
+/* .card:hover 의 transform은 새 stacking context를 만들어서, 그 안의
+   .kpi-tooltip에 아무리 높은 z-index를 줘도 카드 바깥(뒤에 오는 형제 카드)
+   으로는 못 나간다. 호버된 카드 자체를 형제들보다 위로 끌어올려야 한다. */
 .kpi-card { position:relative; overflow:visible; }
+.kpi-card:hover { z-index:200; }
 .kpi-tooltip {
   position:absolute; left:50%; top:calc(100% + 12px);
   transform:translateX(-50%) translateY(-6px);
