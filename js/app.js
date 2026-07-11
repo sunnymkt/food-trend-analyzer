@@ -107,16 +107,31 @@ function navigate(viewId) {
    DASHBOARD
    ════════════════════════════════════════════════════════════ */
 function renderDashboard() {
-  const risingCount = Object.values(KEYWORD_DATA).filter(d => d.changeRate > 50).length;
+  const risingCount = Object.values(KEYWORD_DATA).filter(d => d.changeRate > 0).length;
   setTimeout(() => {
     animNum(document.getElementById('kpi-kw'),   Object.keys(KEYWORD_DATA).length);
     animNum(document.getElementById('kpi-prod'), NEW_PRODUCTS.length);
     animNum(document.getElementById('kpi-rise'), risingCount);
   }, 80);
+  renderTopKeywordBadges();
   renderMainChart();
   renderDonut();
   renderRankings();
   renderLatestMini();
+}
+
+/* 급상승 키워드 TOP 10 뱃지 */
+function renderTopKeywordBadges() {
+  const el = document.getElementById('topKwBadges');
+  if(!el) return;
+  const sorted = Object.entries(KEYWORD_DATA)
+    .sort((a,b) => b[1].changeRate - a[1].changeRate)
+    .slice(0,10);
+  el.innerHTML = sorted.map(([kw,d],i) => `
+    <div class="kw-badge ${i<3?'t1':i<7?'t2':'t3'}">
+      <span class="rank">#${i+1}</span>${kw}<span class="pct">${d.changeRate>=0?'+':''}${d.changeRate}%</span>
+    </div>
+  `).join('');
 }
 
 /* 30일 라인 차트 */

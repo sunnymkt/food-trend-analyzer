@@ -91,6 +91,27 @@ def call_naver_api(client_id, client_secret, start_date, end_date, keyword_batch
     raise RuntimeError(f"네이버 API 호출 실패: {last_err}")
 
 
+def all_dates(start_date, end_date):
+    start = datetime.fromisoformat(start_date).date()
+    end = datetime.fromisoformat(end_date).date()
+    out = []
+    d = start
+    while d <= end:
+        out.append(d.isoformat())
+        d += timedelta(days=1)
+    return out
+
+
+def align_to_range(data_points, start_date, end_date):
+    """네이버 API는 검색량이 극히 낮은 키워드의 경우 일부 날짜를 응답에서
+    통째로 생략할 수 있다(관측: '단짠' 키워드가 30일 중 25일치만 반환됨).
+    그대로 쓰면 날짜 배열(DATES_30)과 길이가 어긋나 그래프가 밀린다.
+    period 값을 기준으로 전체 날짜에 맞춰 재정렬하고, 응답에 없는 날짜는
+    검색량 0(=거의 검색되지 않음)으로 채운다."""
+    by_period = {p["period"]: round(p["ratio"], 1) for p in data_points}
+    return [by_period.get(d, 0.0) for d in all_dates(start_date, end_date)]
+
+
 def compute_change_rate(values):
     """최신값 vs 7일 전 값 기준 전주 대비 변화율(%)."""
     if len(values) < 8:
@@ -127,8 +148,7 @@ def main():
             resp = call_naver_api(client_id, client_secret, start_date, end_date, batch)
             for result in resp.get("results", []):
                 kw = result["title"]
-                ratios = [round(point["ratio"], 1) for point in result["data"]]
-                trend_by_keyword[kw] = ratios
+                trend_by_keyword[kw] = align_to_range(result["data"], start_date, end_date)
             time.sleep(0.3)  # 배치 사이 짧은 텀
     except Exception as e:
         print(f"ERROR: {e}", file=sys.stderr)
