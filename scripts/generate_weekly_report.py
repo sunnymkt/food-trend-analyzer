@@ -199,12 +199,12 @@ CSS = """
   .masthead-meta { font-size:12.5px; color:var(--muted); }
   .masthead-meta b { color:var(--ink); font-weight:700; }
   section { padding:26px 28px; border-bottom:1px solid var(--rule); }
-  .label { font-size:11px; font-weight:700; letter-spacing:.14em; text-transform:uppercase; color:var(--muted); margin-bottom:14px; }
+  .label { font-size:13.5px; font-weight:900; letter-spacing:.08em; text-transform:uppercase; color:var(--ink); margin-bottom:14px; }
   h2 { font-size:17px; font-weight:800; letter-spacing:-.01em; margin:0 0 4px; }
   .section-sub { font-size:12.5px; color:var(--muted); margin-bottom:18px; }
   .hl-grid { display:flex; flex-wrap:wrap; gap:20px 28px; }
   .hl-item { flex:1 1 130px; min-width:130px; }
-  .hl-value { font-size:23px; font-weight:900; letter-spacing:-.02em; margin-bottom:3px; }
+  .hl-value { font-size:23px; font-weight:900; letter-spacing:-.02em; margin-top:4px; }
   .hl-value.up { color:var(--good); } .hl-value.down { color:var(--bad); }
   .hl-value .unit { font-size:14px; font-weight:700; }
   .hl-label { font-size:12px; color:var(--muted); }
@@ -326,21 +326,21 @@ def render_html(ctx):
     <div class="label">한눈에 보기</div>
     <div class="hl-grid">
       <div class="hl-item">
-        <div class="hl-value up">{esc(top_up_kw or "-")} <span class="unit num">{fmt_pct(top_up_d["changeRate"]) if top_up_d else ""}</span></div>
         <div class="hl-label">이번 주 최고 상승 키워드</div>
+        <div class="hl-value up">{esc(top_up_kw or "-")} <span class="unit num">{fmt_pct(top_up_d["changeRate"]) if top_up_d else ""}</span></div>
       </div>
       <div class="hl-item">
-        <div class="hl-value down">{esc(top_down_kw or "-")} <span class="unit num">{fmt_pct(top_down_d["changeRate"]) if top_down_d else ""}</span></div>
         <div class="hl-label">주의가 필요한 하락 키워드</div>
+        <div class="hl-value down">{esc(top_down_kw or "-")} <span class="unit num">{fmt_pct(top_down_d["changeRate"]) if top_down_d else ""}</span></div>
       </div>
       <div class="hl-item">
-        <div class="hl-value">{esc(top_cat_name or "-")} <span class="unit num">{top_cat_count}건</span></div>
         <div class="hl-label">신제품 최다 카테고리</div>
+        <div class="hl-value">{esc(top_cat_name or "-")} <span class="unit num">{top_cat_count}건</span></div>
         <div class="hl-sub num">전체 {ctx["total_products"]}건 중</div>
       </div>
       <div class="hl-item">
-        <div class="hl-value">{esc(top_brand_name or "-")} <span class="unit num">{top_brand_count}건</span></div>
         <div class="hl-label">최다 신제품 출시 브랜드</div>
+        <div class="hl-value">{esc(top_brand_name or "-")} <span class="unit num">{top_brand_count}건</span></div>
         <div class="hl-sub">최근 30일 누적</div>
       </div>
     </div>
