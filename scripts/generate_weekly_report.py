@@ -15,7 +15,9 @@ import argparse
 import base64
 import html
 import json
+import logging
 import os
+import re
 import smtplib
 import sys
 import traceback
@@ -26,8 +28,13 @@ from email.mime.text import MIMEText
 from email.utils import formataddr, parseaddr
 from pathlib import Path
 
+from premailer import transform as premailer_transform
+
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 from _env import load_env_file  # noqa: E402
+
+logging.getLogger("premailer").setLevel(logging.ERROR)
+logging.getLogger("CSSUTILS").setLevel(logging.CRITICAL)
 
 ROOT = Path(__file__).resolve().parent.parent
 DATA_DIR = ROOT / "data"
@@ -236,6 +243,21 @@ CSS = """
 """
 
 
+def resolve_css_vars(css_text):
+    """이메일 클라이언트 대부분은 CSS 커스텀 프로퍼티(var())를 지원하지 않고,
+    <style> 블록 자체가 잘려나가면 :root 변수 정의도 함께 사라진다. premailer로
+    인라인화하기 전에 var(--x)를 실제 값으로 치환하고 :root 블록은 제거한다."""
+    root_match = re.search(r':root\s*\{([^}]*)\}', css_text)
+    if not root_match:
+        return css_text
+    variables = dict(re.findall(r'--([\w-]+)\s*:\s*([^;]+);', root_match.group(1)))
+    css_text = css_text[:root_match.start()] + css_text[root_match.end():]
+    return re.sub(r'var\(--([\w-]+)\)', lambda m: variables.get(m.group(1), m.group(0)), css_text)
+
+
+CSS = resolve_css_vars(CSS)
+
+
 def render_html(ctx):
     logo_img = (
         f'<img class="masthead-logo" src="{ctx["logo_data_uri"]}" alt="농협식품 로고">'
@@ -373,6 +395,18 @@ def render_html(ctx):
 </div></body></html>"""
 
 
+def inline_css(html_body):
+    """네이버메일 등 대부분의 웹메일 클라이언트는 <style> 블록을 통째로 걸러낸다.
+    premailer로 모든 CSS를 각 태그의 style="" 속성에 직접 박아넣어야 실제 메일에서도
+    레이아웃이 유지된다. 아카이브(iframe) 뷰에도 동일한 결과물을 쓴다."""
+    return premailer_transform(
+        html_body,
+        keep_style_tags=False,
+        remove_classes=False,
+        disable_validation=True,
+    )
+
+
 def archive_report(ctx, html_body):
     """매주 발행분을 프론트엔드 "푸드트렌드 위클리(메일)" 카드뉴스 아카이브용으로 누적 저장한다.
     같은 날짜로 재실행되면(예: workflow_dispatch 재시도) 그 날짜 항목을 덮어쓴다."""
@@ -446,7 +480,7 @@ def main():
 
     load_env_file()
     ctx = build_context()
-    html_body = render_html(ctx)
+    html_body = inline_css(render_html(ctx))
     archive_report(ctx, html_body)
 
     if args.dry_run:

@@ -1,1 +1,2 @@
 playwright>=1.45
+premailer>=3.10
