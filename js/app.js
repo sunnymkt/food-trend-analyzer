@@ -777,6 +777,32 @@ function exportReport() {
   URL.revokeObjectURL(url);
 }
 
+/* ── 현재 탭 PDF 내보내기 (A4 가로, 인쇄를 통한 저장) ──────── */
+function exportCurrentTabPDF() {
+  const title = document.getElementById('topbar-title')?.textContent || 'FoodTrend AI';
+  const today = new Date();
+  const dateStr = `${today.getFullYear()}.${String(today.getMonth()+1).padStart(2,'0')}.${String(today.getDate()).padStart(2,'0')}`;
+
+  const printHeader = document.getElementById('printHeader');
+  if(printHeader) {
+    printHeader.innerHTML = `
+      <div class="ph-top"><span>FoodTrend AI · 식품 트렌드 분석기</span><span>${dateStr} 기준</span></div>
+      <h1>${title}</h1>
+    `;
+  }
+
+  const prevDocTitle = document.title;
+  document.title = `FoodTrend-${currentView}-${today.toISOString().slice(0,10)}`;
+
+  window.print();
+
+  document.title = prevDocTitle;
+}
+window.addEventListener('afterprint', () => {
+  const printHeader = document.getElementById('printHeader');
+  if(printHeader) printHeader.innerHTML = '';
+});
+
 /* ── 전역 검색 ───────────────────────────────────────────── */
 function handleSearch(q) {
   productSearch = q;

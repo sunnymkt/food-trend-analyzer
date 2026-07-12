@@ -460,3 +460,39 @@ select option { background:var(--bg-secondary); color:var(--text-primary); }
   .topbar   { padding:0 16px; }
   .content  { padding:16px; }
 }
+
+/* ── PDF 내보내기 (인쇄) ─────────────────────────────────── */
+.print-header { display:none; }
+
+@media print {
+  @page { size: A4 landscape; margin: 12mm; }
+
+  .sidebar, .topbar, .data-error-banner,
+  .btn, .search-bar, .filter-bar, .kpi-tooltip,
+  #globalSearch { display:none !important; }
+
+  body { background:#fff; }
+  .main-content { margin-left:0 !important; }
+  .content { padding:0 !important; }
+
+  .print-header {
+    display:block; margin-bottom:14px; padding-bottom:10px;
+    border-bottom:2px solid var(--text-primary);
+  }
+  .print-header .ph-top {
+    display:flex; justify-content:space-between; align-items:baseline;
+    font-size:11px; color:var(--text-muted);
+  }
+  .print-header h1 {
+    font-size:20px; font-weight:900; margin:4px 0 0; color:var(--text-primary);
+  }
+
+  /* 카드가 페이지 경계에서 잘리지 않도록 */
+  .card, .product-card, .cat-card, .insight-card { break-inside:avoid; box-shadow:none !important; }
+  .card:hover, .product-card:hover, .cat-card:hover { transform:none !important; }
+
+  .g4  { grid-template-columns:repeat(4,1fr) !important; }
+  .g3  { grid-template-columns:repeat(3,1fr) !important; }
+  .g2, .g73 { grid-template-columns:1fr 1fr !important; }
+  .cat-grid { grid-template-columns:repeat(5,1fr) !important; }
+}

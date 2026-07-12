@@ -99,10 +99,13 @@
         </div>
 
         <div style="display:flex;gap:9px;">
-          <button class="btn btn-secondary" onclick="exportReport()">📥 내보내기</button>
+          <button class="btn btn-secondary" onclick="exportCurrentTabPDF()">🖨️ PDF 내보내기</button>
           <button class="btn btn-primary" onclick="navigate('report')">📋 리포트</button>
         </div>
       </header>
+
+      <!-- 인쇄 전용 머리말 (화면에는 안 보이고, PDF 출력에만 표시) -->
+      <div id="printHeader" class="print-header"></div>
 
       <!-- 콘텐츠 -->
       <div class="content">
