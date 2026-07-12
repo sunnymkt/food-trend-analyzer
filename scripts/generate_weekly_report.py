@@ -255,7 +255,7 @@ def render_html(ctx):
         if not items:
             return '<div class="news-item" style="color:var(--faint);font-size:12.5px;">수집된 기사가 없습니다.</div>'
         return "".join(
-            f'<div class="news-item"><a href="{esc(a["link"])}">{esc(a["title"])}</a>'
+            f'<div class="news-item"><a href="{esc(a["link"])}" target="_blank" rel="noopener noreferrer">{esc(a["title"])}</a>'
             f'<div class="news-item-meta">#{esc(a["keyword"])} · {fmt_date_short(a.get("pubDate"))}</div></div>'
             for a in items
         )
