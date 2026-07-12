@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-네이버 데이터랩 검색어트렌드 API로 키워드별 30일 검색 추이를 가져와
+네이버 데이터랩 검색어트렌드 API로 키워드별 최근 3개월(90일) 검색 추이를 가져와
 data/keyword_trends.json 을 생성한다.
 
 필요 환경변수:
@@ -35,7 +35,7 @@ META_PATH = DATA_DIR / "meta.json"
 
 NAVER_API_URL = "https://openapi.naver.com/v1/datalab/search"
 BATCH_SIZE = 5          # 네이버 API: keywordGroups 최대 5개/요청
-WINDOW_DAYS = 30         # 최근 30일 추이
+WINDOW_DAYS = 90         # 최근 3개월(90일) 추이
 KST = timezone(timedelta(hours=9))
 
 
@@ -104,8 +104,8 @@ def all_dates(start_date, end_date):
 
 def align_to_range(data_points, start_date, end_date):
     """네이버 API는 검색량이 극히 낮은 키워드의 경우 일부 날짜를 응답에서
-    통째로 생략할 수 있다(관측: '단짠' 키워드가 30일 중 25일치만 반환됨).
-    그대로 쓰면 날짜 배열(DATES_30)과 길이가 어긋나 그래프가 밀린다.
+    통째로 생략할 수 있다(관측: '단짠' 키워드가 요청 기간 중 일부 날짜만 반환됨).
+    그대로 쓰면 프론트엔드의 날짜 배열과 길이가 어긋나 그래프가 밀린다.
     period 값을 기준으로 전체 날짜에 맞춰 재정렬하고, 응답에 없는 날짜는
     검색량 0(=거의 검색되지 않음)으로 채운다."""
     by_period = {p["period"]: round(p["ratio"], 1) for p in data_points}

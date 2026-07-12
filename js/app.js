@@ -91,7 +91,7 @@ function navigate(viewId) {
 
   const TITLES = {
     dashboard: ['📊 대시보드',      '오늘의 식품 트렌드 종합 현황'],
-    trends:    ['📈 트렌드 분석',    '키워드 30일 시계열 비교'],
+    trends:    ['📈 트렌드 분석',    '키워드 3개월 시계열 비교'],
     products:  ['🆕 신제품 트래킹', '일별 신제품 모니터링'],
     category:  ['🗂️ 카테고리 분석', '카테고리별 키워드 심층 분석'],
     report:    ['📋 주간 리포트',   '자동 생성 인사이트 리포트'],
@@ -141,7 +141,7 @@ function renderTopKeywordBadges() {
   `).join('');
 }
 
-/* 30일 라인 차트 */
+/* 3개월 라인 차트 */
 function renderMainChart() {
   const ctx = document.getElementById('mainChart');
   if(!ctx) return;
@@ -832,7 +832,7 @@ function renderKpiTooltips() {
   const kwEl = document.getElementById('kpi-kw-tooltip');
   if(kwEl) {
     const list = Object.keys(KEYWORD_DATA).join(', ');
-    kwEl.innerHTML = `<strong>추적 중인 키워드 ${Object.keys(KEYWORD_DATA).length}개</strong><br>${list}<br><br>출처: 네이버 데이터랩 검색어트렌드 (최근 30일)`;
+    kwEl.innerHTML = `<strong>추적 중인 키워드 ${Object.keys(KEYWORD_DATA).length}개</strong><br>${list}<br><br>출처: 네이버 데이터랩 검색어트렌드 (최근 3개월)`;
   }
 
   const prodEl = document.getElementById('kpi-prod-tooltip');
