@@ -1,0 +1,36 @@
+name: 주간 리포트 이메일 발송
+
+on:
+  schedule:
+    # 매주 월요일 07:30 KST = 일요일 22:30 UTC.
+    # 일별 데이터 갱신(07:00 KST)이 끝난 뒤 최신 데이터로 발송되도록 30분 여유를 둔다.
+    - cron: "30 22 * * 0"
+  workflow_dispatch: {}
+
+permissions:
+  contents: read
+
+jobs:
+  send-report:
+    runs-on: ubuntu-latest
+    steps:
+      - name: 저장소 체크아웃
+        uses: actions/checkout@v4
+
+      - name: Python 설정
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: 파이썬 의존성 설치
+        run: pip install -r scripts/requirements.txt
+
+      - name: 리포트 생성 및 발송
+        env:
+          SMTP_HOST: ${{ secrets.SMTP_HOST }}
+          SMTP_PORT: ${{ secrets.SMTP_PORT }}
+          SMTP_USER: ${{ secrets.SMTP_USER }}
+          SMTP_PASSWORD: ${{ secrets.SMTP_PASSWORD }}
+          SMTP_FROM: ${{ secrets.SMTP_FROM }}
+          REPORT_RECIPIENTS: ${{ secrets.REPORT_RECIPIENTS }}
+        run: python scripts/generate_weekly_report.py

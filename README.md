@@ -13,7 +13,8 @@
   카테고리별 가격대(최저~최고 + 평균), 브랜드별 신제품 출시속도(최근 30일 누적)
 - **업계 뉴스** — 두 섹션: ① 추적 키워드 기준 "OO 신제품" 관련 기사, ② 식품 표시·위생·
   안전 등 법규/제도 변화 기사 (`data/regulatory_topics.json`에서 주제 관리)
-- **주간 리포트** — 자동 계산된 하이라이트 + 인사이트, 텍스트로 내보내기
+- **주간 리포트** — 자동 계산된 하이라이트 + 인사이트, 텍스트로 내보내기. 같은 내용을
+  이메일(HTML)로도 발송 가능 (`scripts/generate_weekly_report.py`, 매주 월요일 자동)
 
 ## 데이터 흐름
 
@@ -97,6 +98,48 @@ git push -u origin main
 git remote add origin https://github.com/<user>/<repo>.git
 git push -u origin main
 ```
+
+## 주간 리포트 이메일 자동 발송
+
+`scripts/generate_weekly_report.py`가 `data/*.json`을 바탕으로 HTML 리포트를 만들어
+이메일로 보냅니다. 로컬에서 먼저 확인해보세요:
+
+```bash
+python scripts/generate_weekly_report.py --dry-run
+# out/weekly_report_preview.html 로 저장됨 (발송 안 함) — 브라우저로 열어서 확인
+```
+
+발송을 실제로 해보려면 `.env`에 SMTP 접속정보를 채운 뒤:
+
+```bash
+python scripts/generate_weekly_report.py
+```
+
+### GitHub Actions로 매주 월요일 자동 발송
+
+1. 저장소 **Settings → Secrets and variables → Actions**에서 Repository secret을 등록합니다.
+   - `SMTP_HOST`, `SMTP_PORT`, `SMTP_USER`, `SMTP_PASSWORD`, `SMTP_FROM`, `REPORT_RECIPIENTS`
+2. `.github/workflows/weekly-report.yml`이 매주 월요일 07:30 KST(일요일 22:30 UTC)에
+   자동 실행됩니다. 일별 데이터 갱신(07:00 KST) 직후 최신 데이터로 발송되도록
+   30분 여유를 뒀습니다.
+3. **Actions** 탭에서 "주간 리포트 이메일 발송" 워크플로를 수동 실행해서 바로 테스트할 수
+   있습니다.
+
+**중요 — 사내 메일서버 사용 시:** GitHub Actions는 외부 클라우드(공인 IP)에서 실행됩니다.
+회사 메일서버가 사내망에서만 SMTP 접속을 허용한다면 이 워크플로에서는 발송이 실패합니다.
+IT부서에 외부 접속 허용(또는 인증서/화이트리스트) 여부를 확인하세요. 접속이 안 되는
+경우, 자체 러너(self-hosted runner)를 사내망에 두거나, Gmail/SendGrid 등 외부에서 확실히
+접속되는 서비스로 바꾸는 방법이 있습니다.
+
+### 리포트 발송 로직
+
+- 로고는 `assets/nhfood_logo.jpg`를 base64로 인라인 임베드합니다 (이메일은 외부 이미지
+  URL을 차단하는 클라이언트가 많아 인라인이 안전합니다).
+- 상승/하락 키워드 TOP 5, 기회 키워드(수요 대비 신제품 공급이 적은 키워드), 카테고리별
+  신제품 현황, 브랜드 출시속도, 신제품/법규 뉴스 각 3건, 자동 생성 액션 제언 순으로
+  구성됩니다 (가격대 섹션은 제외).
+- 발송 실패 시(SMTP 오류 등) 워크플로가 실패 상태로 표시되어 Actions 탭에서 바로 확인할
+  수 있습니다.
 
 ## 알려진 한계
 

@@ -11,3 +11,6 @@ venv/
 .cache/
 Thumbs.db
 .DS_Store
+
+# 리포트 미리보기 (--dry-run 산출물, 커밋 대상 아님)
+out/
