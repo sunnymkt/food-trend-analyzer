@@ -333,7 +333,8 @@ body::before {
 }
 .product-card { position:relative; }
 .p-emoji    { font-size:30px; margin-bottom:2px; }
-.p-name     { font-size:13.5px; font-weight:800; color:var(--text-primary); }
+.p-name     { font-size:13.5px; font-weight:800; color:var(--text-primary); display:block; text-decoration:none; }
+a.p-name:hover { color:var(--primary); text-decoration:underline; }
 .p-brand    { font-size:11.5px; color:var(--text-muted); margin-top:-6px; }
 .p-tags     { display:flex; flex-wrap:wrap; gap:5px; }
 .p-footer   { display:flex; justify-content:space-between; align-items:center; margin-top:auto; }
@@ -346,7 +347,8 @@ body::before {
 .mini-row:last-child { border-bottom:none; }
 .mini-left { display:flex; align-items:center; gap:10px; }
 .mini-emoji { font-size:20px; }
-.mini-name  { font-size:13px; font-weight:600; color:var(--text-primary); }
+.mini-name  { font-size:13px; font-weight:600; color:var(--text-primary); display:block; text-decoration:none; }
+a.mini-name:hover { color:var(--primary); text-decoration:underline; }
 .mini-brand { font-size:11px; color:var(--text-muted); }
 
 /* ── 카테고리 카드 ───────────────────────────────────────── */

@@ -240,7 +240,9 @@ function renderLatestMini() {
       <div class="mini-left">
         <span class="mini-emoji">${p.emoji}</span>
         <div>
-          <div class="mini-name">${p.name}</div>
+          ${p.url
+            ? `<a href="${p.url}" target="_blank" rel="noopener noreferrer" class="mini-name">${p.name}</a>`
+            : `<div class="mini-name">${p.name}</div>`}
           <div class="mini-brand">${p.brand} · ${fmt(p.launchDate)}</div>
         </div>
       </div>
@@ -428,7 +430,9 @@ function renderProducts() {
   el.innerHTML = list.map(p => `
     <div class="product-card ${isNew(p.launchDate,7)?'new-badge':''}">
       <div class="p-emoji">${p.emoji}</div>
-      <div class="p-name">${p.name}</div>
+      ${p.url
+        ? `<a href="${p.url}" target="_blank" rel="noopener noreferrer" class="p-name">${p.name}</a>`
+        : `<div class="p-name">${p.name}</div>`}
       <div class="p-brand">${p.brand} · ${p.channel}</div>
       <div class="p-tags">
         <span class="tag ${catTagClass(p.category)}">${p.category}</span>
