@@ -4,7 +4,7 @@
 
 /* ── 데이터 참조 (init에서 loadAppData 완료 후 채워짐) ────── */
 let KEYWORD_DATA, NEW_PRODUCTS, CATEGORIES, BRAND_DATA, WEEKLY_SUMMARY, DATES_30, META;
-let KEYWORD_OPPORTUNITY, BRAND_VELOCITY, CATEGORY_PRICE, HISTORY_META, NEWS, CUSTOM_KEYWORD_GROUPS;
+let KEYWORD_OPPORTUNITY, BRAND_VELOCITY, CATEGORY_PRICE, HISTORY_META, NEWS, CUSTOM_KEYWORD_GROUPS, RELATED_KEYWORDS;
 
 /* ── 상태 ────────────────────────────────────────────────── */
 let currentView = 'dashboard';
@@ -13,6 +13,9 @@ let productSearch = '';
 let compareKws = ['흑임자', '유자', '제로슈거'];
 let selectedCat = '전체';
 let selectedBrand = null;
+let ckModalRelated = [];
+let ckModalRelatedPage = 0;
+const CK_RELATED_PAGE_SIZE = 25;
 const charts = {};
 
 /* ── Chart.js 공통 설정 ──────────────────────────────────── */
@@ -846,6 +849,10 @@ function openCkModal(keyword) {
     }
   });
 
+  ckModalRelated = (RELATED_KEYWORDS && RELATED_KEYWORDS[keyword]) || [];
+  ckModalRelatedPage = 0;
+  renderCkRelatedPage();
+
   modal.classList.remove('hidden');
 }
 
@@ -855,6 +862,44 @@ function closeCkModal() {
   destroyChart('ckModal');
 }
 document.addEventListener('keydown', e => { if (e.key === 'Escape') closeCkModal(); });
+
+/* 관련 인기검색어 25개씩 페이지네이션 */
+function renderCkRelatedPage() {
+  const listEl = document.getElementById('ckRelatedList');
+  const rangeEl = document.getElementById('ckRelatedRange');
+  const prevBtn = document.getElementById('ckRelatedPrev');
+  const nextBtn = document.getElementById('ckRelatedNext');
+  if (!listEl) return;
+
+  if (!ckModalRelated.length) {
+    listEl.innerHTML = `<div class="ck-related-empty">관련 인기검색어 데이터가 아직 없습니다</div>`;
+    if (rangeEl) rangeEl.textContent = '-';
+    if (prevBtn) prevBtn.disabled = true;
+    if (nextBtn) nextBtn.disabled = true;
+    return;
+  }
+
+  const start = ckModalRelatedPage * CK_RELATED_PAGE_SIZE;
+  const pageItems = ckModalRelated.slice(start, start + CK_RELATED_PAGE_SIZE);
+  listEl.innerHTML = pageItems.map((it, i) => `
+    <div class="ck-related-row">
+      <span class="ck-related-rank">${start + i + 1}</span>
+      <span class="ck-related-kw">${it.keyword}</span>
+      <span class="ck-related-vol">${(it.total || 0).toLocaleString()}</span>
+    </div>
+  `).join('');
+
+  const end = Math.min(start + CK_RELATED_PAGE_SIZE, ckModalRelated.length);
+  if (rangeEl) rangeEl.textContent = `${start + 1}-${end} / ${ckModalRelated.length}`;
+  if (prevBtn) prevBtn.disabled = ckModalRelatedPage === 0;
+  if (nextBtn) nextBtn.disabled = end >= ckModalRelated.length;
+}
+
+function ckRelatedPage(delta) {
+  const maxPage = Math.max(0, Math.ceil(ckModalRelated.length / CK_RELATED_PAGE_SIZE) - 1);
+  ckModalRelatedPage = Math.min(maxPage, Math.max(0, ckModalRelatedPage + delta));
+  renderCkRelatedPage();
+}
 
 /* ── 내보내기 ─────────────────────────────────────────────── */
 function exportReport() {
@@ -1071,7 +1116,7 @@ async function init() {
   try {
     const data = await window.loadAppData();
     ({ KEYWORD_DATA, NEW_PRODUCTS, CATEGORIES, BRAND_DATA, WEEKLY_SUMMARY, DATES_30, META,
-       KEYWORD_OPPORTUNITY, BRAND_VELOCITY, CATEGORY_PRICE, HISTORY_META, NEWS, CUSTOM_KEYWORD_GROUPS } = data);
+       KEYWORD_OPPORTUNITY, BRAND_VELOCITY, CATEGORY_PRICE, HISTORY_META, NEWS, CUSTOM_KEYWORD_GROUPS, RELATED_KEYWORDS } = data);
   } catch (err) {
     showDataError(err);
     return;

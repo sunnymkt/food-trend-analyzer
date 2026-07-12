@@ -17,7 +17,9 @@
   이메일(HTML)로도 발송 가능 (`scripts/generate_weekly_report.py`, 매주 월요일 자동)
 - **카테고리별 키워드(지정 키워드)** — 별도로 지정한 32개 키워드(19개 중분류로 그룹핑)의
   최근 3개월 검색 추이를 스파크라인으로 표시. 기존 12개 트렌드 키워드와는 완전히 분리된
-  데이터셋으로 관리됩니다 (`data/custom_keywords_config.json`, `scripts/fetch_custom_keyword_trends.py`)
+  데이터셋으로 관리됩니다 (`data/custom_keywords_config.json`, `scripts/fetch_custom_keyword_trends.py`).
+  키워드를 클릭하면 확대 차트와 함께 **관련 인기검색어(네이버 검색광고 API 기준, 검색량
+  TOP 50, 25개씩 페이지 이동)** 를 모달로 보여줍니다 (`scripts/fetch_related_keywords.py`)
 
 ## 데이터 흐름
 
@@ -27,6 +29,7 @@ scripts/crawl_kurly_products.py ──▶ data/new_products.json      ─┤
                                  └─▶ data/product_history.json   ─┼─▶ js/data.js (fetch) ─▶ js/app.js 렌더링
 scripts/fetch_food_news.py      ──▶ data/news.json              ─┤
 scripts/fetch_custom_keyword_trends.py ─▶ data/custom_keyword_trends.json ─┤
+scripts/fetch_related_keywords.py      ─▶ data/custom_keyword_related.json ┤
 data/categories.json (수동 큐레이션, 정적)                       ─┘
 ```
 
@@ -44,6 +47,10 @@ data/categories.json (수동 큐레이션, 정적)                       ─┘
   독립적으로 관리됩니다
 - `data/custom_keyword_trends.json` — **자동 생성**. 위 32개 키워드의 네이버 데이터랩
   검색어트렌드(최근 3개월) 결과. 중분류별로 그룹핑되어 "카테고리별 키워드" 탭에 표시됨
+- `data/custom_keyword_related.json` — **자동 생성**. 위 32개 키워드 각각의 네이버 검색광고
+  API "연관키워드" 결과 중 검색량(PC+모바일) 기준 상위 50개. 키워드 클릭 시 뜨는 확대
+  모달에서 25개씩 페이지 이동하며 표시됨. 특정 키워드 수집이 실패하면 그 키워드만 이전
+  값을 유지하고 나머지는 갱신됩니다
 - `data/meta.json` — 마지막 갱신 시각, 데이터 출처 표시
 
 프론트엔드는 `js/data.js`의 `window.loadAppData()`가 위 JSON들을 `fetch()`로 읽어
@@ -67,12 +74,14 @@ python scripts/fetch_naver_trends.py      # data/keyword_trends.json 갱신
 python scripts/crawl_kurly_products.py    # data/new_products.json, data/product_history.json 갱신
 python scripts/fetch_food_news.py         # data/news.json 갱신
 python scripts/fetch_custom_keyword_trends.py  # data/custom_keyword_trends.json 갱신
+python scripts/fetch_related_keywords.py       # data/custom_keyword_related.json 갱신
 ```
 
 - 지정 키워드를 추가/삭제하려면 `data/custom_keywords_config.json`의 `items` 배열만
   수정하면 됩니다 (`midCategory` + `keyword` 쌍, 네이버 API 5개/요청 제한은 자동 배치 처리).
   디버깅용으로 키워드 하나만 테스트하려면
   `python scripts/fetch_custom_keyword_trends.py --keyword 두부` 처럼 실행할 수 있습니다.
+  `fetch_related_keywords.py`도 동일하게 `--keyword` 옵션을 지원합니다.
 
 - 네이버 API 키는 [네이버 개발자센터](https://developers.naver.com/apps/#/register)에서
   애플리케이션 등록 후 발급됩니다. **API 상품을 두 개 등록해야 합니다**
@@ -85,14 +94,35 @@ python scripts/fetch_custom_keyword_trends.py  # data/custom_keyword_trends.json
 - 키워드를 추가/삭제하려면 `data/keywords_config.json`만 수정하면 됩니다 (네이버 API는
   요청당 키워드 그룹 5개 제한이 있어 스크립트가 자동으로 배치 처리합니다).
 
+### 관련 인기검색어(네이버 검색광고 API) 설정
+
+`fetch_related_keywords.py`는 **데이터랩과는 완전히 다른 네이버 계정**을 씁니다.
+
+1. [searchad.naver.com](https://searchad.naver.com) 에서 광고주로 회원가입/로그인합니다.
+2. 우측 상단 **도구 → API 사용 관리**에서 API 라이선스를 발급받습니다. 다음 3가지 값이
+   필요합니다:
+   - `NAVER_AD_API_KEY` (Access License)
+   - `NAVER_AD_SECRET_KEY` (Secret Key)
+   - `NAVER_AD_CUSTOMER_ID` (Customer ID, 숫자)
+3. 로컬 `.env`에 위 3개를 채워넣고 `python scripts/fetch_related_keywords.py --keyword 두부`
+   로 먼저 테스트해보세요.
+4. GitHub Actions에서 자동 수집하려면 저장소 **Settings → Secrets and variables → Actions**
+   에도 동일한 3개를 Repository secret으로 등록해야 합니다 (아래 "GitHub Actions" 섹션 참고).
+5. 이 API는 키워드 텍스트로 바로 조회하기 때문에(네이버 쇼핑 카테고리 코드 매핑 불필요),
+   32개 키워드 각각에 대해 개별 호출합니다(0.3초 간격). 특정 키워드 호출이 실패해도
+   그 키워드만 이전 데이터를 유지하고 나머지는 정상 갱신됩니다.
+6. 시크릿을 등록하지 않으면 이 스텝은 계속 실패하지만(`continue-on-error: true`),
+   나머지 데이터 수집·커밋에는 영향이 없고 "관련 인기검색어" 모달은 빈 상태로 표시됩니다.
+
 ## GitHub Actions로 매일 자동 갱신
 
 1. 이 프로젝트를 GitHub 저장소로 push 합니다 (아래 "GitHub 저장소 만들기" 참고).
-2. 저장소 **Settings → Secrets and variables → Actions**에서 Repository secret 2개를 등록합니다.
-   - `NAVER_CLIENT_ID`
-   - `NAVER_CLIENT_SECRET`
+2. 저장소 **Settings → Secrets and variables → Actions**에서 Repository secret을 등록합니다.
+   - `NAVER_CLIENT_ID`, `NAVER_CLIENT_SECRET` — 데이터랩용
+   - `NAVER_AD_API_KEY`, `NAVER_AD_SECRET_KEY`, `NAVER_AD_CUSTOMER_ID` — 검색광고(관련
+     인기검색어)용. 없어도 나머지 기능은 정상 동작하고, 이 스텝만 실패로 표시됩니다.
 3. `.github/workflows/update-data.yml`이 매일 07:00 KST(22:00 UTC)에 자동 실행되어
-   네 스크립트를 돌리고, 변경된 `data/*.json`을 자동 커밋·푸시합니다. 스크립트 중 하나가
+   다섯 스크립트를 돌리고, 변경된 `data/*.json`을 자동 커밋·푸시합니다. 스크립트 중 하나가
    실패해도(예: 뉴스 검색 API 미등록) 나머지는 계속 진행됩니다.
 4. **Actions** 탭에서 "일별 데이터 갱신" 워크플로를 수동 실행(`workflow_dispatch`)해서
    바로 테스트할 수 있습니다.

@@ -490,6 +490,19 @@
               <div class="ck-modal-pct" id="ckModalPct">-</div>
             </div>
             <div class="ck-modal-chart-wrap"><canvas id="ckModalChart"></canvas></div>
+
+            <div class="ck-related">
+              <div class="ck-related-header">
+                <span class="ck-related-title">관련 인기검색어</span>
+                <div class="ck-related-nav">
+                  <button class="ck-related-arrow" id="ckRelatedPrev" onclick="ckRelatedPage(-1)" aria-label="이전 25개">‹</button>
+                  <span class="ck-related-range" id="ckRelatedRange">-</span>
+                  <button class="ck-related-arrow" id="ckRelatedNext" onclick="ckRelatedPage(1)" aria-label="다음 25개">›</button>
+                </div>
+              </div>
+              <div id="ckRelatedList" class="ck-related-list"></div>
+            </div>
+
             <a id="ckModalNaverLink" href="https://datalab.naver.com/keyword/trendSearch.naver" target="_blank" rel="noopener noreferrer" class="ck-modal-naver-link">네이버 데이터랩에서 직접 조회하기 →</a>
           </div>
         </div>
