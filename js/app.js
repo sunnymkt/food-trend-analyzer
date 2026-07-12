@@ -99,7 +99,7 @@ function navigate(viewId) {
     category:  ['🗂️ 카테고리 분석', '카테고리별 키워드 심층 분석'],
     report:    ['📋 주간 리포트',   '자동 생성 인사이트 리포트'],
     news:      ['📰 업계 뉴스',     '식품 신제품 관련 최신 기사'],
-    customKeywords: ['🧾 카테고리별 키워드', '별도 지정 키워드 3개월 검색 추이'],
+    customKeywords: ['🧾 카테고리별 인기검색어', '별도 지정 키워드 3개월 검색 추이'],
   };
   if(TITLES[viewId]) {
     document.getElementById('topbar-title').textContent = TITLES[viewId][0];
