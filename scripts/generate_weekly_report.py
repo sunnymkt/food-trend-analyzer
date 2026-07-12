@@ -199,7 +199,10 @@ CSS = """
   .masthead-meta { font-size:12.5px; color:var(--muted); }
   .masthead-meta b { color:var(--ink); font-weight:700; }
   section { padding:26px 28px; border-bottom:1px solid var(--rule); }
-  .label { font-size:13.5px; font-weight:900; letter-spacing:.08em; text-transform:uppercase; color:var(--ink); margin-bottom:14px; }
+  .label {
+    display:inline-block; font-size:11.5px; font-weight:800; letter-spacing:.06em; text-transform:uppercase;
+    color:#fff; background:var(--ink); padding:5px 13px; border-radius:20px; margin-bottom:16px;
+  }
   h2 { font-size:17px; font-weight:800; letter-spacing:-.01em; margin:0 0 4px; }
   .section-sub { font-size:12.5px; color:var(--muted); margin-bottom:18px; }
   .hl-grid { display:flex; flex-wrap:wrap; gap:20px 28px; }
