@@ -351,6 +351,14 @@ a.p-name:hover { color:var(--primary); text-decoration:underline; }
 a.mini-name:hover { color:var(--primary); text-decoration:underline; }
 .mini-brand { font-size:11px; color:var(--text-muted); }
 
+/* ── 지정 키워드 (중분류 그룹 + 스파크라인) ────────────────── */
+.ck-groups { display:grid; grid-template-columns:repeat(auto-fill,minmax(320px,1fr)); gap:14px; align-items:start; }
+.ck-row { display:flex; align-items:center; gap:10px; padding:8px 0; border-bottom:1px solid var(--border); }
+.ck-row:last-child { border-bottom:none; }
+.ck-name { font-size:13px; font-weight:600; width:96px; flex-shrink:0; overflow:hidden; text-overflow:ellipsis; white-space:nowrap; }
+.ck-spark { flex:1; height:28px; display:block; }
+.ck-pct { width:48px; text-align:right; font-size:12.5px; font-weight:700; flex-shrink:0; }
+
 /* ── 카테고리 카드 ───────────────────────────────────────── */
 .cat-grid   { display:grid; grid-template-columns:repeat(5,1fr); gap:12px; margin-bottom:20px; }
 .cat-card {
@@ -495,4 +503,5 @@ select option { background:var(--bg-secondary); color:var(--text-primary); }
   .g3  { grid-template-columns:repeat(3,1fr) !important; }
   .g2, .g73 { grid-template-columns:1fr 1fr !important; }
   .cat-grid { grid-template-columns:repeat(5,1fr) !important; }
+  .ck-groups { grid-template-columns:repeat(3,1fr) !important; }
 }

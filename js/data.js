@@ -5,13 +5,14 @@
 // ============================================================
 
 window.loadAppData = async function loadAppData() {
-  const [trendsRaw, products, categoriesCfg, meta, historyRaw, newsRaw] = await Promise.all([
+  const [trendsRaw, products, categoriesCfg, meta, historyRaw, newsRaw, customKeywordsRaw] = await Promise.all([
     fetchJson('data/keyword_trends.json'),
     fetchJson('data/new_products.json'),
     fetchJson('data/categories.json'),
     fetchJson('data/meta.json'),
     fetchJsonOptional('data/product_history.json', {}),
     fetchJsonOptional('data/news.json', []),
+    fetchJsonOptional('data/custom_keyword_trends.json', {}),
   ]);
 
   // 설정 파일에 섞여있는 "_comment" 같은 메타 키는 제외한다.
@@ -30,10 +31,11 @@ window.loadAppData = async function loadAppData() {
   const CATEGORY_PRICE = buildCategoryPriceStats(NEW_PRODUCTS);
   const HISTORY_META = buildHistoryMeta(HISTORY);
   const NEWS = Array.isArray(newsRaw) ? newsRaw : [];
+  const CUSTOM_KEYWORD_GROUPS = buildCustomKeywordGroups(customKeywordsRaw);
 
   return {
     KEYWORD_DATA, NEW_PRODUCTS, CATEGORIES, BRAND_DATA, WEEKLY_SUMMARY, DATES_30, META: meta,
-    KEYWORD_OPPORTUNITY, BRAND_VELOCITY, CATEGORY_PRICE, HISTORY_META, NEWS,
+    KEYWORD_OPPORTUNITY, BRAND_VELOCITY, CATEGORY_PRICE, HISTORY_META, NEWS, CUSTOM_KEYWORD_GROUPS,
   };
 };
 
@@ -216,4 +218,22 @@ function buildCategoryPriceStats(products) {
       count: prices.length,
     }))
     .sort((a, b) => b.avg - a.avg);
+}
+
+// 지정 키워드(custom_keyword_trends.json)를 midCategory 기준으로 그룹핑.
+// 원본 엑셀/설정 파일에 적힌 순서(첫 등장 순)를 그대로 유지한다.
+function buildCustomKeywordGroups(raw) {
+  const groups = [];
+  const indexByMid = {};
+  for (const [keyword, d] of Object.entries(raw)) {
+    if (keyword.startsWith('_')) continue;
+    if (!(d.midCategory in indexByMid)) {
+      indexByMid[d.midCategory] = groups.length;
+      groups.push({ midCategory: d.midCategory, items: [] });
+    }
+    groups[indexByMid[d.midCategory]].items.push({
+      keyword, changeRate: d.changeRate, data: d.data,
+    });
+  }
+  return groups;
 }

@@ -15,6 +15,9 @@
   안전 등 법규/제도 변화 기사 (`data/regulatory_topics.json`에서 주제 관리)
 - **주간 리포트** — 자동 계산된 하이라이트 + 인사이트, 텍스트로 내보내기. 같은 내용을
   이메일(HTML)로도 발송 가능 (`scripts/generate_weekly_report.py`, 매주 월요일 자동)
+- **카테고리별 키워드(지정 키워드)** — 별도로 지정한 32개 키워드(19개 중분류로 그룹핑)의
+  최근 3개월 검색 추이를 스파크라인으로 표시. 기존 12개 트렌드 키워드와는 완전히 분리된
+  데이터셋으로 관리됩니다 (`data/custom_keywords_config.json`, `scripts/fetch_custom_keyword_trends.py`)
 
 ## 데이터 흐름
 
@@ -23,6 +26,7 @@ scripts/fetch_naver_trends.py   ──▶ data/keyword_trends.json    ─┐
 scripts/crawl_kurly_products.py ──▶ data/new_products.json      ─┤
                                  └─▶ data/product_history.json   ─┼─▶ js/data.js (fetch) ─▶ js/app.js 렌더링
 scripts/fetch_food_news.py      ──▶ data/news.json              ─┤
+scripts/fetch_custom_keyword_trends.py ─▶ data/custom_keyword_trends.json ─┤
 data/categories.json (수동 큐레이션, 정적)                       ─┘
 ```
 
@@ -35,6 +39,11 @@ data/categories.json (수동 큐레이션, 정적)                       ─┘
 - `data/regulatory_topics.json` — 법규/제도 뉴스 검색에 쓸 주제 목록 (수동 관리)
 - `data/news.json` — **자동 생성**. 네이버 뉴스 검색 API 결과. 각 기사는
   `category: "product" | "regulatory"` 로 구분됨
+- `data/custom_keywords_config.json` — 별도로 지정한 32개 키워드 목록과 중분류 (수동 관리,
+  원본: `키워드 검색용 분류.xlsx`). 기존 `keywords_config.json`(12개 트렌드 키워드)과는
+  독립적으로 관리됩니다
+- `data/custom_keyword_trends.json` — **자동 생성**. 위 32개 키워드의 네이버 데이터랩
+  검색어트렌드(최근 3개월) 결과. 중분류별로 그룹핑되어 "카테고리별 키워드" 탭에 표시됨
 - `data/meta.json` — 마지막 갱신 시각, 데이터 출처 표시
 
 프론트엔드는 `js/data.js`의 `window.loadAppData()`가 위 JSON들을 `fetch()`로 읽어
@@ -57,7 +66,13 @@ cp .env.example .env   # NAVER_CLIENT_ID / NAVER_CLIENT_SECRET 채워넣기
 python scripts/fetch_naver_trends.py      # data/keyword_trends.json 갱신
 python scripts/crawl_kurly_products.py    # data/new_products.json, data/product_history.json 갱신
 python scripts/fetch_food_news.py         # data/news.json 갱신
+python scripts/fetch_custom_keyword_trends.py  # data/custom_keyword_trends.json 갱신
 ```
+
+- 지정 키워드를 추가/삭제하려면 `data/custom_keywords_config.json`의 `items` 배열만
+  수정하면 됩니다 (`midCategory` + `keyword` 쌍, 네이버 API 5개/요청 제한은 자동 배치 처리).
+  디버깅용으로 키워드 하나만 테스트하려면
+  `python scripts/fetch_custom_keyword_trends.py --keyword 두부` 처럼 실행할 수 있습니다.
 
 - 네이버 API 키는 [네이버 개발자센터](https://developers.naver.com/apps/#/register)에서
   애플리케이션 등록 후 발급됩니다. **API 상품을 두 개 등록해야 합니다**
@@ -77,7 +92,7 @@ python scripts/fetch_food_news.py         # data/news.json 갱신
    - `NAVER_CLIENT_ID`
    - `NAVER_CLIENT_SECRET`
 3. `.github/workflows/update-data.yml`이 매일 07:00 KST(22:00 UTC)에 자동 실행되어
-   세 스크립트를 돌리고, 변경된 `data/*.json`을 자동 커밋·푸시합니다. 스크립트 중 하나가
+   네 스크립트를 돌리고, 변경된 `data/*.json`을 자동 커밋·푸시합니다. 스크립트 중 하나가
    실패해도(예: 뉴스 검색 API 미등록) 나머지는 계속 진행됩니다.
 4. **Actions** 탭에서 "일별 데이터 갱신" 워크플로를 수동 실행(`workflow_dispatch`)해서
    바로 테스트할 수 있습니다.

@@ -4,7 +4,7 @@
 
 /* ── 데이터 참조 (init에서 loadAppData 완료 후 채워짐) ────── */
 let KEYWORD_DATA, NEW_PRODUCTS, CATEGORIES, BRAND_DATA, WEEKLY_SUMMARY, DATES_30, META;
-let KEYWORD_OPPORTUNITY, BRAND_VELOCITY, CATEGORY_PRICE, HISTORY_META, NEWS;
+let KEYWORD_OPPORTUNITY, BRAND_VELOCITY, CATEGORY_PRICE, HISTORY_META, NEWS, CUSTOM_KEYWORD_GROUPS;
 
 /* ── 상태 ────────────────────────────────────────────────── */
 let currentView = 'dashboard';
@@ -96,6 +96,7 @@ function navigate(viewId) {
     category:  ['🗂️ 카테고리 분석', '카테고리별 키워드 심층 분석'],
     report:    ['📋 주간 리포트',   '자동 생성 인사이트 리포트'],
     news:      ['📰 업계 뉴스',     '식품 신제품 관련 최신 기사'],
+    customKeywords: ['🧾 카테고리별 키워드', '별도 지정 키워드 3개월 검색 추이'],
   };
   if(TITLES[viewId]) {
     document.getElementById('topbar-title').textContent = TITLES[viewId][0];
@@ -107,6 +108,7 @@ function navigate(viewId) {
     if(viewId === 'trends')    renderTrends();
     if(viewId === 'category')  renderCategory(selectedCat);
     if(viewId === 'news')      renderNews();
+    if(viewId === 'customKeywords') renderCustomKeywords();
   }, 30);
 }
 
@@ -741,6 +743,57 @@ function renderNewsSection(items, listId, metaId, tagClass) {
   `).join('');
 }
 
+/* ════════════════════════════════════════════════════════════
+   CUSTOM KEYWORDS (지정 키워드 — 기존 12개 트렌드 키워드와 별도 관리)
+   ════════════════════════════════════════════════════════════ */
+function renderCustomKeywords() {
+  const el = document.getElementById('ckGroups');
+  const metaEl = document.getElementById('ckMeta');
+  if(!el) return;
+
+  const totalKw = CUSTOM_KEYWORD_GROUPS.reduce((sum,g) => sum + g.items.length, 0);
+  if(metaEl) {
+    metaEl.textContent = totalKw
+      ? `${CUSTOM_KEYWORD_GROUPS.length}개 그룹 · ${totalKw}개 키워드 (${META && META.customKeywordsTrendStartDate || ''} ~ ${META && META.customKeywordsTrendEndDate || ''})`
+      : '-';
+  }
+
+  if(!totalKw) {
+    el.innerHTML = `<div class="empty" style="grid-column:1/-1"><div class="empty-icon">🧾</div><h3>수집된 데이터가 없습니다</h3><p>다음 자동 갱신을 기다려주세요</p></div>`;
+    return;
+  }
+
+  el.innerHTML = CUSTOM_KEYWORD_GROUPS.map(g => `
+    <div class="card">
+      <div class="card-header">
+        <div class="card-title" style="font-size:14px;">${g.midCategory}</div>
+        <div class="card-meta">${g.items.length}개</div>
+      </div>
+      ${g.items.map(it => `
+        <div class="ck-row">
+          <div class="ck-name">${it.keyword}</div>
+          ${buildSparkSvg(it.data, it.changeRate >= 0 ? 'var(--accent)' : 'var(--rose)')}
+          <div class="ck-pct ${it.changeRate>=0?'up':'down'}">${it.changeRate>=0?'+':''}${it.changeRate}%</div>
+        </div>
+      `).join('')}
+    </div>
+  `).join('');
+}
+
+/* 미니 스파크라인 SVG (인라인, Chart.js 없이 가벼운 추이 표시용) */
+function buildSparkSvg(data, color) {
+  const w = 100, h = 28, pad = 2;
+  const min = Math.min(...data), max = Math.max(...data);
+  const range = (max - min) || 1;
+  const stepX = data.length > 1 ? (w - pad*2) / (data.length - 1) : 0;
+  const points = data.map((v,i) => {
+    const x = pad + i*stepX;
+    const y = h - pad - ((v-min)/range) * (h - pad*2);
+    return `${x.toFixed(1)},${y.toFixed(1)}`;
+  }).join(' ');
+  return `<svg class="ck-spark" viewBox="0 0 ${w} ${h}" preserveAspectRatio="none"><polyline points="${points}" fill="none" stroke="${color}" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>`;
+}
+
 /* ── 내보내기 ─────────────────────────────────────────────── */
 function exportReport() {
   const lines = [
@@ -956,7 +1009,7 @@ async function init() {
   try {
     const data = await window.loadAppData();
     ({ KEYWORD_DATA, NEW_PRODUCTS, CATEGORIES, BRAND_DATA, WEEKLY_SUMMARY, DATES_30, META,
-       KEYWORD_OPPORTUNITY, BRAND_VELOCITY, CATEGORY_PRICE, HISTORY_META, NEWS } = data);
+       KEYWORD_OPPORTUNITY, BRAND_VELOCITY, CATEGORY_PRICE, HISTORY_META, NEWS, CUSTOM_KEYWORD_GROUPS } = data);
   } catch (err) {
     showDataError(err);
     return;

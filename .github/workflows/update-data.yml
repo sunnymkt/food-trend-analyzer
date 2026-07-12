@@ -48,14 +48,22 @@ jobs:
           NAVER_CLIENT_SECRET: ${{ secrets.NAVER_CLIENT_SECRET }}
         run: python scripts/fetch_food_news.py
 
+      - name: 지정 키워드 검색 추이 수집
+        id: custom-keywords
+        continue-on-error: true
+        env:
+          NAVER_CLIENT_ID: ${{ secrets.NAVER_CLIENT_ID }}
+          NAVER_CLIENT_SECRET: ${{ secrets.NAVER_CLIENT_SECRET }}
+        run: python scripts/fetch_custom_keyword_trends.py
+
       - name: 수집 결과 확인
-        if: steps.naver.outcome == 'failure' && steps.kurly.outcome == 'failure' && steps.news.outcome == 'failure'
+        if: steps.naver.outcome == 'failure' && steps.kurly.outcome == 'failure' && steps.news.outcome == 'failure' && steps.custom-keywords.outcome == 'failure'
         run: |
-          echo "::error::네이버 트렌드/뉴스 수집과 마켓컬리 크롤링이 모두 실패했습니다. data/*.json 은 이전 값을 유지합니다."
+          echo "::error::네이버 트렌드/뉴스/지정 키워드 수집과 마켓컬리 크롤링이 모두 실패했습니다. data/*.json 은 이전 값을 유지합니다."
           exit 1
 
       - name: 변경사항 커밋 & 푸시
-        if: always() && (steps.naver.outcome == 'success' || steps.kurly.outcome == 'success' || steps.news.outcome == 'success')
+        if: always() && (steps.naver.outcome == 'success' || steps.kurly.outcome == 'success' || steps.news.outcome == 'success' || steps.custom-keywords.outcome == 'success')
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"

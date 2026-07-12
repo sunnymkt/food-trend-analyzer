@@ -61,6 +61,12 @@
           <span class="nav-badge" id="nav-news-badge">0</span>
         </div>
 
+        <span class="nav-group-title">지정 키워드</span>
+
+        <div class="nav-item" data-view="customKeywords" onclick="navigate('customKeywords')">
+          <span class="nav-icon">🧾</span>카테고리별 키워드
+        </div>
+
         <span class="nav-group-title">리포트</span>
 
         <div class="nav-item" data-view="report" onclick="navigate('report')">
@@ -450,6 +456,27 @@
           </div>
 
         </section><!-- /news -->
+
+
+        <!-- ─────────────────────────────────────────────
+           VIEW: CUSTOM KEYWORDS (지정 키워드)
+           ───────────────────────────────────────────── -->
+        <section id="customKeywords" class="view">
+
+          <div class="card" style="margin-bottom:18px;">
+            <div class="card-header">
+              <div class="card-title"><span class="card-icon">🧾</span>카테고리별 지정 키워드</div>
+              <div class="card-meta" id="ckMeta">-</div>
+            </div>
+            <p style="font-size:12px;color:var(--text-muted);margin-bottom:4px;">
+              별도 지정한 32개 키워드의 최근 3개월 네이버 데이터랩 검색 추이입니다. 기존 12개
+              트렌드 키워드와는 분리되어 관리됩니다.
+            </p>
+          </div>
+
+          <div id="ckGroups" class="ck-groups"></div>
+
+        </section><!-- /customKeywords -->
 
       </div><!-- /content -->
     </div><!-- /main-content -->
