@@ -34,6 +34,7 @@ ROOT = Path(__file__).resolve().parent.parent
 DATA_DIR = ROOT / "data"
 KEYWORDS_CONFIG_PATH = DATA_DIR / "keywords_config.json"
 REGULATORY_TOPICS_PATH = DATA_DIR / "regulatory_topics.json"
+NEWS_FILTERS_PATH = DATA_DIR / "news_filters.json"
 OUTPUT_PATH = DATA_DIR / "news.json"
 META_PATH = DATA_DIR / "meta.json"
 
@@ -56,8 +57,33 @@ def load_regulatory_topics():
     return cfg["topics"]  # [{"label": ..., "query": ...}, ...]
 
 
+def load_exclude_keywords():
+    if not NEWS_FILTERS_PATH.exists():
+        return []
+    with open(NEWS_FILTERS_PATH, encoding="utf-8") as f:
+        cfg = json.load(f)
+    return cfg.get("excludeKeywords", [])
+
+
 def clean_text(s):
     return html.unescape(TAG_RE.sub("", s or "")).strip()
+
+
+def has_word_start_match(text, keyword):
+    """keyword가 다른 한글 단어의 일부로 우연히 포함된 경우(예: '마라'가 '막스마라'에
+    포함)를 걸러내기 위해, 다른 한글/영숫자 글자로 시작하지 않는 위치에서 매칭되는지
+    확인한다. '마라탕'처럼 keyword 뒤에 글자가 더 붙는 복합어는 정상적으로 통과한다."""
+    pattern = re.compile(r"(?<![가-힣0-9A-Za-z])" + re.escape(keyword))
+    return bool(pattern.search(text))
+
+
+def is_relevant(title, description, keyword, exclude_keywords):
+    text = f"{title} {description}"
+    if keyword and not has_word_start_match(text, keyword):
+        return False
+    if any(bad in text for bad in exclude_keywords):
+        return False
+    return True
 
 
 def call_news_api(client_id, client_secret, query, display, retries=3):
@@ -93,8 +119,12 @@ def call_news_api(client_id, client_secret, query, display, retries=3):
     raise RuntimeError(f"네이버 뉴스 검색 API 호출 실패: {last_err}")
 
 
-def fetch_queries(client_id, client_secret, queries, category, articles_by_link, failed):
-    """queries: [(tag, query_string), ...]. articles_by_link 에 직접 채워 넣는다."""
+def fetch_queries(client_id, client_secret, queries, category, articles_by_link, failed,
+                   exclude_keywords, check_word_boundary):
+    """queries: [(tag, query_string), ...]. articles_by_link 에 직접 채워 넣는다.
+    check_word_boundary=True 이면 tag(키워드)가 다른 단어에 우연히 포함된 기사를
+    걸러낸다 (product 카테고리용. regulatory는 tag가 주제 라벨이라 해당 없음)."""
+    filtered_out = 0
     for tag, query in queries:
         print(f"[fetch_food_news] ({category}) '{query}' 검색 중…")
         try:
@@ -108,15 +138,22 @@ def fetch_queries(client_id, client_secret, queries, category, articles_by_link,
             link = item.get("originallink") or item.get("link")
             if not link or link in articles_by_link:
                 continue
+            title = clean_text(item.get("title"))
+            description = clean_text(item.get("description"))
+            if not is_relevant(title, description, tag if check_word_boundary else None, exclude_keywords):
+                filtered_out += 1
+                continue
             articles_by_link[link] = {
-                "title": clean_text(item.get("title")),
-                "description": clean_text(item.get("description")),
+                "title": title,
+                "description": description,
                 "link": link,
                 "pubDate": item.get("pubDate"),
                 "keyword": tag,
                 "category": category,
             }
         time.sleep(0.3)
+    if filtered_out:
+        print(f"[fetch_food_news] ({category}) 관련 없어 걸러낸 기사 {filtered_out}건")
 
 
 def sort_key(a):
@@ -146,14 +183,17 @@ def main():
 
     product_queries = [(kw, f"{kw} 신제품") for kw in product_keywords]
     regulatory_queries = [(t["label"], t["query"]) for t in reg_topics_all]
+    exclude_keywords = load_exclude_keywords()
 
     failed = []
 
     # 카테고리별로 따로 모아서 각자 상한을 적용한다 (한쪽이 다른 쪽을 밀어내지 않도록).
     product_links = {}
-    fetch_queries(client_id, client_secret, product_queries, "product", product_links, failed)
+    fetch_queries(client_id, client_secret, product_queries, "product", product_links, failed,
+                  exclude_keywords, check_word_boundary=True)
     regulatory_links = {}
-    fetch_queries(client_id, client_secret, regulatory_queries, "regulatory", regulatory_links, failed)
+    fetch_queries(client_id, client_secret, regulatory_queries, "regulatory", regulatory_links, failed,
+                  exclude_keywords, check_word_boundary=False)
 
     if not product_links and not regulatory_links:
         print("ERROR: 수집된 기사가 0건입니다. 기존 data/news.json 을 유지하고 종료합니다.", file=sys.stderr)
