@@ -148,7 +148,7 @@ function renderTopKeywordBadges() {
   `).join('');
 }
 
-/* 3개월 라인 차트 */
+/* 최근 1개월 라인 차트 */
 function renderMainChart() {
   const ctx = document.getElementById('mainChart');
   if(!ctx) return;
@@ -157,11 +157,11 @@ function renderMainChart() {
   charts.main = new Chart(ctx, {
     type:'line',
     data:{
-      labels: DATES_30,
+      labels: DATES_30.slice(-30),
       datasets: KWS.map(kw => {
         const d = KEYWORD_DATA[kw];
         return {
-          label:kw, data:d.data, borderColor:d.color, backgroundColor:d.color+'18',
+          label:kw, data:d.data.slice(-30), borderColor:d.color, backgroundColor:d.color+'18',
           borderWidth:2.5, tension:.42, fill:false,
           pointRadius:0, pointHoverRadius:6,
           pointHoverBackgroundColor:d.color, pointHoverBorderColor:'#fff', pointHoverBorderWidth:2,
