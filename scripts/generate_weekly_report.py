@@ -18,6 +18,7 @@ import json
 import os
 import smtplib
 import sys
+import traceback
 from datetime import datetime, timedelta, timezone
 from email.header import Header
 from email.mime.multipart import MIMEMultipart
@@ -455,11 +456,11 @@ def main():
         print(f"[generate_weekly_report] dry-run: {out_path} 에 저장했습니다 (발송 안 함).")
         return
 
-    smtp_host = os.environ.get("SMTP_HOST")
-    smtp_port = int(os.environ.get("SMTP_PORT", "587"))
-    smtp_user = os.environ.get("SMTP_USER")
-    smtp_password = os.environ.get("SMTP_PASSWORD")
-    smtp_from = os.environ.get("SMTP_FROM") or smtp_user
+    smtp_host = os.environ.get("SMTP_HOST", "").strip()
+    smtp_port = int(os.environ.get("SMTP_PORT", "587").strip())
+    smtp_user = os.environ.get("SMTP_USER", "").strip()
+    smtp_password = os.environ.get("SMTP_PASSWORD", "").strip()
+    smtp_from = os.environ.get("SMTP_FROM", "").strip() or smtp_user
     recipients_raw = os.environ.get("REPORT_RECIPIENTS", "")
     recipients = [r.strip() for r in recipients_raw.split(",") if r.strip()]
 
@@ -470,8 +471,9 @@ def main():
     subject = f"[농협식품] 푸드트렌드 위클리 — {ctx['week_label']}"
     try:
         send_email(subject, html_body, recipients, smtp_host, smtp_port, smtp_user, smtp_password, smtp_from)
-    except Exception as e:
-        print(f"ERROR: 이메일 발송 실패 - {e}", file=sys.stderr)
+    except Exception:
+        print("ERROR: 이메일 발송 실패", file=sys.stderr)
+        traceback.print_exc()
         sys.exit(1)
 
     print(f"[generate_weekly_report] {len(recipients)}명에게 발송 완료: {recipients}")
