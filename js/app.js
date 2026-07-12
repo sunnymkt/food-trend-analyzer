@@ -770,11 +770,11 @@ function renderCustomKeywords() {
         <div class="card-meta">${g.items.length}개</div>
       </div>
       ${g.items.map(it => `
-        <div class="ck-row">
+        <a class="ck-row" href="https://datalab.naver.com/keyword/trendSearch.naver" target="_blank" rel="noopener noreferrer" title="네이버 데이터랩 검색어트렌드에서 '${it.keyword}' 직접 조회하기 (키워드는 도구 화면에서 입력)">
           <div class="ck-name">${it.keyword}</div>
           ${buildSparkSvg(it.data, it.changeRate >= 0 ? 'var(--accent)' : 'var(--rose)')}
           <div class="ck-pct ${it.changeRate>=0?'up':'down'}">${it.changeRate>=0?'+':''}${it.changeRate}%</div>
-        </div>
+        </a>
       `).join('')}
     </div>
   `).join('');
