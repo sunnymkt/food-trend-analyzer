@@ -135,26 +135,6 @@ def build_context():
     product_news = news_of("product")
     regulatory_news = news_of("regulatory")
 
-    worst_kw = top_down[0] if top_down else None
-
-    action_items = []
-    if opportunity_kws:
-        names = "·".join(opportunity_kws)
-        action_items.append(
-            f"{names}은(는) 검색 수요 상승 대비 신제품 공급이 적은 편으로, 관련 상품기획을 우선 검토해볼 만합니다."
-        )
-    if worst_kw and worst_kw[1]["changeRate"] < 0:
-        action_items.append(
-            f"{worst_kw[0]}은(는) 검색 지수가 {fmt_pct(worst_kw[1]['changeRate'])}로 하락세입니다. "
-            f"관련 SKU 재고·프로모션 계획을 재점검하고 상승 키워드로 예산 재배분을 검토하세요."
-        )
-    if regulatory_news:
-        top_reg = regulatory_news[0]
-        action_items.append(
-            f"업계 뉴스 중 「{top_reg['title']}」 등 법규·제도 관련 소식을 검토해, "
-            f"관련 제품의 표시·기준 준수 여부를 재확인할 필요가 있습니다."
-        )
-
     now = datetime.now(KST)
     trend_start = meta.get("trendStartDate")
     trend_end = meta.get("trendEndDate")
@@ -175,7 +155,6 @@ def build_context():
         "representative_products": representative_products,
         "product_news": product_news,
         "regulatory_news": regulatory_news,
-        "action_items": action_items,
         "logo_data_uri": load_logo_data_uri(),
     }
 
@@ -248,9 +227,6 @@ CSS = """
   .prod-name { font-size:13.5px; font-weight:700; }
   .prod-meta { font-size:11.5px; color:var(--muted); margin-top:1px; }
   .prod-price { margin-left:auto; font-size:13px; font-weight:800; color:var(--gold); white-space:nowrap; }
-  .action-list { display:flex; flex-direction:column; gap:12px; }
-  .action-item { display:flex; gap:12px; font-size:13.5px; line-height:1.65; }
-  .action-flag { flex-shrink:0; width:22px; height:22px; border-radius:50%; background:var(--ink); color:var(--paper); display:flex; align-items:center; justify-content:center; font-size:11px; font-weight:800; }
   .footer { padding:22px 28px 4px; font-size:11px; color:var(--faint); line-height:1.7; }
 """
 
@@ -297,11 +273,6 @@ def render_html(ctx):
         for p in ctx["representative_products"]
     )
 
-    action_html = "".join(
-        f'<div class="action-item"><span class="action-flag">{i+1}</span><div>{esc(a)}</div></div>'
-        for i, a in enumerate(ctx["action_items"])
-    ) or '<div class="action-item"><div>이번 주는 특별히 제언할 사항이 없습니다.</div></div>'
-
     top_cat_name, top_cat_count = ctx["top_category"]
     top_brand_name, top_brand_count = ctx["top_brand"]
     top_up_kw, top_up_d = ctx["top_up"][0] if ctx["top_up"] else (None, None)
@@ -324,6 +295,18 @@ def render_html(ctx):
     </div>
     {logo_img}
   </header>
+
+  <section>
+    <div class="label">업계 뉴스</div>
+    <div class="news-block">
+      <span class="news-head-title">📰 신제품 관련</span>
+      {news_items(ctx["product_news"])}
+    </div>
+    <div class="news-block compliance-panel">
+      <span class="news-head-title">⚖️ 법규·제도 변화 — 미리 확인하세요</span>
+      {news_items(ctx["regulatory_news"])}
+    </div>
+  </section>
 
   <section>
     <div class="label">한눈에 보기</div>
@@ -368,29 +351,12 @@ def render_html(ctx):
     </div>
   </section>
 
-  <section>
-    <div class="label">업계 뉴스</div>
-    <div class="news-block">
-      <span class="news-head-title">📰 신제품 관련</span>
-      {news_items(ctx["product_news"])}
-    </div>
-    <div class="news-block compliance-panel">
-      <span class="news-head-title">⚖️ 법규·제도 변화 — 미리 확인하세요</span>
-      {news_items(ctx["regulatory_news"])}
-    </div>
-  </section>
-
-  <section>
+  <section style="border-bottom:none;">
     <div class="label">신제품 동향</div>
     <h2>카테고리별 신제품 {ctx["total_products"]}건</h2>
     <div class="section-sub">마켓컬리 검색결과 기준, 최근 1일 발견분</div>
     <div class="cat-bars">{cat_bar_html}</div>
     <div class="prod-grid">{prod_html}</div>
-  </section>
-
-  <section style="border-bottom:none;">
-    <div class="label">다음 주 액션 제언</div>
-    <div class="action-list">{action_html}</div>
   </section>
 
   <div class="footer">
