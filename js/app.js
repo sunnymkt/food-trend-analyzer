@@ -4,7 +4,7 @@
 
 /* ── 데이터 참조 (init에서 loadAppData 완료 후 채워짐) ────── */
 let KEYWORD_DATA, NEW_PRODUCTS, CATEGORIES, BRAND_DATA, WEEKLY_SUMMARY, DATES_30, META;
-let KEYWORD_OPPORTUNITY, BRAND_VELOCITY, CATEGORY_PRICE, HISTORY_META, NEWS, CUSTOM_KEYWORD_GROUPS, RELATED_KEYWORDS;
+let KEYWORD_OPPORTUNITY, BRAND_VELOCITY, CATEGORY_PRICE, HISTORY_META, NEWS, CUSTOM_KEYWORD_GROUPS, RELATED_KEYWORDS, WEEKLY_ARCHIVE;
 
 /* ── 상태 ────────────────────────────────────────────────── */
 let currentView = 'dashboard';
@@ -100,6 +100,7 @@ function navigate(viewId) {
     report:    ['📋 주간 리포트',   '자동 생성 인사이트 리포트'],
     news:      ['📰 업계뉴스(식품/법규)', '식품 신제품 관련 최신 기사'],
     customKeywords: ['🧾 카테고리별 인기검색어', '별도 지정 키워드 3개월 검색 추이'],
+    weeklyArchive: ['💌 푸드트렌드 위클리(메일)', '매주 발송된 이메일 리포트 아카이브'],
   };
   if(TITLES[viewId]) {
     document.getElementById('topbar-title').textContent = TITLES[viewId][0];
@@ -112,6 +113,7 @@ function navigate(viewId) {
     if(viewId === 'category')  renderCategory(selectedCat);
     if(viewId === 'news')      renderNews();
     if(viewId === 'customKeywords') renderCustomKeywords();
+    if(viewId === 'weeklyArchive') renderWeeklyArchive();
   }, 30);
 }
 
@@ -903,6 +905,65 @@ function ckRelatedPage(delta) {
   renderCkRelatedPage();
 }
 
+/* ════════════════════════════════════════════════════════════
+   WEEKLY ARCHIVE (푸드트렌드 위클리 메일 카드뉴스)
+   ════════════════════════════════════════════════════════════ */
+function renderWeeklyArchive() {
+  const el = document.getElementById('waGrid');
+  const metaEl = document.getElementById('waMeta');
+  if (!el) return;
+
+  if (metaEl) metaEl.textContent = WEEKLY_ARCHIVE.length ? `${WEEKLY_ARCHIVE.length}주 누적` : '-';
+
+  if (!WEEKLY_ARCHIVE.length) {
+    el.innerHTML = `<div class="empty" style="grid-column:1/-1"><div class="empty-icon">💌</div><h3>아직 발송된 리포트가 없습니다</h3><p>다음 주 월요일 자동 발송 후 이곳에 쌓입니다</p></div>`;
+    return;
+  }
+
+  el.innerHTML = WEEKLY_ARCHIVE.map(r => `
+    <div class="wa-card" role="button" tabindex="0" onclick="openWeeklyModal('${r.date}')" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();openWeeklyModal('${r.date}')}">
+      <div class="wa-card-eyebrow">${r.weekLabel || r.date}</div>
+      <div class="wa-card-title">푸드트렌드 위클리</div>
+      <div class="wa-card-period">${r.periodLabel || ''}</div>
+      <div class="wa-card-stats">
+        ${r.topUpKeyword ? `
+          <div class="wa-card-stat"><span class="wa-card-stat-label">🔥 최고 상승</span>
+            <span class="wa-card-stat-value up">${r.topUpKeyword} ${r.topUpPct >= 0 ? '+' : ''}${r.topUpPct}%</span></div>
+        ` : ''}
+        ${r.topDownKeyword ? `
+          <div class="wa-card-stat"><span class="wa-card-stat-label">📉 주의 필요</span>
+            <span class="wa-card-stat-value down">${r.topDownKeyword} ${r.topDownPct}%</span></div>
+        ` : ''}
+        ${r.topCategory ? `
+          <div class="wa-card-stat"><span class="wa-card-stat-label">📦 신제품 최다</span>
+            <span class="wa-card-stat-value">${r.topCategory} ${r.topCategoryCount}건</span></div>
+        ` : ''}
+      </div>
+      <div class="wa-card-cta">메일 내용 보기 →</div>
+    </div>
+  `).join('');
+}
+
+function openWeeklyModal(date) {
+  const report = WEEKLY_ARCHIVE.find(r => r.date === date);
+  const modal = document.getElementById('waModal');
+  if (!report || !modal) return;
+
+  document.getElementById('waModalTitle').textContent = `푸드트렌드 위클리 — ${report.weekLabel || report.date}`;
+  document.getElementById('waModalMeta').textContent = report.periodLabel || '';
+  document.getElementById('waModalFrame').src = report.file;
+
+  modal.classList.remove('hidden');
+}
+
+function closeWeeklyModal() {
+  const modal = document.getElementById('waModal');
+  if (modal) modal.classList.add('hidden');
+  const frame = document.getElementById('waModalFrame');
+  if (frame) frame.src = 'about:blank';
+}
+document.addEventListener('keydown', e => { if (e.key === 'Escape') closeWeeklyModal(); });
+
 /* ── 내보내기 ─────────────────────────────────────────────── */
 function exportReport() {
   const lines = [
@@ -1118,7 +1179,8 @@ async function init() {
   try {
     const data = await window.loadAppData();
     ({ KEYWORD_DATA, NEW_PRODUCTS, CATEGORIES, BRAND_DATA, WEEKLY_SUMMARY, DATES_30, META,
-       KEYWORD_OPPORTUNITY, BRAND_VELOCITY, CATEGORY_PRICE, HISTORY_META, NEWS, CUSTOM_KEYWORD_GROUPS, RELATED_KEYWORDS } = data);
+       KEYWORD_OPPORTUNITY, BRAND_VELOCITY, CATEGORY_PRICE, HISTORY_META, NEWS, CUSTOM_KEYWORD_GROUPS, RELATED_KEYWORDS,
+       WEEKLY_ARCHIVE } = data);
   } catch (err) {
     showDataError(err);
     return;

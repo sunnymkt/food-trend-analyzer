@@ -73,6 +73,9 @@
           <span class="nav-icon">📋</span>주간 리포트
           <span class="nav-dot"></span>
         </div>
+        <div class="nav-item" data-view="weeklyArchive" onclick="navigate('weeklyArchive')">
+          <span class="nav-icon">💌</span>푸드트렌드 위클리(메일)
+        </div>
       </nav>
 
       <!-- 상태 -->
@@ -504,6 +507,40 @@
             </div>
 
             <a id="ckModalNaverLink" href="https://datalab.naver.com/keyword/trendSearch.naver" target="_blank" rel="noopener noreferrer" class="ck-modal-naver-link">네이버 데이터랩에서 직접 조회하기 →</a>
+          </div>
+        </div>
+
+        <!-- ─────────────────────────────────────────────
+           VIEW: WEEKLY ARCHIVE (푸드트렌드 위클리 메일 아카이브)
+           ───────────────────────────────────────────── -->
+        <section id="weeklyArchive" class="view">
+
+          <div class="card" style="margin-bottom:18px;">
+            <div class="card-header">
+              <div class="card-title"><span class="card-icon">💌</span>푸드트렌드 위클리(메일)</div>
+              <div class="card-meta" id="waMeta">-</div>
+            </div>
+            <p style="font-size:12px;color:var(--text-muted);margin-bottom:4px;">
+              매주 이메일로 발송되는 푸드트렌드 위클리를 카드로 모아봅니다. 카드를 클릭하면
+              그 주에 발송된 메일 내용을 그대로 볼 수 있습니다.
+            </p>
+          </div>
+
+          <div id="waGrid" class="wa-grid"></div>
+
+        </section><!-- /weeklyArchive -->
+
+        <!-- 위클리 메일 원본 보기 모달 -->
+        <div id="waModal" class="ck-modal-overlay hidden" onclick="if(event.target===this)closeWeeklyModal()">
+          <div class="ck-modal wa-modal">
+            <button class="ck-modal-close" onclick="closeWeeklyModal()" aria-label="닫기">✕</button>
+            <div class="ck-modal-header">
+              <div>
+                <div class="ck-modal-title" id="waModalTitle">-</div>
+                <div class="ck-modal-meta" id="waModalMeta">-</div>
+              </div>
+            </div>
+            <iframe id="waModalFrame" class="wa-modal-frame" title="푸드트렌드 위클리 메일 원본"></iframe>
           </div>
         </div>
 

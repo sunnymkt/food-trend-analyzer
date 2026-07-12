@@ -30,6 +30,8 @@ ROOT = Path(__file__).resolve().parent.parent
 DATA_DIR = ROOT / "data"
 LOGO_PATH = ROOT / "assets" / "nhfood_logo.jpg"
 OUT_DIR = ROOT / "out"
+ARCHIVE_DIR = DATA_DIR / "weekly_reports"
+ARCHIVE_INDEX = DATA_DIR / "weekly_reports.json"
 KST = timezone(timedelta(hours=9))
 
 HISTORY_AVG_WINDOW = 30  # product_history.json 이 이미 30일 롤링이라 그대로 씀
@@ -368,6 +370,43 @@ def render_html(ctx):
 </div></body></html>"""
 
 
+def archive_report(ctx, html_body):
+    """매주 발행분을 프론트엔드 "푸드트렌드 위클리(메일)" 카드뉴스 아카이브용으로 누적 저장한다.
+    같은 날짜로 재실행되면(예: workflow_dispatch 재시도) 그 날짜 항목을 덮어쓴다."""
+    date_str = ctx["generated_at"].date().isoformat()
+    ARCHIVE_DIR.mkdir(parents=True, exist_ok=True)
+    html_path = ARCHIVE_DIR / f"{date_str}.html"
+    html_path.write_text(html_body, encoding="utf-8")
+
+    top_up_kw, top_up_d = ctx["top_up"][0] if ctx["top_up"] else (None, None)
+    top_down_kw, top_down_d = ctx["top_down"][0] if ctx["top_down"] else (None, None)
+    top_cat_name, top_cat_count = ctx["top_category"]
+
+    entry = {
+        "date": date_str,
+        "weekLabel": ctx["week_label"],
+        "periodLabel": ctx["period_label"],
+        "generatedAt": ctx["generated_at"].isoformat(),
+        "topUpKeyword": top_up_kw,
+        "topUpPct": top_up_d["changeRate"] if top_up_d else None,
+        "topDownKeyword": top_down_kw,
+        "topDownPct": top_down_d["changeRate"] if top_down_d else None,
+        "topCategory": top_cat_name,
+        "topCategoryCount": top_cat_count,
+        "totalProducts": ctx["total_products"],
+        "file": f"data/weekly_reports/{date_str}.html",
+    }
+
+    index = []
+    if ARCHIVE_INDEX.exists():
+        index = json.loads(ARCHIVE_INDEX.read_text(encoding="utf-8"))
+    index = [e for e in index if e.get("date") != date_str]
+    index.append(entry)
+    index.sort(key=lambda e: e["date"], reverse=True)
+    ARCHIVE_INDEX.write_text(json.dumps(index, ensure_ascii=False, indent=2), encoding="utf-8")
+    print(f"[generate_weekly_report] 아카이브 저장: {html_path} (누적 {len(index)}건)")
+
+
 def send_email(subject, html_body, recipients, smtp_host, smtp_port, smtp_user, smtp_password, smtp_from):
     msg = MIMEMultipart("alternative")
     msg["Subject"] = subject
@@ -398,6 +437,7 @@ def main():
     load_env_file()
     ctx = build_context()
     html_body = render_html(ctx)
+    archive_report(ctx, html_body)
 
     if args.dry_run:
         OUT_DIR.mkdir(exist_ok=True)
