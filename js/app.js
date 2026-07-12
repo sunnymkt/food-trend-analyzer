@@ -634,7 +634,9 @@ function renderCatBrandStats(cat) {
           <div style="margin-top:10px;padding:4px 12px;background:var(--bg-card-hover);border-radius:var(--radius-sm);">
             ${brandProducts.map((p,i) => `
               <div style="display:flex;justify-content:space-between;align-items:center;gap:10px;padding:7px 0;${i<brandProducts.length-1?'border-bottom:1px solid var(--border);':''}font-size:12px;">
-                <span style="color:var(--text-primary);">${p.emoji} ${p.name}</span>
+                ${p.url
+                  ? `<a href="${p.url}" target="_blank" rel="noopener noreferrer" class="mini-name" onclick="event.stopPropagation()">${p.emoji} ${p.name}</a>`
+                  : `<span style="color:var(--text-primary);">${p.emoji} ${p.name}</span>`}
                 <span style="color:var(--text-muted);white-space:nowrap;">${p.price}</span>
               </div>
             `).join('')}
