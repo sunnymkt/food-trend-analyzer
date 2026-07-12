@@ -19,8 +19,10 @@ import os
 import smtplib
 import sys
 from datetime import datetime, timedelta, timezone
+from email.header import Header
 from email.mime.multipart import MIMEMultipart
 from email.mime.text import MIMEText
+from email.utils import formataddr, parseaddr
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
@@ -407,11 +409,17 @@ def archive_report(ctx, html_body):
     print(f"[generate_weekly_report] 아카이브 저장: {html_path} (누적 {len(index)}건)")
 
 
+def encode_addr(addr):
+    """표시 이름에 한글이 섞여 있어도(예: '농협식품 <noreply@nhfood.co.kr>') 헤더에 안전하게 인코딩한다."""
+    name, email_addr = parseaddr(addr)
+    return formataddr((str(Header(name, "utf-8")), email_addr)) if name else email_addr
+
+
 def send_email(subject, html_body, recipients, smtp_host, smtp_port, smtp_user, smtp_password, smtp_from):
     msg = MIMEMultipart("alternative")
-    msg["Subject"] = subject
-    msg["From"] = smtp_from
-    msg["To"] = ", ".join(recipients)
+    msg["Subject"] = Header(subject, "utf-8")
+    msg["From"] = encode_addr(smtp_from)
+    msg["To"] = ", ".join(encode_addr(r) for r in recipients)
     msg.attach(MIMEText("HTML을 지원하는 메일 클라이언트로 확인해주세요.", "plain", "utf-8"))
     msg.attach(MIMEText(html_body, "html", "utf-8"))
 
@@ -424,7 +432,8 @@ def send_email(subject, html_body, recipients, smtp_host, smtp_port, smtp_user, 
     try:
         if smtp_user and smtp_password:
             server.login(smtp_user, smtp_password)
-        server.sendmail(smtp_from, recipients, msg.as_string())
+        envelope_from = parseaddr(smtp_from)[1] or smtp_from
+        server.sendmail(envelope_from, recipients, msg.as_string())
     finally:
         server.quit()
 
