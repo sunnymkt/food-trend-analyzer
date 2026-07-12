@@ -8,6 +8,7 @@ let KEYWORD_OPPORTUNITY, BRAND_VELOCITY, CATEGORY_PRICE, HISTORY_META, NEWS, CUS
 
 /* ── 상태 ────────────────────────────────────────────────── */
 let currentView = 'dashboard';
+let preSearchView = null;
 let productFilter = '전체';
 let productSearch = '';
 let compareKws = ['흑임자', '유자', '제로슈거'];
@@ -101,6 +102,7 @@ function navigate(viewId) {
     news:      ['📰 업계뉴스(식품/법규)', '식품 신제품 관련 최신 기사'],
     customKeywords: ['🧾 카테고리별 인기검색어', '별도 지정 키워드 3개월 검색 추이'],
     weeklyArchive: ['💌 푸드트렌드 위클리(메일)', '매주 발송된 이메일 리포트 아카이브'],
+    searchResults: ['🔍 검색 결과', '전체 탭 통합 검색'],
   };
   if(TITLES[viewId]) {
     document.getElementById('topbar-title').textContent = TITLES[viewId][0];
@@ -114,6 +116,7 @@ function navigate(viewId) {
     if(viewId === 'news')      renderNews();
     if(viewId === 'customKeywords') renderCustomKeywords();
     if(viewId === 'weeklyArchive') renderWeeklyArchive();
+    if(viewId === 'searchResults') renderSearchResults();
   }, 30);
 }
 
@@ -1027,10 +1030,166 @@ window.addEventListener('afterprint', () => {
 });
 
 /* ── 전역 검색 ───────────────────────────────────────────── */
+// 검색어가 있으면 신제품뿐 아니라 트렌드 키워드/카테고리별 인기검색어/브랜드/뉴스까지
+// 모든 탭을 통합 검색해서 searchResults 뷰에 모아 보여준다.
 function handleSearch(q) {
   productSearch = q;
-  if(q && currentView !== 'products') navigate('products');
-  if(currentView === 'products') renderProducts();
+  if(q) {
+    if(currentView !== 'searchResults') preSearchView = currentView;
+    navigate('searchResults');
+  } else if(currentView === 'searchResults') {
+    navigate(preSearchView || 'dashboard');
+  } else if(currentView === 'products') {
+    renderProducts();
+  }
+}
+
+function renderSearchResults() {
+  const el = document.getElementById('searchResultsGrid');
+  if(!el) return;
+  const q = (productSearch || '').trim();
+  const qLower = q.toLowerCase();
+
+  const trendMatches = q ? Object.entries(KEYWORD_DATA).filter(([kw, d]) =>
+    kw.includes(q) || (d.category || '').includes(q)
+  ) : [];
+
+  const customMatches = [];
+  if(q) {
+    CUSTOM_KEYWORD_GROUPS.forEach(g => {
+      g.items.forEach(it => {
+        if(it.keyword.includes(q) || g.midCategory.includes(q)) {
+          customMatches.push({ ...it, midCategory: g.midCategory });
+        }
+      });
+    });
+  }
+
+  const productMatches = q ? NEW_PRODUCTS.filter(p =>
+    p.name.toLowerCase().includes(qLower) || p.brand.toLowerCase().includes(qLower) ||
+    p.category.includes(q) || p.keywords.some(k => k.includes(q))
+  ) : [];
+
+  const brandMatches = q ? BRAND_DATA.filter(b => b.name.toLowerCase().includes(qLower)) : [];
+
+  const newsMatches = q ? NEWS.filter(n =>
+    (n.title || '').includes(q) || (n.description || '').includes(q) || (n.keyword || '').includes(q)
+  ) : [];
+
+  const total = trendMatches.length + customMatches.length + productMatches.length + brandMatches.length + newsMatches.length;
+
+  const subEl = document.getElementById('topbar-sub');
+  if(subEl) subEl.textContent = q ? `"${q}" 검색 결과 — 총 ${total}건` : '검색어를 입력하세요';
+
+  if(!q || total === 0) {
+    el.innerHTML = `<div class="empty" style="grid-column:1/-1"><div class="empty-icon">🔍</div><h3>검색 결과 없음</h3><p>다른 키워드로 검색해보세요</p></div>`;
+    return;
+  }
+
+  const sections = [];
+
+  if(trendMatches.length) {
+    sections.push(`
+      <div class="card">
+        <div class="card-header">
+          <div class="card-title"><span class="card-icon">📈</span>트렌드 키워드</div>
+          <div class="card-meta">${trendMatches.length}건</div>
+        </div>
+        ${trendMatches.map(([kw, d]) => `
+          <div class="ck-row" role="button" tabindex="0" onclick="navigate('trends')" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();navigate('trends')}">
+            <div class="ck-name">${kw}</div>
+            <div style="flex:1;font-size:11px;color:var(--text-muted);">${d.category}</div>
+            <div class="ck-pct ${d.changeRate >= 0 ? 'up' : 'down'}">${d.changeRate >= 0 ? '+' : ''}${d.changeRate}%</div>
+          </div>
+        `).join('')}
+      </div>
+    `);
+  }
+
+  if(customMatches.length) {
+    sections.push(`
+      <div class="card">
+        <div class="card-header">
+          <div class="card-title"><span class="card-icon">🧾</span>카테고리별 인기검색어</div>
+          <div class="card-meta">${customMatches.length}건</div>
+        </div>
+        ${customMatches.map(it => `
+          <div class="ck-row" role="button" tabindex="0" onclick="navigate('customKeywords');setTimeout(()=>openCkModal('${it.keyword}'),60)" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();navigate('customKeywords');setTimeout(()=>openCkModal('${it.keyword}'),60)}">
+            <div class="ck-name">${it.keyword}</div>
+            <div style="flex:1;font-size:11px;color:var(--text-muted);">${it.midCategory}</div>
+            <div class="ck-pct ${it.changeRate >= 0 ? 'up' : 'down'}">${it.changeRate >= 0 ? '+' : ''}${it.changeRate}%</div>
+          </div>
+        `).join('')}
+      </div>
+    `);
+  }
+
+  if(productMatches.length) {
+    sections.push(`
+      <div class="card">
+        <div class="card-header">
+          <div class="card-title"><span class="card-icon">🆕</span>신제품(마켓컬리)</div>
+          <div class="card-meta">${productMatches.length}건</div>
+        </div>
+        ${productMatches.slice(0, 12).map(p => `
+          <div class="mini-row">
+            <div class="mini-left">
+              <span class="mini-emoji">${p.emoji}</span>
+              <div>
+                ${p.url
+                  ? `<a href="${p.url}" target="_blank" rel="noopener noreferrer" class="mini-name">${p.name}</a>`
+                  : `<div class="mini-name">${p.name}</div>`}
+                <div class="mini-brand">${p.brand} · ${fmt(p.launchDate)}</div>
+              </div>
+            </div>
+            <span class="tag ${catTagClass(p.category)}">${p.category}</span>
+          </div>
+        `).join('')}
+      </div>
+    `);
+  }
+
+  if(brandMatches.length) {
+    sections.push(`
+      <div class="card">
+        <div class="card-header">
+          <div class="card-title"><span class="card-icon">🏷️</span>브랜드</div>
+          <div class="card-meta">${brandMatches.length}건</div>
+        </div>
+        ${brandMatches.map(b => `
+          <div class="ck-row" role="button" tabindex="0" onclick="navigate('category')" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();navigate('category')}">
+            <div class="ck-name" style="width:auto;flex:1;">${b.name}</div>
+            <div style="font-size:12px;color:var(--text-muted);">${b.products}개</div>
+          </div>
+        `).join('')}
+      </div>
+    `);
+  }
+
+  if(newsMatches.length) {
+    sections.push(`
+      <div class="card">
+        <div class="card-header">
+          <div class="card-title"><span class="card-icon">📰</span>뉴스</div>
+          <div class="card-meta">${newsMatches.length}건</div>
+        </div>
+        ${newsMatches.slice(0, 12).map(n => `
+          <div class="insight-card">
+            <div class="insight-icon">📰</div>
+            <div style="flex:1;min-width:0;">
+              <a href="${n.link}" target="_blank" rel="noopener noreferrer" class="insight-title" style="display:block;color:var(--text-primary);">${n.title}</a>
+              <div style="display:flex;align-items:center;gap:8px;margin:4px 0 6px;">
+                <span class="tag tag-b">#${n.keyword}</span>
+                <span style="font-size:11px;color:var(--text-muted);">${fmt(n.pubDate)}</span>
+              </div>
+            </div>
+          </div>
+        `).join('')}
+      </div>
+    `);
+  }
+
+  el.innerHTML = sections.join('');
 }
 
 /* ── 상태 표시 (사이드바 / KPI 부가정보) ──────────────────── */
