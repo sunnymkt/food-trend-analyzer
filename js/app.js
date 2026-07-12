@@ -771,7 +771,7 @@ function renderCustomKeywords() {
   el.innerHTML = CUSTOM_KEYWORD_GROUPS.map(g => `
     <div class="card">
       <div class="card-header">
-        <div class="card-title" style="font-size:14px;">${g.midCategory}</div>
+        <div class="ck-cat-badge">${g.midCategory}</div>
         <div class="card-meta">${g.items.length}개</div>
       </div>
       ${g.items.map(it => `
