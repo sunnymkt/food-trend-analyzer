@@ -1,13 +1,14 @@
 {
-  "lastUpdated": "2026-07-12T19:51:29.936039+09:00",
+  "lastUpdated": "2026-07-12T20:24:05.129671+09:00",
   "keywordSource": "naver_datalab",
   "productSource": "kurly-search-crawler",
   "trendStartDate": "2026-04-13",
   "trendEndDate": "2026-07-11",
-  "newsUpdated": "2026-07-12T19:51:48.756140+09:00",
-  "naverUpdated": "2026-07-12T19:50:03.802163+09:00",
-  "kurlyUpdated": "2026-07-12T19:51:29.936039+09:00",
-  "customKeywordsUpdated": "2026-07-12T19:51:55.478106+09:00",
+  "newsUpdated": "2026-07-12T20:24:22.510451+09:00",
+  "naverUpdated": "2026-07-12T20:22:42.599633+09:00",
+  "kurlyUpdated": "2026-07-12T20:24:05.129671+09:00",
+  "customKeywordsUpdated": "2026-07-12T20:24:28.450849+09:00",
   "customKeywordsTrendStartDate": "2026-04-13",
-  "customKeywordsTrendEndDate": "2026-07-11"
+  "customKeywordsTrendEndDate": "2026-07-11",
+  "relatedKeywordsUpdated": "2026-07-12T20:25:07.089439+09:00"
 }
