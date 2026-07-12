@@ -360,6 +360,32 @@ a.mini-name:hover { color:var(--primary); text-decoration:underline; }
 .ck-spark { flex:1; height:28px; display:block; }
 .ck-pct { width:48px; text-align:right; font-size:12.5px; font-weight:700; flex-shrink:0; }
 
+/* 지정 키워드 확대 차트 모달 */
+.ck-modal-overlay {
+  position:fixed; inset:0; z-index:1000; display:flex; align-items:center; justify-content:center;
+  background:rgba(15,23,42,.45); padding:20px; animation:ckFadeIn .15s var(--ease);
+}
+.ck-modal-overlay.hidden { display:none; }
+.ck-modal {
+  position:relative; width:100%; max-width:640px; background:var(--bg-card);
+  border-radius:var(--radius); box-shadow:var(--shadow-lg); padding:28px;
+}
+.ck-modal-close {
+  position:absolute; top:16px; right:16px; width:32px; height:32px; border-radius:50%;
+  border:1px solid var(--border); background:var(--bg-secondary); color:var(--text-muted);
+  font-size:14px; cursor:pointer; display:flex; align-items:center; justify-content:center;
+}
+.ck-modal-close:hover { background:var(--bg-card-hover); color:var(--text-primary); }
+.ck-modal-header { display:flex; align-items:flex-start; justify-content:space-between; gap:12px; margin-bottom:18px; padding-right:36px; }
+.ck-modal-title { font-size:20px; font-weight:800; }
+.ck-modal-meta { font-size:12.5px; color:var(--text-muted); margin-top:4px; }
+.ck-modal-pct { font-size:22px; font-weight:800; flex-shrink:0; }
+.ck-modal-chart-wrap { height:260px; margin-bottom:16px; }
+.ck-modal-naver-link { display:inline-block; font-size:12.5px; font-weight:600; color:var(--primary); }
+.ck-modal-naver-link:hover { text-decoration:underline; }
+
+@keyframes ckFadeIn { from{ opacity:0; } to{ opacity:1; } }
+
 /* ── 카테고리 카드 ───────────────────────────────────────── */
 .cat-grid   { display:grid; grid-template-columns:repeat(5,1fr); gap:12px; margin-bottom:20px; }
 .cat-card {

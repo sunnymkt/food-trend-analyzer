@@ -478,6 +478,22 @@
 
         </section><!-- /customKeywords -->
 
+        <!-- 지정 키워드 확대 차트 모달 -->
+        <div id="ckModal" class="ck-modal-overlay hidden" onclick="if(event.target===this)closeCkModal()">
+          <div class="ck-modal">
+            <button class="ck-modal-close" onclick="closeCkModal()" aria-label="닫기">✕</button>
+            <div class="ck-modal-header">
+              <div>
+                <div class="ck-modal-title" id="ckModalTitle">-</div>
+                <div class="ck-modal-meta" id="ckModalMeta">-</div>
+              </div>
+              <div class="ck-modal-pct" id="ckModalPct">-</div>
+            </div>
+            <div class="ck-modal-chart-wrap"><canvas id="ckModalChart"></canvas></div>
+            <a id="ckModalNaverLink" href="https://datalab.naver.com/keyword/trendSearch.naver" target="_blank" rel="noopener noreferrer" class="ck-modal-naver-link">네이버 데이터랩에서 직접 조회하기 →</a>
+          </div>
+        </div>
+
       </div><!-- /content -->
     </div><!-- /main-content -->
   </div><!-- /app -->

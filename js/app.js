@@ -770,11 +770,11 @@ function renderCustomKeywords() {
         <div class="card-meta">${g.items.length}개</div>
       </div>
       ${g.items.map(it => `
-        <a class="ck-row" href="https://datalab.naver.com/keyword/trendSearch.naver" target="_blank" rel="noopener noreferrer" title="네이버 데이터랩 검색어트렌드에서 '${it.keyword}' 직접 조회하기 (키워드는 도구 화면에서 입력)">
+        <div class="ck-row" role="button" tabindex="0" onclick="openCkModal('${it.keyword}')" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();openCkModal('${it.keyword}')}">
           <div class="ck-name">${it.keyword}</div>
           ${buildSparkSvg(it.data, it.changeRate >= 0 ? 'var(--accent)' : 'var(--rose)')}
           <div class="ck-pct ${it.changeRate>=0?'up':'down'}">${it.changeRate>=0?'+':''}${it.changeRate}%</div>
-        </a>
+        </div>
       `).join('')}
     </div>
   `).join('');
@@ -793,6 +793,68 @@ function buildSparkSvg(data, color) {
   }).join(' ');
   return `<svg class="ck-spark" viewBox="0 0 ${w} ${h}" preserveAspectRatio="none"><polyline points="${points}" fill="none" stroke="${color}" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>`;
 }
+
+function findCustomKeywordItem(keyword) {
+  for (const g of CUSTOM_KEYWORD_GROUPS) {
+    const item = g.items.find(it => it.keyword === keyword);
+    if (item) return { ...item, midCategory: g.midCategory };
+  }
+  return null;
+}
+
+/* data.length(90일)와 customKeywordsTrendEndDate를 기준으로 M/D 라벨 배열 생성 */
+function buildCkDateLabels(len) {
+  const end = (META && META.customKeywordsTrendEndDate) ? new Date(META.customKeywordsTrendEndDate) : new Date();
+  const out = [];
+  for (let i = len - 1; i >= 0; i--) {
+    const d = new Date(end);
+    d.setDate(d.getDate() - i);
+    out.push(`${d.getMonth() + 1}/${d.getDate()}`);
+  }
+  return out;
+}
+
+/* 지정 키워드 행 클릭 시 확대 차트 모달 표시 */
+function openCkModal(keyword) {
+  const item = findCustomKeywordItem(keyword);
+  const modal = document.getElementById('ckModal');
+  if (!item || !modal) return;
+
+  document.getElementById('ckModalTitle').textContent = keyword;
+  document.getElementById('ckModalMeta').textContent =
+    `${item.midCategory} · ${(META && META.customKeywordsTrendStartDate) || ''} ~ ${(META && META.customKeywordsTrendEndDate) || ''}`;
+  const pctEl = document.getElementById('ckModalPct');
+  pctEl.textContent = `${item.changeRate >= 0 ? '+' : ''}${item.changeRate}%`;
+  pctEl.className = `ck-modal-pct ${item.changeRate >= 0 ? 'up' : 'down'}`;
+
+  const color = item.changeRate >= 0 ? '#0d9488' : '#e11d48';
+  destroyChart('ckModal');
+  charts.ckModal = new Chart(document.getElementById('ckModalChart'), {
+    type: 'line',
+    data: {
+      labels: buildCkDateLabels(item.data.length),
+      datasets: [{
+        label: keyword, data: item.data, borderColor: color, backgroundColor: color + '18',
+        borderWidth: 2.5, tension: .35, fill: true,
+        pointRadius: 0, pointHoverRadius: 5,
+        pointHoverBackgroundColor: color, pointHoverBorderColor: '#fff', pointHoverBorderWidth: 2,
+      }]
+    },
+    options: {
+      ...CHART_DEFAULTS,
+      plugins: { ...CHART_DEFAULTS.plugins, legend: { display: false } },
+    }
+  });
+
+  modal.classList.remove('hidden');
+}
+
+function closeCkModal() {
+  const modal = document.getElementById('ckModal');
+  if (modal) modal.classList.add('hidden');
+  destroyChart('ckModal');
+}
+document.addEventListener('keydown', e => { if (e.key === 'Escape') closeCkModal(); });
 
 /* ── 내보내기 ─────────────────────────────────────────────── */
 function exportReport() {
