@@ -139,7 +139,8 @@ def main():
     succeeded, failed = 0, []
     for kw in keywords:
         try:
-            items = call_keywordstool(api_key, secret_key, customer_id, kw)
+            response = call_keywordstool(api_key, secret_key, customer_id, kw)
+            items = response.get("keywordList", []) if isinstance(response, dict) else response
             ranked = sorted(
                 (
                     {
