@@ -1,5 +1,19 @@
 [
   {
+    "date": "2026-07-13",
+    "weekLabel": "2026년 7월 2주차",
+    "periodLabel": "2026-04-14 ~ 2026-07-12",
+    "generatedAt": "2026-07-13T19:40:13.271567+09:00",
+    "topUpKeyword": "트러플",
+    "topUpPct": 88,
+    "topDownKeyword": "쑥",
+    "topDownPct": -35,
+    "topCategory": "음료",
+    "topCategoryCount": 16,
+    "totalProducts": 48,
+    "file": "data/weekly_reports/2026-07-13.html"
+  },
+  {
     "date": "2026-07-12",
     "weekLabel": "2026년 7월 2주차",
     "periodLabel": "2026-04-13 ~ 2026-07-11",
