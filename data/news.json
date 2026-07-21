@@ -1,33 +1,193 @@
 [
   {
-    "title": "하이트진로음료, 시트러스 풍미 더한 무알코올 음료로 여름 시장 공략",
-    "description": "하이트진로음료가 과일향을 더한 무알코올 음료 신제품을 선보이며 여름철 음료 수요 공략에 나선다. 하이트진로음료는 ‘하이트제로0.00 레몬&유자’를 출시한다고 20일 밝혔다. 이번 제품은 기존 하이트제로0.00의...",
-    "link": "http://www.lawissue.co.kr/view.php?ud=202607201724581612204ead0791_12",
-    "pubDate": "Mon, 20 Jul 2026 17:26:00 +0900",
+    "title": "오리온, 단백질 62g 드링크로 시장 공략",
+    "description": "신제품은 최근 식음료업계에서 확산하는 '말차' 트렌드를 반영해 말차 라테 풍미를 구현했다. 저당·저지방·저콜레스테롤의 '3저(低)' 설계를 적용해 운동 후 단백질을 보충하려는 소비자를 주요 타깃으로 삼았다....",
+    "link": "http://www.finomy.com/news/articleView.html?idxno=257723",
+    "pubDate": "Tue, 21 Jul 2026 16:38:00 +0900",
+    "keyword": "말차",
+    "category": "product"
+  },
+  {
+    "title": "팀홀튼 크레이버블, 경방 타임스퀘어, 온 ‘클라우드붐 스트라이크’ 外...",
+    "description": "신제품은 팀홀튼이 자체 개발한 브리오슈 번을 바탕으로 신선한 재료를 쌓아 올려 완성했다. 팀홀튼은... ◇ 롯데칠성 '별빛청하' 새단장 롯데칠성음료가 저도 탄산주 제품인 '별빛청하 스파클링'과 '로제청하 스파클링...",
+    "link": "https://www.ekn.kr/web/view.php?key=20260721023034343",
+    "pubDate": "Tue, 21 Jul 2026 16:30:00 +0900",
+    "keyword": "로제",
+    "category": "product"
+  },
+  {
+    "title": "돌아온 빙그레 '더위사냥 파우치'…롯데 '설레임'과 성수기 격돌",
+    "description": "쿨리쉬 신제품 2종도 추가로 출시했고, 작년에 이어 올해도 체험형 러닝 이벤트 '설레임런'을 개최하고 브랜드 모델로 기안84를 발탁하는 등 마케팅에 박차를 가하고 있다. 롯데웰푸드는 '설레임 밀크쉐이크·말차...",
+    "link": "https://www.goodkyung.com/news/articleView.html?idxno=289388",
+    "pubDate": "Tue, 21 Jul 2026 16:30:00 +0900",
+    "keyword": "말차",
+    "category": "product"
+  },
+  {
+    "title": "[유통단신]오리온, 단백질드링크 출시 外 스타벅스코리아·메가MGC커피·...",
+    "description": "■오리온은 21일 단백질 62g이 함유된 '닥터유PRO 단백질드링크 62g 말차'를 출시했다고 밝혔다. 신제품은 우유 단백질(MPI)과 식물성 단백질을 혼합했으며, BCAA 9200mg, 아르기닌 2200mg, 류신 4200mg, 칼슘 800mg도 들어 있다....",
+    "link": "https://www.getnews.co.kr/news/articleView.html?idxno=875653",
+    "pubDate": "Tue, 21 Jul 2026 16:28:00 +0900",
+    "keyword": "말차",
+    "category": "product"
+  },
+  {
+    "title": "삼립 '피그인더가든', 복날 겨냥 '페리카나' 컬래버 치킨 샐러드 출시",
+    "description": "신제품은 페리카나 전통 양념소스를 버무린 치킨에 고소한 땅콩 분태를 올려 감칠맛을 높이고 바삭한 크루통과 매콤한 할라피뇨를 넣어 맛의 풍성함을 더한 '페리카나 시그니처 양념치킨 샐러드', 달콤짭짤한 특제...",
+    "link": "http://www.techholic.co.kr/news/articleView.html?idxno=222188",
+    "pubDate": "Tue, 21 Jul 2026 16:22:00 +0900",
+    "keyword": "할라피뇨",
+    "category": "product"
+  },
+  {
+    "title": "[신상품] 오뚜기 '당을 줄인 쌀컵케이크 말차' 외",
+    "description": "신제품은 페리카나의 시그니처 소스를 활용한 치킨 토핑을 적용해 한 끼 식사 메뉴로 구성했으며, 전국 편의점에서 판매한다. 메뉴는 양념치킨에 땅콩과 할라피뇨를 더한 '페리카나 시그니처 양념치킨 샐러드'와...",
+    "link": "https://www.seoulfn.com/news/articleView.html?idxno=633758",
+    "pubDate": "Tue, 21 Jul 2026 16:21:00 +0900",
+    "keyword": "할라피뇨",
+    "category": "product"
+  },
+  {
+    "title": "[A 오늘의 유통] 스타벅스·동아오츠카·컬리 外",
+    "description": "신제품은 전국 편의점에서 판매된다. ◇롯데칠성음료, '별빛청하' 통합 브랜드 리뉴얼=롯데칠성음료가 저도 탄산주 '별빛청하 스파클링'과 '로제청하 스파클링'을 통합 브랜드 '별빛청하'로 재정비한다. 저도 탄산주...",
+    "link": "https://www.asiaa.co.kr/news/articleView.html?idxno=255828",
+    "pubDate": "Tue, 21 Jul 2026 15:30:00 +0900",
+    "keyword": "로제",
+    "category": "product"
+  },
+  {
+    "title": "\"아메리카노도 '국민커피'로\"…동서식품, '홈카페' 공략 속도",
+    "description": "지난해에는 ‘헬시플레저’ 트렌드에 맞춰 ‘맥심 제로슈거’를 선보이며 다양한 소비자 취향을 공략하고... 있는 신제품 ‘카누 아이스 샷 아메리카노’도 출시했다. 동서식품은 프리미엄을 표방한 '카누 바리스타'를...",
+    "link": "https://www.mediapen.com/news/view/1111291",
+    "pubDate": "Tue, 21 Jul 2026 15:28:00 +0900",
+    "keyword": "제로슈거",
+    "category": "product"
+  },
+  {
+    "title": "매운맛 뒤에 불향이 남는다, KFC ‘칰폴레 맵징거통다리·타워·더블다운...",
+    "description": "치폴레는 붉게 익은 할라피뇨를 훈연한 뒤 건조해 만드는 고추다. 생할라피뇨의 선명한 매운맛에 불향과... 깊은 불향과 감칠맛에 있다. 이번 신제품은 그 차이를 가장 쉽고 맛있게 경험할 수 있는 메뉴가 되어줄 것이다.",
+    "link": "https://cooknchefnews.com/news/view/1065582893975313",
+    "pubDate": "Tue, 21 Jul 2026 15:16:00 +0900",
+    "keyword": "할라피뇨",
+    "category": "product"
+  },
+  {
+    "title": "삼립, 페리카나 소스 더한 복날 치킨샐러드 2종 출시",
+    "description": "바삭한 크루통과 매콤한 할라피뇨도 넣어 다양한 맛과 식감을 냈다. 단단치킨 샐러드는 달콤하면서도 짭짤한 간장소스로 맛을 낸 치킨에 바삭한 어니언 슬라이스 토핑을 곁들인 메뉴다. 신제품 2종은 전국 편의점에서...",
+    "link": "https://www.ngetnews.com/news/articleView.html?idxno=551671",
+    "pubDate": "Tue, 21 Jul 2026 14:48:00 +0900",
+    "keyword": "할라피뇨",
+    "category": "product"
+  },
+  {
+    "title": "(주)에이플러스 '명가꽈배기', 신세계 시흥프리미엄아울렛 입점",
+    "description": "업체 측은 \"'마라꽈배기' '허니꽈배기' 등 신제품도 신세계 시흥프리미엄아울렛에서는 모두 구매할 수 있다\"고 전했다. 이어 (주)에이플러스 정현일 대표는 \" 이번 신세계 시흥프리미엄아울렛 판매를 시작으로 백화점...",
+    "link": "http://www.sisunnews.co.kr/news/articleView.html?idxno=242812",
+    "pubDate": "Tue, 21 Jul 2026 14:38:00 +0900",
+    "keyword": "마라",
+    "category": "product"
+  },
+  {
+    "title": "‘리센느의 힘’ 도미노피자 TV광고, ‘1700만뷰’ 흥행",
+    "description": "도미노피자는 걸그룹 리센느와 함께한 여름 신제품 TV광고가 공개 4일 만에 공식 유튜브 채널 조회수... 자이언트 새우와 칼집 스테이크를 올리고 피자 중앙에 트러플 크림 해시브라운과 콘마요를 넣은 것이 특징이다.",
+    "link": "https://www.swtvnews.com/news/newsview.php?ncode=1065575441002668",
+    "pubDate": "Tue, 21 Jul 2026 14:10:00 +0900",
+    "keyword": "트러플",
+    "category": "product"
+  },
+  {
+    "title": "[잘먹잘살+]코웨이·NS홈쇼핑·현대百·삼립· 롯데칠성·하이트진로",
+    "description": "신제품은 전국 편의점에서 만나볼 수 있다. 사진=롯데칠성음료 ◇롯데칠성음료, 별빛청하 리뉴얼 롯데칠성음료가 저도 탄산주 제품인 '별빛청하 스파클링'과 '로제청하 스파클링'을 통합 브랜드 '별빛청하'로...",
+    "link": "https://www.businessplus.kr/news/articleView.html?idxno=114375",
+    "pubDate": "Tue, 21 Jul 2026 13:02:00 +0900",
+    "keyword": "로제",
+    "category": "product"
+  },
+  {
+    "title": "모델과 제품의 '융복합' 시너지…비비큐 새광고",
+    "description": "모델과 제품의 뛰어난 시너지 AP신문 광고평론가들은 감각적인 영상과 사운드, 모델의 매력을 조화롭게 활용해 신제품의 '단짠' 조합과 바삭한 식감을 생생하게 전달하며 먹고 싶은 욕구를 효과적으로 자극했다고...",
+    "link": "https://www.apnews.kr/news/articleView.html?idxno=3049883",
+    "pubDate": "Tue, 21 Jul 2026 12:22:00 +0900",
+    "keyword": "단짠",
+    "category": "product"
+  },
+  {
+    "title": "한 병 사두면 오래 마시니까… 와인 끌어내리고 가성비 홈술 1위 꿰찬 주...",
+    "description": "고량주는 나 홀로 성장… \"마라탕에 고량주 한 잔\" 트렌드 반면 고량주를 포함한 일반증류주 시장은... 과거 바이주는 50도가 넘는 독한 제품이 주류였지만, 최근에는 도수를 낮춘 저도수 바이주 신제품이 잇따라...",
+    "link": "https://www.wikitree.co.kr/articles/1147508",
+    "pubDate": "Tue, 21 Jul 2026 11:24:00 +0900",
+    "keyword": "마라",
+    "category": "product"
+  },
+  {
+    "title": "아워홈, 편스토랑 우승작 '손태진의 크런치 한입치킨' 등 오프라인채널...",
+    "description": "21일 식음료업계에 따르면, 이번 신제품은 닭다리살에 감자 플레이크를 입힌 제품이다. 용량은 450g과 1kg 두... 치폴레·트러플 마요 소스를 더한 '손태진의 크런치! 허니 포테이토 치킨' 메뉴로 선보인다. 아워홈...",
+    "link": "http://www.koreastocknews.com/news/articleView.html?idxno=119920",
+    "pubDate": "Tue, 21 Jul 2026 10:44:00 +0900",
+    "keyword": "트러플",
+    "category": "product"
+  },
+  {
+    "title": "KFC, 스모키 치폴레 입었다…'칰폴레 맵징거' 3종으로 여름 입맛 공략",
+    "description": "신제품은 KFC의 시그니처 치킨을 뜻하는 '칰'과 치폴레 소스를 결합한 이름으로 △칰폴레 맵징거통다리... 업계 관계자는 \"올여름 외식업계는 마라와 불닭에 이어 치폴레를 활용한 스모키 매운맛 경쟁이 본격화하는...",
+    "link": "https://www.joongangenews.com/news/articleView.html?idxno=534045",
+    "pubDate": "Tue, 21 Jul 2026 10:30:00 +0900",
+    "keyword": "마라",
+    "category": "product"
+  },
+  {
+    "title": "술 덜 마시는 시대…하이트진로·롯데칠성 나란히 역성장, 활로는 해외",
+    "description": "2022년 출시한 '새로'는 제로슈거와 저도주 트렌드를 앞세워 빠르게 시장에 안착하며 소주 시장 존재감을... 하이트진로는 테라 이후 켈리를, 롯데칠성은 클라우드 이후 크러시를 각각 출시했지만 신제품이 기존 브랜드...",
+    "link": "https://thetracker.co.kr/View.aspx?No=4155436",
+    "pubDate": "Tue, 21 Jul 2026 09:45:00 +0900",
+    "keyword": "제로슈거",
+    "category": "product"
+  },
+  {
+    "title": "하림, '닭가슴살 프로틴 흑임자맛' 출시…고단백 음료 라인업 확대",
+    "description": "신제품은 흑임자의 고소한 풍미를 살린 제품으로, 전통 식재료를 활용한 식품을 찾는 소비 흐름을 반영해 개발됐다. 국내산 닭가슴살을 오븐 그릴링 공법으로 조리하고 곡물 풍미를 더해 식사 대용으로 활용할 수...",
+    "link": "https://www.shinailbo.co.kr/news/articleView.html?idxno=5042376",
+    "pubDate": "Tue, 21 Jul 2026 09:10:00 +0900",
+    "keyword": "흑임자",
+    "category": "product"
+  },
+  {
+    "title": "\"상큼하게, 가볍게\" 주류업계, 이색 향미로 여름 수요 공략",
+    "description": "21일 업계에 따르면 최근 막걸리와 RTD(즉석음용) 하이볼, 무알코올·논알코올 맥주 등 다양한 제품군에서 리치와 파인애플, 레몬, 유자 등 상큼한 향미를 활용한 신제품 출시가 이어지고 있다. 주류 특유의 쓴맛과 알코올...",
+    "link": "https://www.newsis.com/view/NISX20260720_0003715493",
+    "pubDate": "Tue, 21 Jul 2026 06:00:00 +0900",
     "keyword": "유자",
     "category": "product"
   },
   {
-    "title": "\"무알코올에 레몬맛까지\"…하이트진로, 테라 확장 '잰걸음'",
-    "description": "테라 라인업 강화를 위해 레몬맛 신제품 출시를 검토 중인 것으로 파악된다. 테라는 2019년 3월 출시된... 롯데칠성은 '순하리 레몬진'을 시작으로 작년 '순하리 자몽진', 지난 3월 '순하리 유자진', '순하리 상그리아진'을...",
-    "link": "https://www.goodkyung.com/news/articleView.html?idxno=289355",
-    "pubDate": "Mon, 20 Jul 2026 17:08:00 +0900",
+    "title": "“스타벅스에 4000원대 과일 음료가?”…고물가 속 2030 제대로 꽂혔다",
+    "description": "신제품 ‘핑크 피치 리프레셔’ 6월 23일 출시 한 달만에 하루 평균 판매량 70% 증가해 스타벅스에서... 국내에서는 지난 2024년 ‘청포도 유자 레모네이드 리프레셔’ 이후 약 2년 만에 새롭게 출시됐다. 스타벅스 측은...",
+    "link": "https://www.mk.co.kr/article/12102718",
+    "pubDate": "Mon, 20 Jul 2026 18:07:00 +0900",
     "keyword": "유자",
     "category": "product"
   },
   {
-    "title": "맛은 더하고 도수는 낮추고… MZ세대 공략 나선 주류업계",
-    "description": "하이트진로음료는 여름 시즌을 겨냥해 무알코올 음료 '하이트제로0.00 레몬&유자'를 출시했다. 신제품은 기존 하이트제로0.00 특유의 청량감에 레몬의 상큼함과 유자의 달콤한 풍미를 더한 것이 특징이다. 여기에 알코올과...",
-    "link": "http://www.newsian.co.kr/news/articleView.html?idxno=92471",
-    "pubDate": "Mon, 20 Jul 2026 16:16:00 +0900",
+    "title": "하이트진로음료 '하이트제로0.00 레몬&유자' 출시",
+    "description": "20일 하이트진로음료는 무알코올 맥주 신제품 하이트제로0.00 레몬&유자를 선보였다. 지난해 2월 하이트제로0.00 포멜로향에 이어 무알코올 맥주맛 음료의 선택지를 넓히는 행보다. 하이트제로0.00 레몬&유자는 레몬의...",
+    "link": "https://www.ngetnews.com/news/articleView.html?idxno=551653",
+    "pubDate": "Mon, 20 Jul 2026 17:58:00 +0900",
     "keyword": "유자",
     "category": "product"
   },
   {
     "title": "하이트진로음료, '하이트제로0.00 레몬&유자' 출시",
-    "description": "신제품은 레몬의 산미와 유자의 단맛에 탄산감을 더해 여름철 가볍게 마실 수 있도록 구성했다. 식사와 함께 마시거나 갈증 해소용 음료를 찾는 소비자를 주요 대상으로 삼았다. 알코올과 칼로리, 당류를 넣지 않은...",
-    "link": "https://www.newsinside.kr/news/articleView.html?idxno=4849590",
-    "pubDate": "Mon, 20 Jul 2026 16:14:00 +0900",
+    "description": "현대경제신문 길나영 기자 | 하이트진로음료는 여름철을 겨냥한 무알코올 음료 신제품 '하이트제로0.00 레몬&유자'를 출시한다고 20일 밝혔다. 신제품은 기존 '하이트제로0.00'의 청량한 탄산감에 레몬과 유자의 시트러스...",
+    "link": "http://www.finomy.com/news/articleView.html?idxno=257627",
+    "pubDate": "Mon, 20 Jul 2026 17:56:00 +0900",
+    "keyword": "유자",
+    "category": "product"
+  },
+  {
+    "title": "하이트진로음료, 시트러스 풍미 더한 무알코올 음료로 여름 시장 공략",
+    "description": "하이트진로음료가 과일향을 더한 무알코올 음료 신제품을 선보이며 여름철 음료 수요 공략에 나선다. 하이트진로음료는 ‘하이트제로0.00 레몬&유자’를 출시한다고 20일 밝혔다. 이번 제품은 기존 하이트제로0.00의...",
+    "link": "http://www.lawissue.co.kr/view.php?ud=202607201724581612204ead0791_12",
+    "pubDate": "Mon, 20 Jul 2026 17:26:00 +0900",
     "keyword": "유자",
     "category": "product"
   },
@@ -37,30 +197,6 @@
     "link": "https://www.g-enews.com/view.php?ud=202607201611573539740eacf404_1",
     "pubDate": "Mon, 20 Jul 2026 16:14:00 +0900",
     "keyword": "단짠",
-    "category": "product"
-  },
-  {
-    "title": "해외가 먼저 반한 두 병, 지평주조 ‘지평말차·지평리치’ 국내 상륙",
-    "description": "친구들과 두 제품을 함께 주문해 말차와 리치의 차이를 비교하며 마시는 과정도 이번 신제품을 즐기는 재미가 될 것이다. 이번 국내 출시는 막걸리가 전통적인 맛에 머무르지 않고 세계 소비자의 취향과 만나는 술로...",
-    "link": "https://cooknchefnews.com/news/view/1065578755809361",
-    "pubDate": "Mon, 20 Jul 2026 15:32:00 +0900",
-    "keyword": "말차",
-    "category": "product"
-  },
-  {
-    "title": "[A 오늘의 유통] 롯데면세점·이디야커피·CU·바디프랜드·청호나이스 ...",
-    "description": "◇하이트진로음료, '하이트제로0.00 레몬&유자' 출시=하이트진로음료가 여름철을 겨냥한 무알코올 음료 신제품 '하이트제로0.00 레몬&유자'를 출시한다. 기존 하이트제로0.00의 청량감에 레몬과 유자의 시트러스 풍미를...",
-    "link": "https://www.asiaa.co.kr/news/articleView.html?idxno=255615",
-    "pubDate": "Mon, 20 Jul 2026 15:30:00 +0900",
-    "keyword": "유자",
-    "category": "product"
-  },
-  {
-    "title": "미국·일본서 통했다…'K-막걸리' 새 공식, 말차와 리치가 왔다",
-    "description": "이번 신제품은 최근 세계 주류 시장에서 주목받는 '플레이버 막걸리'를 대표하는 제품이다. 전통 막걸리의 맛은 유지하면서 글로벌 소비자들에게 익숙한 재료를 더해 진입장벽을 낮춘 것이 특징이다.지평말차는 보성산...",
-    "link": "https://wemakenews.co.kr/news/view.php?no=25841",
-    "pubDate": "Mon, 20 Jul 2026 15:28:00 +0900",
-    "keyword": "말차",
     "category": "product"
   },
   {
@@ -85,22 +221,6 @@
     "link": "http://www.4th.kr/news/articleView.html?idxno=2114952",
     "pubDate": "Mon, 20 Jul 2026 13:16:00 +0900",
     "keyword": "단짠",
-    "category": "product"
-  },
-  {
-    "title": "CJ올리브영 롯데홈쇼핑 남양유업 外(유통家 이모저모)",
-    "description": "또한 배스킨라빈스와 협업한 신제품 '단짠팝팝 초코해변'의 수익금 일부도 월드비전에 기부합니다. 김중현 우아한형제들 지속가능경영실장은 \"나눔의 손길을 넓혀 아이들을 응원하겠다\"고 밝혔습니다. 여름 맞이 '썸머...",
-    "link": "https://www.newsclaim.co.kr/news/articleView.html?idxno=3069751",
-    "pubDate": "Mon, 20 Jul 2026 11:24:00 +0900",
-    "keyword": "단짠",
-    "category": "product"
-  },
-  {
-    "title": "농심, 신라면·배홍동 통했다…2분기 실적 시장 기대 웃돈다",
-    "description": "라면 부문에서는 신라면 골드와 배홍동 막국수, 신라면 로제 등 신제품이 판매 호조를 보이며 내수 물량 증가를 이끈 것으로 평가됐다. 라면 전체 매출도 전년보다 5% 증가할 것으로 전망됐다. 수출도 성장세를 이어갔다....",
-    "link": "https://www.pinpointnews.co.kr/news/articleView.html?idxno=469473",
-    "pubDate": "Sun, 19 Jul 2026 17:22:00 +0900",
-    "keyword": "로제",
     "category": "product"
   },
   {
@@ -152,14 +272,6 @@
     "category": "product"
   },
   {
-    "title": "[D테일] 먹는 '왁뿌볼'이 나타났다",
-    "description": "농심은 미식 프로젝트 '2026 농심면가'의 네 번째 협업으로 '로제 라자냐 with 신라면 로제'를 선보였다. 신라면... 식감이 맛과 향을 잇는 세 번째 마케팅 축으로 부상하면서 신제품 개발 경쟁의 무게 중심도 자연히 옮겨가는...",
-    "link": "https://www.ddaily.co.kr/page/view/2026071713545461727",
-    "pubDate": "Sat, 18 Jul 2026 09:01:00 +0900",
-    "keyword": "로제",
-    "category": "product"
-  },
-  {
     "title": "“지금 아니면 못 먹는다”…카페마다 ‘복숭아 음료’ 쏟아지는 이유",
     "description": "여름 대표 과일인 복숭아의 출하가 본격화하면서 식음료 업계가 복숭아를 활용한 신제품을 잇달아 내놓고 있다. 일화 제공 생복숭아 과육과 자두, 얼그레이 등을 조합한 카페 음료부터 당 함량을 낮춘 스무디와 저칼로리...",
     "link": "https://www.segye.com/newsView/20260718504461?OutUrl=naver",
@@ -172,14 +284,6 @@
     "description": "국물요리' 신제품 4종을 내놨다. ▲ 커피 프랜차이즈 브랜드 할리스는 '블랙 스파클링'과 '블랙샷 라떼' 등 '블랙 메뉴' 2종을 출시했다. 흑임자와 검정깨 등 원재료를 활용했다고 회사 측은 전했다. ▲ 보나비가 운영하는...",
     "link": "https://www.yna.co.kr/view/AKR20260716198200030?input=1195m",
     "pubDate": "Sat, 18 Jul 2026 07:00:00 +0900",
-    "keyword": "흑임자",
-    "category": "product"
-  },
-  {
-    "title": "[트렌드 포커스] 여름철 단백질쉐이크 시장 경쟁 치열...몸매와 건강 동...",
-    "description": "강화한 신제품을 잇달아 출시하며 소비자 공략에 나서고 있다. 다이어터들 사이에서도 식사대용 제품으로... 하지만 최근 들어 초콜릿, 바닐라, 곡물, 흑임자, 말차, 커피, 쿠키앤크림 등 디저트 수준의 다양한 맛을...",
-    "link": "http://www.sisacast.kr/news/articleView.html?idxno=97916",
-    "pubDate": "Fri, 17 Jul 2026 13:08:00 +0900",
     "keyword": "흑임자",
     "category": "product"
   },
@@ -201,34 +305,10 @@
   },
   {
     "title": "[푸드다이닝 트렌드] 삼성웰스토리, 포스텍·연대 손잡고 미래 푸드테크...",
-    "description": "앞서 출시된 '고소한맛'이 은은하고 부드러운 쌀의 풍미가 특징이라면, 신제품 '흑임자맛'은 원물의 진한 고소함이 보다 풍부한 맛을 선사한다. 국내산 닭가슴살을 오븐 그릴링 공법으로 구운 후, 정성껏 우려낸 육수...",
+    "description": "식품업계의 신제품 출시, 원재료·영양 연구, 식품 안전 이슈, 사회공헌 활동 등 다양한 발표 내용 가운데... '닭가슴살 프로틴 흑임자맛'은 Z세대가 옥수수, 쑥 등 전통 식재료를 새롭게 해석한 메뉴들에 열광하는 점을...",
     "link": "https://www.ibabynews.com/news/articleView.html?idxno=152982",
     "pubDate": "Thu, 16 Jul 2026 18:40:00 +0900",
-    "keyword": "흑임자",
-    "category": "product"
-  },
-  {
-    "title": "[카드뉴스] 오뚜기 '동대문식 닭한마리 칼국수' 등 출시(금주의 신제품...",
-    "description": "| 뉴스워치= 명경민 기자 | 7월 3주차, 매일유업과 오뚜기, 세븐일레븐과 롯데마트·슈퍼, 하림이 각 신제품을... 고래밥 반구천의 암각화 기획'을, 하림은 '닭가슴살 프로틴 흑임자맛'을 각각 출시했다.",
-    "link": "http://www.newswatch.kr/news/articleView.html?idxno=80463",
-    "pubDate": "Thu, 16 Jul 2026 18:16:00 +0900",
-    "keyword": "흑임자",
-    "category": "product"
-  },
-  {
-    "title": "엔제리너스, 동화약품과 저당 음료 출시…식품·제약 경계 허문다",
-    "description": "커피 프랜차이즈 업체들은 저당·제로슈거 제품에 타우린과 아르기닌, 식이섬유 등 건강 지향 성분을 더하고... 신제품 출시를 통해 지난 4월 선보인 저당 음료 라인 '엔제린 밸런스'의 제품군도 확대한다. 배러 음료는...",
-    "link": "http://www.4th.kr/news/articleView.html?idxno=2114853",
-    "pubDate": "Thu, 16 Jul 2026 18:10:00 +0900",
-    "keyword": "제로슈거",
-    "category": "product"
-  },
-  {
-    "title": "[신상품] 오뚜기 '치즈불닭마요덮밥' 외",
-    "description": "오뚜기는 컵밥 신제품 '치즈불닭마요덮밥'과 '버터간장고기덮밥'을 출시했다고 16일 밝혔다. 두 제품은... 아웃백, '마라 투움바 파스타' 정식 메뉴로 출시 아웃백 스테이크하우스는 한정 판매했던 '마라 투움바 파스타...",
-    "link": "https://www.seoulfn.com/news/articleView.html?idxno=633576",
-    "pubDate": "Thu, 16 Jul 2026 18:01:00 +0900",
-    "keyword": "마라",
+    "keyword": "쑥",
     "category": "product"
   },
   {
@@ -240,227 +320,179 @@
     "category": "product"
   },
   {
-    "title": "스틱커피도 취향 따라…남양유업·동서식품·이디야, 제품 세분화 전략",
-    "description": "관련 업체들은 기존 카페믹스 중심에서 제로슈거, 아이스 전용, 디카페인 등으로 제품군을 다양화 하며... 올해 상반기 '그린티라떼'를 리뉴얼한 데 이어 최근에는 신제품 '우베라떼'를 출시하며 다양한 원료를 활용한...",
-    "link": "http://www.srtimes.kr/news/articleView.html?idxno=207717",
-    "pubDate": "Thu, 16 Jul 2026 16:30:00 +0900",
-    "keyword": "제로슈거",
-    "category": "product"
-  },
-  {
-    "title": "[커피음료 트렌드] 공차코리아, 수박 이어 참외 신메뉴 2종 출시… 아삭...",
-    "description": "국내외 식음료 기업들이 선보인 신제품 출시, 원료·영양 연구, 저당·무첨가 등 건강 지향 트렌드, 친환경... 지난해 하반기 독일 쾰른에서 열린 세계 최대 식품 박람회 '아누가(ANUGA)'에서는 프렌치카페의 제로슈거와...",
-    "link": "https://www.ibabynews.com/news/articleView.html?idxno=152983",
-    "pubDate": "Thu, 16 Jul 2026 15:44:00 +0900",
-    "keyword": "제로슈거",
-    "category": "product"
-  },
-  {
-    "title": "[커피음료 트렌드] 커피빈, 컵빙수 감성 담은 여름 신메뉴 3종 출시 外",
-    "description": "국내외 식음료 기업들이 선보인 신제품 출시, 원료·영양 연구, 저당·무첨가 등 건강 지향 트렌드, 친환경... 코코넛커피스무디, △흑당밀크티라떼 7종으로 구성된다. 해당 메뉴들은 NCT WISH 멤버들이 직접 골라 주문해...",
-    "link": "https://www.ibabynews.com/news/articleView.html?idxno=152984",
-    "pubDate": "Thu, 16 Jul 2026 15:44:00 +0900",
-    "keyword": "흑당",
-    "category": "product"
-  },
-  {
-    "title": "노랑통닭, ‘대파 간장 치킨’ 출시…대파 활용한 신메뉴 라인업 확대",
-    "description": "노랑통닭을 운영하는 노랑푸드는 신제품 '대파 간장 치킨'을 출시했다고 16일 밝혔다. 신메뉴는 기존... 또 '모짜체다 치즈볼'은 모짜렐라와 체다치즈에 할라피뇨를 더한 맥앤치즈 스타일의 치즈볼로, 5개들이 한 세트...",
-    "link": "https://www.ekn.kr/web/view.php?key=20260716026193225",
-    "pubDate": "Thu, 16 Jul 2026 15:30:00 +0900",
-    "keyword": "할라피뇨",
-    "category": "product"
-  },
-  {
-    "title": "식사 파는 카페, 디저트 파는 버거집…경계 허물고 가성비 경쟁 속도",
-    "description": "신제품은 '아이스 슈', '메이플 고구마', '슈크림 츄러스' 등으로 가격은 2000~3000원대다. 이번 신메뉴는 식사 후... 이와 함께 로제 떡볶이, 마라 떡볶이, 매콤 소보로밥, 간장 소보로밥 등 한 끼 식사를 해결할 수 있는 메뉴를...",
-    "link": "https://www.newsis.com/view/NISX20260716_0003712071",
-    "pubDate": "Thu, 16 Jul 2026 14:42:00 +0900",
-    "keyword": "로제",
-    "category": "product"
-  },
-  {
-    "title": "[신메뉴] 아웃백 '마라 투움바 파스타'·노랑통닭 '대파간장치킨' 外",
-    "description": "후자는 모짜렐라·체다치즈에 할라피뇨의 매콤함을 더한 맥앤치즈 스타일 치즈볼로 한 세트에 5개가 들어가 선택지를 넓혔다. 사진=하림 하림은 고단백 음료 신제품 '닭가슴살 프로틴 흑임자맛'을 출시했다. 지난 4월...",
-    "link": "https://www.slist.kr/news/articleView.html?idxno=752201",
-    "pubDate": "Thu, 16 Jul 2026 09:38:00 +0900",
-    "keyword": "할라피뇨",
-    "category": "product"
-  },
-  {
-    "title": "노랑통닭, ‘대파 간장 치킨’ 출시…멤버십 리뉴얼 효과 더해 고객 공...",
-    "description": "대파를 활용한 신제품과 신규 사이드 메뉴를 선보이는 동시에 최근 전면 개편한 멤버십 서비스를 기반으로... ‘모짜체다 치즈볼’은 모짜렐라와 체다치즈의 풍미에 할라피뇨의 은은한 매콤함을 더한 맥앤치즈 스타일의...",
-    "link": "https://www.viva100.com/article/20260716500106",
-    "pubDate": "Thu, 16 Jul 2026 09:02:00 +0900",
-    "keyword": "할라피뇨",
-    "category": "product"
-  },
-  {
-    "title": "보리는 콜라로, 라면은 라자냐로…반전 신제품 [쿠킹]",
-    "description": "자이언트 새우와 칼집 스테이크를 듬뿍 담아 풍성한 식감과 육즙을 살렸으며, 피자 가운데에는 트러플 크림... 소비자가 제안한 아이스크림 신제품을 가장 먼저 맛보고 최종 우승작을 직접 뽑아볼 수 있습니다....",
-    "link": "https://www.joongang.co.kr/article/25445528",
-    "pubDate": "Thu, 16 Jul 2026 08:03:00 +0900",
-    "keyword": "트러플",
-    "category": "product"
-  },
-  {
-    "title": "[신상품] 세븐일레븐 '수박 스무디' 외",
-    "description": "신제품은 수박 94%와 수박 착즙주스를 활용했으며, 80kcal로 열량을 낮춰 가볍게 즐길 수 있도록 했다. 이달... 피자 중앙에는 트러플 크림 해시브라운과 콘 마요를 더해 부드러운 맛을 구현했다. 롯데웰푸드, 백년가게 협업...",
-    "link": "https://www.seoulfn.com/news/articleView.html?idxno=633352",
-    "pubDate": "Tue, 14 Jul 2026 17:16:00 +0900",
-    "keyword": "트러플",
-    "category": "product"
-  },
-  {
-    "title": "도미노피자, 압도적 크기 ‘무진장 슈림프 스테이크 피자’ 16일 출격",
-    "description": "이번 신제품은 무신사의 대표적 키워드인 ‘무진장’을 도미노피자만의 방식으로 재해석한 메뉴로... 피자 가운데 트러플 크림 해시브라운과 콘 마요로 부드러운 식감과 고소한 풍미가 첫 입부터 느껴지도록 했다는...",
-    "link": "https://www.mk.co.kr/article/12098354",
-    "pubDate": "Tue, 14 Jul 2026 16:44:00 +0900",
-    "keyword": "트러플",
-    "category": "product"
-  },
-  {
-    "title": "진도군, 여름 보양 수산물 원산지 단속 나선다",
-    "description": "진도군이 여름 휴가철을 맞아 수산물 원산지 표시 위반 행위에 대한 집중 단속에 돌입한다. 군은 오는 31일까지 '휴가철 수산물 원산지 표시 특별점검'을 실시한다고 20일 밝혔다. 이번 단속은 대표적인 여름철 보양식인...",
-    "link": "https://www.namdonews.com/news/articleView.html?idxno=917434",
-    "pubDate": "Mon, 20 Jul 2026 17:26:00 +0900",
-    "keyword": "원산지표시",
-    "category": "regulatory"
-  },
-  {
-    "title": "청정바다가 키운 장흥 무산(無酸)김, 글로벌 마켓 공략",
-    "description": "특히 주요 수출 대상국인 미국을 비롯해 유기농산물 및 수산물 수입 규제가 세계에서 가장 까다롭기로... 여기에, 이슬람 문화권 등 국제적으로 공인된 식품 안전 인증에 적극 도전해 중동과 동남아시아 시장이라는 새로운...",
-    "link": "https://www.namdonews.com/news/articleView.html?idxno=917437",
-    "pubDate": "Mon, 20 Jul 2026 17:20:00 +0900",
-    "keyword": "수입식품",
-    "category": "regulatory"
-  },
-  {
-    "title": "식약처, GMO 표시 대상 확대·담배 유해성분 공개 추진",
-    "description": "식품의약품안전처는 하반기 부처 업무보고회에서 국민의 알권리 보장과 식의약 안전관리 강화를 골자로 한... 식약처는 제도의 안정적인 정착을 위해 수입 간장과 당류, 식용유지류의 GMO 사용 여부에 대한 관리도...",
-    "link": "https://www.mdtoday.co.kr/news/articleView.html?idxno=605382",
-    "pubDate": "Mon, 20 Jul 2026 17:18:00 +0900",
-    "keyword": "수입식품",
-    "category": "regulatory"
-  },
-  {
-    "title": "강원도, 피서지 주변 음식점 식품위생 특별 단속",
-    "description": "특별 단속합니다. 해수욕장과 계곡 등 피서객이 몰릴 것으로 예상되는 주요 관광지 주변 음식점이 중점 대상입니다. 소비기한이 지난 제품 사용 여부와 위생 상태, 원산지 표시 준수 여부 등을 점검해경미한 위반 사항은...",
-    "link": "https://chmbc.co.kr/article/Py9mkPSb3eaQLx",
-    "pubDate": "Mon, 20 Jul 2026 16:50:00 +0900",
-    "keyword": "원산지표시",
-    "category": "regulatory"
-  },
-  {
-    "title": "\"강원 여름 관광지, 안전하고 쾌적하게\"",
-    "description": "핵심요약 강원도, 도내 주요 피서지 음식점 '식품위생 및 원산지 표시 위반행위' 특별단속 강원특별자치도는 여름 휴가철을 맞아 22일부터 8월 13일까지 도내 주요 피서지 주변 음식점을 대상으로 식품위생 및 원산지...",
-    "link": "https://www.nocutnews.co.kr/news/6550411?utm_source=naver&utm_medium=article&utm_campaign=20260720044738",
-    "pubDate": "Mon, 20 Jul 2026 16:48:00 +0900",
-    "keyword": "원산지표시",
-    "category": "regulatory"
-  },
-  {
-    "title": "[제약업계 소식] 7월 20일",
-    "description": "노연홍)는 식품의약품안전처(처장 오유경)와 국내 제약바이오산업의 글로벌 제조·품질관리기준(Good... 단독 수입·유통권을 확보했다. 올해 1월에는 중국 국가약품감독관리국으로부터 휴톡스 품목허가를 받았다. 청담...",
-    "link": "http://www.doctorstimes.com/news/articleView.html?idxno=239096",
-    "pubDate": "Mon, 20 Jul 2026 16:48:00 +0900",
-    "keyword": "수입식품",
-    "category": "regulatory"
-  },
-  {
-    "title": "[울산] 울산시, 여름 휴가철 앞두고 수산물 원산지 단속",
-    "description": "울산시가 여름 휴가철 시민들과 관광객들이 안심하고 수산물을 구매하도록 오는 31일까지 '수산물 원산지 표시 위반행위 특별단속'에 나섭니다. 이번 단속은 해수욕장과 해변 인근 음식점과 횟집, 활어센터 등 여름철...",
-    "link": "https://www.ytn.co.kr/_ln/0115_202607201642262334",
-    "pubDate": "Mon, 20 Jul 2026 16:42:00 +0900",
-    "keyword": "원산지표시",
-    "category": "regulatory"
-  },
-  {
-    "title": "인천시 배달앱 등록 식품·축산취급업소 기획수사…위반업체 9곳 적발",
-    "description": "최종문 시 특별사법경찰과장은 “농·축산물의 정확한 원산지 표시와 철저한 위생관리는 안전한 먹거리 유통의 기본”이라며 “지속적인 점검과 단속을 통해 안전한 먹거리 환경이 조성되도록 최선을 다하겠다”고...",
-    "link": "https://www.kgnews.co.kr/news/article.html?no=904488",
-    "pubDate": "Mon, 20 Jul 2026 16:36:00 +0900",
-    "keyword": "원산지표시",
-    "category": "regulatory"
-  },
-  {
-    "title": "[TOP's Pick] [유통] GS리테일, 현장 중심 AX 프로젝트 착수 外",
-    "description": "주요 과제는 비전 AI(Vision AI)를 활용한 신선식품 강화 매장의 고객 행동 및 구매 패턴 분석, AI 검색 환경... 철분과 엽산, 비타민B12를 배합했으며, 식약처 고시 최대 함량인 100억 CFU 유산균과 대상웰라이프...",
-    "link": "https://www.topdaily.kr/articles/111050",
-    "pubDate": "Mon, 20 Jul 2026 15:42:00 +0900",
-    "keyword": "식약처",
-    "category": "regulatory"
-  },
-  {
-    "title": "[A 오늘의 유통] 롯데면세점·이디야커피·CU·바디프랜드·청호나이스 ...",
-    "description": "롯데면세점은 최근 K푸드에 대한 글로벌 관심이 높아지면서 롯데면세점은 공항면세점 식품 카테고리... 철분과 엽산, 비타민B12를 배합하고, 식약처 고시 최대 함량인 100억 CFU 유산균과 김치 유래 특허 유산균 DSW3805를...",
-    "link": "https://www.asiaa.co.kr/news/articleView.html?idxno=255615",
-    "pubDate": "Mon, 20 Jul 2026 15:30:00 +0900",
-    "keyword": "식약처",
-    "category": "regulatory"
-  },
-  {
-    "title": "창녕군, ‘식품위생 물품 구매’ 공무원 사칭 사기 전화 주의",
-    "description": "창녕군에 따르면 사기범들은 영업장에 전화를 걸어 “식품위생법 개정으로 위생 점검을 시행할 예정이며, 조리종사자의 손과 조리기구, 급식수 등의 유기물질(ATP) 오염도 측정기가 구비돼 있지 않으면 과태료 500만원이...",
-    "link": "https://www.khan.co.kr/article/202607201136021",
-    "pubDate": "Mon, 20 Jul 2026 11:36:00 +0900",
-    "keyword": "식품위생법",
-    "category": "regulatory"
-  },
-  {
-    "title": "식약처, 하반기 식의약 혁신 본격화",
-    "description": "식품안전관리에는 AI와 디지털 기술이 본격 도입된다. 식약처는 AI 수입식품 검사 솔루션과 AI 이물검출기, 해외직구식품 위해 여부 조회 서비스를 개발하고, 푸드QR을 농·축·수산물까지 확대해 소비자가 식품...",
-    "link": "https://www.farmnmarket.com/news/article.html?no=27135",
-    "pubDate": "Mon, 20 Jul 2026 10:12:00 +0900",
-    "keyword": "수입식품",
-    "category": "regulatory"
-  },
-  {
-    "title": "담배 유해성분 공개 확대·간장 GMO 완전 표시…‘소비자 알권리’ 지킨...",
-    "description": "지난해 12월 식품위생법 개정으로 법적 근거가 마련됐고 이달 8일 표시기준 개정이 완료됐다. ◇‘가짜 의사’ 광고는 차단, K브랜드 수출길은 확장=소비자를 속이는 광고 규제와 마약류 관리도 강화된다. 오는...",
-    "link": "https://www.munhwa.com/article/11603548?ref=naver",
-    "pubDate": "Mon, 20 Jul 2026 09:27:00 +0900",
+    "title": "식약처, 맞춤형 건기식에 \"의약품이 아닙니다\" 문구 표기 의무화",
+    "description": "특히 맞춤형 건강기능식품의 소비자 인식 개선을 위한 전용 표시 도안도 새롭게 만들어진다. 식약처는 21일 건강기능식품 제조·품질관리 기준(GMP)의 국제 조화 등을 담은 건강기능식품법 시행규칙 일부 개정령안을 입법...",
+    "link": "https://www.insight.co.kr/news/564017",
+    "pubDate": "Tue, 21 Jul 2026 16:40:00 +0900",
     "keyword": "식품표시",
     "category": "regulatory"
   },
   {
-    "title": "옴짜라, 급여 문턱 넘었다...'대체약제 눈높이' 맞춘 전략 주효",
-    "description": "은 식품의약품안전처 허가 후 약 1년 4개월 만에 조건부 급여 적정성을 인정받았다. 이후 약가협상과 고시... 허가 후 한 차례 지연, 대체약제 선정이 쟁점 식약처는 2024년 9월 24일 옴짜라 100·150·200mg을 허가했다. 허가...",
-    "link": "https://www.pharmnews.com/news/articleView.html?idxno=304976",
-    "pubDate": "Mon, 20 Jul 2026 05:56:00 +0900",
+    "title": "경북농관원,  휴가철 축산물 원산지 집중 단속",
+    "description": "국립농산물품질관리원 경북지원이  여름 휴가철, 축산물 소비 증가에 맞춰 이달 31일까지 원산지 표시 집중 단속을 실시합니다. 단속 대상은 동해안 해수욕장과 계곡 등 관광지 주변 음식점과 정육식당, 축산물 판매장과...",
+    "link": "http://news.lghellovision.net/news/articleView.html?idxno=548932",
+    "pubDate": "Tue, 21 Jul 2026 16:36:00 +0900",
+    "keyword": "원산지표시",
+    "category": "regulatory"
+  },
+  {
+    "title": "NS홈쇼핑, 식품 표시 실무교육 실시…AI 활용 역량 강화",
+    "description": "교육에서는 2026~2027년 식품 표시 관련 법령 개정 사항과 식품위생법, 원재료 표시 기준, 표시 오류 사례 등을 중심으로 실무 교육을 진행했다. 사례 기반 질의응답을 통해 현장에서 발생할 수 있는 다양한 상황에 대한...",
+    "link": "https://www.edaily.co.kr/news/newspath.asp?newsid=04703526645516816",
+    "pubDate": "Tue, 21 Jul 2026 16:16:00 +0900",
+    "keyword": "식품표시",
+    "category": "regulatory"
+  },
+  {
+    "title": "\"수입 의존 피부이식재 국산화 … 이제 글로벌 승부\"",
+    "description": "기증자가 동의한 목적에 맞게 사용하되 관리 기준은 더 명확해져야 한다는 것이 제 입장이에요.\" 의료 자원으로 인체지방 사용이 가능해진 만큼 식품의약품안전처가 관련 가이드라인을 신속히 마련해야 한다는 업계...",
+    "link": "https://www.mk.co.kr/article/12103448",
+    "pubDate": "Tue, 21 Jul 2026 16:04:00 +0900",
+    "keyword": "수입식품",
+    "category": "regulatory"
+  },
+  {
+    "title": "남성 전립선 고민 '참당귀황기추출물'로 마침표",
+    "description": "품질 편차와 원산지 불투명성 논란이 잦았던 수입산 원료와 달리, '참당귀황기추출복합물'은 농촌진흥청이 엄격하게 선별하고 표준화한 국산 원료만을 사용한다. 식품의약품안전처 역시 이러한 과학적 데이터와...",
+    "link": "https://www.mk.co.kr/article/12103442",
+    "pubDate": "Tue, 21 Jul 2026 16:03:00 +0900",
+    "keyword": "수입식품",
+    "category": "regulatory"
+  },
+  {
+    "title": "NS홈쇼핑, 식품 표시·광고 실무교육 실시…\"생성형 AI 활용한 리스크 예...",
+    "description": "교육에서는 2026~2027년 주요 식품 표시 관련 법령 개정사항을 비롯해 식품위생법과 표시기준, 가공식품 분류 기준 및 원재료 표시 기준 등 실무 중심 내용이 다뤄졌다. 특히 홈쇼핑 업계에서 실제 발생했던 표시 오류 및...",
+    "link": "http://www.ftoday.co.kr/news/articleView.html?idxno=362360",
+    "pubDate": "Tue, 21 Jul 2026 16:00:00 +0900",
+    "keyword": "식품표시",
+    "category": "regulatory"
+  },
+  {
+    "title": "잔류농약 초과 검출…식약처, 베트남산 냉동얼갈이 회수",
+    "description": "이번 조치는 수입식품 안전관리 과정에서 기준에 적합하지 않은 제품의 유통을 차단하기 위한 조치다. 식약처는 수입식품에 대해 잔류농약과 중금속, 식중독균 등 안전성 검사를 실시하고 있으며, 부적합 판정을...",
+    "link": "http://www.kdfnews.com/news/articleView.html?idxno=185494",
+    "pubDate": "Tue, 21 Jul 2026 16:00:00 +0900",
+    "keyword": "수입식품",
+    "category": "regulatory"
+  },
+  {
+    "title": "'건강관리식품 품질관리기준 국제화·소비자 정보 제공 강화' 담은 법 개...",
+    "description": "식약처에 따르면, 이번 개정안에는 국내 우수건강기능식품 제조 및 품질관리기준에 재가공·압축공기... 식품의 용기나 내외부 포장에 ‘의약품이 아닙니다’ 문구를 적고 내부 포장까지 소비기한을 표시하도록 한다....",
+    "link": "https://news.tvchosun.com/site/data/html_dir/2026/07/21/2026072190200.html",
+    "pubDate": "Tue, 21 Jul 2026 15:24:00 +0900",
+    "keyword": "식품표시",
+    "category": "regulatory"
+  },
+  {
+    "title": "전남광주통합특별시, 여름철 수산물 원산지 단속 강화",
+    "description": "집중 단속…민물장어·낙지 등 중점 관리 ■ 관광객 밀집지역 판매업소 대상…거짓 표시·미표시 행위 엄정 대응 전남광주통합특별시가 여름 휴가철을 맞아 관광객들이 안심하고 수산물을 구매할 수 있도록 원산지 표시...",
+    "link": "https://sports.donga.com/region/article/all/20260721/134336288/1",
+    "pubDate": "Tue, 21 Jul 2026 15:12:00 +0900",
+    "keyword": "원산지표시",
+    "category": "regulatory"
+  },
+  {
+    "title": "거제시, 식품 관련 공무원 사칭사기 주의",
+    "description": "시에 따르면, 사칭범은 관내 식료품제조 및 유통시설, 일반음식점, 휴게음식점주를 대상으로 거제시를 사칭하는 허위 공문서를 통해 \"식품위생법이 개정돼 ATP 오염도 측정기와 온·습도 측정 장비를 의무적으로 구비해야...",
+    "link": "https://www.newsgn.com/news/articleView.html?idxno=563379",
+    "pubDate": "Tue, 21 Jul 2026 15:08:00 +0900",
+    "keyword": "식품위생법",
+    "category": "regulatory"
+  },
+  {
+    "title": "중소·벤처 자금조달 숨통⋯소액공모 30억까지 확대",
+    "description": "농수산식품 투자조합 등은 공모 규제상 투자자 수 산정에서 제외된다. 다만 개인투자조합과 민법상 조합 등은 운용 주체 요건이 상대적으로 완화돼 있어 이번 제외 대상에 포함되지 않았다. 금융위는 이번 개정으로...",
+    "link": "https://www.etoday.co.kr/news/view/2605733",
+    "pubDate": "Tue, 21 Jul 2026 14:52:00 +0900",
+    "keyword": "식품표시",
+    "category": "regulatory"
+  },
+  {
+    "title": "종근당·대웅바이오 '콜린제제 리스크' 현실화 : 식약처 유효성 평가 후...",
+    "description": "보이는 식품의약품안전처의 유효성 심의 결과가 실적의 주요 변수가 될 것이라는 증권가의 평가가 나왔다. 만약 식약처가 유효성 심의에서 부정적 판단을 내릴 경우 두 기업은 건강보험 급여액 중 일부를...",
+    "link": "https://www.huffingtonpost.kr/article/258877",
+    "pubDate": "Tue, 21 Jul 2026 14:46:00 +0900",
     "keyword": "식약처",
     "category": "regulatory"
   },
   {
-    "title": "창녕군 공무원 사칭 사기 전화 극성 주의 당부",
-    "description": "19일 군에 따르면 사기범들은 영업장에 전화를 걸어 \"식품위생법 개정으로 위생 점검을 실시할 예정이며, ATP 오염도 측정기가 구비돼 있지 않으면 과태료 500만 원이 부과된다\"며 위조된 공문과 명함을 영업자 휴대전화로...",
-    "link": "https://www.gnnews.co.kr/news/articleView.html?idxno=641343",
-    "pubDate": "Sun, 19 Jul 2026 19:32:00 +0900",
+    "title": "NS홈쇼핑, 생성형 AI 활용한 식품 표시 교육 실시",
+    "description": "식품 분야 현업 담당자들을 대상으로 '식품 표시 실무 핵심 과정'교육을 진행했다. 최근 잦아진 법령 개정... 커리큘럼은 2026~2027년 적용되는 주요 규정 변화를 비롯해 「식품위생법」과 표시기준, 가공식품 분류 기준...",
+    "link": "https://www.consumuch.com/news/articleView.html?idxno=78585",
+    "pubDate": "Tue, 21 Jul 2026 14:42:00 +0900",
     "keyword": "식품위생법",
     "category": "regulatory"
   },
   {
-    "title": "창녕군, 공무원 사칭 식품위생 물품 구매 사기 주의 당부",
-    "description": "군에 따르면 지난 13일부터 사기범들이 관내 영업장에 전화를 걸어 \"식품위생법 개정에 따라 위생 점검을 실시할 예정이며 ATP 오염도 측정기가 구비돼 있지 않으면 과태료 500만원이 부과된다\"고 속인 뒤, 위조된 공문과...",
-    "link": "http://www.gndomin.com/news/articleView.html?idxno=482491",
-    "pubDate": "Sun, 19 Jul 2026 17:33:00 +0900",
+    "title": "NS홈쇼핑, 식품 표시 실무 교육 실시…실제 사례·AI 적용까지",
+    "description": "교육 내용은 2026~2027년 적용 예정인 식품 표시 관련 법령 개정사항, 식품위생법과 표시 기준, 가공식품 분류 및 원재료 표시 기준 등 실무에 필요한 항목을 중심으로 구성됐다. 아울러 홈쇼핑 업계에서 실제로 발생한...",
+    "link": "https://www.newsmap.co.kr/news/articleView.html?idxno=1571",
+    "pubDate": "Tue, 21 Jul 2026 14:42:00 +0900",
     "keyword": "식품위생법",
     "category": "regulatory"
   },
   {
-    "title": "창녕군, 공무원 사칭 사기 전화 극성 주의 당부",
-    "description": "사기범들은 관내 영업장에 전화를 걸어 \"식품위생법 개정으로 위생 점검을 실시할 예정이며, ATP 오염도 측정기가 구비돼 있지 않으면 과태료 500만 원이 부과된다\"며 위조된 공문과 명함을 영업자 휴대전화로 전송하고...",
-    "link": "https://www.newsgn.com/news/articleView.html?idxno=562774",
-    "pubDate": "Sun, 19 Jul 2026 11:18:00 +0900",
-    "keyword": "식품위생법",
+    "title": "2026년 에콰도르 수산업 정보",
+    "description": "위생관리, 식품안전, 인증 절차를 운영하고 있다. 수출 기업은 제품을 해외로 반출하기 전... 베네수엘라가 다시 주요 수출시장으로 부상하고 있으며, 2025년에는 브라질이 수입 제한 조치를...",
+    "link": "http://dream.kotra.or.kr/kotranews/cms/news/actionKotraBoardDetail.do?SITE_NO=3&MENU_ID=200&CONTENTS_NO=1&bbsGbn=403&bbsSn=403&pNttSn=242675",
+    "pubDate": "Tue, 21 Jul 2026 14:40:00 +0900",
+    "keyword": "수입식품",
     "category": "regulatory"
   },
   {
-    "title": "신중 검토하는 사이 어둠의 경로 판친다…‘미프진’ 딜레마[안경진의...",
-    "description": "차례나 식품의약품안전처에 품목허가를 신청한 것으로 알려졌습니다. 그러나 식약처가 임신 중절 허용 주수, 약물로 인한 임신중절 허용 등 안전한 의약품 사용을 위한 구체적인 기준 마련이 선행돼야 한다는 입장을...",
-    "link": "https://www.sedaily.com/article/20068811?ref=naver",
-    "pubDate": "Fri, 17 Jul 2026 07:01:00 +0900",
-    "keyword": "식품표시",
+    "title": "'해외직구' 이용 불법 유통 수입과자할인점 8곳 적발",
+    "description": "정식 수입 절차를 거치지 않은 식품은 안전성 확인과 유통 이력 관리가 어려워 소비자 피해로 이어질 가능성을 배제하기 어렵다. 정식 수입 절차를 거친 제품에는 원재료명과 수입업체, 유통기한, 보관방법 등 국내 기준에...",
+    "link": "https://www.safetimes.co.kr/news/articleView.html?idxno=244335",
+    "pubDate": "Tue, 21 Jul 2026 13:48:00 +0900",
+    "keyword": "수입식품",
+    "category": "regulatory"
+  },
+  {
+    "title": "전남광주통합특별시, 휴가철 \"수산물 원산지 표시\" 집중 단속",
+    "description": "전남광주통합특별시가 여름 휴가철을 맞아 피서지 인근 수산물 판매 업소를 대상으로 원산지 표시 집중 단속에 나선다. 전남광주통합특별시는 오는 31일까지 관광객이 집중되는 해수욕장과 물놀이시설 인근 음식점...",
+    "link": "http://www.jeollailbo.com/news/articleView.html?idxno=805889",
+    "pubDate": "Tue, 21 Jul 2026 13:06:00 +0900",
+    "keyword": "원산지표시",
+    "category": "regulatory"
+  },
+  {
+    "title": "광양시, '바가지요금 근절'... 8월 말까지 합동 단속",
+    "description": "시는 투자경제과를 중심으로 유관부서 합동 지도·점검반을 구성해 계곡 등 주요 피서지 주변 음식점과 숙박업소, 피서용품 대여업소를 대상으로 가격표시와 원산지 표시, 부당요금 징수 여부를 집중 확인한다. 주요 점검...",
+    "link": "http://www.newsworker.co.kr/news/articleView.html?idxno=437350",
+    "pubDate": "Tue, 21 Jul 2026 11:46:00 +0900",
+    "keyword": "원산지표시",
+    "category": "regulatory"
+  },
+  {
+    "title": "울산시, 여름 휴가철 수산물 원산지 특별단속 실시",
+    "description": "이에 따라 울산시는 휴가철을 맞아 방문객이 집중되는 해수욕장과 해변 인근 음식점을 중심으로 수산물 원산지 표시 특별 단속을 추진한다. 시 관계자는 \"이번 단속을 통해 불법 위반 행위를 선제적으로 차단하고 건전한...",
+    "link": "https://www.cnbnews.com/news/articleView.html?idxno=1008644",
+    "pubDate": "Tue, 21 Jul 2026 11:14:00 +0900",
+    "keyword": "원산지표시",
+    "category": "regulatory"
+  },
+  {
+    "title": "메디셜, 전립선·혈행 동시 관리 남성 영양제 '차지맥스' 출시",
+    "description": "건강기능식품 브랜드 '메디셜'이 중장년 남성 영양제 '차지맥스'를 최근 출시했다고 21일 밝혔다. 사진... 은행잎추출물은 '기억력 개선·혈행 개선에 도움을 줄 수 있음'으로 식약처가 고시한 기능성 원료다. 전립선 관리와...",
+    "link": "http://www.bizwnews.com/news/articleView.html?idxno=141064",
+    "pubDate": "Tue, 21 Jul 2026 10:42:00 +0900",
+    "keyword": "식약처",
+    "category": "regulatory"
+  },
+  {
+    "title": "시민단체 “식약처 GMO 표시제 개정안 다시 만들어야”",
+    "description": "식품의약품안전처가 8일 ‘유전자변형식품 등의 표시기준’을 개정하고 올 연말부터 유전자변형농산물(GMO)... 식약처 고시에 따르면 올 12월31일부터 간장과 간장을 원재료로 한 장류 등을 대상으로 GMO 완전표시제가...",
+    "link": "https://www.nongmin.com/article/20260720500477",
+    "pubDate": "Tue, 21 Jul 2026 10:28:00 +0900",
+    "keyword": "식약처",
+    "category": "regulatory"
+  },
+  {
+    "title": "식약처, 시험·검사기관 품질관리 수준 국제 조화 추진",
+    "description": "식약처는 20일 이같은 내용의 '식품·의약품분야 시험·검사기관 평가에 관한 규정 일부개정고시안'을 행정예고하고 오는 9월 17일까지 의견조회를 실시한다. 개정 주요내용은 ISO/IEC 17025 인정받은 시험·검사기관이...",
+    "link": "http://www.medisobizanews.com/news/articleView.html?idxno=140372",
+    "pubDate": "Tue, 21 Jul 2026 09:10:00 +0900",
+    "keyword": "식약처",
     "category": "regulatory"
   },
   {
@@ -477,38 +509,6 @@
     "link": "https://www.sedaily.com/article/20068309?ref=naver",
     "pubDate": "Wed, 15 Jul 2026 21:56:00 +0900",
     "keyword": "소비기한",
-    "category": "regulatory"
-  },
-  {
-    "title": "\"금요일은 소비기한 확인하는 날\"... 인천 부평구, 급식소 290곳 '소.중....",
-    "description": "또한 소비기한 표시제 정착 단계에서 발생할 수 있는 현장의 혼선을 예방하고, 특히 계절적 요인에 따른 식중독 등 식품 안전사고를 선제적으로 차단하는 데 실질적인 효과를 거둘 것이라고 분석했다. 센터 관계자는 \"매주...",
-    "link": "https://www.greened.kr/news/articleView.html?idxno=345125",
-    "pubDate": "Wed, 15 Jul 2026 13:04:00 +0900",
-    "keyword": "소비기한",
-    "category": "regulatory"
-  },
-  {
-    "title": "5개월 앞둔 ‘GMO 완전표시제’ 식품업계 속앓이",
-    "description": "포기하면, 소비자는 그 제품을 GMO 원료 사용 제품으로 오인할 수 있다는 지적이다. 이 경우 논 GMO 표시 제품... 기존 포장재 재고 관리, 유통기한 관리 등 생산·유통 전반에 영향을 미치는 사항”이라고 말했다. 글·사진=",
-    "link": "https://www.busan.com/view/busan/view.php?code=2026071418042736883",
-    "pubDate": "Tue, 14 Jul 2026 18:06:00 +0900",
-    "keyword": "소비기한",
-    "category": "regulatory"
-  },
-  {
-    "title": "동해시, 여름철 다소비 식품 취급업소 위생점검 실시",
-    "description": "동해시는 소비자식품위생감시원과 함께 소비기한 경과 제품의 보관·사용 여부를 비롯해 시설기준 및 영업자 준수사항 이행 여부, 달걀의 위생적 취급과 적정 보관기준 준수 여부, 치킨 중량 표시제 이행 여부 등을 중점...",
-    "link": "https://www.kwnews.co.kr/article/20260714500871",
-    "pubDate": "Tue, 14 Jul 2026 15:05:00 +0900",
-    "keyword": "소비기한",
-    "category": "regulatory"
-  },
-  {
-    "title": "건기식도 맛 경쟁, 식약처 원료 규제완화에 업계 '기대'",
-    "description": "식품의약품안전처는 지난 13일 '식품첨가물의 기준 및 규격 일부개정고시'를 통해 구연산아연과 당산제이철을 식품 및 건강기능식품 제조에 사용할 수 있는 영양강화제로 새롭게 지정했다. 이번 개정은 2028년 1월 1일부터...",
-    "link": "https://www.kpanews.co.kr/news/articleView.html?idxno=538535",
-    "pubDate": "Tue, 14 Jul 2026 12:32:00 +0900",
-    "keyword": "식품첨가물",
     "category": "regulatory"
   }
 ]
