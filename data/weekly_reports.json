@@ -1,5 +1,19 @@
 [
   {
+    "date": "2026-07-28",
+    "weekLabel": "2026년 7월 4주차",
+    "periodLabel": "2026-04-29 ~ 2026-07-27",
+    "generatedAt": "2026-07-28T14:01:56.339443+09:00",
+    "topUpKeyword": "흑당",
+    "topUpPct": 16,
+    "topDownKeyword": "제로슈거",
+    "topDownPct": -47,
+    "topCategory": "음료",
+    "topCategoryCount": 18,
+    "totalProducts": 48,
+    "file": "data/weekly_reports/2026-07-28.html"
+  },
+  {
     "date": "2026-07-27",
     "weekLabel": "2026년 7월 4주차",
     "periodLabel": "2026-04-27 ~ 2026-07-25",
