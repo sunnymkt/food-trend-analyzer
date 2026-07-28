@@ -66,6 +66,9 @@
         <div class="nav-item" data-view="category" onclick="navigate('category')">
           <span class="nav-icon">🗂️</span>카테고리 분석
         </div>
+        <div class="nav-item" data-view="reviews" onclick="navigate('reviews')">
+          <span class="nav-icon">💬</span>상품 리뷰 분석
+        </div>
 
         <span class="nav-group-title">리포트</span>
 
@@ -328,6 +331,7 @@
                 <div class="card-title"><span class="card-icon">🚀</span>브랜드별 신제품 출시속도</div>
                 <div class="card-meta" id="velocityMeta">-</div>
               </div>
+              <p style="font-size:11px;color:var(--text-muted);margin:-4px 0 4px;">막대를 클릭하면 해당 브랜드의 신제품 목록을 볼 수 있습니다</p>
               <div class="chart-wrap" style="height:280px;">
                 <canvas id="brandVelocityChart"></canvas>
               </div>
@@ -335,6 +339,70 @@
           </div>
 
         </section><!-- /category -->
+
+        <!-- ─────────────────────────────────────────────
+           VIEW: PRODUCT REVIEWS (네이버 브랜드관 리뷰 분석 — 수동 업로드)
+           ───────────────────────────────────────────── -->
+        <section id="reviews" class="view">
+
+          <div class="card" style="margin-bottom:18px;">
+            <div class="card-header">
+              <div class="card-title"><span class="card-icon">💬</span>상품 리뷰 분석</div>
+              <div class="card-meta" id="reviewMeta">-</div>
+            </div>
+            <p style="font-size:12px;color:var(--text-muted);margin-bottom:4px;">
+              네이버 브랜드관에서 수동으로 내려받은 농협식품 자사 제품 리뷰를 분석합니다.
+              상품을 클릭하면 평점 분포, 재구매·품질 신호, 대표 호평/부정 리뷰를 볼 수 있습니다.
+            </p>
+          </div>
+
+          <div id="reviewHlGrid" class="hl-grid-cards" style="margin-bottom:18px;"></div>
+
+          <div class="card">
+            <div class="card-header">
+              <div class="card-title">상품별 리뷰 현황</div>
+              <div style="display:flex;gap:8px;align-items:center;">
+                <select id="reviewSortSelect" class="review-select" onchange="renderReviewList()">
+                  <option value="reviewCount">리뷰 많은순</option>
+                  <option value="negativeSignals">부정 신호 많은순</option>
+                  <option value="avgRatingAsc">평점 낮은순</option>
+                  <option value="avgRatingDesc">평점 높은순</option>
+                </select>
+                <input id="reviewSearchInput" type="text" placeholder="상품명 검색…" class="review-search-input" oninput="renderReviewList()">
+              </div>
+            </div>
+            <div id="reviewListWrap"></div>
+          </div>
+
+        </section><!-- /reviews -->
+
+        <!-- 상품 리뷰 상세 모달 -->
+        <div id="reviewModal" class="ck-modal-overlay hidden" onclick="if(event.target===this)closeReviewModal()">
+          <div class="ck-modal">
+            <button class="ck-modal-close" onclick="closeReviewModal()" aria-label="닫기">✕</button>
+            <div class="ck-modal-header">
+              <div>
+                <div class="ck-modal-title" id="reviewModalTitle">-</div>
+                <div class="ck-modal-meta" id="reviewModalMeta">-</div>
+              </div>
+            </div>
+            <div id="reviewModalBody"></div>
+          </div>
+        </div>
+
+        <!-- 브랜드별 신제품 출시속도 → 신제품 목록 모달 -->
+        <div id="brandModal" class="ck-modal-overlay hidden" onclick="if(event.target===this)closeBrandModal()">
+          <div class="ck-modal">
+            <button class="ck-modal-close" onclick="closeBrandModal()" aria-label="닫기">✕</button>
+            <div class="ck-modal-header">
+              <div>
+                <div class="ck-modal-title" id="brandModalTitle">-</div>
+                <div class="ck-modal-meta" id="brandModalMeta">-</div>
+              </div>
+            </div>
+            <div id="brandModalList" style="max-height:400px;overflow-y:auto;margin-top:8px;"></div>
+          </div>
+        </div>
 
 
         <!-- ─────────────────────────────────────────────

@@ -59,10 +59,14 @@ def load_regulatory_topics():
 
 def load_exclude_keywords():
     if not NEWS_FILTERS_PATH.exists():
-        return []
+        return [], []
     with open(NEWS_FILTERS_PATH, encoding="utf-8") as f:
         cfg = json.load(f)
-    return cfg.get("excludeKeywords", [])
+    # 일반 오프토픽 키워드 + 건강기능식품/성인 광고성 민감 키워드를 합쳐서 하나의
+    # 블랙리스트로 쓴다(제목 태그는 별도 반환 — 제목에서만 검사하기 때문).
+    combined = list(cfg.get("excludeKeywords", [])) + list(cfg.get("sensitiveExcludeKeywords", []))
+    title_tags = cfg.get("excludeTitleTags", [])
+    return combined, title_tags
 
 
 def clean_text(s):
@@ -77,11 +81,13 @@ def has_word_start_match(text, keyword):
     return bool(pattern.search(text))
 
 
-def is_relevant(title, description, keyword, exclude_keywords):
+def is_relevant(title, description, keyword, exclude_keywords, exclude_title_tags):
     text = f"{title} {description}"
     if keyword and not has_word_start_match(text, keyword):
         return False
     if any(bad in text for bad in exclude_keywords):
+        return False
+    if any(tag in title for tag in exclude_title_tags):
         return False
     return True
 
@@ -120,7 +126,7 @@ def call_news_api(client_id, client_secret, query, display, retries=3):
 
 
 def fetch_queries(client_id, client_secret, queries, category, articles_by_link, failed,
-                   exclude_keywords, check_word_boundary):
+                   exclude_keywords, exclude_title_tags, check_word_boundary):
     """queries: [(tag, query_string), ...]. articles_by_link 에 직접 채워 넣는다.
     check_word_boundary=True 이면 tag(키워드)가 다른 단어에 우연히 포함된 기사를
     걸러낸다 (product 카테고리용. regulatory는 tag가 주제 라벨이라 해당 없음)."""
@@ -140,7 +146,8 @@ def fetch_queries(client_id, client_secret, queries, category, articles_by_link,
                 continue
             title = clean_text(item.get("title"))
             description = clean_text(item.get("description"))
-            if not is_relevant(title, description, tag if check_word_boundary else None, exclude_keywords):
+            if not is_relevant(title, description, tag if check_word_boundary else None,
+                                exclude_keywords, exclude_title_tags):
                 filtered_out += 1
                 continue
             articles_by_link[link] = {
@@ -183,17 +190,17 @@ def main():
 
     product_queries = [(kw, f"{kw} 신제품") for kw in product_keywords]
     regulatory_queries = [(t["label"], t["query"]) for t in reg_topics_all]
-    exclude_keywords = load_exclude_keywords()
+    exclude_keywords, exclude_title_tags = load_exclude_keywords()
 
     failed = []
 
     # 카테고리별로 따로 모아서 각자 상한을 적용한다 (한쪽이 다른 쪽을 밀어내지 않도록).
     product_links = {}
     fetch_queries(client_id, client_secret, product_queries, "product", product_links, failed,
-                  exclude_keywords, check_word_boundary=True)
+                  exclude_keywords, exclude_title_tags, check_word_boundary=True)
     regulatory_links = {}
     fetch_queries(client_id, client_secret, regulatory_queries, "regulatory", regulatory_links, failed,
-                  exclude_keywords, check_word_boundary=False)
+                  exclude_keywords, exclude_title_tags, check_word_boundary=False)
 
     if not product_links and not regulatory_links:
         print("ERROR: 수집된 기사가 0건입니다. 기존 data/news.json 을 유지하고 종료합니다.", file=sys.stderr)

@@ -541,7 +541,58 @@ select option { background:var(--bg-secondary); color:var(--text-primary); }
   .content  { padding:16px; }
 }
 
-/* ── PDF 내보내기 (인쇄) ─────────────────────────────────── */
+/* ── 상품 리뷰 분석 ─────────────────────────────────── */
+.hl-grid-cards { display:flex; flex-wrap:wrap; gap:14px; }
+.hl-grid-cards .card { flex:1 1 160px; min-width:160px; padding:16px 18px; }
+.hl-mini-label { font-size:11.5px; color:var(--text-muted); margin-bottom:6px; }
+.hl-mini-value { font-size:22px; font-weight:800; letter-spacing:-.01em; }
+.hl-mini-sub { font-size:11px; color:var(--text-muted); margin-top:2px; }
+
+.review-select, .review-search-input {
+  font-size:12.5px; padding:7px 11px; border:1px solid var(--border); border-radius:8px;
+  background:var(--bg-card); color:var(--text-primary);
+}
+.review-search-input { width:200px; }
+
+.review-row {
+  display:flex; align-items:center; gap:14px; padding:12px 6px; border-bottom:1px solid var(--border);
+  cursor:pointer; transition:background .12s;
+}
+.review-row:hover { background:var(--bg-hover, rgba(0,0,0,.02)); }
+.review-row:last-child { border-bottom:none; }
+.review-row-name { font-size:13.5px; font-weight:700; color:var(--text-primary); }
+.review-row-meta { font-size:11.5px; color:var(--text-muted); margin-top:2px; }
+.review-row-rating { font-size:15px; font-weight:800; color:var(--gold,#b45309); white-space:nowrap; }
+.review-row-badges { display:flex; gap:6px; flex-shrink:0; }
+.review-badge {
+  display:inline-flex; align-items:center; padding:2px 8px; border-radius:20px;
+  font-size:10.5px; font-weight:700; white-space:nowrap;
+}
+.review-badge.neg { background:#fee2e2; color:#b91c1c; }
+.review-badge.pos { background:#dcfce7; color:#15803d; }
+
+.rv-rating-bars { display:flex; flex-direction:column; gap:7px; margin:14px 0 20px; }
+.rv-rating-bar-row { display:flex; align-items:center; gap:10px; font-size:12.5px; }
+.rv-rating-bar-star { width:34px; flex-shrink:0; color:var(--text-muted); }
+.rv-rating-bar-track { flex:1; height:8px; background:var(--border); border-radius:4px; overflow:hidden; }
+.rv-rating-bar-fill { height:100%; background:var(--gold,#b45309); border-radius:4px; }
+.rv-rating-bar-count { width:36px; flex-shrink:0; text-align:right; font-weight:700; color:var(--text-muted); }
+
+.rv-signal-section { margin-bottom:18px; }
+.rv-signal-title { font-size:11.5px; font-weight:700; letter-spacing:.04em; text-transform:uppercase; color:var(--text-muted); margin-bottom:8px; }
+.rv-signal-chips { display:flex; flex-wrap:wrap; gap:8px; }
+.rv-signal-chip {
+  display:inline-flex; align-items:center; gap:5px; padding:5px 11px; border-radius:20px; font-size:12px; font-weight:600;
+}
+.rv-signal-chip.pos { background:#f0fdf4; color:#166534; border:1px solid #bbf7d0; }
+.rv-signal-chip.neg { background:#fef2f2; color:#991b1b; border:1px solid #fecaca; }
+.rv-signal-chip .n { font-weight:800; }
+
+.rv-snippet { padding:10px 12px; background:var(--bg-card); border:1px solid var(--border); border-radius:8px; margin-bottom:8px; font-size:12.5px; line-height:1.6; }
+.rv-snippet:last-child { margin-bottom:0; }
+.rv-snippet-meta { font-size:11px; color:var(--text-muted); margin-bottom:4px; display:flex; gap:6px; align-items:center; }
+
+
 .print-header { display:none; }
 
 @media print {

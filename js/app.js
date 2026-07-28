@@ -4,7 +4,7 @@
 
 /* ── 데이터 참조 (init에서 loadAppData 완료 후 채워짐) ────── */
 let KEYWORD_DATA, NEW_PRODUCTS, CATEGORIES, BRAND_DATA, WEEKLY_SUMMARY, DATES_30, META;
-let KEYWORD_OPPORTUNITY, BRAND_VELOCITY, CATEGORY_PRICE, HISTORY_META, NEWS, CUSTOM_KEYWORD_GROUPS, RELATED_KEYWORDS, WEEKLY_ARCHIVE;
+let KEYWORD_OPPORTUNITY, BRAND_VELOCITY, CATEGORY_PRICE, HISTORY_META, NEWS, CUSTOM_KEYWORD_GROUPS, RELATED_KEYWORDS, WEEKLY_ARCHIVE, HISTORY, REVIEW_DATA;
 
 /* ── 상태 ────────────────────────────────────────────────── */
 let currentView = 'dashboard';
@@ -98,6 +98,7 @@ function navigate(viewId) {
     trends:    ['📈 키워드 비교분석', '키워드 3개월 시계열 비교'],
     products:  ['🆕 신제품(마켓컬리)', '일별 신제품 모니터링'],
     category:  ['🗂️ 카테고리 분석', '카테고리별 키워드 심층 분석'],
+    reviews:   ['💬 상품 리뷰 분석', '네이버 브랜드관 리뷰 기반 상품별 분석'],
     report:    ['📋 주간 리포트',   '자동 생성 인사이트 리포트'],
     news:      ['📰 업계뉴스(식품/법규)', '식품 신제품 관련 최신 기사'],
     customKeywords: ['🧾 카테고리별 인기검색어', '별도 지정 키워드 3개월 검색 추이'],
@@ -113,6 +114,7 @@ function navigate(viewId) {
     if(viewId === 'dashboard') renderDashboard();
     if(viewId === 'trends')    renderTrends();
     if(viewId === 'category')  renderCategory(selectedCat);
+    if(viewId === 'reviews')   renderReviews();
     if(viewId === 'news')      renderNews();
     if(viewId === 'customKeywords') renderCustomKeywords();
     if(viewId === 'weeklyArchive') renderWeeklyArchive();
@@ -574,6 +576,14 @@ function renderBrandVelocityChart() {
     options: {
       ...CHART_DEFAULTS,
       indexAxis: 'y',
+      onClick: (evt, elements) => {
+        if (!elements.length) return;
+        const brand = BRAND_VELOCITY[elements[0].index]?.brand;
+        if (brand) openBrandVelocityModal(brand);
+      },
+      onHover: (evt, elements) => {
+        if (evt.native?.target) evt.native.target.style.cursor = elements.length ? 'pointer' : 'default';
+      },
       plugins: { ...CHART_DEFAULTS.plugins, legend: { display:false } },
       scales: {
         x: { ...CHART_DEFAULTS.scales.x, beginAtZero:true, ticks: { ...CHART_DEFAULTS.scales.x.ticks, stepSize:1 } },
@@ -582,6 +592,224 @@ function renderBrandVelocityChart() {
     }
   });
 }
+
+/* 브랜드별 신제품 출시속도 차트 바 클릭 → 해당 브랜드 신제품 목록 모달 */
+function openBrandVelocityModal(brand) {
+  const modal = document.getElementById('brandModal');
+  if (!modal) return;
+
+  const products = (HISTORY || [])
+    .filter(p => p.brand === brand)
+    .sort((a, b) => (b.firstSeenDate || '').localeCompare(a.firstSeenDate || ''));
+
+  document.getElementById('brandModalTitle').textContent = brand;
+  document.getElementById('brandModalMeta').textContent =
+    `최근 ${HISTORY_META.daysTracked}일 누적 · 신제품 ${products.length}개`;
+
+  const listEl = document.getElementById('brandModalList');
+  listEl.innerHTML = products.length
+    ? products.map((p, i) => `
+      <div style="display:flex;justify-content:space-between;align-items:center;gap:10px;padding:9px 0;${i < products.length - 1 ? 'border-bottom:1px solid var(--border);' : ''}">
+        ${p.url
+          ? `<a href="${p.url}" target="_blank" rel="noopener noreferrer" class="mini-name">${p.emoji || ''} ${p.name}</a>`
+          : `<span style="font-size:13px;font-weight:600;color:var(--text-primary);">${p.emoji || ''} ${p.name}</span>`}
+        <span style="color:var(--text-muted);font-size:12px;white-space:nowrap;">${p.price || '-'}</span>
+      </div>
+    `).join('')
+    : `<p style="color:var(--text-muted);font-size:13px;padding:12px 0;">등록된 제품 정보가 없습니다.</p>`;
+
+  modal.classList.remove('hidden');
+}
+
+function closeBrandModal() {
+  const modal = document.getElementById('brandModal');
+  if (modal) modal.classList.add('hidden');
+}
+document.addEventListener('keydown', e => { if (e.key === 'Escape') closeBrandModal(); });
+
+/* ════════════════════════════════════════════════════════════
+   상품 리뷰 분석 (네이버 브랜드관 리뷰 — 수동 업로드 → process_reviews.py 결과물)
+   ════════════════════════════════════════════════════════════ */
+function escHtml(s) {
+  return String(s ?? '').replace(/[&<>"']/g, c => ({
+    '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;',
+  }[c]));
+}
+
+function negativeSignalSum(p) {
+  return Object.values(p.signals?.negative || {}).reduce((a, b) => a + b, 0);
+}
+function positiveSignalSum(p) {
+  return Object.values(p.signals?.positive || {}).reduce((a, b) => a + b, 0);
+}
+
+function renderReviews() {
+  const hlEl = document.getElementById('reviewHlGrid');
+  const metaEl = document.getElementById('reviewMeta');
+  const listWrap = document.getElementById('reviewListWrap');
+  if (!hlEl || !listWrap) return;
+
+  if (!REVIEW_DATA || !Array.isArray(REVIEW_DATA.products) || !REVIEW_DATA.products.length) {
+    if (metaEl) metaEl.textContent = '-';
+    hlEl.innerHTML = '';
+    listWrap.innerHTML = `
+      <div class="empty">
+        <div class="empty-icon">💬</div>
+        <h3>아직 리뷰 데이터가 없습니다</h3>
+        <p>네이버 브랜드관에서 리뷰 엑셀을 받아 <code>python scripts/process_reviews.py --input 파일경로</code> 를
+        실행하면 <code>data/product_reviews.json</code>이 생성되어 이 화면에 표시됩니다.</p>
+      </div>`;
+    return;
+  }
+
+  if (metaEl) {
+    metaEl.textContent = `${REVIEW_DATA.periodStart || '-'} ~ ${REVIEW_DATA.periodEnd || '-'} 기준`;
+  }
+
+  hlEl.innerHTML = `
+    <div class="card"><div class="hl-mini-label">총 리뷰 수</div><div class="hl-mini-value num">${REVIEW_DATA.totalReviews.toLocaleString()}</div></div>
+    <div class="card"><div class="hl-mini-label">분석 상품 수</div><div class="hl-mini-value num">${REVIEW_DATA.totalProducts.toLocaleString()}</div></div>
+    <div class="card"><div class="hl-mini-label">전체 평균 평점</div><div class="hl-mini-value">⭐ ${REVIEW_DATA.avgRatingOverall ?? '-'}</div></div>
+    <div class="card"><div class="hl-mini-label">조사 기간</div><div class="hl-mini-value" style="font-size:15px;">${REVIEW_DATA.periodStart || '-'}<br>~ ${REVIEW_DATA.periodEnd || '-'}</div></div>
+  `;
+
+  renderReviewList();
+}
+
+function renderReviewList() {
+  const listWrap = document.getElementById('reviewListWrap');
+  if (!listWrap || !REVIEW_DATA) return;
+
+  const searchEl = document.getElementById('reviewSearchInput');
+  const sortEl = document.getElementById('reviewSortSelect');
+  const query = (searchEl?.value || '').trim().toLowerCase();
+  const sortMode = sortEl?.value || 'reviewCount';
+
+  let items = REVIEW_DATA.products;
+  if (query) {
+    items = items.filter(p => p.productName.toLowerCase().includes(query));
+  }
+
+  items = [...items];
+  switch (sortMode) {
+    case 'negativeSignals':
+      items.sort((a, b) => negativeSignalSum(b) - negativeSignalSum(a));
+      break;
+    case 'avgRatingAsc':
+      items.sort((a, b) => (a.avgRating ?? 99) - (b.avgRating ?? 99));
+      break;
+    case 'avgRatingDesc':
+      items.sort((a, b) => (b.avgRating ?? -1) - (a.avgRating ?? -1));
+      break;
+    default:
+      items.sort((a, b) => b.reviewCount - a.reviewCount);
+  }
+
+  if (!items.length) {
+    listWrap.innerHTML = `<div class="empty"><div class="empty-icon">🔍</div><h3>검색 결과가 없습니다</h3></div>`;
+    return;
+  }
+
+  listWrap.innerHTML = items.map(p => reviewRowHtml(p)).join('');
+}
+
+function reviewRowHtml(p) {
+  const negSum = negativeSignalSum(p);
+  const posSum = positiveSignalSum(p);
+  const badges = [
+    p.photoReviewCount ? `<span class="review-badge pos">📷 포토 ${p.photoReviewCount}</span>` : '',
+    posSum ? `<span class="review-badge pos">👍 긍정신호 ${posSum}</span>` : '',
+    negSum ? `<span class="review-badge neg">⚠️ 부정신호 ${negSum}</span>` : '',
+  ].join('');
+
+  return `
+    <div class="review-row" onclick="openReviewModal(${p.productId})">
+      <div style="flex:1;min-width:0;">
+        <div class="review-row-name">${escHtml(p.productName)}</div>
+        <div class="review-row-meta">리뷰 ${p.reviewCount.toLocaleString()}건 · ${p.firstReviewDate || '-'} ~ ${p.lastReviewDate || '-'}</div>
+      </div>
+      <div class="review-row-badges">${badges}</div>
+      <div class="review-row-rating num">⭐ ${p.avgRating ?? '-'}</div>
+    </div>
+  `;
+}
+
+function openReviewModal(productId) {
+  const modal = document.getElementById('reviewModal');
+  const p = REVIEW_DATA?.products?.find(x => x.productId === productId);
+  if (!modal || !p) return;
+
+  document.getElementById('reviewModalTitle').textContent = p.productName;
+  document.getElementById('reviewModalMeta').textContent =
+    `리뷰 ${p.reviewCount.toLocaleString()}건 · 평균 ⭐${p.avgRating ?? '-'} · ${p.firstReviewDate || '-'} ~ ${p.lastReviewDate || '-'}` +
+    (p.bestReviewCount ? ` · 베스트리뷰 ${p.bestReviewCount}건` : '');
+
+  const maxCount = Math.max(1, ...Object.values(p.ratingDistribution || {}));
+  const ratingBars = [5, 4, 3, 2, 1].map(star => {
+    const count = p.ratingDistribution?.[String(star)] || 0;
+    return `
+      <div class="rv-rating-bar-row">
+        <span class="rv-rating-bar-star">★${star}</span>
+        <div class="rv-rating-bar-track"><div class="rv-rating-bar-fill" style="width:${Math.round(count / maxCount * 100)}%"></div></div>
+        <span class="rv-rating-bar-count num">${count}</span>
+      </div>`;
+  }).join('');
+
+  const signalChips = (signals, cls, emptyLabel) => {
+    const entries = Object.entries(signals || {}).filter(([, n]) => n > 0);
+    if (!entries.length) return `<div style="font-size:12px;color:var(--text-muted);">${emptyLabel}</div>`;
+    return `<div class="rv-signal-chips">${entries.map(([label, n]) =>
+      `<span class="rv-signal-chip ${cls}">${escHtml(label)} <span class="n">${n}</span></span>`
+    ).join('')}</div>`;
+  };
+
+  const snippetHtml = (item, kind) => `
+    <div class="rv-snippet">
+      <div class="rv-snippet-meta">
+        <span>⭐${item.rating}</span><span>·</span><span>${item.date || '-'}</span>
+        ${item.photo ? '<span>· 📷 포토리뷰</span>' : ''}
+        ${kind === 'pos' && item.best ? '<span>· 🏆 베스트리뷰</span>' : ''}
+      </div>
+      <div>${escHtml(item.text)}</div>
+    </div>`;
+
+  const negativeSection = p.topNegative?.length
+    ? p.topNegative.map(i => snippetHtml(i, 'neg')).join('')
+    : `<div style="font-size:12px;color:var(--text-muted);">낮은 평점 리뷰가 없습니다.</div>`;
+  const positiveSection = p.topPositive?.length
+    ? p.topPositive.map(i => snippetHtml(i, 'pos')).join('')
+    : `<div style="font-size:12px;color:var(--text-muted);">표시할 호평 리뷰가 없습니다.</div>`;
+
+  document.getElementById('reviewModalBody').innerHTML = `
+    <div class="rv-rating-bars">${ratingBars}</div>
+
+    <div class="rv-signal-section">
+      <div class="rv-signal-title">👍 긍정 신호</div>
+      ${signalChips(p.signals?.positive, 'pos', '뚜렷한 긍정 신호가 감지되지 않았습니다.')}
+    </div>
+    <div class="rv-signal-section">
+      <div class="rv-signal-title">⚠️ 부정 신호 (개선 포인트)</div>
+      ${signalChips(p.signals?.negative, 'neg', '뚜렷한 부정 신호가 감지되지 않았습니다.')}
+    </div>
+
+    <div class="rv-signal-section">
+      <div class="rv-signal-title">대표 부정 리뷰</div>
+      ${negativeSection}
+    </div>
+    <div class="rv-signal-section" style="margin-bottom:0;">
+      <div class="rv-signal-title">대표 호평 리뷰</div>
+      ${positiveSection}
+    </div>
+  `;
+
+  modal.classList.remove('hidden');
+}
+
+function closeReviewModal() {
+  const modal = document.getElementById('reviewModal');
+  if (modal) modal.classList.add('hidden');
+}
+document.addEventListener('keydown', e => { if (e.key === 'Escape') closeReviewModal(); });
 
 function renderCatKeywordChart(cat) {
   const ctx = document.getElementById('catKwChart');
@@ -1339,7 +1567,7 @@ async function init() {
     const data = await window.loadAppData();
     ({ KEYWORD_DATA, NEW_PRODUCTS, CATEGORIES, BRAND_DATA, WEEKLY_SUMMARY, DATES_30, META,
        KEYWORD_OPPORTUNITY, BRAND_VELOCITY, CATEGORY_PRICE, HISTORY_META, NEWS, CUSTOM_KEYWORD_GROUPS, RELATED_KEYWORDS,
-       WEEKLY_ARCHIVE } = data);
+       WEEKLY_ARCHIVE, HISTORY, REVIEW_DATA } = data);
   } catch (err) {
     showDataError(err);
     return;

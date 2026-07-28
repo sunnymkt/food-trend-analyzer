@@ -5,7 +5,7 @@
 // ============================================================
 
 window.loadAppData = async function loadAppData() {
-  const [trendsRaw, products, categoriesCfg, meta, historyRaw, newsRaw, customKeywordsRaw, relatedKeywordsRaw, weeklyReportsRaw] = await Promise.all([
+  const [trendsRaw, products, categoriesCfg, meta, historyRaw, newsRaw, customKeywordsRaw, relatedKeywordsRaw, weeklyReportsRaw, reviewsRaw] = await Promise.all([
     fetchJson('data/keyword_trends.json'),
     fetchJson('data/new_products.json'),
     fetchJson('data/categories.json'),
@@ -15,6 +15,7 @@ window.loadAppData = async function loadAppData() {
     fetchJsonOptional('data/custom_keyword_trends.json', {}),
     fetchJsonOptional('data/custom_keyword_related.json', {}),
     fetchJsonOptional('data/weekly_reports.json', []),
+    fetchJsonOptional('data/product_reviews.json', null),
   ]);
 
   // 설정 파일에 섞여있는 "_comment" 같은 메타 키는 제외한다.
@@ -36,11 +37,12 @@ window.loadAppData = async function loadAppData() {
   const CUSTOM_KEYWORD_GROUPS = buildCustomKeywordGroups(customKeywordsRaw);
   const RELATED_KEYWORDS = relatedKeywordsRaw || {};
   const WEEKLY_ARCHIVE = Array.isArray(weeklyReportsRaw) ? weeklyReportsRaw : [];
+  const REVIEW_DATA = reviewsRaw || null; // 수동 업로드 전에는 null — 화면에서 안내 문구로 처리
 
   return {
     KEYWORD_DATA, NEW_PRODUCTS, CATEGORIES, BRAND_DATA, WEEKLY_SUMMARY, DATES_30, META: meta,
     KEYWORD_OPPORTUNITY, BRAND_VELOCITY, CATEGORY_PRICE, HISTORY_META, NEWS, CUSTOM_KEYWORD_GROUPS, RELATED_KEYWORDS,
-    WEEKLY_ARCHIVE,
+    WEEKLY_ARCHIVE, HISTORY, REVIEW_DATA,
   };
 };
 
