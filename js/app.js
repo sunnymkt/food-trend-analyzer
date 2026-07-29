@@ -734,6 +734,56 @@ function reviewRowHtml(p) {
   `;
 }
 
+const REVIEW_SUGGESTION_MAP = {
+  positive: {
+    '재구매의향': '재구매 의향 언급이 눈에 띕니다 — 정기구독·묶음구성 상품 기획을 검토해볼 만합니다.',
+    '맛만족': '맛에 대한 만족도가 높습니다 — 관련 리뷰 문구를 상세페이지·마케팅 카피에 활용해보세요.',
+    '가성비만족': '가격 대비 만족도가 높습니다 — 현재 가격 정책 유지 또는 프리미엄 라인 확장을 고려해볼 수 있습니다.',
+    '브랜드신뢰': '농협·국내산이라는 신뢰가 구매 이유로 작용하고 있습니다 — 원산지·브랜드 신뢰를 내세운 마케팅이 효과적일 수 있습니다.',
+  },
+  negative: {
+    '재구매거부': '재구매 거부 의사가 감지됩니다 — 부정 리뷰 원문을 확인해 근본 원인 파악과 빠른 대응이 필요합니다.',
+    '맛불만': '맛(단맛·짠맛·식감 등)에 대한 불만이 있습니다 — 레시피·배합비 재검토를 고려해보세요.',
+    '품질이슈': '파손·이물질 등 품질 이슈가 감지됩니다 — 포장재 강화 및 생산·검수 공정 점검이 필요합니다.',
+    '배송이슈': '배송 지연·파손 언급이 있습니다 — 물류사 및 완충 포장 개선을 검토해보세요.',
+  },
+};
+
+function buildReviewSuggestions(p) {
+  const total = p.reviewCount || 1;
+  const suggestions = [];
+
+  if (p.avgRating != null && p.avgRating < 4.0) {
+    suggestions.push({ level: 'neg', priority: 999, text: `평균 평점이 ${p.avgRating}점으로 낮은 편입니다 — 상품 전반의 품질·만족도 점검이 시급합니다.` });
+  }
+
+  Object.entries(p.signals?.negative || {}).forEach(([label, count]) => {
+    if (!count) return;
+    const ratio = count / total;
+    if (count >= 5 || ratio >= 0.03) {
+      suggestions.push({
+        level: 'neg', priority: count,
+        text: REVIEW_SUGGESTION_MAP.negative[label] || `'${label}' 관련 리뷰가 ${count}건 있습니다 — 확인이 필요합니다.`,
+      });
+    }
+  });
+
+  const posEntries = Object.entries(p.signals?.positive || {}).filter(([, c]) => c > 0)
+    .sort((a, b) => b[1] - a[1]);
+  if (posEntries.length) {
+    const [label, count] = posEntries[0];
+    if (count / total >= 0.15) {
+      suggestions.push({
+        level: 'pos', priority: count,
+        text: REVIEW_SUGGESTION_MAP.positive[label] || `'${label}' 언급이 많습니다 (${count}건) — 강점으로 활용해보세요.`,
+      });
+    }
+  }
+
+  suggestions.sort((a, b) => (a.level === b.level ? b.priority - a.priority : (a.level === 'neg' ? -1 : 1)));
+  return suggestions.slice(0, 4);
+}
+
 function openReviewModal(productId) {
   const modal = document.getElementById('reviewModal');
   const p = REVIEW_DATA?.products?.find(x => x.productId === productId);
@@ -743,6 +793,11 @@ function openReviewModal(productId) {
   document.getElementById('reviewModalMeta').textContent =
     `리뷰 ${p.reviewCount.toLocaleString()}건 · 평균 ⭐${p.avgRating ?? '-'} · ${p.firstReviewDate || '-'} ~ ${p.lastReviewDate || '-'}` +
     (p.bestReviewCount ? ` · 베스트리뷰 ${p.bestReviewCount}건` : '');
+
+  const suggestions = buildReviewSuggestions(p);
+  const suggestionsHtml = suggestions.length
+    ? suggestions.map(s => `<div class="rv-suggestion ${s.level}">${s.level === 'neg' ? '⚠️' : '💡'} ${escHtml(s.text)}</div>`).join('')
+    : `<div style="font-size:12px;color:var(--text-muted);">뚜렷한 이슈나 제안 포인트가 감지되지 않았습니다.</div>`;
 
   const maxCount = Math.max(1, ...Object.values(p.ratingDistribution || {}));
   const ratingBars = [5, 4, 3, 2, 1].map(star => {
@@ -781,6 +836,11 @@ function openReviewModal(productId) {
     : `<div style="font-size:12px;color:var(--text-muted);">표시할 호평 리뷰가 없습니다.</div>`;
 
   document.getElementById('reviewModalBody').innerHTML = `
+    <div class="rv-signal-section">
+      <div class="rv-signal-title">🎯 상품기획 제안</div>
+      ${suggestionsHtml}
+    </div>
+
     <div class="rv-rating-bars">${ratingBars}</div>
 
     <div class="rv-signal-section">
