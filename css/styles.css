@@ -229,6 +229,7 @@ body::before {
 .card-glow-orange { border-color:rgba(234,88,12,.28); background:linear-gradient(135deg,rgba(234,88,12,.08),rgba(180,83,9,.03)); }
 .card-glow-teal   { border-color:rgba(13,148,136,.28);  background:linear-gradient(135deg,rgba(13,148,136,.08),rgba(37,99,235,.03)); }
 .card-glow-rose   { border-color:rgba(225,29,72,.24);  background:linear-gradient(135deg,rgba(225,29,72,.07),rgba(124,58,237,.03)); }
+.card-glow-purple { border-color:rgba(124,58,237,.26); background:linear-gradient(135deg,rgba(124,58,237,.08),rgba(37,99,235,.03)); }
 
 /* ── KPI 카드 ────────────────────────────────────────────── */
 .kpi-icon   { font-size:26px; display:block; margin-bottom:12px; }
