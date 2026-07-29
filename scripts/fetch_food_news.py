@@ -24,6 +24,7 @@ import re
 import sys
 import time
 from datetime import datetime, timedelta, timezone
+from difflib import SequenceMatcher
 from pathlib import Path
 from urllib import request, error, parse
 
@@ -43,6 +44,14 @@ DISPLAY_PER_QUERY = 5
 MAX_PER_CATEGORY = {"product": 40, "regulatory": 24}
 KST = timezone(timedelta(hours=9))
 TAG_RE = re.compile(r"<[^>]+>")
+WHITESPACE_RE = re.compile(r"\s+")
+
+# 여러 매체가 같은 보도자료를 옮겨 실으면서 제목/요약만 살짝 다른 "유사 중복" 기사를
+# 걸러내기 위한 임계값. 같은 원문을 옮겨 쓴 기사는 요약 도입부가 거의 그대로 겹치는
+# 경우가 많아 요약 앞부분 유사도를 우선 신호로 쓰고, 제목 유사도를 보조 신호로 쓴다.
+DEDUP_DESC_COMPARE_LEN = 100
+DEDUP_DESC_RATIO = 0.55
+DEDUP_TITLE_RATIO = 0.6
 
 
 def load_keywords_config():
@@ -62,9 +71,14 @@ def load_exclude_keywords():
         return [], []
     with open(NEWS_FILTERS_PATH, encoding="utf-8") as f:
         cfg = json.load(f)
-    # 일반 오프토픽 키워드 + 건강기능식품/성인 광고성 민감 키워드를 합쳐서 하나의
-    # 블랙리스트로 쓴다(제목 태그는 별도 반환 — 제목에서만 검사하기 때문).
-    combined = list(cfg.get("excludeKeywords", [])) + list(cfg.get("sensitiveExcludeKeywords", []))
+    # 일반 오프토픽 키워드 + 건강기능식품/성인 광고성 민감 키워드 + 다른 업종(숙박/택시 등)
+    # 오프토픽 키워드를 합쳐서 하나의 블랙리스트로 쓴다
+    # (제목 태그는 별도 반환 — 제목에서만 검사하기 때문).
+    combined = (
+        list(cfg.get("excludeKeywords", []))
+        + list(cfg.get("sensitiveExcludeKeywords", []))
+        + list(cfg.get("offTopicIndustryKeywords", []))
+    )
     title_tags = cfg.get("excludeTitleTags", [])
     return combined, title_tags
 
@@ -170,6 +184,47 @@ def sort_key(a):
         return datetime.min.replace(tzinfo=KST)
 
 
+def _norm(s):
+    return WHITESPACE_RE.sub("", s or "")
+
+
+def dedupe_articles(articles):
+    """이미 정렬된(최신순) 기사 리스트에서, 같은 보도자료를 옮겨 실은 유사 중복 기사를
+    제거한다. 요약 도입부가 충분히 비슷하거나 제목이 충분히 비슷하면 중복으로 보고,
+    먼저 나온(더 최신인) 기사만 남긴다."""
+    kept = []
+    kept_desc = []
+    kept_titles = []
+    removed = 0
+    for art in articles:
+        title_norm = _norm(art.get("title"))
+        desc_norm = _norm(art.get("description"))[:DEDUP_DESC_COMPARE_LEN]
+
+        is_dup = False
+        if desc_norm:
+            for kd in kept_desc:
+                if kd and SequenceMatcher(None, desc_norm, kd).ratio() >= DEDUP_DESC_RATIO:
+                    is_dup = True
+                    break
+        if not is_dup:
+            for kt in kept_titles:
+                if SequenceMatcher(None, title_norm, kt).ratio() >= DEDUP_TITLE_RATIO:
+                    is_dup = True
+                    break
+
+        if is_dup:
+            removed += 1
+            continue
+
+        kept.append(art)
+        kept_desc.append(desc_norm)
+        kept_titles.append(title_norm)
+
+    if removed:
+        print(f"[fetch_food_news] 유사 중복 기사 {removed}건 제거")
+    return kept
+
+
 def main():
     parser = argparse.ArgumentParser()
     parser.add_argument("--keyword", help="product 카테고리에서 이 키워드만 수집 (디버깅용)")
@@ -206,8 +261,10 @@ def main():
         print("ERROR: 수집된 기사가 0건입니다. 기존 data/news.json 을 유지하고 종료합니다.", file=sys.stderr)
         sys.exit(1)
 
-    product_articles = sorted(product_links.values(), key=sort_key, reverse=True)[:MAX_PER_CATEGORY["product"]]
-    regulatory_articles = sorted(regulatory_links.values(), key=sort_key, reverse=True)[:MAX_PER_CATEGORY["regulatory"]]
+    product_articles = sorted(product_links.values(), key=sort_key, reverse=True)
+    product_articles = dedupe_articles(product_articles)[:MAX_PER_CATEGORY["product"]]
+    regulatory_articles = sorted(regulatory_links.values(), key=sort_key, reverse=True)
+    regulatory_articles = dedupe_articles(regulatory_articles)[:MAX_PER_CATEGORY["regulatory"]]
     articles = product_articles + regulatory_articles
 
     OUTPUT_PATH.write_text(json.dumps(articles, ensure_ascii=False, indent=2), encoding="utf-8")
