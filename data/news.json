@@ -1,26 +1,58 @@
 [
   {
+    "title": "해외 웃고 국내 받쳤다...아모레퍼시픽그룹, 2Q 영업익 전년比 53%↑",
+    "description": "에스트라는 '아토베리어365' 신제품을 앞세워 온라인과 MBS 채널에서 고성장했고, 일리윤은 올리브영... 오설록은 온라인 선물세트 판매 증가와 제주 티뮤지엄 내 '말차 스테이션', '말차 누들바' 운영 호조에 힘입어...",
+    "link": "https://www.ebn.co.kr/news/articleView.html?idxno=1718494",
+    "pubDate": "Thu, 30 Jul 2026 16:26:00 +0900",
+    "keyword": "말차",
+    "category": "product"
+  },
+  {
+    "title": "아모레퍼시픽, 미주·일본 질주에 영업익 53%↑…글로벌 성장 탄력",
+    "description": "라네즈와 마몽드, 미쟝센, 라보에이치, 오설록 등 주요 브랜드 역시 대표 제품과 신제품 판매 호조에... 오설록은 온라인 선물세트 판매 확대와 제주 티뮤지엄 내 말차 스테이션, 말차 누들바 운영 효과에 힘입어...",
+    "link": "http://www.newsprime.co.kr/news/article.html?no=742138",
+    "pubDate": "Thu, 30 Jul 2026 16:26:00 +0900",
+    "keyword": "말차",
+    "category": "product"
+  },
+  {
+    "title": "삼성전기 2Q 영업익 4404억… MLCC LTA 고객사 10곳과 체결",
+    "description": "7%까지 오른 데는 MLCC(적층세라믹콘덴서)와 FC-BGA(플립칩 볼 얼그레이)의 가격 상승이 결정적으로... 패키지솔루션은 글로벌 빅테크를 대상으로 AI 가속기와 서버 CPU용 신제품을 양산하며 국내외 생산설비 증설을...",
+    "link": "https://www.econovill.com/news/articleView.html?idxno=746652",
+    "pubDate": "Thu, 30 Jul 2026 16:00:00 +0900",
+    "keyword": "얼그레이",
+    "category": "product"
+  },
+  {
+    "title": "\"'건강지능' 소비가 뜬다\"... 식품업계, 영양까지 따지는 소비자 잡기 경...",
+    "description": "제품 '내사랑 유자C'에 탄산을 더한 '내사랑 유자C 스파클링'을 출시하며 여름 음료 시장 공략에 나섰다.... 활용한 '챔' 신제품 4종을 선보이며 식단 관리 수요를 겨냥했다. 식품업계 관계자는 \"건강 관리가 일상적인 소비...",
+    "link": "http://www.thefirstmedia.net/news/articleView.html?idxno=204984",
+    "pubDate": "Thu, 30 Jul 2026 15:58:00 +0900",
+    "keyword": "유자",
+    "category": "product"
+  },
+  {
+    "title": "식품업계, '건강지능' 소비 공략…성분 경쟁 본격화",
+    "description": "웅진식품은 2003년 출시한 유자 음료에 탄산을 더한 '내사랑 유자C 스파클링'으로 여름 음료 수요를... 하림은 국내산 닭가슴살로 만든 햄 '챔' 신제품 4종을 출시했다. '챔 허브&페퍼'와 '챔 올리브&할라피뇨'는 허브...",
+    "link": "https://www.slist.kr/news/articleView.html?idxno=755320",
+    "pubDate": "Thu, 30 Jul 2026 11:50:00 +0900",
+    "keyword": "유자",
+    "category": "product"
+  },
+  {
+    "title": "유통업계, \"건강하고 맛있게\"…'웰니스' 가치 집중",
+    "description": "동서식품은 그래놀라 신제품 '포스트 그래놀라 제로슈거 파로 통보리'를 출시했다. 포스트 그래놀라 제로슈거 파로 통보리는 식물 유래 감미료인 스테비아와 알룰로오스를 사용해 100g당 당류 함량을 0.5g 미만으로...",
+    "link": "https://www.cnbizm.com/news/articleView.html?idxno=310107",
+    "pubDate": "Thu, 30 Jul 2026 11:24:00 +0900",
+    "keyword": "제로슈거",
+    "category": "product"
+  },
+  {
     "title": "[리얼푸드] 코카콜라도 레몬라임…‘제로 레몬라임’ 나왔다",
     "description": "코카-콜라가 제로 슈거·칼로리 신제품 ‘코카-콜라 제로 레몬라임(사진)’을 출시한다. 2021년 1월 출시된 ‘펩시 제로슈거 라임’과 경쟁이 예상된다. ‘코카-콜라 제로 레몬라임’은 기존의 짜릿하고 상쾌한 맛은...",
     "link": "https://www.realfoods.co.kr/article/10825468?ref=naver",
     "pubDate": "Thu, 30 Jul 2026 10:56:00 +0900",
     "keyword": "제로슈거",
-    "category": "product"
-  },
-  {
-    "title": "[#꿀신상] 이마트 '복순도가' 막걸리·페어링 푸드 6종·대상 뉴케어 당...",
-    "description": "◆동서식품, 포스트 그래놀라 제로슈거 파로 통보리 동서식품이 당 섭취 부담은 낮추고 곡물 본연의 맛과 영양을 살린 신제품 '포스트 그래놀라 제로슈거 파로 통보리'를 출시했다. 이번 제품은 식물 유래 감미료인...",
-    "link": "https://www.newsworks.co.kr/news/articleView.html?idxno=848820",
-    "pubDate": "Thu, 30 Jul 2026 10:28:00 +0900",
-    "keyword": "제로슈거",
-    "category": "product"
-  },
-  {
-    "title": "식품업계, ‘건강지능(HQ)’ 높아진 소비자 공략…영양 성분 경쟁 치열",
-    "description": "‘내사랑 유자C 스파클링’을 선보였다. 식사 메뉴 역시 가볍고 건강하게 즐길 수 있는 제품들이 인기를... ‘챔’ 신제품 4종을 출시하며 식단 관리족 공략에 나섰다. 식품업계 관계자는 “소비자들의 건강 지식이...",
-    "link": "https://www.sentv.co.kr/article/view/sentv202607300036",
-    "pubDate": "Thu, 30 Jul 2026 10:20:00 +0900",
-    "keyword": "유자",
     "category": "product"
   },
   {
@@ -53,14 +85,6 @@
     "link": "https://www.hankyung.com/article/202607293221g",
     "pubDate": "Wed, 29 Jul 2026 21:03:00 +0900",
     "keyword": "쑥",
-    "category": "product"
-  },
-  {
-    "title": "투썸 원희·배라 박지훈, 디저트업계 대세 마케팅",
-    "description": "광고 말미에는 신제품 말차 아박 홀케이크 함께 예고돼 라인업을 확장했다. ◆ 배스킨라빈스, 모델마다 전용 신메뉴 배스킨라빈스는 모델 한 명을 앞세워 신메뉴를 만드는 방식을 택해왔다. 2024년 변우석과는 우석이도...",
-    "link": "http://www.sportsq.co.kr/news/articleView.html?idxno=496878",
-    "pubDate": "Wed, 29 Jul 2026 18:22:00 +0900",
-    "keyword": "말차",
     "category": "product"
   },
   {
@@ -109,30 +133,6 @@
     "link": "https://cooknchefnews.com/news/view/1065574840301276",
     "pubDate": "Wed, 29 Jul 2026 15:04:00 +0900",
     "keyword": "단짠",
-    "category": "product"
-  },
-  {
-    "title": "\"미국서 대박 나 역수출\"…디저트 넘어 일상까지 '10조' 판 커진 '이것'",
-    "description": "전 세계적인 말차 열풍이 이어지면서 식품업계가 말차를 활용한 신제품을 잇달아 내놓고 있다. 말차를 팥... 기존 국내산 프리미엄 말차를 쓴 '아이스 말차'와 '말차 라떼'에 유자 레몬 말차 토닉' , '애플망고 말차 라떼...",
-    "link": "https://www.mt.co.kr/living/2026/07/29/2026072911135346836",
-    "pubDate": "Wed, 29 Jul 2026 14:55:00 +0900",
-    "keyword": "유자",
-    "category": "product"
-  },
-  {
-    "title": "\"과자 속 춘식이\" GS25, '꼬북칩 고구마탕후루맛' 출시 초읽기",
-    "description": "오리온은 최근 말차를 활용한 신제품을 선보이고 바비큐 요리 전문가 유용욱 셰프와 협업한 한정판 제품을 출시하는 등 새로운 맛과 콘텐츠를 접목하며 꼬북칩 제품군을 확대해왔다. 이번 제품은 춘식이의 대표 설정을...",
-    "link": "https://www.newsis.com/view/NISX20260729_0003727879",
-    "pubDate": "Wed, 29 Jul 2026 14:25:00 +0900",
-    "keyword": "말차",
-    "category": "product"
-  },
-  {
-    "title": "수습 넘어 회복으로…스타벅스, 신뢰 되찾기 나선다",
-    "description": "또 여름 시즌을 맞아 신제품을 출시하면서도, 소비자 반감이 여전했던 6월까지는 홍보 활동을 최소화했다. 분위기가 달라진 것은 7월부터다. 스타벅스는 지난 27일 ‘레드빈 말차 코코 프라푸치노’를 새롭게...",
-    "link": "https://www.fntimes.com/html/view.php?ud=202607291117153685b5b890e35c_18",
-    "pubDate": "Wed, 29 Jul 2026 14:08:00 +0900",
-    "keyword": "말차",
     "category": "product"
   },
   {
@@ -264,14 +264,6 @@
     "category": "product"
   },
   {
-    "title": "삼립 '피그인더가든', 복날 겨냥 '페리카나' 컬래버 치킨 샐러드 출시",
-    "description": "신제품은 페리카나 전통 양념소스를 버무린 치킨에 고소한 땅콩 분태를 올려 감칠맛을 높이고 바삭한 크루통과 매콤한 할라피뇨를 넣어 맛의 풍성함을 더한 '페리카나 시그니처 양념치킨 샐러드', 달콤짭짤한 특제...",
-    "link": "http://www.techholic.co.kr/news/articleView.html?idxno=222188",
-    "pubDate": "Tue, 21 Jul 2026 16:22:00 +0900",
-    "keyword": "할라피뇨",
-    "category": "product"
-  },
-  {
     "title": "[커피음료 트렌드] 커피빈, 컵빙수 감성 담은 여름 신메뉴 3종 출시 外",
     "description": "국내외 식음료 기업들이 선보인 신제품 출시, 원료·영양 연구, 저당·무첨가 등 건강 지향 트렌드, 친환경... 코코넛커피스무디, △흑당밀크티라떼 7종으로 구성된다. 해당 메뉴들은 NCT WISH 멤버들이 직접 골라 주문해...",
     "link": "https://www.ibabynews.com/news/articleView.html?idxno=152984",
@@ -304,6 +296,70 @@
     "category": "product"
   },
   {
+    "title": "국내 기술로 개발한 안내삽입렌즈로 글로벌 시장을 겨냥하다- 고려아이...",
+    "description": "품질관리가 요구된다는 점은 같다. ㈜고려아이텍은 1989년 설립 이후 안과용 렌즈를 개발·제조해 온... 자체 개발한 연성 인공수정체는 2016년 식품의약품안전처의 의료기기 제조 허가를 받은 뒤 국내외 병·의원에...",
+    "link": "https://www.handmk.com/news/articleView.html?idxno=41778",
+    "pubDate": "Thu, 30 Jul 2026 16:36:00 +0900",
+    "keyword": "수입식품",
+    "category": "regulatory"
+  },
+  {
+    "title": "[문상윤의 식탁 위 이야기] ⑪먹어도 되는데, 왜 버렸을까",
+    "description": "소비기한 표시제는 바로 이 낭비를 줄이기 위한 것이며 이미 많은 나라가 쓰고 있는 국제 기준과 발을 맞추려는 조치이기도 하다. 이름 하나를 바꾸는 일이 실은 거대한 환경 정책이었던 셈이다. 실제 설정된 기한을 보면...",
+    "link": "https://www.pressian.com/pages/articles/2026073014203010180?utm_source=naver&utm_medium=search",
+    "pubDate": "Thu, 30 Jul 2026 16:20:00 +0900",
+    "keyword": "소비기한",
+    "category": "regulatory"
+  },
+  {
+    "title": "충남 공주시, 여름철 피서지 물가안정 캠페인 실시",
+    "description": "원산지표시 지도·단속을 병행 실시해 소비자가 안심하고 여름철 휴가지를 즐길 수 있는 환경 조성에 힘을 모았다. 시는 여름 휴가철 동안 주요 관광지와 피서지를 중심으로 물가 모니터링을 지속해서 실시하고 소비자 불편...",
+    "link": "https://www.ccdn.co.kr/news/articleView.html?idxno=1091128",
+    "pubDate": "Thu, 30 Jul 2026 16:19:00 +0900",
+    "keyword": "원산지표시",
+    "category": "regulatory"
+  },
+  {
+    "title": "건기식협회, '수입식품 위생교육' 독려…상반기 보수교육 수료율 26.6%",
+    "description": "식품의약품안전처는 지난 4월 위해도가 높은 부적합 이력 수입식품에 대한 관리를 강화하고, 영업자의 행정적 부담을 줄이는 내용 등을 담은 '수입식품안전관리 특별법' 시행규칙 개정안을 입법예고했다. 현재는 위해도와...",
+    "link": "https://www.100ssd.co.kr/news/articleView.html?idxno=211615",
+    "pubDate": "Thu, 30 Jul 2026 16:08:00 +0900",
+    "keyword": "수입식품",
+    "category": "regulatory"
+  },
+  {
+    "title": "대구 남구, 푸드트럭 규제 개선 이끌어냈다",
+    "description": "이번 개정은 식품위생법과 공유재산법 간 규정이 서로 달랐던 점을 개선한 것이 핵심이다.앞서 지난 3월 식품위생법 시행규칙 개정으로 푸드트럭 영업 가능 업종은 기존 제과점영업과 휴게음식점영업에서...",
+    "link": "https://www.kbsm.net/news/view.php?idx=528679",
+    "pubDate": "Thu, 30 Jul 2026 16:02:00 +0900",
+    "keyword": "식품위생법",
+    "category": "regulatory"
+  },
+  {
+    "title": "대구 남구, 현장 발굴로 푸드트럭 규제 개선…6개월 만에 법령 개정 이...",
+    "description": "기존에는 식품위생법 시행규칙 개정으로 푸드트럭에 일반음식점영업도 가능해졌지만, 공유재산 사용·수익허가는 기존 제과점과 휴게음식점 영업만 수의계약...",
+    "link": "http://www.breaknews.com/1225634",
+    "pubDate": "Thu, 30 Jul 2026 15:44:00 +0900",
+    "keyword": "식품위생법",
+    "category": "regulatory"
+  },
+  {
+    "title": "허가는 한국서, 매출은 해외서… 의료AI 막는 '수가 장벽' [환자 곁에 의...",
+    "description": "국내 의료 인공지능(AI) 기업들이 식품의약품안전처 허가를 받고도 매출은 미국과 유럽 등 해외에서 올리고... AI와 소프트웨어가 적용된 의료기기를 일반 의료기기와 구분해 관리하기 위한 별도 법률이다. 식약처는...",
+    "link": "https://it.chosun.com/news/articleView.html?idxno=2023092166930",
+    "pubDate": "Thu, 30 Jul 2026 14:16:00 +0900",
+    "keyword": "수입식품",
+    "category": "regulatory"
+  },
+  {
+    "title": "폭음 줄고 가벼운 술자리 늘자… 가볍게 마시는 숙취해소 음료가 뜬다",
+    "description": "식약처는 무분별한 숙취해소 표현으로 인한 소비자 오인을 막기 위해 지난해부터 숙취해소 표시·광고... 한국식품산업협회 등 자율심의기구의 심의 결과에 따라 표시·광고하도록 의무화했다. 해당 고시는 2020년 제정...",
+    "link": "http://www.biztribune.co.kr/news/articleView.html?idxno=356727",
+    "pubDate": "Thu, 30 Jul 2026 13:56:00 +0900",
+    "keyword": "식약처",
+    "category": "regulatory"
+  },
+  {
     "title": "가슴보형물 국산화 속도…한스바이오메드 '바운스' 판매 확대",
     "description": "바운스는 식품의약품안전처의 의료기기 제조·판매 허가를 받았다. 한스바이오메드는 한국과 미국의 비임상시험관리기준(GLP) 기관에서 진행한 전임상 안전성 시험에서도 적합 판정을 받았다고 설명했다. 제품...",
     "link": "http://www.inews24.com/view/1990214",
@@ -312,51 +368,11 @@
     "category": "regulatory"
   },
   {
-    "title": "공주시, 여름철 피서지 물가안정 캠페인",
-    "description": "캠페인은 바가지요금 근절, 가격표시제 이행 등 건전한 상거래 질서 확립에 중점을 두고 진행됐다. 특히 원산지표시 지도·단속을 병행 실시해 소비자가 안심하고 여름철 휴가지를 즐길 수 있는 환경 조성에 힘을 모았다.",
-    "link": "https://www.ccreview.co.kr/news/articleView.html?idxno=353959",
-    "pubDate": "Thu, 30 Jul 2026 10:54:00 +0900",
-    "keyword": "원산지표시",
-    "category": "regulatory"
-  },
-  {
-    "title": "푸드트럭 영업 규제 해소…대구 남구의 법령정비 성공 사례",
-    "description": "지난 3월 개정·시행된 식품위생법 시행규칙에 따라 푸드트럭에서 할 수 있는 영업은 기존 제과점영업과 휴게음식점영업에서 일반음식점영업까지 확대됐다. 이에 따라 푸드트럭에서도 일반음식점으로 영업 신고를 하면...",
-    "link": "https://www.edaily.co.kr/news/newspath.asp?newsid=04096726645519768",
-    "pubDate": "Thu, 30 Jul 2026 10:47:00 +0900",
-    "keyword": "식품위생법",
-    "category": "regulatory"
-  },
-  {
-    "title": "한스바이오메드, 국산 가슴보형물 ‘바운스’ 공급 확대",
-    "description": "독자 가공 기술로 촉감·안전성 강화 인더뉴스 문정태 기자ㅣ국내 가슴성형 시장은 수입 보형물의 비중이... 바운스는 식품의약품안전처의 제조·판매 허가를 획득했으며, 허가 과정에서 요구되는 안전성 검증...",
-    "link": "https://www.inthenews.co.kr/news/article.html?no=89956",
+    "title": "한스바이오메드, 국산 가슴보형물 '바운스' 공급 확대…연내 성형외과 ...",
+    "description": "국내 가슴보형물 시장은 수입 제품의 비중이 높은 것으로 알려져 있다. 한스바이오메드는 국내에서 연구... 바운스는 식품의약품안전처의 정식 허가를 획득했으며, 허가 과정에서 요구되는 검증 절차를 모두...",
+    "link": "https://www.biotimes.co.kr/news/articleView.html?idxno=33501",
     "pubDate": "Thu, 30 Jul 2026 10:26:00 +0900",
     "keyword": "수입식품",
-    "category": "regulatory"
-  },
-  {
-    "title": "성장하는 아제르바이잔 펫푸드 시장과 소비 트렌드",
-    "description": "반려동물 관리에 대한 사회적 인식 제고에 중요한 역할을 하고 있다. 이러한 영향으로... 아제르바이잔 수입이 허용된다. 수출업체는 AFSA의 전자 식품안전정보시스템(Food Safety Information System)을 통해 수입...",
-    "link": "http://dream.kotra.or.kr/kotranews/cms/news/actionKotraBoardDetail.do?SITE_NO=3&MENU_ID=180&CONTENTS_NO=1&bbsGbn=243&bbsSn=243&pNttSn=243168",
-    "pubDate": "Thu, 30 Jul 2026 09:25:00 +0900",
-    "keyword": "수입식품",
-    "category": "regulatory"
-  },
-  {
-    "title": "오스트리아 인스턴트 면류 시장 동향",
-    "description": "포장식품을 출시하는 사업자는 폐기물관리법(AWG) 및 포장재령(Verpackungsverordnung 2014)에 따라 ARA 등 승인된 회수·재활용 시스템(Collection and Recovery System)에 참여해야 한다. 현지 수입·유통업체를 통해 B2B로...",
-    "link": "http://dream.kotra.or.kr/kotranews/cms/news/actionKotraBoardDetail.do?SITE_NO=3&MENU_ID=190&CONTENTS_NO=2&bbsGbn=254&bbsSn=254&pNttSn=242781",
-    "pubDate": "Thu, 30 Jul 2026 09:09:00 +0900",
-    "keyword": "수입식품",
-    "category": "regulatory"
-  },
-  {
-    "title": "서산시, ‘삼길포우럭축제’ 앞두고 원산지 거짓·미표시 엄정 대응…",
-    "description": "단속반은 축제의 주재료인 우럭을 포함해 수산물과 농축산물 전반의 원산지 표시 여부를 정밀 확인한다. 주요 점검 항목은 원산지 표시 유무 및 표시 방법·위치의...",
-    "link": "http://www.breaknews.com/1225488",
-    "pubDate": "Thu, 30 Jul 2026 08:34:00 +0900",
-    "keyword": "원산지표시",
     "category": "regulatory"
   },
   {
@@ -376,26 +392,10 @@
     "category": "regulatory"
   },
   {
-    "title": "다시 찾고싶은 동해시를 만듭시다",
-    "description": "이번 캠페인은 행정기관의 단속보다 지역사회가 스스로 관광객을 맞이하는 자세를 되돌아보고, 어렵게... 가격표시제와 원산지 표시 이행 여부에 대한 현장 계도도 병행할 예정이다. 또 오는 8월31일까지 바가지요금...",
-    "link": "https://www.kwnews.co.kr/article/20260729500380",
-    "pubDate": "Thu, 30 Jul 2026 00:39:00 +0900",
-    "keyword": "원산지표시",
-    "category": "regulatory"
-  },
-  {
     "title": "위고비·마운자로 처방 273만건 … 식약처도 오남용 경고 [사설]",
     "description": "식품의약품안전처는 글루카곤 유사 펩타이드-1(GLP-1) 계열 약물을 체질량지수(BMI) 30 이상인 고도비만이나... 식약처가 해당 치료제들을 '오남용 우려 의약품'으로 지정하는 고시 개정 절차를 진행 중인 것도 이런...",
     "link": "https://www.mk.co.kr/article/12110676",
     "pubDate": "Wed, 29 Jul 2026 17:13:00 +0900",
-    "keyword": "식약처",
-    "category": "regulatory"
-  },
-  {
-    "title": "임상 효과 입증했는데 품목허가 거부? 법원, 식약처 '제동'",
-    "description": "A사는 식약처의 품목허가 반려처분이 부당하다며 행정소송을 제기했다. [사진=freepik] ⓒ의협신문 식품의약품... 그러나 재판부는 \"해당 고시는 상위법령의 위임 범위를 벗어난 행정청 내부의 업무처리지침에 불과하여...",
-    "link": "http://www.doctorsnews.co.kr/news/articleView.html?idxno=165658",
-    "pubDate": "Wed, 29 Jul 2026 16:36:00 +0900",
     "keyword": "식약처",
     "category": "regulatory"
   },
@@ -405,22 +405,6 @@
     "link": "http://dream.kotra.or.kr/kotranews/cms/news/actionKotraBoardDetail.do?SITE_NO=3&MENU_ID=180&CONTENTS_NO=1&bbsGbn=243&bbsSn=243&pNttSn=243053",
     "pubDate": "Wed, 29 Jul 2026 11:34:00 +0900",
     "keyword": "소비기한",
-    "category": "regulatory"
-  },
-  {
-    "title": "조선호텔, '유통기한 지난 식재료' 과징금 소송 2심도 승소",
-    "description": "재판부는 2023년 5월22일 향신료 보관 행위가 쟁점이 된 이 사건에는 같은 해 1월부터 시행된 개정 식품위생법이 적용돼야 한다고 판단했다. 당시 유통기한 제도에서 소비기한 제도로 바뀌면서 개정법은 식품접객업자가...",
-    "link": "https://www.bloter.net/news/articleView.html?idxno=669310",
-    "pubDate": "Wed, 29 Jul 2026 11:07:00 +0900",
-    "keyword": "식품위생법",
-    "category": "regulatory"
-  },
-  {
-    "title": "'요금표 미게시' 음식점 행정처분 강화",
-    "description": "현재 식품위생법 시행규칙 개정안은 규제‧법제심사 중이다. 현재 식당이 음식요금표를 게시하지 않으면 1차 시정명령, 2차 영업정지 7일, 3차 영업정지 10일이었으나 개정안은 시정명령없이 바로 1차 영업정지 5일, 2차...",
-    "link": "https://www.bosa.co.kr/news/articleView.html?idxno=3009218",
-    "pubDate": "Wed, 29 Jul 2026 08:44:00 +0900",
-    "keyword": "식품위생법",
     "category": "regulatory"
   },
   {
@@ -492,6 +476,14 @@
     "description": "취급 △소비기한 경과 제품의 보관·사용 여부 △방충망, 폐기물 덮개 설치 등 시설기준 준수 여부를 중점 점검한다. 아울러 이달 1일부터 전면 시행된 ‘치킨 중량표시제’ 준수 여부도 함께 확인할 계획이다. 치킨...",
     "link": "https://www.sedaily.com/article/20068309?ref=naver",
     "pubDate": "Wed, 15 Jul 2026 21:56:00 +0900",
+    "keyword": "소비기한",
+    "category": "regulatory"
+  },
+  {
+    "title": "\"금요일은 소비기한 확인하는 날\"... 인천 부평구, 급식소 290곳 '소.중....",
+    "description": "또한 소비기한 표시제 정착 단계에서 발생할 수 있는 현장의 혼선을 예방하고, 특히 계절적 요인에 따른 식중독 등 식품 안전사고를 선제적으로 차단하는 데 실질적인 효과를 거둘 것이라고 분석했다. 센터 관계자는 \"매주...",
+    "link": "https://www.greened.kr/news/articleView.html?idxno=345125",
+    "pubDate": "Wed, 15 Jul 2026 13:04:00 +0900",
     "keyword": "소비기한",
     "category": "regulatory"
   }
