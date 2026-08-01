@@ -205,7 +205,9 @@ CSS = """
   .masthead-text { flex:1; min-width:0; }
   .masthead-logo { height:26px; width:auto; flex-shrink:0; margin-top:2px; }
   .masthead-eyebrow { font-size:12px; font-weight:700; letter-spacing:.12em; text-transform:uppercase; color:var(--accent); margin-bottom:10px; }
-  .masthead h1 { font-size:24px; font-weight:900; letter-spacing:-.02em; line-height:1.3; margin:0 0 12px; }
+  .masthead h1 { font-size:22px; font-weight:900; letter-spacing:-.02em; line-height:1.35; margin:0 0 12px; }
+  .masthead h1 .wk-title-main { display:block; white-space:nowrap; }
+  .masthead h1 .wk-title-sub { display:block; font-size:18px; font-weight:800; color:var(--muted); margin-top:2px; white-space:nowrap; }
   .masthead-meta { font-size:12.5px; color:var(--muted); }
   .masthead-meta b { color:var(--ink); font-weight:700; }
   section { padding:26px 28px; border-bottom:1px solid var(--rule); }
@@ -343,7 +345,7 @@ def render_html(ctx):
   <header class="masthead">
     <div class="masthead-text">
       <div class="masthead-eyebrow">농협식품 상품기획팀 · 주간 발행</div>
-      <h1>푸드 트렌드 위클리 — {esc(ctx["week_label"])}</h1>
+      <h1><span class="wk-title-main">푸드 트렌드 위클리</span><span class="wk-title-sub">{esc(ctx["week_label"])}</span></h1>
       <div class="masthead-meta">
         <span>조사 기간 <b class="num">{esc(ctx["period_label"])}</b></span> ·
         <span>발행 <b class="num">{ctx["generated_at"].strftime("%Y.%m.%d(%a) %H:%M")}</b></span>
