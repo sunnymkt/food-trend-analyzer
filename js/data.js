@@ -134,9 +134,11 @@ function buildWeeklySummary(keywordData, products, categories, meta) {
     .slice(0, 2)
     .map(([name]) => name);
 
-  const period = meta.trendStartDate && meta.trendEndDate
-    ? `${meta.trendStartDate} ~ ${meta.trendEndDate}`
-    : (meta.lastUpdated ? meta.lastUpdated.slice(0, 10) + ' 기준' : '기간 정보 없음');
+  // '집계 기준'은 3개월 키워드 트렌드 창(trendStartDate~trendEndDate)이 아니라,
+  // 이 리포트가 만들어진 실제 날짜(일 단위) 기준으로 보여준다.
+  const period = meta.lastUpdated
+    ? `${meta.lastUpdated.slice(0, 10)} 기준`
+    : '기간 정보 없음';
 
   const insights = [];
   if (topEntry) {
