@@ -413,6 +413,13 @@ a.mini-name:hover { color:var(--primary); text-decoration:underline; }
 @keyframes ckFadeIn { from{ opacity:0; } to{ opacity:1; } }
 
 /* ── 푸드트렌드 위클리 메일 아카이브 (카드뉴스) ───────────── */
+.wa-groups-wrap { display:flex; flex-direction:column; gap:28px; }
+.wa-month-group { display:flex; flex-direction:column; gap:14px; }
+.wa-month-badge {
+  display:inline-flex; align-items:center; align-self:flex-start;
+  font-size:12.5px; font-weight:800; letter-spacing:-.01em;
+  padding:5px 14px; border-radius:999px; background:var(--text-primary); color:#fff;
+}
 .wa-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(260px,1fr)); gap:16px; }
 .wa-card {
   display:block; text-align:left; width:100%; cursor:pointer;

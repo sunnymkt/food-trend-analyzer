@@ -1245,11 +1245,11 @@ function renderWeeklyArchive() {
   if (metaEl) metaEl.textContent = WEEKLY_ARCHIVE.length ? `${WEEKLY_ARCHIVE.length}주 누적` : '-';
 
   if (!WEEKLY_ARCHIVE.length) {
-    el.innerHTML = `<div class="empty" style="grid-column:1/-1"><div class="empty-icon">💌</div><h3>아직 발송된 리포트가 없습니다</h3><p>다음 주 월요일 자동 발송 후 이곳에 쌓입니다</p></div>`;
+    el.innerHTML = `<div class="empty"><div class="empty-icon">💌</div><h3>아직 발송된 리포트가 없습니다</h3><p>다음 주 월요일 자동 발송 후 이곳에 쌓입니다</p></div>`;
     return;
   }
 
-  el.innerHTML = WEEKLY_ARCHIVE.map(r => `
+  const waCardHtml = r => `
     <div class="wa-card" role="button" tabindex="0" onclick="openWeeklyModal('${r.date}')" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();openWeeklyModal('${r.date}')}">
       <div class="wa-card-eyebrow">${r.weekLabel || r.date}</div>
       <div class="wa-card-title">푸드트렌드 위클리</div>
@@ -1269,6 +1269,34 @@ function renderWeeklyArchive() {
         ` : ''}
       </div>
       <div class="wa-card-cta">메일 내용 보기 →</div>
+    </div>
+  `;
+
+  // weekLabel("2026년 8월 1주차")에서 연·월을 뽑아 월 단위로 묶는다.
+  // weekLabel이 없으면 report date의 연·월로 대체한다.
+  const monthKeyOf = r => {
+    const m = (r.weekLabel || '').match(/^(\d{4})년\s*(\d{1,2})월/);
+    if (m) return { year: +m[1], month: +m[2] };
+    const d = new Date(r.date);
+    return { year: d.getFullYear(), month: d.getMonth() + 1 };
+  };
+
+  const groups = [];
+  const groupIndexByKey = new Map();
+  for (const r of WEEKLY_ARCHIVE) {
+    const { year, month } = monthKeyOf(r);
+    const key = `${year}-${month}`;
+    if (!groupIndexByKey.has(key)) {
+      groupIndexByKey.set(key, groups.length);
+      groups.push({ year, month, items: [] });
+    }
+    groups[groupIndexByKey.get(key)].items.push(r);
+  }
+
+  el.innerHTML = groups.map(g => `
+    <div class="wa-month-group">
+      <div class="wa-month-badge">'${String(g.year).slice(-2)}년 ${g.month}월</div>
+      <div class="wa-grid">${g.items.map(waCardHtml).join('')}</div>
     </div>
   `).join('');
 }
