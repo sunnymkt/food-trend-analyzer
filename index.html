@@ -112,9 +112,42 @@
           <input id="globalSearch" type="text" placeholder="키워드, 브랜드, 제품, 리뷰 검색…">
         </div>
 
-        <div style="display:flex;gap:9px;">
+        <div style="display:flex;gap:9px;align-items:center;">
           <button class="btn btn-secondary" onclick="exportCurrentTabPDF()">🖨️ PDF 내보내기</button>
           <button class="btn btn-primary" onclick="navigate('report')">📋 리포트</button>
+
+          <div class="topbar-links">
+            <a href="https://nhfood.nonghyup.com/user/indexMain.do?siteId=nhfood" target="_blank" rel="noopener noreferrer" class="topbar-link-icon" title="농협식품 홈페이지">
+              <img src="https://nhfood.nonghyup.com/favicon.ico" width="20" height="20" alt="" onerror="this.style.display='none';this.nextElementSibling.style.display='inline'">
+              <span style="display:none;">🏠</span>
+            </a>
+            <a href="https://brand.naver.com/nhfood" target="_blank" rel="noopener noreferrer" class="topbar-link-icon" title="농협식품 네이버 브랜드관">
+              <img src="https://brand.naver.com/favicon.ico" width="20" height="20" alt="" onerror="this.style.display='none';this.nextElementSibling.style.display='inline'">
+              <span style="display:none;">🛍️</span>
+            </a>
+            <a href="https://www.instagram.com/nonghyup.nhfood/" target="_blank" rel="noopener noreferrer" class="topbar-link-icon" title="농협식품 인스타그램">
+              <svg width="20" height="20" viewBox="0 0 24 24" aria-hidden="true">
+                <defs>
+                  <linearGradient id="igGrad" x1="0" y1="24" x2="24" y2="0">
+                    <stop offset="0%" stop-color="#FEDA75"/>
+                    <stop offset="30%" stop-color="#FA7E1E"/>
+                    <stop offset="60%" stop-color="#D62976"/>
+                    <stop offset="100%" stop-color="#4F5BD5"/>
+                  </linearGradient>
+                </defs>
+                <rect width="24" height="24" rx="6" fill="url(#igGrad)"/>
+                <rect x="6" y="6" width="12" height="12" rx="4" fill="none" stroke="#fff" stroke-width="1.6"/>
+                <circle cx="12" cy="12" r="3.1" fill="none" stroke="#fff" stroke-width="1.6"/>
+                <circle cx="16.3" cy="7.7" r="1" fill="#fff"/>
+              </svg>
+            </a>
+            <a href="https://www.youtube.com/@농협식품" target="_blank" rel="noopener noreferrer" class="topbar-link-icon" title="농협식품 유튜브">
+              <svg width="20" height="20" viewBox="0 0 24 24" aria-hidden="true">
+                <rect width="24" height="24" rx="6" fill="#FF0000"/>
+                <path d="M10 8.3v7.4l6.4-3.7z" fill="#fff"/>
+              </svg>
+            </a>
+          </div>
         </div>
       </header>
 

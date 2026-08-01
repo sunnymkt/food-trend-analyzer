@@ -165,6 +165,15 @@ body::before {
   display:flex; align-items:center; gap:6px;
 }
 
+.topbar-links { display:flex; gap:6px; margin-left:4px; padding-left:13px; border-left:1px solid var(--border); }
+.topbar-link-icon {
+  display:flex; align-items:center; justify-content:center;
+  width:34px; height:34px; border-radius:var(--radius-sm);
+  border:1px solid var(--border); background:var(--bg-card);
+  font-size:15px; text-decoration:none; transition:all .15s var(--ease);
+}
+.topbar-link-icon:hover { background:var(--bg-card-hover); border-color:var(--border-hover); transform:translateY(-1px); }
+
 /* 검색창 */
 .search-bar {
   display:flex; align-items:center;
