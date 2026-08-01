@@ -164,13 +164,16 @@ def build_context():
     regulatory_news = news_of("regulatory")
 
     now = datetime.now(KST)
-    trend_start = meta.get("trendStartDate")
-    trend_end = meta.get("trendEndDate")
+    # '조사 기간'은 이번 리포트가 다루는 지난 1주일(7일)을 그대로 보여준다.
+    # (예전엔 meta.json의 3개월 키워드 트렌드 기간을 그대로 갖다 써서 실제 리포트
+    # 주기와 안 맞았다.)
+    period_end_date = now.date()
+    period_start_date = period_end_date - timedelta(days=6)
 
     return {
         "generated_at": now,
         "week_label": week_label(now),
-        "period_label": f"{trend_start} ~ {trend_end}" if trend_start and trend_end else now.strftime("%Y.%m.%d"),
+        "period_label": f"{period_start_date.isoformat()} ~ {period_end_date.isoformat()}",
         "keyword_data": keyword_data,
         "top_up": top_up,
         "top_down": top_down,
