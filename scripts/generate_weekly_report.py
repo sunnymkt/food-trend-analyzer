@@ -27,6 +27,7 @@ from email.mime.multipart import MIMEMultipart
 from email.mime.text import MIMEText
 from email.utils import formataddr, parseaddr
 from pathlib import Path
+from urllib.parse import quote
 
 from premailer import transform as premailer_transform
 
@@ -60,6 +61,21 @@ def esc(s):
 
 def fmt_pct(v):
     return f"{'+' if v >= 0 else ''}{v}%"
+
+
+def naver_news_search_url(query):
+    """fetch_food_news.py 가 product 카테고리 뉴스를 찾을 때 쓰는 것과 같은
+    '{키워드} 신제품' 쿼리로 네이버 뉴스 검색 결과에 연결한다."""
+    return f"https://search.naver.com/search.naver?where=news&query={quote(query)}"
+
+
+DASHBOARD_BASE_URL = "https://sunnymkt.github.io/food-trend-analyzer"
+
+
+def dashboard_url(view_id):
+    """대시보드의 특정 화면으로 바로 열리는 링크. index.html/app.js 에 추가한
+    해시 라우팅(#viewId)을 이용한다."""
+    return f"{DASHBOARD_BASE_URL}/#{view_id}"
 
 
 def fmt_date_short(iso_or_rfc822):
@@ -208,6 +224,7 @@ CSS = """
   .kw-col-title { font-size:12px; font-weight:700; margin-bottom:8px; }
   .kw-col-title.up { color:var(--good); } .kw-col-title.down { color:var(--bad); }
   .kw-row { display:flex; align-items:baseline; justify-content:space-between; padding:7px 0; border-bottom:1px solid var(--rule); font-size:13.5px; }
+  a.kw-row { text-decoration:none; color:inherit; }
   .kw-row:last-child { border-bottom:none; }
   .kw-name { font-weight:600; }
   .kw-cat { font-size:11px; color:var(--faint); font-weight:400; margin-left:6px; }
@@ -235,6 +252,7 @@ CSS = """
   .cat-bar-count { width:30px; flex-shrink:0; text-align:right; font-weight:700; }
   .prod-grid { display:flex; flex-direction:column; gap:12px; }
   .prod-row { display:flex; align-items:center; gap:12px; padding:10px 12px; background:var(--card); border:1px solid var(--rule); border-radius:8px; }
+  a.prod-row { text-decoration:none; color:inherit; }
   .prod-emoji { font-size:22px; flex-shrink:0; }
   .prod-name { font-size:13.5px; font-weight:700; }
   .prod-meta { font-size:11.5px; color:var(--muted); margin-top:1px; }
@@ -266,9 +284,10 @@ def render_html(ctx):
 
     def kw_rows(pairs, cls):
         return "".join(
-            f'<div class="kw-row"><span class="kw-name">{esc(kw)}'
+            f'<a class="kw-row" href="{dashboard_url("trends")}" target="_blank" rel="noopener noreferrer">'
+            f'<span class="kw-name">{esc(kw)}'
             f'<span class="kw-cat">{esc(d["category"])}</span></span>'
-            f'<span class="kw-pct {cls} num">{fmt_pct(d["changeRate"])}</span></div>'
+            f'<span class="kw-pct {cls} num">{fmt_pct(d["changeRate"])}</span></a>'
             for kw, d in pairs
         )
 
@@ -292,13 +311,19 @@ def render_html(ctx):
         for cat, count in ctx["cat_sorted"][:6]
     )
 
-    prod_html = "".join(
-        f'<div class="prod-row"><span class="prod-emoji">{esc(p.get("emoji","🍽️"))}</span>'
-        f'<div><div class="prod-name">{esc(p["brand"])} {esc(p["name"])}</div>'
-        f'<div class="prod-meta">{esc(p["category"])}</div></div>'
-        f'<span class="prod-price num">{esc(p["price"])}</span></div>'
-        for p in ctx["representative_products"]
-    )
+    def prod_row_html(p):
+        inner = (
+            f'<span class="prod-emoji">{esc(p.get("emoji","🍽️"))}</span>'
+            f'<div><div class="prod-name">{esc(p["brand"])} {esc(p["name"])}</div>'
+            f'<div class="prod-meta">{esc(p["category"])}</div></div>'
+            f'<span class="prod-price num">{esc(p["price"])}</span>'
+        )
+        url = p.get("url")
+        if url:
+            return f'<a class="prod-row" href="{esc(url)}" target="_blank" rel="noopener noreferrer">{inner}</a>'
+        return f'<div class="prod-row">{inner}</div>'
+
+    prod_html = "".join(prod_row_html(p) for p in ctx["representative_products"])
 
     top_cat_name, top_cat_count = ctx["top_category"]
     top_brand_name, top_brand_count = ctx["top_brand"]
@@ -340,20 +365,20 @@ def render_html(ctx):
     <div class="hl-grid">
       <div class="hl-item">
         <div class="hl-label">이번 주 최고 상승 키워드</div>
-        <div class="hl-value up">{esc(top_up_kw or "-")} <span class="unit num">{fmt_pct(top_up_d["changeRate"]) if top_up_d else ""}</span></div>
+        <div class="hl-value up">{f'<a href="{dashboard_url("trends")}" target="_blank" rel="noopener noreferrer" style="color:inherit;text-decoration:none;">{esc(top_up_kw)}</a>' if top_up_kw else "-"} <span class="unit num">{fmt_pct(top_up_d["changeRate"]) if top_up_d else ""}</span></div>
       </div>
       <div class="hl-item">
         <div class="hl-label">주의가 필요한 하락 키워드</div>
-        <div class="hl-value down">{esc(top_down_kw or "-")} <span class="unit num">{fmt_pct(top_down_d["changeRate"]) if top_down_d else ""}</span></div>
+        <div class="hl-value down">{f'<a href="{dashboard_url("trends")}" target="_blank" rel="noopener noreferrer" style="color:inherit;text-decoration:none;">{esc(top_down_kw)}</a>' if top_down_kw else "-"} <span class="unit num">{fmt_pct(top_down_d["changeRate"]) if top_down_d else ""}</span></div>
       </div>
       <div class="hl-item">
         <div class="hl-label">신제품 최다 카테고리</div>
-        <div class="hl-value">{esc(top_cat_name or "-")} <span class="unit num">{top_cat_count}건</span></div>
+        <div class="hl-value"><a href="{dashboard_url("category")}" target="_blank" rel="noopener noreferrer" style="color:inherit;text-decoration:none;">{esc(top_cat_name or "-")}</a> <span class="unit num">{top_cat_count}건</span></div>
         <div class="hl-sub num">전체 {ctx["total_products"]}건 중</div>
       </div>
       <div class="hl-item">
         <div class="hl-label">최다 신제품 출시 브랜드</div>
-        <div class="hl-value">{esc(top_brand_name or "-")} <span class="unit num">{top_brand_count}건</span></div>
+        <div class="hl-value"><a href="{dashboard_url("category")}" target="_blank" rel="noopener noreferrer" style="color:inherit;text-decoration:none;">{esc(top_brand_name or "-")}</a> <span class="unit num">{top_brand_count}건</span></div>
         <div class="hl-sub">최근 30일 누적</div>
       </div>
     </div>

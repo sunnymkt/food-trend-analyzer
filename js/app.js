@@ -93,6 +93,12 @@ function navigate(viewId) {
   if(navEl) navEl.classList.add('active');
   currentView = viewId;
 
+  // URL 해시를 갱신해서 이 화면을 북마크·공유할 수 있게 한다 (예: 위클리 메일에서 바로 연결).
+  // replaceState를 쓰면 hashchange 이벤트가 발생하지 않아 navigate()가 재귀 호출되지 않는다.
+  if (location.hash.slice(1) !== viewId) {
+    history.replaceState(null, '', `#${viewId}`);
+  }
+
   const TITLES = {
     dashboard: ['📊 대시보드',      '오늘의 식품 트렌드 종합 현황'],
     trends:    ['📈 키워드 비교분석', '키워드 3개월 시계열 비교'],
@@ -1641,8 +1647,10 @@ async function init() {
   renderReportChart();
   renderProducts();
 
-  // 첫 뷰 로드
-  navigate('dashboard');
+  // 첫 뷰 로드 — URL 해시가 유효한 화면을 가리키면 그 화면을 열고, 아니면 대시보드.
+  const hashId = location.hash.slice(1);
+  const hashIsValidView = hashId && document.querySelector(`.view#${CSS.escape(hashId)}`);
+  navigate(hashIsValidView ? hashId : 'dashboard');
 }
 
 document.addEventListener('DOMContentLoaded', init);
