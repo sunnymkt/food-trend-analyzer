@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-data/*.json 을 바탕으로 주간 푸드트렌드 리포트 이메일(HTML)을 만들어 발송한다.
+data/*.json 을 바탕으로 주간 푸드 트렌드 리포트 이메일(HTML)을 만들어 발송한다.
 
 필요 환경변수 (.env 또는 GitHub Secrets):
   SMTP_HOST, SMTP_PORT, SMTP_USER, SMTP_PASSWORD, SMTP_FROM, REPORT_RECIPIENTS
@@ -336,14 +336,14 @@ def render_html(ctx):
 
     return f"""<!DOCTYPE html>
 <html lang="ko"><head><meta charset="UTF-8">
-<title>농협식품 푸드트렌드 위클리</title>
+<title>농협식품 푸드 트렌드 위클리</title>
 <style>{CSS}</style></head>
 <body><div class="sheet">
 
   <header class="masthead">
     <div class="masthead-text">
       <div class="masthead-eyebrow">농협식품 상품기획팀 · 주간 발행</div>
-      <h1>푸드트렌드 위클리 — {esc(ctx["week_label"])}</h1>
+      <h1>푸드 트렌드 위클리 — {esc(ctx["week_label"])}</h1>
       <div class="masthead-meta">
         <span>조사 기간 <b class="num">{esc(ctx["period_label"])}</b></span> ·
         <span>발행 <b class="num">{ctx["generated_at"].strftime("%Y.%m.%d(%a) %H:%M")}</b></span>
@@ -437,7 +437,7 @@ def inline_css(html_body):
 
 
 def archive_report(ctx, html_body):
-    """매주 발행분을 프론트엔드 "푸드트렌드 위클리(메일)" 카드뉴스 아카이브용으로 누적 저장한다.
+    """매주 발행분을 프론트엔드 "푸드 트렌드 위클리(메일)" 카드뉴스 아카이브용으로 누적 저장한다.
     같은 날짜로 재실행되면(예: workflow_dispatch 재시도) 그 날짜 항목을 덮어쓴다."""
     date_str = ctx["generated_at"].date().isoformat()
     ARCHIVE_DIR.mkdir(parents=True, exist_ok=True)
@@ -531,7 +531,7 @@ def main():
         print("ERROR: SMTP_HOST / REPORT_RECIPIENTS 환경변수가 필요합니다.", file=sys.stderr)
         sys.exit(1)
 
-    subject = f"[농협식품] 푸드트렌드 위클리 — {ctx['week_label']}"
+    subject = f"[농협식품] 푸드 트렌드 위클리 — {ctx['week_label']}"
     try:
         send_email(subject, html_body, recipients, smtp_host, smtp_port, smtp_user, smtp_password, smtp_from)
     except Exception:

@@ -108,7 +108,7 @@ function navigate(viewId) {
     report:    ['📋 주간 리포트',   '자동 생성 인사이트 리포트'],
     news:      ['📰 업계뉴스(식품/법규)', '식품 신제품 관련 최신 기사'],
     customKeywords: ['🧾 카테고리별 인기검색어', '별도 지정 키워드 3개월 검색 추이'],
-    weeklyArchive: ['💌 푸드트렌드 위클리(메일)', '매주 발송된 이메일 리포트 아카이브'],
+    weeklyArchive: ['💌 푸드 트렌드 위클리(메일)', '매주 발송된 이메일 리포트 아카이브'],
     searchResults: ['🔍 검색 결과', '전체 탭 통합 검색'],
   };
   if(TITLES[viewId]) {
@@ -1235,7 +1235,7 @@ function ckRelatedPage(delta) {
 }
 
 /* ════════════════════════════════════════════════════════════
-   WEEKLY ARCHIVE (푸드트렌드 위클리 메일 카드뉴스)
+   WEEKLY ARCHIVE (푸드 트렌드 위클리 메일 카드뉴스)
    ════════════════════════════════════════════════════════════ */
 function renderWeeklyArchive() {
   const el = document.getElementById('waGrid');
@@ -1252,7 +1252,7 @@ function renderWeeklyArchive() {
   const waCardHtml = r => `
     <div class="wa-card" role="button" tabindex="0" onclick="openWeeklyModal('${r.date}')" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();openWeeklyModal('${r.date}')}">
       <div class="wa-card-eyebrow">${r.weekLabel || r.date}</div>
-      <div class="wa-card-title">푸드트렌드 위클리</div>
+      <div class="wa-card-title">푸드 트렌드 위클리</div>
       <div class="wa-card-period">${r.periodLabel || ''}</div>
       <div class="wa-card-stats">
         ${r.topUpKeyword ? `
@@ -1306,7 +1306,7 @@ function openWeeklyModal(date) {
   const modal = document.getElementById('waModal');
   if (!report || !modal) return;
 
-  document.getElementById('waModalTitle').textContent = `푸드트렌드 위클리 — ${report.weekLabel || report.date}`;
+  document.getElementById('waModalTitle').textContent = `푸드 트렌드 위클리 — ${report.weekLabel || report.date}`;
   document.getElementById('waModalMeta').textContent = report.periodLabel || '';
   document.getElementById('waModalFrame').src = report.file;
 
@@ -1359,14 +1359,14 @@ function exportReport() {
 
 /* ── 현재 탭 PDF 내보내기 (A4 가로, 인쇄를 통한 저장) ──────── */
 function exportCurrentTabPDF() {
-  const title = document.getElementById('topbar-title')?.textContent || 'FoodTrend AI';
+  const title = document.getElementById('topbar-title')?.textContent || 'Food Trend AI';
   const today = new Date();
   const dateStr = `${today.getFullYear()}.${String(today.getMonth()+1).padStart(2,'0')}.${String(today.getDate()).padStart(2,'0')}`;
 
   const printHeader = document.getElementById('printHeader');
   if(printHeader) {
     printHeader.innerHTML = `
-      <div class="ph-top"><span>FoodTrend AI · 식품 트렌드 분석기</span><span>${dateStr} 기준</span></div>
+      <div class="ph-top"><span>Food Trend AI · 식품 트렌드 분석기</span><span>${dateStr} 기준</span></div>
       <h1>${title}</h1>
     `;
   }
