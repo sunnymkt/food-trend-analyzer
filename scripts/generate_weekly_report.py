@@ -228,6 +228,7 @@ CSS = """
   .kw-col-title.up { color:var(--good); } .kw-col-title.down { color:var(--bad); }
   .kw-row { display:flex; align-items:baseline; justify-content:space-between; padding:7px 0; border-bottom:1px solid var(--rule); font-size:13.5px; }
   a.kw-row { text-decoration:none; color:inherit; }
+  a.kw-row .kw-name { text-decoration:underline; text-decoration-style:dotted; text-underline-offset:3px; }
   .kw-row:last-child { border-bottom:none; }
   .kw-name { font-weight:600; }
   .kw-cat { font-size:11px; color:var(--faint); font-weight:400; margin-left:6px; }
@@ -368,20 +369,20 @@ def render_html(ctx):
     <div class="hl-grid">
       <div class="hl-item">
         <div class="hl-label">이번 주 최고 상승 키워드</div>
-        <div class="hl-value up">{f'<a href="{dashboard_url("trends")}" target="_blank" rel="noopener noreferrer" style="color:inherit;text-decoration:none;">{esc(top_up_kw)}</a>' if top_up_kw else "-"} <span class="unit num">{fmt_pct(top_up_d["changeRate"]) if top_up_d else ""}</span></div>
+        <div class="hl-value up">{f'<a href="{dashboard_url("trends")}" target="_blank" rel="noopener noreferrer" style="color:inherit;text-decoration:underline;text-decoration-style:dotted;text-underline-offset:3px;">{esc(top_up_kw)}</a>' if top_up_kw else "-"} <span class="unit num">{fmt_pct(top_up_d["changeRate"]) if top_up_d else ""}</span></div>
       </div>
       <div class="hl-item">
         <div class="hl-label">주의가 필요한 하락 키워드</div>
-        <div class="hl-value down">{f'<a href="{dashboard_url("trends")}" target="_blank" rel="noopener noreferrer" style="color:inherit;text-decoration:none;">{esc(top_down_kw)}</a>' if top_down_kw else "-"} <span class="unit num">{fmt_pct(top_down_d["changeRate"]) if top_down_d else ""}</span></div>
+        <div class="hl-value down">{f'<a href="{dashboard_url("trends")}" target="_blank" rel="noopener noreferrer" style="color:inherit;text-decoration:underline;text-decoration-style:dotted;text-underline-offset:3px;">{esc(top_down_kw)}</a>' if top_down_kw else "-"} <span class="unit num">{fmt_pct(top_down_d["changeRate"]) if top_down_d else ""}</span></div>
       </div>
       <div class="hl-item">
         <div class="hl-label">신제품 최다 카테고리</div>
-        <div class="hl-value"><a href="{dashboard_url("category")}" target="_blank" rel="noopener noreferrer" style="color:inherit;text-decoration:none;">{esc(top_cat_name or "-")}</a> <span class="unit num">{top_cat_count}건</span></div>
+        <div class="hl-value"><a href="{dashboard_url("category")}" target="_blank" rel="noopener noreferrer" style="color:inherit;text-decoration:underline;text-decoration-style:dotted;text-underline-offset:3px;">{esc(top_cat_name or "-")}</a> <span class="unit num">{top_cat_count}건</span></div>
         <div class="hl-sub num">전체 {ctx["total_products"]}건 중</div>
       </div>
       <div class="hl-item">
         <div class="hl-label">최다 신제품 출시 브랜드</div>
-        <div class="hl-value"><a href="{dashboard_url("category")}" target="_blank" rel="noopener noreferrer" style="color:inherit;text-decoration:none;">{esc(top_brand_name or "-")}</a> <span class="unit num">{top_brand_count}건</span></div>
+        <div class="hl-value"><a href="{dashboard_url("category")}" target="_blank" rel="noopener noreferrer" style="color:inherit;text-decoration:underline;text-decoration-style:dotted;text-underline-offset:3px;">{esc(top_brand_name or "-")}</a> <span class="unit num">{top_brand_count}건</span></div>
         <div class="hl-sub">최근 30일 누적</div>
       </div>
     </div>
