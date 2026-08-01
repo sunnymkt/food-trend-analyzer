@@ -344,7 +344,7 @@ def render_html(ctx):
 
   <header class="masthead">
     <div class="masthead-text">
-      <div class="masthead-eyebrow">농협식품 상품기획팀 · 주간 발행</div>
+      <div class="masthead-eyebrow">농협식품 마케팅부 · 주간 발행</div>
       <h1><span class="wk-title-main">푸드 트렌드 위클리</span><span class="wk-title-sub">{esc(ctx["week_label"])}</span></h1>
       <div class="masthead-meta">
         <span>조사 기간 <b class="num">{esc(ctx["period_label"])}</b></span> ·
@@ -420,7 +420,7 @@ def render_html(ctx):
   <div class="footer">
     본 리포트는 네이버 데이터랩 검색어트렌드, 마켓컬리 검색결과, 네이버 뉴스 검색 결과를 자동 수집·집계하여
     작성되었습니다. 수치는 조사 기준일의 스냅샷이며, 실제 시장 상황과 차이가 있을 수 있습니다.<br>
-    문의 · 상품기획팀 데이터 담당자
+    문의 · 마케팅부 데이터 담당자
   </div>
 
 </div></body></html>"""
