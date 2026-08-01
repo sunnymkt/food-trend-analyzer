@@ -1,5 +1,19 @@
 [
   {
+    "date": "2026-08-01",
+    "weekLabel": "2026년 8월 1주차",
+    "periodLabel": "2026-05-03 ~ 2026-07-31",
+    "generatedAt": "2026-08-01T12:22:39.099312+09:00",
+    "topUpKeyword": "트러플",
+    "topUpPct": 26,
+    "topDownKeyword": "흑당",
+    "topDownPct": -55,
+    "topCategory": "음료",
+    "topCategoryCount": 17,
+    "totalProducts": 48,
+    "file": "data/weekly_reports/2026-08-01.html"
+  },
+  {
     "date": "2026-07-28",
     "weekLabel": "2026년 7월 4주차",
     "periodLabel": "2026-04-29 ~ 2026-07-27",
