@@ -105,7 +105,7 @@ function navigate(viewId) {
     products:  ['🆕 신제품(마켓컬리)', '일별 신제품 모니터링'],
     category:  ['🗂️ 카테고리 분석', '카테고리별 키워드 심층 분석'],
     reviews:   ['💬 상품 리뷰 분석', '네이버 브랜드관 리뷰 기반 상품별 분석'],
-    report:    ['📋 주간 리포트',   '자동 생성 인사이트 리포트'],
+    report:    ['📋 데일리 리포트',   '자동 생성 인사이트 리포트'],
     news:      ['📰 업계뉴스(식품/법규)', '식품 신제품 관련 최신 기사'],
     customKeywords: ['🧾 카테고리별 인기검색어', '별도 지정 키워드 3개월 검색 추이'],
     weeklyArchive: ['💌 푸드 트렌드 위클리(메일)', '매주 발송된 이메일 리포트 아카이브'],
@@ -988,7 +988,7 @@ function toggleBrand(brand) {
 }
 
 /* ════════════════════════════════════════════════════════════
-   REPORT (주간 리포트)
+   REPORT (데일리 리포트)
    ════════════════════════════════════════════════════════════ */
 function renderReport() {
   const el = document.getElementById('reportInsights');
@@ -1324,7 +1324,7 @@ document.addEventListener('keydown', e => { if (e.key === 'Escape') closeWeeklyM
 /* ── 내보내기 ─────────────────────────────────────────────── */
 function exportReport() {
   const lines = [
-    `# 식품 트렌드 주간 리포트`,
+    `# 식품 트렌드 데일리 리포트`,
     `기간: ${WEEKLY_SUMMARY.period}`,
     `분석 키워드: ${WEEKLY_SUMMARY.totalKeywords}개 | 신제품: ${WEEKLY_SUMMARY.newProducts}개`,
     ``,
