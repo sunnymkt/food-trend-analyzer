@@ -160,6 +160,10 @@ body::before {
 .topbar-title-wrap { flex:1; }
 .topbar-title { font-size:19px; font-weight:800; letter-spacing:-.3px; }
 .topbar-sub { font-size:12px; color:var(--text-muted); margin-top:2px; }
+.topbar-date {
+  font-size:12.5px; font-weight:600; color:var(--text-secondary); white-space:nowrap;
+  display:flex; align-items:center; gap:6px;
+}
 
 /* 검색창 */
 .search-bar {
@@ -220,7 +224,7 @@ body::before {
   box-shadow:0 1px 2px rgba(15,23,42,.04);
 }
 .card:hover { border-color:var(--border-hover); box-shadow:var(--shadow); transform:translateY(-1px); }
-.report-hl-card { cursor:pointer; }
+.report-hl-card { cursor:pointer; padding:16px 18px; }
 .card-header { display:flex; align-items:center; justify-content:space-between; margin-bottom:16px; }
 .card-title { font-size:16.5px; font-weight:800; display:flex; align-items:center; gap:8px; letter-spacing:-.01em; }
 .card-icon { font-size:19px; }

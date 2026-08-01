@@ -105,6 +105,8 @@
           <div class="topbar-sub" id="topbar-sub">오늘의 식품 트렌드 종합 현황</div>
         </div>
 
+        <div class="topbar-date" id="topbarDate">-</div>
+
         <div class="search-bar">
           <span class="search-icon">🔍</span>
           <input id="globalSearch" type="text" placeholder="키워드, 브랜드, 제품, 리뷰 검색…">
@@ -434,22 +436,28 @@
           <!-- 하이라이트 3카드 -->
           <div class="g3" style="margin-bottom:24px;">
             <div class="card card-glow-orange report-hl-card" role="button" tabindex="0" onclick="navigate('trends')" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();navigate('trends')}">
-              <div style="font-size:28px;margin-bottom:8px;">🔥</div>
-              <div style="font-size:20px;font-weight:900;color:var(--primary);" id="hl-top-kw">-</div>
-              <div style="font-size:12px;color:var(--text-secondary);margin-top:3px;">이번 주 1위 키워드</div>
-              <div style="font-size:32px;font-weight:900;color:var(--primary);margin-top:8px;" id="hl-top-kw-val">-</div>
+              <div style="display:flex;align-items:center;gap:10px;">
+                <span style="font-size:22px;line-height:1;">🔥</span>
+                <span style="font-size:18px;font-weight:900;color:var(--primary);" id="hl-top-kw">-</span>
+              </div>
+              <div style="font-size:12px;color:var(--text-secondary);margin-top:6px;">이번 주 1위 키워드</div>
+              <div style="font-size:26px;font-weight:900;color:var(--primary);margin-top:4px;" id="hl-top-kw-val">-</div>
             </div>
             <div class="card card-glow-teal report-hl-card" role="button" tabindex="0" onclick="navigate('category')" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();navigate('category')}">
-              <div style="font-size:28px;margin-bottom:8px;">📦</div>
-              <div style="font-size:20px;font-weight:900;color:var(--accent);" id="hl-top-cat">-</div>
-              <div style="font-size:12px;color:var(--text-secondary);margin-top:3px;">신제품 최다 카테고리</div>
-              <div style="font-size:32px;font-weight:900;color:var(--accent);margin-top:8px;" id="hl-top-cat-val">-</div>
+              <div style="display:flex;align-items:center;gap:10px;">
+                <span style="font-size:22px;line-height:1;">📦</span>
+                <span style="font-size:18px;font-weight:900;color:var(--accent);" id="hl-top-cat">-</span>
+              </div>
+              <div style="font-size:12px;color:var(--text-secondary);margin-top:6px;">신제품 최다 카테고리</div>
+              <div style="font-size:26px;font-weight:900;color:var(--accent);margin-top:4px;" id="hl-top-cat-val">-</div>
             </div>
             <div class="card card-glow-rose report-hl-card" role="button" tabindex="0" onclick="navigate('trends')" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();navigate('trends')}">
-              <div style="font-size:28px;margin-bottom:8px;">📉</div>
-              <div style="font-size:20px;font-weight:900;color:var(--rose);" id="hl-worst-kw">-</div>
-              <div style="font-size:12px;color:var(--text-secondary);margin-top:3px;">주의 필요 키워드</div>
-              <div style="font-size:32px;font-weight:900;color:var(--rose);margin-top:8px;" id="hl-worst-kw-val">-</div>
+              <div style="display:flex;align-items:center;gap:10px;">
+                <span style="font-size:22px;line-height:1;">📉</span>
+                <span style="font-size:18px;font-weight:900;color:var(--rose);" id="hl-worst-kw">-</span>
+              </div>
+              <div style="font-size:12px;color:var(--text-secondary);margin-top:6px;">주의 필요 키워드</div>
+              <div style="font-size:26px;font-weight:900;color:var(--rose);margin-top:4px;" id="hl-worst-kw-val">-</div>
             </div>
           </div>
 
@@ -457,33 +465,42 @@
           <div class="g2" style="margin-bottom:24px;">
             <div class="card report-hl-card" role="button" tabindex="0" onclick="navigate('category')" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();navigate('category')}">
               <div style="display:flex;align-items:center;gap:14px;">
-                <div style="font-size:28px;">💰</div>
+                <div style="font-size:22px;">💰</div>
                 <div>
                   <div style="font-size:12px;color:var(--text-secondary);">최고가 카테고리 (평균)</div>
-                  <div style="font-size:18px;font-weight:900;color:var(--text-primary);" id="hl-price-cat">-</div>
+                  <div style="font-size:16px;font-weight:900;color:var(--text-primary);" id="hl-price-cat">-</div>
                 </div>
-                <div style="margin-left:auto;font-size:22px;font-weight:900;color:var(--secondary);" id="hl-price-cat-val">-</div>
+                <div style="margin-left:auto;font-size:20px;font-weight:900;color:var(--secondary);" id="hl-price-cat-val">-</div>
               </div>
             </div>
             <div class="card report-hl-card" role="button" tabindex="0" onclick="navigate('category')" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();navigate('category')}">
               <div style="display:flex;align-items:center;gap:14px;">
-                <div style="font-size:28px;">🚀</div>
+                <div style="font-size:22px;">🚀</div>
                 <div>
                   <div style="font-size:12px;color:var(--text-secondary);">최다 신제품 출시 브랜드</div>
-                  <div style="font-size:18px;font-weight:900;color:var(--text-primary);" id="hl-brand">-</div>
+                  <div style="font-size:16px;font-weight:900;color:var(--text-primary);" id="hl-brand">-</div>
                 </div>
-                <div style="margin-left:auto;font-size:22px;font-weight:900;color:var(--purple);" id="hl-brand-val">-</div>
+                <div style="margin-left:auto;font-size:20px;font-weight:900;color:var(--purple);" id="hl-brand-val">-</div>
               </div>
             </div>
           </div>
 
-          <!-- 관련 뉴스 -->
-          <div class="card" style="margin-bottom:18px;">
-            <div class="card-header">
-              <div class="card-title"><span class="card-icon">📰</span>관련 뉴스</div>
-              <button class="btn btn-secondary" style="padding:6px 12px;font-size:12px;" onclick="navigate('news')">전체 보기 →</button>
+          <!-- 관련 뉴스: 신제품 / 법규 두 칸 -->
+          <div class="g2" style="margin-bottom:18px;">
+            <div class="card card-glow-purple">
+              <div class="card-header">
+                <div class="card-title"><span class="card-icon">📰</span>신제품 관련 뉴스</div>
+                <button class="btn btn-secondary" style="padding:6px 12px;font-size:12px;" onclick="navigate('news')">전체 보기 →</button>
+              </div>
+              <div id="reportNewsProduct"></div>
             </div>
-            <div id="reportNews"></div>
+            <div class="card card-glow-rose">
+              <div class="card-header">
+                <div class="card-title"><span class="card-icon">⚖️</span>법규·제도 변화</div>
+                <button class="btn btn-secondary" style="padding:6px 12px;font-size:12px;" onclick="navigate('news')">전체 보기 →</button>
+              </div>
+              <div id="reportNewsRegulatory"></div>
+            </div>
           </div>
 
           <!-- 인사이트 -->

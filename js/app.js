@@ -1668,15 +1668,20 @@ function renderReportHighlights() {
   renderReportNews();
 }
 
-/* 리포트용 뉴스 다이제스트 (최신 3건) */
+/* 리포트용 뉴스 다이제스트 (신제품/법규 각 최신 3건) */
 function renderReportNews() {
-  const el = document.getElementById('reportNews');
+  renderReportNewsSection(NEWS.filter(n => (n.category || 'product') === 'product'), 'reportNewsProduct', 'tag-o');
+  renderReportNewsSection(NEWS.filter(n => n.category === 'regulatory'), 'reportNewsRegulatory', 'tag-r');
+}
+
+function renderReportNewsSection(items, elId, tagClass) {
+  const el = document.getElementById(elId);
   if(!el) return;
-  if(!NEWS.length) {
+  if(!items.length) {
     el.innerHTML = `<p style="font-size:12.5px;color:var(--text-muted);">수집된 뉴스가 없습니다.</p>`;
     return;
   }
-  const top3 = [...NEWS].sort((a,b) => new Date(b.pubDate) - new Date(a.pubDate)).slice(0,3);
+  const top3 = [...items].sort((a,b) => new Date(b.pubDate) - new Date(a.pubDate)).slice(0,3);
   el.innerHTML = top3.map(n => `
     <div class="mini-row">
       <div class="mini-left" style="min-width:0;">
@@ -1686,7 +1691,7 @@ function renderReportNews() {
           <div class="mini-brand">${fmt(n.pubDate)}</div>
         </div>
       </div>
-      <span class="tag tag-o">#${n.keyword}</span>
+      <span class="tag ${tagClass}">#${n.keyword}</span>
     </div>
   `).join('');
 }
@@ -1702,7 +1707,18 @@ function showDataError(err) {
 }
 
 /* ── 초기화 ──────────────────────────────────────────────── */
+/* 탑바에 오늘 날짜 표시 (요일 포함) */
+function renderTopbarDate() {
+  const el = document.getElementById('topbarDate');
+  if (!el) return;
+  const days = ['일', '월', '화', '수', '목', '금', '토'];
+  const d = new Date();
+  el.textContent = `📅 ${d.getFullYear()}년 ${d.getMonth() + 1}월 ${d.getDate()}일 (${days[d.getDay()]})`;
+}
+
 async function init() {
+  renderTopbarDate();
+
   // 검색
   const searchEl = document.getElementById('globalSearch');
   if(searchEl) searchEl.addEventListener('input', e => handleSearch(e.target.value));
