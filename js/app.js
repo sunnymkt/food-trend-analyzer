@@ -463,12 +463,11 @@ function renderProducts() {
   }
 
   el.innerHTML = list.map(p => `
-    <div class="product-card ${isNew(p.launchDate,7)?'new-badge':''}">
-      <div class="p-emoji">${p.emoji}</div>
+    <div class="product-card">
       ${p.url
         ? `<a href="${p.url}" target="_blank" rel="noopener noreferrer" class="p-name">${p.name}</a>`
         : `<div class="p-name">${p.name}</div>`}
-      <div class="p-brand">${p.brand} · ${p.channel}</div>
+      <div class="p-brand">${p.brand}</div>
       <div class="p-tags">
         <span class="tag ${catTagClass(p.category)}">${p.category}</span>
         ${p.keywords.map(k => `<span class="tag tag-b">#${k}</span>`).join('')}
