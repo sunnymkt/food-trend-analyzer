@@ -1430,7 +1430,11 @@ function renderSearchResults() {
     (n.title || '').includes(q) || (n.description || '').includes(q) || (n.keyword || '').includes(q)
   ) : [];
 
-  const total = trendMatches.length + customMatches.length + productMatches.length + brandMatches.length + newsMatches.length;
+  const reviewMatches = q && REVIEW_DATA?.products
+    ? REVIEW_DATA.products.filter(p => p.productName.toLowerCase().includes(qLower))
+    : [];
+
+  const total = trendMatches.length + customMatches.length + productMatches.length + brandMatches.length + newsMatches.length + reviewMatches.length;
 
   const subEl = document.getElementById('topbar-sub');
   if(subEl) subEl.textContent = q ? `"${q}" 검색 결과 — 총 ${total}건` : '검색어를 입력하세요';
@@ -1537,6 +1541,26 @@ function renderSearchResults() {
                 <span style="font-size:11px;color:var(--text-muted);">${fmt(n.pubDate)}</span>
               </div>
             </div>
+          </div>
+        `).join('')}
+      </div>
+    `);
+  }
+
+  if(reviewMatches.length) {
+    sections.push(`
+      <div class="card">
+        <div class="card-header">
+          <div class="card-title"><span class="card-icon">💬</span>자사 제품 리뷰</div>
+          <div class="card-meta">${reviewMatches.length}건</div>
+        </div>
+        ${reviewMatches.slice(0, 12).map(p => `
+          <div class="ck-row" role="button" tabindex="0"
+               onclick="navigate('reviews');setTimeout(()=>openReviewModal(${p.productId}),60)"
+               onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();navigate('reviews');setTimeout(()=>openReviewModal(${p.productId}),60)}">
+            <div class="ck-name" style="width:auto;flex:1;overflow:visible;white-space:normal;">${escHtml(p.productName)}</div>
+            <div style="font-size:11px;color:var(--text-muted);white-space:nowrap;">리뷰 ${p.reviewCount.toLocaleString()}건</div>
+            <span class="tag" style="margin-left:8px;">⭐${p.avgRating ?? '-'}</span>
           </div>
         `).join('')}
       </div>
