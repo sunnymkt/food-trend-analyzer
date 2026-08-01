@@ -100,12 +100,15 @@
 
       <!-- 탑바 -->
       <header class="topbar">
-        <div class="topbar-title-wrap">
-          <div class="topbar-title" id="topbar-title">📊 대시보드</div>
-          <div class="topbar-sub" id="topbar-sub">오늘의 식품 트렌드 종합 현황</div>
+        <div class="topbar-left">
+          <div class="topbar-title-wrap">
+            <div class="topbar-title" id="topbar-title">📊 대시보드</div>
+            <div class="topbar-sub" id="topbar-sub">오늘의 식품 트렌드 종합 현황</div>
+          </div>
+          <div class="topbar-date" id="topbarDate">-</div>
         </div>
 
-        <div class="topbar-date" id="topbarDate">-</div>
+        <div class="topbar-spacer"></div>
 
         <div class="search-bar">
           <span class="search-icon">🔍</span>
@@ -113,7 +116,6 @@
         </div>
 
         <div style="display:flex;gap:9px;align-items:center;">
-          <button class="btn btn-secondary" onclick="exportCurrentTabPDF()">🖨️ PDF 내보내기</button>
           <button class="btn btn-primary" onclick="navigate('report')">📋 데일리 리포트</button>
 
           <div class="topbar-links">
