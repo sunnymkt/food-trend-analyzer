@@ -790,10 +790,49 @@ function buildReviewSuggestions(p) {
   return suggestions.slice(0, 4);
 }
 
+let currentReviewProductId = null;
+
+function reviewSnippetHtml(item, kind) {
+  return `
+    <div class="rv-snippet">
+      <div class="rv-snippet-meta">
+        <span>⭐${item.rating}</span><span>·</span><span>${item.date || '-'}</span>
+        ${item.photo ? '<span>· 📷 포토리뷰</span>' : ''}
+        ${kind === 'pos' && item.best ? '<span>· 🏆 베스트리뷰</span>' : ''}
+      </div>
+      <div>${escHtml(item.text)}</div>
+    </div>`;
+}
+
+function selectReviewSignal(level, label) {
+  const p = REVIEW_DATA?.products?.find(x => x.productId === currentReviewProductId);
+  if (!p) return;
+
+  const containerId = level === 'positive' ? 'reviewPosSignalDetail' : 'reviewNegSignalDetail';
+  const container = document.getElementById(containerId);
+  if (!container) return;
+
+  const examples = p.signalExamples?.[level]?.[label] || [];
+  const kind = level === 'positive' ? 'pos' : 'neg';
+  container.innerHTML = examples.length
+    ? `<div class="rv-signal-detail-title">'${escHtml(label)}' 관련 리뷰 ${examples.length}건</div>` +
+      examples.map(i => reviewSnippetHtml(i, kind)).join('')
+    : `<div style="font-size:12px;color:var(--text-muted);">'${escHtml(label)}' 관련 리뷰 예시가 없습니다.</div>`;
+
+  // 클릭한 칩에 active 표시 (같은 섹션의 다른 칩은 해제)
+  const section = container.previousElementSibling;
+  if (section) {
+    section.querySelectorAll('.rv-signal-chip').forEach(chip => {
+      chip.classList.toggle('active', chip.dataset.label === label);
+    });
+  }
+}
+
 function openReviewModal(productId) {
   const modal = document.getElementById('reviewModal');
   const p = REVIEW_DATA?.products?.find(x => x.productId === productId);
   if (!modal || !p) return;
+  currentReviewProductId = productId;
 
   document.getElementById('reviewModalTitle').textContent = p.productName;
   document.getElementById('reviewModalMeta').textContent =
@@ -816,30 +855,20 @@ function openReviewModal(productId) {
       </div>`;
   }).join('');
 
-  const signalChips = (signals, cls, emptyLabel) => {
+  const signalChips = (signals, level, cls, emptyLabel) => {
     const entries = Object.entries(signals || {}).filter(([, n]) => n > 0);
     if (!entries.length) return `<div style="font-size:12px;color:var(--text-muted);">${emptyLabel}</div>`;
     return `<div class="rv-signal-chips">${entries.map(([label, n]) =>
-      `<span class="rv-signal-chip ${cls}">${escHtml(label)} <span class="n">${n}</span></span>`
+      `<span class="rv-signal-chip ${cls} clickable" data-label="${escHtml(label)}" onclick="selectReviewSignal('${level}', '${label}')">${escHtml(label)} <span class="n">${n}</span></span>`
     ).join('')}</div>`;
   };
 
-  const snippetHtml = (item, kind) => `
-    <div class="rv-snippet">
-      <div class="rv-snippet-meta">
-        <span>⭐${item.rating}</span><span>·</span><span>${item.date || '-'}</span>
-        ${item.photo ? '<span>· 📷 포토리뷰</span>' : ''}
-        ${kind === 'pos' && item.best ? '<span>· 🏆 베스트리뷰</span>' : ''}
-      </div>
-      <div>${escHtml(item.text)}</div>
-    </div>`;
-
-  const negativeSection = p.topNegative?.length
-    ? p.topNegative.map(i => snippetHtml(i, 'neg')).join('')
-    : `<div style="font-size:12px;color:var(--text-muted);">낮은 평점 리뷰가 없습니다.</div>`;
   const positiveSection = p.topPositive?.length
-    ? p.topPositive.map(i => snippetHtml(i, 'pos')).join('')
+    ? p.topPositive.map(i => reviewSnippetHtml(i, 'pos')).join('')
     : `<div style="font-size:12px;color:var(--text-muted);">표시할 호평 리뷰가 없습니다.</div>`;
+  const negativeSection = p.topNegative?.length
+    ? p.topNegative.map(i => reviewSnippetHtml(i, 'neg')).join('')
+    : `<div style="font-size:12px;color:var(--text-muted);">낮은 평점 리뷰가 없습니다.</div>`;
 
   document.getElementById('reviewModalBody').innerHTML = `
     <div class="rv-signal-section">
@@ -850,21 +879,24 @@ function openReviewModal(productId) {
     <div class="rv-rating-bars">${ratingBars}</div>
 
     <div class="rv-signal-section">
-      <div class="rv-signal-title">👍 긍정 신호</div>
-      ${signalChips(p.signals?.positive, 'pos', '뚜렷한 긍정 신호가 감지되지 않았습니다.')}
+      <div class="rv-signal-title">👍 긍정 신호 <span style="font-weight:400;text-transform:none;letter-spacing:0;">(클릭하면 관련 리뷰가 보여요)</span></div>
+      ${signalChips(p.signals?.positive, 'positive', 'pos', '뚜렷한 긍정 신호가 감지되지 않았습니다.')}
     </div>
-    <div class="rv-signal-section">
-      <div class="rv-signal-title">⚠️ 부정 신호 (개선 포인트)</div>
-      ${signalChips(p.signals?.negative, 'neg', '뚜렷한 부정 신호가 감지되지 않았습니다.')}
-    </div>
+    <div id="reviewPosSignalDetail"></div>
 
     <div class="rv-signal-section">
-      <div class="rv-signal-title">대표 부정 리뷰</div>
-      ${negativeSection}
+      <div class="rv-signal-title">⚠️ 부정 신호 (개선 포인트) <span style="font-weight:400;text-transform:none;letter-spacing:0;">(클릭하면 관련 리뷰가 보여요)</span></div>
+      ${signalChips(p.signals?.negative, 'negative', 'neg', '뚜렷한 부정 신호가 감지되지 않았습니다.')}
     </div>
-    <div class="rv-signal-section" style="margin-bottom:0;">
+    <div id="reviewNegSignalDetail"></div>
+
+    <div class="rv-signal-section">
       <div class="rv-signal-title">대표 호평 리뷰</div>
       ${positiveSection}
+    </div>
+    <div class="rv-signal-section" style="margin-bottom:0;">
+      <div class="rv-signal-title">대표 부정 리뷰</div>
+      ${negativeSection}
     </div>
   `;
 

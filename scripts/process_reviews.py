@@ -67,15 +67,30 @@ def match_any(norm_text, keywords):
     return any(norm(kw) in norm_text for kw in keywords)
 
 
-def count_signals(reviews_norm_texts, signal_groups):
-    """signal_groups: {라벨: [키워드,...]}. 리뷰 '건수' 기준으로 센다
-    (한 리뷰가 같은 신호 키워드를 여러 번 써도 1건으로만 카운트)."""
+MAX_SIGNAL_EXAMPLES = 5
+
+
+def signals_with_examples(group, signal_groups):
+    """signal_groups: {라벨: [키워드,...]}. 각 신호 라벨별로 (a) 매칭된 리뷰 건수와
+    (b) 최신순으로 최대 MAX_SIGNAL_EXAMPLES개의 예시 스니펫을 함께 뽑는다 —
+    프론트엔드에서 '신호 칩'을 클릭했을 때 실제 관련 리뷰를 보여주기 위함."""
     counts = {label: 0 for label in signal_groups}
-    for norm_text in reviews_norm_texts:
+    examples = {label: [] for label in signal_groups}
+    rows = group.sort_values("_parsedDate", ascending=False)
+    for _, row in rows.iterrows():
+        norm_text = norm(row["리뷰상세내용"])
         for label, keywords in signal_groups.items():
-            if match_any(norm_text, keywords):
-                counts[label] += 1
-    return counts
+            if not match_any(norm_text, keywords):
+                continue
+            counts[label] += 1
+            if len(examples[label]) < MAX_SIGNAL_EXAMPLES:
+                examples[label].append({
+                    "rating": int(row["구매자평점"]) if pd.notna(row["구매자평점"]) else None,
+                    "date": row["_parsedDate"].date().isoformat() if pd.notna(row["_parsedDate"]) else None,
+                    "photo": bool(pd.notna(row.get("포토/영상"))),
+                    "text": snippet(row["리뷰상세내용"]),
+                })
+    return counts, examples
 
 
 def build_product_entry(product_id, group, positive_signals, negative_signals):
@@ -87,11 +102,10 @@ def build_product_entry(product_id, group, positive_signals, negative_signals):
     first_date = dates.min().date().isoformat() if not dates.empty else None
     last_date = dates.max().date().isoformat() if not dates.empty else None
 
-    norm_texts = group["리뷰상세내용"].fillna("").map(norm)
-    signals = {
-        "positive": count_signals(norm_texts, positive_signals),
-        "negative": count_signals(norm_texts, negative_signals),
-    }
+    pos_counts, pos_examples = signals_with_examples(group, positive_signals)
+    neg_counts, neg_examples = signals_with_examples(group, negative_signals)
+    signals = {"positive": pos_counts, "negative": neg_counts}
+    signal_examples = {"positive": pos_examples, "negative": neg_examples}
 
     # 부정 스니펫: 평점 낮은 순 → 그 안에서 최신순. 낮은 평점이 부족하면 3점까지 확장.
     neg_pool = group[group["구매자평점"] <= 2]
@@ -139,6 +153,7 @@ def build_product_entry(product_id, group, positive_signals, negative_signals):
         "firstReviewDate": first_date,
         "lastReviewDate": last_date,
         "signals": signals,
+        "signalExamples": signal_examples,
         "topNegative": top_negative,
         "topPositive": top_positive,
     }

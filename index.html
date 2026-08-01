@@ -358,18 +358,20 @@
 
           <div id="reviewHlGrid" class="hl-grid-cards" style="margin-bottom:18px;"></div>
 
+          <div class="card review-search-card" style="margin-bottom:18px;">
+            <div class="review-search-card-title">🔍 자사 제품 리뷰 검색</div>
+            <input id="reviewSearchInput" type="text" placeholder="상품명으로 검색해보세요 (예: 포기김치, 흑임자)" class="review-search-input-big" oninput="renderReviewList()">
+          </div>
+
           <div class="card">
             <div class="card-header">
               <div class="card-title">상품별 리뷰 현황</div>
-              <div style="display:flex;gap:8px;align-items:center;">
-                <select id="reviewSortSelect" class="review-select" onchange="renderReviewList()">
-                  <option value="reviewCount">리뷰 많은순</option>
-                  <option value="negativeSignals">부정 신호 많은순</option>
-                  <option value="avgRatingAsc">평점 낮은순</option>
-                  <option value="avgRatingDesc">평점 높은순</option>
-                </select>
-                <input id="reviewSearchInput" type="text" placeholder="상품명 검색…" class="review-search-input" oninput="renderReviewList()">
-              </div>
+              <select id="reviewSortSelect" class="review-select" onchange="renderReviewList()">
+                <option value="reviewCount">리뷰 많은순</option>
+                <option value="negativeSignals">부정 신호 많은순</option>
+                <option value="avgRatingAsc">평점 낮은순</option>
+                <option value="avgRatingDesc">평점 높은순</option>
+              </select>
             </div>
             <div id="reviewListWrap"></div>
           </div>
