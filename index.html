@@ -23,7 +23,7 @@
     <!-- ═══════════════════════════════════════════════
        SIDEBAR
        ═══════════════════════════════════════════════ -->
-    <aside class="sidebar">
+    <aside class="sidebar" id="sidebar">
 
       <!-- 로고 -->
       <div class="sidebar-logo">
@@ -93,6 +93,9 @@
       </div>
     </aside>
 
+    <!-- 모바일에서 사이드바 열렸을 때 뒤 배경 어둡게 + 클릭 시 닫기 -->
+    <div class="sidebar-backdrop" id="sidebarBackdrop" onclick="closeMobileSidebar()"></div>
+
     <!-- ═══════════════════════════════════════════════
        MAIN
        ═══════════════════════════════════════════════ -->
@@ -100,6 +103,8 @@
 
       <!-- 탑바 -->
       <header class="topbar">
+        <button class="mobile-menu-btn" onclick="toggleMobileSidebar()" aria-label="메뉴 열기">☰</button>
+
         <div class="topbar-left">
           <div class="topbar-title-wrap">
             <div style="display:flex;align-items:center;gap:10px;">

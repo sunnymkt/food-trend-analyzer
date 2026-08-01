@@ -126,6 +126,23 @@ function navigate(viewId) {
     if(viewId === 'weeklyArchive') renderWeeklyArchive();
     if(viewId === 'searchResults') renderSearchResults();
   }, 30);
+
+  closeMobileSidebar();
+}
+
+/* ── 모바일 사이드바 열기/닫기 ────────────────────────────── */
+function toggleMobileSidebar() {
+  const sidebar = document.getElementById('sidebar');
+  if (sidebar && sidebar.classList.contains('mobile-open')) closeMobileSidebar();
+  else openMobileSidebar();
+}
+function openMobileSidebar() {
+  document.getElementById('sidebar')?.classList.add('mobile-open');
+  document.getElementById('sidebarBackdrop')?.classList.add('show');
+}
+function closeMobileSidebar() {
+  document.getElementById('sidebar')?.classList.remove('mobile-open');
+  document.getElementById('sidebarBackdrop')?.classList.remove('show');
 }
 
 /* ════════════════════════════════════════════════════════════
