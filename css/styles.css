@@ -206,10 +206,10 @@ body::before {
   white-space:nowrap;
 }
 .btn-primary {
-  background:linear-gradient(135deg,var(--primary),#f97316);
-  color:#fff; box-shadow:0 4px 16px rgba(234,88,12,.28);
+  background:linear-gradient(135deg,#c9900a,var(--primary));
+  color:#1c1917; box-shadow:0 4px 16px rgba(234,88,12,.30);
 }
-.btn-primary:hover { transform:translateY(-1px); box-shadow:0 8px 24px rgba(234,88,12,.38); }
+.btn-primary:hover { transform:translateY(-1px); box-shadow:0 8px 24px rgba(234,88,12,.42); }
 .btn-secondary {
   background:var(--bg-card); color:var(--text-secondary); border:1px solid var(--border);
 }
@@ -654,6 +654,7 @@ select option { background:var(--bg-secondary); color:var(--text-primary); }
 .rv-suggestion:last-child { margin-bottom:0; }
 .rv-suggestion.neg { background:#fef2f2; border-left-color:#dc2626; color:#7f1d1d; }
 .rv-suggestion.pos { background:#f0fdf4; border-left-color:#16a34a; color:#14532d; }
+
 
 
 .print-header { display:none; }

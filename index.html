@@ -155,6 +155,58 @@
            ───────────────────────────────────────────── -->
         <section id="dashboard" class="view">
 
+          <!-- ═══ 오늘의 요약 (데일리 리포트에서 발췌) ═══ -->
+          <div class="card" style="margin-bottom:14px;">
+            <div class="card-header" style="margin-bottom:0;">
+              <div class="card-title"><span class="card-icon">📋</span>오늘의 요약</div>
+              <div class="card-meta" id="db-summaryMeta">-</div>
+            </div>
+          </div>
+
+          <div class="g3" style="margin-bottom:18px;">
+            <div class="card card-glow-orange report-hl-card" role="button" tabindex="0" onclick="navigate('trends')" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();navigate('trends')}">
+              <div style="display:flex;align-items:center;gap:10px;">
+                <span style="font-size:22px;line-height:1;">🔥</span>
+                <span style="font-size:18px;font-weight:900;color:var(--primary);" id="db-hl-top-kw">-</span>
+              </div>
+              <div style="font-size:12px;color:var(--text-secondary);margin-top:6px;">이번 주 1위 키워드</div>
+              <div style="font-size:26px;font-weight:900;color:var(--primary);margin-top:4px;" id="db-hl-top-kw-val">-</div>
+            </div>
+            <div class="card card-glow-teal report-hl-card" role="button" tabindex="0" onclick="navigate('category')" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();navigate('category')}">
+              <div style="display:flex;align-items:center;gap:10px;">
+                <span style="font-size:22px;line-height:1;">📦</span>
+                <span style="font-size:18px;font-weight:900;color:var(--accent);" id="db-hl-top-cat">-</span>
+              </div>
+              <div style="font-size:12px;color:var(--text-secondary);margin-top:6px;">신제품 최다 카테고리</div>
+              <div style="font-size:26px;font-weight:900;color:var(--accent);margin-top:4px;" id="db-hl-top-cat-val">-</div>
+            </div>
+            <div class="card card-glow-rose report-hl-card" role="button" tabindex="0" onclick="navigate('trends')" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();navigate('trends')}">
+              <div style="display:flex;align-items:center;gap:10px;">
+                <span style="font-size:22px;line-height:1;">📉</span>
+                <span style="font-size:18px;font-weight:900;color:var(--rose);" id="db-hl-worst-kw">-</span>
+              </div>
+              <div style="font-size:12px;color:var(--text-secondary);margin-top:6px;">주의 필요 키워드</div>
+              <div style="font-size:26px;font-weight:900;color:var(--rose);margin-top:4px;" id="db-hl-worst-kw-val">-</div>
+            </div>
+          </div>
+
+          <div class="g2" style="margin-bottom:24px;">
+            <div class="card card-glow-purple">
+              <div class="card-header">
+                <div class="card-title"><span class="card-icon">📰</span>신제품 관련 뉴스</div>
+                <button class="btn btn-secondary" style="padding:6px 12px;font-size:12px;" onclick="navigate('news')">전체 보기 →</button>
+              </div>
+              <div id="db-reportNewsProduct"></div>
+            </div>
+            <div class="card card-glow-rose">
+              <div class="card-header">
+                <div class="card-title"><span class="card-icon">⚖️</span>법규·제도 변화</div>
+                <button class="btn btn-secondary" style="padding:6px 12px;font-size:12px;" onclick="navigate('news')">전체 보기 →</button>
+              </div>
+              <div id="db-reportNewsRegulatory"></div>
+            </div>
+          </div>
+
           <!-- KPI 카드 4개 -->
           <div class="g4">
             <div class="card card-glow-orange kpi-card">
@@ -487,30 +539,6 @@
             </div>
           </div>
 
-          <!-- 하이라이트 2카드 (가격·브랜드) -->
-          <div class="g2" style="margin-bottom:24px;">
-            <div class="card report-hl-card" role="button" tabindex="0" onclick="navigate('category')" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();navigate('category')}">
-              <div style="display:flex;align-items:center;gap:14px;">
-                <div style="font-size:22px;">💰</div>
-                <div>
-                  <div style="font-size:12px;color:var(--text-secondary);">최고가 카테고리 (평균)</div>
-                  <div style="font-size:16px;font-weight:900;color:var(--text-primary);" id="hl-price-cat">-</div>
-                </div>
-                <div style="margin-left:auto;font-size:20px;font-weight:900;color:var(--secondary);" id="hl-price-cat-val">-</div>
-              </div>
-            </div>
-            <div class="card report-hl-card" role="button" tabindex="0" onclick="navigate('category')" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();navigate('category')}">
-              <div style="display:flex;align-items:center;gap:14px;">
-                <div style="font-size:22px;">🚀</div>
-                <div>
-                  <div style="font-size:12px;color:var(--text-secondary);">최다 신제품 출시 브랜드</div>
-                  <div style="font-size:16px;font-weight:900;color:var(--text-primary);" id="hl-brand">-</div>
-                </div>
-                <div style="margin-left:auto;font-size:20px;font-weight:900;color:var(--purple);" id="hl-brand-val">-</div>
-              </div>
-            </div>
-          </div>
-
           <!-- 관련 뉴스: 신제품 / 법규 두 칸 -->
           <div class="g2" style="margin-bottom:18px;">
             <div class="card card-glow-purple">
@@ -526,25 +554,6 @@
                 <button class="btn btn-secondary" style="padding:6px 12px;font-size:12px;" onclick="navigate('news')">전체 보기 →</button>
               </div>
               <div id="reportNewsRegulatory"></div>
-            </div>
-          </div>
-
-          <!-- 인사이트 -->
-          <div class="card" style="margin-bottom:18px;">
-            <div class="card-header">
-              <div class="card-title"><span class="card-icon">💡</span>주요 인사이트</div>
-            </div>
-            <div id="reportInsights"></div>
-          </div>
-
-          <!-- 전체 키워드 변화율 차트 -->
-          <div class="card">
-            <div class="card-header">
-              <div class="card-title"><span class="card-icon">📊</span>전체 키워드 변화율 비교</div>
-              <div class="card-meta">전주 대비 (%)</div>
-            </div>
-            <div class="chart-wrap" style="height:280px;">
-              <canvas id="reportChart"></canvas>
             </div>
           </div>
 

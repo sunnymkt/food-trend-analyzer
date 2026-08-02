@@ -155,11 +155,35 @@ function renderDashboard() {
     animNum(document.getElementById('kpi-prod'), NEW_PRODUCTS.length);
     animNum(document.getElementById('kpi-rise'), risingCount);
   }, 80);
+  renderDashboardSummary();
   renderTopKeywordBadges();
   renderMainChart();
   renderDonut();
   renderRankings();
   renderLatestMini();
+}
+
+/* 대시보드 상단 "오늘의 요약" — 데일리 리포트의 상승/하락 키워드·최다 카테고리·뉴스만 발췌 */
+function renderDashboardSummary() {
+  const metaEl = document.getElementById('db-summaryMeta');
+  if (metaEl) {
+    metaEl.innerHTML = `📅 ${WEEKLY_SUMMARY.period}&nbsp;&nbsp;|&nbsp;&nbsp;🆕 신제품 ${WEEKLY_SUMMARY.newProducts}개`;
+  }
+
+  const topKw = WEEKLY_SUMMARY.topKeyword, topKwData = topKw ? KEYWORD_DATA[topKw] : null;
+  setText('db-hl-top-kw', topKw || '-');
+  setText('db-hl-top-kw-val', topKwData ? `${topKwData.changeRate >= 0 ? '+' : ''}${topKwData.changeRate}%` : '-');
+
+  const topCat = WEEKLY_SUMMARY.topCategory, topCatData = topCat ? CATEGORIES[topCat] : null;
+  setText('db-hl-top-cat', topCat || '-');
+  setText('db-hl-top-cat-val', topCatData ? `${topCatData.count}개` : '-');
+
+  const worstKw = WEEKLY_SUMMARY.worstKeyword, worstKwData = worstKw ? KEYWORD_DATA[worstKw] : null;
+  setText('db-hl-worst-kw', worstKw || '-');
+  setText('db-hl-worst-kw-val', worstKwData ? `${worstKwData.changeRate}%` : '-');
+
+  renderReportNewsSection(NEWS.filter(n => (n.category || 'product') === 'product'), 'db-reportNewsProduct', 'tag-o');
+  renderReportNewsSection(NEWS.filter(n => n.category === 'regulatory'), 'db-reportNewsRegulatory', 'tag-r');
 }
 
 /* 급상승 키워드 TOP 10 뱃지 */
