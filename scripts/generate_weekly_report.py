@@ -209,6 +209,8 @@ CSS = """
   .masthead h1 .wk-title-main { display:block; white-space:nowrap; }
   .masthead h1 .wk-title-sub { display:block; font-size:18px; font-weight:800; color:var(--muted); margin-top:2px; white-space:nowrap; }
   .masthead-meta { font-size:12.5px; color:var(--muted); }
+  .masthead-meta div { white-space:nowrap; }
+  .masthead-meta div + div { margin-top:3px; }
   .masthead-meta b { color:var(--ink); font-weight:700; }
   section { padding:26px 28px; border-bottom:1px solid var(--rule); }
   .label {
@@ -347,8 +349,8 @@ def render_html(ctx):
       <div class="masthead-eyebrow">농협식품 마케팅부 · 주간 발행</div>
       <h1><span class="wk-title-main">푸드 트렌드 위클리</span><span class="wk-title-sub">{esc(ctx["week_label"])}</span></h1>
       <div class="masthead-meta">
-        <span>조사 기간 <b class="num">{esc(ctx["period_label"])}</b></span> ·
-        <span>발행 <b class="num">{ctx["generated_at"].strftime("%Y.%m.%d(%a) %H:%M")}</b></span>
+        <div>조사 기간 <b class="num">{esc(ctx["period_label"])}</b></div>
+        <div>발행 <b class="num">{ctx["generated_at"].strftime("%Y.%m.%d(%a) %H:%M")}</b></div>
       </div>
     </div>
     {logo_img}
