@@ -85,7 +85,7 @@ body::before {
 }
 .logo-name {
   font-size:17px; font-weight:900; letter-spacing:-.5px;
-  color:#1b5e20;
+  color:#9a3412;
 }
 .logo-sub { font-size:10.5px; color:var(--text-muted); letter-spacing:.4px; margin-top:1px; }
 
