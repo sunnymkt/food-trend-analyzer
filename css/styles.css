@@ -245,9 +245,8 @@ body::before {
 
 /* 글로우 테두리 (일부 카드) */
 .card-glow-orange { border-color:rgba(245,180,0,.28); background:linear-gradient(135deg,rgba(245,180,0,.08),rgba(184,134,11,.03)); }
-.card-glow-teal   { border-color:rgba(76,175,80,.28);  background:linear-gradient(135deg,rgba(76,175,80,.08),rgba(37,99,235,.03)); }
-.card-glow-rose   { border-color:rgba(225,29,72,.24);  background:linear-gradient(135deg,rgba(225,29,72,.07),rgba(124,58,237,.03)); }
-.card-glow-purple { border-color:rgba(124,58,237,.26); background:linear-gradient(135deg,rgba(124,58,237,.08),rgba(37,99,235,.03)); }
+.card-glow-teal   { border-color:rgba(76,175,80,.28);  background:linear-gradient(135deg,rgba(76,175,80,.08),rgba(21,128,61,.03)); }
+.card-glow-rose   { border-color:rgba(225,29,72,.24);  background:linear-gradient(135deg,rgba(225,29,72,.07),rgba(190,18,60,.03)); }
 
 /* ── KPI 카드 ────────────────────────────────────────────── */
 .kpi-card   { padding:16px 18px; }
