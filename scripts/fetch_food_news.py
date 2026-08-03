@@ -41,7 +41,9 @@ USER_AGENT = (
     "Mozilla/5.0 (compatible; FoodTrendAI-Bot/1.0; "
     "NongHyup Food internal trend dashboard collector; contact: sunnymkt)"
 )
-REQUEST_TIMEOUT = 15
+REQUEST_TIMEOUT = 30
+REQUEST_RETRIES = 3   # 타임아웃/일시적 오류 시 재시도 횟수
+REQUEST_RETRY_DELAY = 3  # 재시도 사이 대기(초)
 REQUEST_DELAY = 0.4  # 요청 사이 간격(초) — 대상 서버에 부담을 주지 않기 위함
 MAX_PER_CATEGORY = {"product": 40, "regulatory": 24}
 KST = timezone(timedelta(hours=9))
@@ -128,11 +130,21 @@ def is_relevant(title, description, keyword, exclude_keywords, exclude_title_tag
 
 
 def fetch_url(url):
-    resp = requests.get(url, headers={"User-Agent": USER_AGENT}, timeout=REQUEST_TIMEOUT)
-    resp.raise_for_status()
-    if not resp.encoding or resp.encoding.lower() == "iso-8859-1":
-        resp.encoding = resp.apparent_encoding or "utf-8"
-    return resp.text
+    last_err = None
+    for attempt in range(1, REQUEST_RETRIES + 1):
+        try:
+            resp = requests.get(url, headers={"User-Agent": USER_AGENT}, timeout=REQUEST_TIMEOUT)
+            resp.raise_for_status()
+            if not resp.encoding or resp.encoding.lower() == "iso-8859-1":
+                resp.encoding = resp.apparent_encoding or "utf-8"
+            return resp.text
+        except Exception as e:
+            last_err = e
+            if attempt < REQUEST_RETRIES:
+                print(f"    (재시도 {attempt}/{REQUEST_RETRIES} 실패: {e} — "
+                      f"{REQUEST_RETRY_DELAY}초 후 재시도)", file=sys.stderr)
+                time.sleep(REQUEST_RETRY_DELAY)
+    raise last_err
 
 
 def extract_article_ids(html_text, id_pattern):
