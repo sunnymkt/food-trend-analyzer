@@ -104,6 +104,14 @@ def load_regulatory_scope():
             cfg.get("regulatoryRequireLegislativeSignals", []))
 
 
+def load_product_launch_signals():
+    if not NEWS_FILTERS_PATH.exists():
+        return []
+    with open(NEWS_FILTERS_PATH, encoding="utf-8") as f:
+        cfg = json.load(f)
+    return cfg.get("productLaunchSignals", [])
+
+
 def clean_text(s):
     return html.unescape(TAG_RE.sub("", s or "")).strip()
 
@@ -124,7 +132,9 @@ def is_relevant(title, description, keyword, exclude_keywords, exclude_title_tag
         return False
     if regulatory_scope is not None:
         food_law_kw, legislative_kw = regulatory_scope
-        if not (any(kw in text for kw in food_law_kw) and any(kw in text for kw in legislative_kw)):
+        has_food_law = any(kw in text for kw in food_law_kw)
+        has_legislative = any(kw in text for kw in legislative_kw)
+        if not (has_food_law or (has_legislative and "식품" in text)):
             return False
     return True
 
@@ -218,7 +228,7 @@ def fetch_article(url):
 
 
 def classify_article(title, description, product_keywords, exclude_keywords, exclude_title_tags,
-                      regulatory_scope):
+                      regulatory_scope, product_launch_signals=None):
     if not is_relevant(title, description, None, exclude_keywords, exclude_title_tags):
         return None
 
@@ -232,6 +242,9 @@ def classify_article(title, description, product_keywords, exclude_keywords, exc
     for kw in product_keywords:
         if has_word_start_match(text, kw):
             return "product", kw
+
+    if product_launch_signals and any(sig in text for sig in product_launch_signals):
+        return "product", "신제품"
 
     return None
 
@@ -292,6 +305,7 @@ def main():
     product_keywords = load_keywords_config()
     exclude_keywords, exclude_title_tags = load_exclude_keywords()
     regulatory_scope = load_regulatory_scope()
+    product_launch_signals = load_product_launch_signals()
 
     sites = SITES if not args.site else [s for s in SITES if s["name"] == args.site]
 
@@ -329,7 +343,8 @@ def main():
 
             total_fetched += 1
             result = classify_article(art["title"], art["description"], product_keywords,
-                                       exclude_keywords, exclude_title_tags, regulatory_scope)
+                                       exclude_keywords, exclude_title_tags, regulatory_scope,
+                                       product_launch_signals)
             if not result:
                 continue
             category, tag = result
