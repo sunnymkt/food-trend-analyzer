@@ -1739,7 +1739,7 @@
     "keywords": [
       "로제"
     ],
-    "launchDate": "2026-08-01",
+    "launchDate": "2026-08-03",
     "channel": "마켓컬리",
     "origin": "-",
     "price": "18,970원",
@@ -1747,7 +1747,7 @@
     "source": "kurly-crawler",
     "url": "https://www.kurly.com/goods/1000087245",
     "firstSeenDate": "2026-07-12",
-    "lastSeenDate": "2026-08-01"
+    "lastSeenDate": "2026-08-03"
   },
   "kurly-1002127189": {
     "id": "kurly-1002127189",
@@ -2727,7 +2727,7 @@
     "keywords": [
       "쑥"
     ],
-    "launchDate": "2026-08-02",
+    "launchDate": "2026-08-03",
     "channel": "마켓컬리",
     "origin": "-",
     "price": "9,700원",
@@ -2735,7 +2735,7 @@
     "source": "kurly-crawler",
     "url": "https://www.kurly.com/goods/1001386501",
     "firstSeenDate": "2026-07-30",
-    "lastSeenDate": "2026-08-02"
+    "lastSeenDate": "2026-08-03"
   },
   "kurly-1000179453": {
     "id": "kurly-1000179453",
