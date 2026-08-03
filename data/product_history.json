@@ -541,7 +541,7 @@
     "keywords": [
       "로제"
     ],
-    "launchDate": "2026-08-01",
+    "launchDate": "2026-08-03",
     "channel": "마켓컬리",
     "origin": "-",
     "price": "7,480원",
@@ -549,7 +549,7 @@
     "source": "kurly-crawler",
     "url": "https://www.kurly.com/goods/1001556065",
     "firstSeenDate": "2026-07-11",
-    "lastSeenDate": "2026-08-01"
+    "lastSeenDate": "2026-08-03"
   },
   "kurly-1002339022": {
     "id": "kurly-1002339022",

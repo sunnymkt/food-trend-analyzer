@@ -357,23 +357,6 @@
     "url": "https://www.kurly.com/goods/5006132"
   },
   {
-    "id": "kurly-5034114",
-    "emoji": "🥐",
-    "name": "콩쑥개떡 (50g X 12개)",
-    "brand": "마음이가",
-    "category": "베이커리",
-    "keywords": [
-      "쑥"
-    ],
-    "launchDate": "2026-08-03",
-    "channel": "마켓컬리",
-    "origin": "-",
-    "price": "13,500원",
-    "rating": null,
-    "source": "kurly-crawler",
-    "url": "https://www.kurly.com/goods/5034114"
-  },
-  {
     "id": "kurly-1001447718",
     "emoji": "🥐",
     "name": "흑임자 쑥 인절미 (70g X 7개)",
@@ -389,6 +372,23 @@
     "rating": null,
     "source": "kurly-crawler",
     "url": "https://www.kurly.com/goods/1001447718"
+  },
+  {
+    "id": "kurly-5034114",
+    "emoji": "🥐",
+    "name": "콩쑥개떡 (50g X 12개)",
+    "brand": "마음이가",
+    "category": "베이커리",
+    "keywords": [
+      "쑥"
+    ],
+    "launchDate": "2026-08-03",
+    "channel": "마켓컬리",
+    "origin": "-",
+    "price": "13,500원",
+    "rating": null,
+    "source": "kurly-crawler",
+    "url": "https://www.kurly.com/goods/5034114"
   },
   {
     "id": "kurly-5138523",
@@ -493,6 +493,23 @@
     "url": "https://www.kurly.com/goods/1000811960"
   },
   {
+    "id": "kurly-1001556065",
+    "emoji": "🍱",
+    "name": "프레스코 로제 파스타소스 2종 (택1)",
+    "brand": "오뚜기",
+    "category": "간편식",
+    "keywords": [
+      "로제"
+    ],
+    "launchDate": "2026-08-03",
+    "channel": "마켓컬리",
+    "origin": "-",
+    "price": "7,480원",
+    "rating": null,
+    "source": "kurly-crawler",
+    "url": "https://www.kurly.com/goods/1001556065"
+  },
+  {
     "id": "kurly-1000136399",
     "emoji": "🍱",
     "name": "시그니처 로제 떡볶이",
@@ -525,23 +542,6 @@
     "rating": null,
     "source": "kurly-crawler",
     "url": "https://www.kurly.com/goods/1001487715"
-  },
-  {
-    "id": "kurly-1001503307",
-    "emoji": "🍱",
-    "name": "렌지큐 저당 로제 떡볶이",
-    "brand": "쿡생",
-    "category": "간편식",
-    "keywords": [
-      "로제"
-    ],
-    "launchDate": "2026-08-03",
-    "channel": "마켓컬리",
-    "origin": "-",
-    "price": "5,900원",
-    "rating": null,
-    "source": "kurly-crawler",
-    "url": "https://www.kurly.com/goods/1001503307"
   },
   {
     "id": "kurly-5025996",
