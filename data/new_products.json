@@ -51,10 +51,10 @@
     "url": "https://www.kurly.com/goods/1001092169"
   },
   {
-    "id": "kurly-1001096451",
+    "id": "kurly-1001320019",
     "emoji": "🍱",
-    "name": "햇빛에 검게 그을린 흑임자가루 100g",
-    "brand": "햇님마을",
+    "name": "흑임자 앙금 찹쌀떡 (50g X 12개)",
+    "brand": "마음이가",
     "category": "간편식",
     "keywords": [
       "흑임자"
@@ -62,10 +62,10 @@
     "launchDate": "2026-08-03",
     "channel": "마켓컬리",
     "origin": "-",
-    "price": "5,490원",
+    "price": "13,900원",
     "rating": null,
     "source": "kurly-crawler",
-    "url": "https://www.kurly.com/goods/1001096451"
+    "url": "https://www.kurly.com/goods/1001320019"
   },
   {
     "id": "kurly-1000172525",
@@ -238,23 +238,6 @@
     "url": "https://www.kurly.com/goods/1000114264"
   },
   {
-    "id": "kurly-1002194416",
-    "emoji": "🍜",
-    "name": "마라탕소스 110g",
-    "brand": "하이디라오",
-    "category": "라면",
-    "keywords": [
-      "마라"
-    ],
-    "launchDate": "2026-08-03",
-    "channel": "마켓컬리",
-    "origin": "-",
-    "price": "2,600원",
-    "rating": null,
-    "source": "kurly-crawler",
-    "url": "https://www.kurly.com/goods/1002194416"
-  },
-  {
     "id": "kurly-1000340591",
     "emoji": "🍜",
     "name": "마라탕",
@@ -270,6 +253,23 @@
     "rating": null,
     "source": "kurly-crawler",
     "url": "https://www.kurly.com/goods/1000340591"
+  },
+  {
+    "id": "kurly-1002194416",
+    "emoji": "🍜",
+    "name": "마라탕소스 110g",
+    "brand": "하이디라오",
+    "category": "라면",
+    "keywords": [
+      "마라"
+    ],
+    "launchDate": "2026-08-03",
+    "channel": "마켓컬리",
+    "origin": "-",
+    "price": "2,600원",
+    "rating": null,
+    "source": "kurly-crawler",
+    "url": "https://www.kurly.com/goods/1002194416"
   },
   {
     "id": "kurly-5131363",
@@ -374,6 +374,23 @@
     "url": "https://www.kurly.com/goods/5034114"
   },
   {
+    "id": "kurly-5051024",
+    "emoji": "🥐",
+    "name": "쑥 현미 가래떡 500g (개별 포장)",
+    "brand": "마음이가",
+    "category": "베이커리",
+    "keywords": [
+      "쑥"
+    ],
+    "launchDate": "2026-08-03",
+    "channel": "마켓컬리",
+    "origin": "-",
+    "price": "6,500원",
+    "rating": null,
+    "source": "kurly-crawler",
+    "url": "https://www.kurly.com/goods/5051024"
+  },
+  {
     "id": "kurly-1001447718",
     "emoji": "🥐",
     "name": "흑임자 쑥 인절미 (70g X 7개)",
@@ -389,23 +406,6 @@
     "rating": null,
     "source": "kurly-crawler",
     "url": "https://www.kurly.com/goods/1001447718"
-  },
-  {
-    "id": "kurly-1001386501",
-    "emoji": "🥐",
-    "name": "오늘하루 쑥인절미 400g",
-    "brand": "아리울떡공방",
-    "category": "베이커리",
-    "keywords": [
-      "쑥"
-    ],
-    "launchDate": "2026-08-03",
-    "channel": "마켓컬리",
-    "origin": "-",
-    "price": "9,700원",
-    "rating": null,
-    "source": "kurly-crawler",
-    "url": "https://www.kurly.com/goods/1001386501"
   },
   {
     "id": "kurly-1000793406",
@@ -425,23 +425,6 @@
     "url": "https://www.kurly.com/goods/1000793406"
   },
   {
-    "id": "kurly-1000670399",
-    "emoji": "🥐",
-    "name": "얼그레이 롤케이크 350g",
-    "brand": "아티제",
-    "category": "베이커리",
-    "keywords": [
-      "얼그레이"
-    ],
-    "launchDate": "2026-08-03",
-    "channel": "마켓컬리",
-    "origin": "-",
-    "price": "22,000원",
-    "rating": null,
-    "source": "kurly-crawler",
-    "url": "https://www.kurly.com/goods/1000670399"
-  },
-  {
     "id": "kurly-1000361025",
     "emoji": "🧃",
     "name": "시그니처 얼그레이 티백 2종 (택1)",
@@ -459,10 +442,10 @@
     "url": "https://www.kurly.com/goods/1000361025"
   },
   {
-    "id": "kurly-5141677",
+    "id": "kurly-1000670399",
     "emoji": "🥐",
-    "name": "얼그레이 파운드케이크 330g",
-    "brand": "나폴레옹",
+    "name": "얼그레이 롤케이크 350g",
+    "brand": "아티제",
     "category": "베이커리",
     "keywords": [
       "얼그레이"
@@ -470,10 +453,27 @@
     "launchDate": "2026-08-03",
     "channel": "마켓컬리",
     "origin": "-",
-    "price": "19,900원",
+    "price": "22,000원",
     "rating": null,
     "source": "kurly-crawler",
-    "url": "https://www.kurly.com/goods/5141677"
+    "url": "https://www.kurly.com/goods/1000670399"
+  },
+  {
+    "id": "kurly-1001991144",
+    "emoji": "🧃",
+    "name": "얼그레이 스콘 90g",
+    "brand": "비스퀴테리 엠오",
+    "category": "음료",
+    "keywords": [
+      "얼그레이"
+    ],
+    "launchDate": "2026-08-03",
+    "channel": "마켓컬리",
+    "origin": "-",
+    "price": "4,900원",
+    "rating": null,
+    "source": "kurly-crawler",
+    "url": "https://www.kurly.com/goods/1001991144"
   },
   {
     "id": "kurly-1000811960",
@@ -527,21 +527,21 @@
     "url": "https://www.kurly.com/goods/1000136399"
   },
   {
-    "id": "kurly-1000087245",
-    "emoji": "🥛",
-    "name": "밀라노 크림치즈 로제 파스타소스 1.5kg (10인분)",
-    "brand": "폰타나",
-    "category": "유제품",
+    "id": "kurly-1001487715",
+    "emoji": "🍱",
+    "name": "토핑 듬뿍 로제떡볶이",
+    "brand": "애슐리",
+    "category": "간편식",
     "keywords": [
       "로제"
     ],
     "launchDate": "2026-08-03",
     "channel": "마켓컬리",
     "origin": "-",
-    "price": "18,970원",
+    "price": "15,900원",
     "rating": null,
     "source": "kurly-crawler",
-    "url": "https://www.kurly.com/goods/1000087245"
+    "url": "https://www.kurly.com/goods/1001487715"
   },
   {
     "id": "kurly-5025996",
@@ -578,23 +578,6 @@
     "url": "https://www.kurly.com/goods/5156578"
   },
   {
-    "id": "kurly-1001457985",
-    "emoji": "🥜",
-    "name": "국내산 할라피뇨 피클 300g",
-    "brand": "프레베",
-    "category": "스낵",
-    "keywords": [
-      "할라피뇨"
-    ],
-    "launchDate": "2026-08-03",
-    "channel": "마켓컬리",
-    "origin": "-",
-    "price": "9,800원",
-    "rating": null,
-    "source": "kurly-crawler",
-    "url": "https://www.kurly.com/goods/1001457985"
-  },
-  {
     "id": "kurly-5026242",
     "emoji": "🥜",
     "name": "국내산 할라피뇨 고추 300g",
@@ -612,21 +595,21 @@
     "url": "https://www.kurly.com/goods/5026242"
   },
   {
-    "id": "kurly-5052090",
-    "emoji": "🧃",
-    "name": "제주 말차 파우더 300g",
-    "brand": "호라",
-    "category": "음료",
+    "id": "kurly-1001457985",
+    "emoji": "🥜",
+    "name": "국내산 할라피뇨 피클 300g",
+    "brand": "프레베",
+    "category": "스낵",
     "keywords": [
-      "말차"
+      "할라피뇨"
     ],
     "launchDate": "2026-08-03",
     "channel": "마켓컬리",
     "origin": "-",
-    "price": "7,900원",
+    "price": "9,800원",
     "rating": null,
     "source": "kurly-crawler",
-    "url": "https://www.kurly.com/goods/5052090"
+    "url": "https://www.kurly.com/goods/1001457985"
   },
   {
     "id": "kurly-1000812428",
@@ -646,10 +629,10 @@
     "url": "https://www.kurly.com/goods/1000812428"
   },
   {
-    "id": "kurly-1000958551",
+    "id": "kurly-5052090",
     "emoji": "🧃",
-    "name": "브라우니 제주말차 240g",
-    "brand": "마켓오",
+    "name": "제주 말차 파우더 300g",
+    "brand": "호라",
     "category": "음료",
     "keywords": [
       "말차"
@@ -657,16 +640,16 @@
     "launchDate": "2026-08-03",
     "channel": "마켓컬리",
     "origin": "-",
-    "price": "5,280원",
+    "price": "7,900원",
     "rating": null,
     "source": "kurly-crawler",
-    "url": "https://www.kurly.com/goods/1000958551"
+    "url": "https://www.kurly.com/goods/5052090"
   },
   {
-    "id": "kurly-1001733621",
+    "id": "kurly-1000812431",
     "emoji": "🧃",
-    "name": "세레모니얼 말차 3종 (택1)",
-    "brand": "쟈뎅",
+    "name": "세레모니얼 등급 유기농 퓨어 말차",
+    "brand": "슈퍼말차",
     "category": "음료",
     "keywords": [
       "말차"
@@ -674,10 +657,27 @@
     "launchDate": "2026-08-03",
     "channel": "마켓컬리",
     "origin": "-",
-    "price": "12,900원",
+    "price": "14,900원",
     "rating": null,
     "source": "kurly-crawler",
-    "url": "https://www.kurly.com/goods/1001733621"
+    "url": "https://www.kurly.com/goods/1000812431"
+  },
+  {
+    "id": "kurly-1001618200",
+    "emoji": "🧃",
+    "name": "말차 40g 3종 (택1)",
+    "brand": "맥파이앤타이거",
+    "category": "음료",
+    "keywords": [
+      "말차"
+    ],
+    "launchDate": "2026-08-03",
+    "channel": "마켓컬리",
+    "origin": "-",
+    "price": "23,000원",
+    "rating": null,
+    "source": "kurly-crawler",
+    "url": "https://www.kurly.com/goods/1001618200"
   },
   {
     "id": "kurly-5057184",
@@ -725,7 +725,7 @@
     "launchDate": "2026-08-03",
     "channel": "마켓컬리",
     "origin": "-",
-    "price": "6,980원",
+    "price": "2,980원",
     "rating": null,
     "source": "kurly-crawler",
     "url": "https://www.kurly.com/goods/1001272797"
@@ -748,23 +748,6 @@
     "url": "https://www.kurly.com/goods/1002326320"
   },
   {
-    "id": "kurly-1001747426",
-    "emoji": "🧃",
-    "name": "저당 말차 앙금절편 (40g X 10개)",
-    "brand": "청년떡집",
-    "category": "음료",
-    "keywords": [
-      "흑당"
-    ],
-    "launchDate": "2026-08-03",
-    "channel": "마켓컬리",
-    "origin": "-",
-    "price": "14,900원",
-    "rating": null,
-    "source": "kurly-crawler",
-    "url": "https://www.kurly.com/goods/1001747426"
-  },
-  {
     "id": "kurly-1001747450",
     "emoji": "🧃",
     "name": "저당 절편 2종 (택1)",
@@ -780,6 +763,23 @@
     "rating": null,
     "source": "kurly-crawler",
     "url": "https://www.kurly.com/goods/1001747450"
+  },
+  {
+    "id": "kurly-1001747426",
+    "emoji": "🧃",
+    "name": "저당 말차 앙금절편 (40g X 10개)",
+    "brand": "청년떡집",
+    "category": "음료",
+    "keywords": [
+      "흑당"
+    ],
+    "launchDate": "2026-08-03",
+    "channel": "마켓컬리",
+    "origin": "-",
+    "price": "14,900원",
+    "rating": null,
+    "source": "kurly-crawler",
+    "url": "https://www.kurly.com/goods/1001747426"
   },
   {
     "id": "kurly-1001453822",
