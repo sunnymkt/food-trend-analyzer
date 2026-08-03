@@ -39,7 +39,7 @@ META_PATH = DATA_DIR / "meta.json"
 
 USER_AGENT = (
     "Mozilla/5.0 (compatible; FoodTrendAI-Bot/1.0; "
-    "농협식품 내부 식품 트렌드 대시보드용 수집기; contact: sunnymkt)"
+    "NongHyup Food internal trend dashboard collector; contact: sunnymkt)"
 )
 REQUEST_TIMEOUT = 15
 REQUEST_DELAY = 0.4  # 요청 사이 간격(초) — 대상 서버에 부담을 주지 않기 위함
