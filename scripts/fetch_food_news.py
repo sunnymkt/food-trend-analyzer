@@ -285,8 +285,8 @@ def main():
     parser = argparse.ArgumentParser()
     parser.add_argument("--site", choices=[s["name"] for s in SITES],
                          help="이 사이트만 수집 (디버깅용)")
-    parser.add_argument("--max-pages", type=int, default=2,
-                         help="사이트별 목록을 몇 페이지까지 훑을지 (기본 2)")
+    parser.add_argument("--max-pages", type=int, default=5,
+                         help="사이트별 목록을 몇 페이지까지 훑을지 (기본 5)")
     args = parser.parse_args()
 
     product_keywords = load_keywords_config()
