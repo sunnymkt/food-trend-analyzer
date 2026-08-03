@@ -1,5 +1,19 @@
 [
   {
+    "date": "2026-08-03",
+    "weekLabel": "2026년 8월 1주차",
+    "periodLabel": "2026-07-28 ~ 2026-08-03",
+    "generatedAt": "2026-08-03T09:00:39.210410+09:00",
+    "topUpKeyword": "흑임자",
+    "topUpPct": 13,
+    "topDownKeyword": "제로슈거",
+    "topDownPct": -41,
+    "topCategory": "음료",
+    "topCategoryCount": 17,
+    "totalProducts": 48,
+    "file": "data/weekly_reports/2026-08-03.html"
+  },
+  {
     "date": "2026-08-01",
     "weekLabel": "2026년 8월 1주차",
     "periodLabel": "2026-07-26 ~ 2026-08-01",
