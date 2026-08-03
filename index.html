@@ -26,7 +26,9 @@
     <aside class="sidebar" id="sidebar">
 
       <!-- 로고 -->
-      <div class="sidebar-logo">
+      <div class="sidebar-logo" onclick="navigate('dashboard')" role="button" tabindex="0"
+           style="cursor:pointer"
+           onkeydown="if(event.key==='Enter'||event.key===' '){navigate('dashboard');}">
         <div class="logo-wrap">
           <span class="logo-emoji">🍽️</span>
           <div>
