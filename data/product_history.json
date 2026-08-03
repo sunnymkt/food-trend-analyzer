@@ -2806,7 +2806,7 @@
     "launchDate": "2026-08-03",
     "channel": "마켓컬리",
     "origin": "-",
-    "price": "14,900원",
+    "price": "15,900원",
     "rating": null,
     "source": "kurly-crawler",
     "url": "https://www.kurly.com/goods/1001487715",
@@ -2981,6 +2981,25 @@
     "rating": null,
     "source": "kurly-crawler",
     "url": "https://www.kurly.com/goods/5034114",
+    "firstSeenDate": "2026-08-03",
+    "lastSeenDate": "2026-08-03"
+  },
+  "kurly-1000137075": {
+    "id": "kurly-1000137075",
+    "emoji": "🥜",
+    "name": "템페 칩스 5종 (택1)",
+    "brand": "마마메",
+    "category": "스낵",
+    "keywords": [
+      "단짠"
+    ],
+    "launchDate": "2026-08-03",
+    "channel": "마켓컬리",
+    "origin": "-",
+    "price": "4,480원",
+    "rating": null,
+    "source": "kurly-crawler",
+    "url": "https://www.kurly.com/goods/1000137075",
     "firstSeenDate": "2026-08-03",
     "lastSeenDate": "2026-08-03"
   }
