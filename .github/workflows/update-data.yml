@@ -2,8 +2,8 @@ name: 일별 데이터 갱신
 
 on:
   schedule:
-    # 매일 22:00 UTC = 07:00 KST
-    - cron: "0 22 * * *"
+    # 매일 02:04 KST = 17:04 UTC(전날)
+    - cron: "4 17 * * *"
   workflow_dispatch: {}
 
 permissions:
