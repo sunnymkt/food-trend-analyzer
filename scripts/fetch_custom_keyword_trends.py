@@ -25,6 +25,7 @@ sys.path.insert(0, str(Path(__file__).resolve().parent))
 from _env import load_env_file  # noqa: E402
 from _naver_common import (  # noqa: E402
     BATCH_SIZE, call_naver_api, align_to_range, compute_change_rate, chunk,
+    all_dates, trim_trailing_incomplete_days,
 )
 
 ROOT = Path(__file__).resolve().parent.parent
@@ -44,7 +45,10 @@ def load_config():
 
 
 def date_range():
-    end = datetime.now(KST).date() - timedelta(days=1)
+    # 네이버 데이터랩은 최근 1~2일은 집계가 덜 끝났을 수 있어 이틀 전까지로 요청한다.
+    # (그래도 완전히 안전하지는 않아서, 실제 응답을 받은 후 trim_trailing_incomplete_days로
+    # 한 번 더 검증한다.)
+    end = datetime.now(KST).date() - timedelta(days=2)
     start = end - timedelta(days=WINDOW_DAYS - 1)
     return start.isoformat(), end.isoformat()
 
@@ -91,6 +95,16 @@ def main():
     if missing:
         print(f"ERROR: 응답에 누락된 키워드: {missing}", file=sys.stderr)
         sys.exit(1)
+
+    trend_by_keyword, trimmed_dates, trimmed_count = trim_trailing_incomplete_days(
+        trend_by_keyword, all_dates(start_date, end_date)
+    )
+    if trimmed_count:
+        end_date = trimmed_dates[-1]
+        print(
+            f"[fetch_custom_keyword_trends] 집계 미완료로 추정되는 마지막 {trimmed_count}일 제거 "
+            f"(대부분의 키워드가 동시에 0으로 응답됨) → 실제 종료일 {end_date}"
+        )
 
     output = {}
     for kw in keyword_list:

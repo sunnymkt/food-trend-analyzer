@@ -80,6 +80,32 @@ def compute_change_rate(values):
     return round((latest - prior) / prior * 100)
 
 
+def trim_trailing_incomplete_days(trend_by_keyword, dates, threshold=0.9, max_trim=3):
+    """네이버 데이터랩은 요청 종료일을 '어제'로 잡아도 실제로는 최근 1~2일치
+    집계가 아직 끝나지 않아 응답에서 통째로 생략되는 경우가 있다. align_to_range가
+    이런 날짜를 검색량 0으로 채우면, 실제로는 정상 검색량이 있는데도 '집계 미완료'가
+    '검색량 0'으로 둔갑해 changeRate가 전 키워드 -100%로 왜곡된다.
+
+    맨 뒤 날짜부터 검사해서 대부분의 키워드(threshold 이상)가 동시에 0이면
+    '집계 미완료'로 판단해 그 날짜를 전체 키워드/날짜 배열에서 제거한다.
+    실제 검색량이 우연히 낮은 날(개별 키워드 0)까지 지우지 않도록, 반드시
+    '거의 모든 키워드가 동시에 0'인 경우에만 트림하며, 데이터 유실을 방지하기
+    위해 최대 max_trim일까지만 자른다.
+    """
+    dates = list(dates)
+    trimmed = 0
+    while dates and trimmed < max_trim:
+        zero_count = sum(1 for v in trend_by_keyword.values() if v and v[-1] == 0.0)
+        ratio = zero_count / len(trend_by_keyword) if trend_by_keyword else 0
+        if ratio < threshold:
+            break
+        for kw in trend_by_keyword:
+            trend_by_keyword[kw] = trend_by_keyword[kw][:-1]
+        dates = dates[:-1]
+        trimmed += 1
+    return trend_by_keyword, dates, trimmed
+
+
 def chunk(seq, size):
     for i in range(0, len(seq), size):
         yield seq[i:i + size]
