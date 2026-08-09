@@ -46,7 +46,21 @@ jobs:
           git add data/weekly_reports.json data/weekly_reports/*.html
           if git diff --cached --quiet; then
             echo "변경된 아카이브가 없습니다."
-          else
-            git commit -m "chore: 푸드트렌드 위클리 아카이브 추가 ($(date -u +%Y-%m-%d))"
-            git push
+            exit 0
           fi
+          git commit -m "chore: 푸드트렌드 위클리 아카이브 추가 ($(date -u +%Y-%m-%d))"
+
+          # 같은 시간대에 다른 워크플로(예: 키워드 트렌드 수집)가 먼저 main에
+          # push해두면 여기서 non-fast-forward로 거부될 수 있다. 원격 변경사항을
+          # rebase로 받아온 뒤 재시도한다 (최대 5회, 매번 원격을 다시 fetch).
+          max_attempts=5
+          attempt=1
+          until git push origin main; do
+            if [ "$attempt" -ge "$max_attempts" ]; then
+              echo "::error::아카이브 푸시 재시도 ${max_attempts}회 모두 실패했습니다."
+              exit 1
+            fi
+            echo "푸시 거부됨 (다른 커밋 선점) — 원격 변경사항을 받아와 재시도합니다 (${attempt}/${max_attempts})"
+            git pull --rebase origin main
+            attempt=$((attempt + 1))
+          done
