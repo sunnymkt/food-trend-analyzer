@@ -1,5 +1,19 @@
 [
   {
+    "date": "2026-08-24",
+    "weekLabel": "2026년 8월 4주차",
+    "periodLabel": "2026-08-18 ~ 2026-08-24",
+    "generatedAt": "2026-08-24T02:19:59.375526+09:00",
+    "topUpKeyword": "제로슈거",
+    "topUpPct": 73,
+    "topDownKeyword": "말차",
+    "topDownPct": -61,
+    "topCategory": "음료",
+    "topCategoryCount": 17,
+    "totalProducts": 48,
+    "file": "data/weekly_reports/2026-08-24.html"
+  },
+  {
     "date": "2026-08-17",
     "weekLabel": "2026년 8월 3주차",
     "periodLabel": "2026-08-11 ~ 2026-08-17",
