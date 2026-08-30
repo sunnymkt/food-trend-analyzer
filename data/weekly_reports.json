@@ -1,5 +1,19 @@
 [
   {
+    "date": "2026-08-31",
+    "weekLabel": "2026년 8월 5주차",
+    "periodLabel": "2026-08-25 ~ 2026-08-31",
+    "generatedAt": "2026-08-31T04:39:05.688667+09:00",
+    "topUpKeyword": "유자",
+    "topUpPct": 30,
+    "topDownKeyword": "단짠",
+    "topDownPct": -100,
+    "topCategory": "음료",
+    "topCategoryCount": 17,
+    "totalProducts": 48,
+    "file": "data/weekly_reports/2026-08-31.html"
+  },
+  {
     "date": "2026-08-24",
     "weekLabel": "2026년 8월 4주차",
     "periodLabel": "2026-08-18 ~ 2026-08-24",
