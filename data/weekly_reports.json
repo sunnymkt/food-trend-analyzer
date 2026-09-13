@@ -1,5 +1,19 @@
 [
   {
+    "date": "2026-09-14",
+    "weekLabel": "2026년 9월 2주차",
+    "periodLabel": "2026-09-08 ~ 2026-09-14",
+    "generatedAt": "2026-09-14T04:12:40.228207+09:00",
+    "topUpKeyword": "단짠",
+    "topUpPct": 66,
+    "topDownKeyword": "말차",
+    "topDownPct": -23,
+    "topCategory": "음료",
+    "topCategoryCount": 17,
+    "totalProducts": 48,
+    "file": "data/weekly_reports/2026-09-14.html"
+  },
+  {
     "date": "2026-09-07",
     "weekLabel": "2026년 9월 1주차",
     "periodLabel": "2026-09-01 ~ 2026-09-07",
