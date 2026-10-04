@@ -1,5 +1,19 @@
 [
   {
+    "date": "2026-10-05",
+    "weekLabel": "2026년 10월 1주차",
+    "periodLabel": "2026-09-29 ~ 2026-10-05",
+    "generatedAt": "2026-10-05T04:54:37.654768+09:00",
+    "topUpKeyword": "제로슈거",
+    "topUpPct": 54,
+    "topDownKeyword": "단짠",
+    "topDownPct": -100,
+    "topCategory": "음료",
+    "topCategoryCount": 18,
+    "totalProducts": 48,
+    "file": "data/weekly_reports/2026-10-05.html"
+  },
+  {
     "date": "2026-09-28",
     "weekLabel": "2026년 9월 4주차",
     "periodLabel": "2026-09-22 ~ 2026-09-28",
