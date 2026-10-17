@@ -2,27 +2,27 @@
   "쌀국수": [
     {
       "keyword": "칼국수",
-      "pc": 8270,
-      "mobile": 177900,
-      "total": 186170
+      "pc": 8310,
+      "mobile": 178300,
+      "total": 186610
     },
     {
       "keyword": "돈까스",
-      "pc": 15000,
-      "mobile": 136000,
+      "pc": 15100,
+      "mobile": 135900,
       "total": 151000
     },
     {
       "keyword": "쌀국수",
-      "pc": 9330,
-      "mobile": 119300,
-      "total": 128630
+      "pc": 9300,
+      "mobile": 119600,
+      "total": 128900
     },
     {
       "keyword": "라멘",
       "pc": 4880,
-      "mobile": 62400,
-      "total": 67280
+      "mobile": 62500,
+      "total": 67380
     },
     {
       "keyword": "냉면",
@@ -31,10 +31,10 @@
       "total": 57620
     },
     {
-      "keyword": "신라면",
-      "pc": 5500,
-      "mobile": 27200,
-      "total": 32700
+      "keyword": "볶음너구리",
+      "pc": 3290,
+      "mobile": 29200,
+      "total": 32490
     },
     {
       "keyword": "카레만드는법",
@@ -44,27 +44,27 @@
     },
     {
       "keyword": "우동",
-      "pc": 2670,
-      "mobile": 29500,
-      "total": 32170
+      "pc": 2680,
+      "mobile": 29700,
+      "total": 32380
     },
     {
-      "keyword": "볶음너구리",
-      "pc": 2930,
-      "mobile": 27100,
-      "total": 30030
+      "keyword": "신라면",
+      "pc": 5420,
+      "mobile": 26900,
+      "total": 32320
     },
     {
       "keyword": "월남쌈",
-      "pc": 2560,
-      "mobile": 26900,
-      "total": 29460
+      "pc": 2580,
+      "mobile": 26700,
+      "total": 29280
     },
     {
       "keyword": "닭칼국수",
-      "pc": 2010,
-      "mobile": 23900,
-      "total": 25910
+      "pc": 1990,
+      "mobile": 24300,
+      "total": 26290
     },
     {
       "keyword": "일본직구",
@@ -74,15 +74,15 @@
     },
     {
       "keyword": "반쎄오",
-      "pc": 2010,
-      "mobile": 19300,
-      "total": 21310
+      "pc": 2000,
+      "mobile": 19400,
+      "total": 21400
     },
     {
       "keyword": "분짜",
-      "pc": 2280,
-      "mobile": 18400,
-      "total": 20680
+      "pc": 2270,
+      "mobile": 18200,
+      "total": 20470
     },
     {
       "keyword": "계란국",
@@ -98,27 +98,27 @@
     },
     {
       "keyword": "치킨스톡",
-      "pc": 2080,
-      "mobile": 14300,
-      "total": 16380
+      "pc": 2070,
+      "mobile": 14200,
+      "total": 16270
     },
     {
       "keyword": "라멘맛집",
-      "pc": 760,
+      "pc": 750,
       "mobile": 15500,
-      "total": 16260
+      "total": 16250
     },
     {
       "keyword": "안성탕면",
-      "pc": 2200,
-      "mobile": 13700,
-      "total": 15900
+      "pc": 2180,
+      "mobile": 13600,
+      "total": 15780
     },
     {
       "keyword": "쌀국수맛집",
-      "pc": 630,
-      "mobile": 14900,
-      "total": 15530
+      "pc": 620,
+      "mobile": 15000,
+      "total": 15620
     },
     {
       "keyword": "호앙비엣",
@@ -128,21 +128,21 @@
     },
     {
       "keyword": "고기국수",
-      "pc": 910,
-      "mobile": 13000,
-      "total": 13910
+      "pc": 920,
+      "mobile": 13100,
+      "total": 14020
     },
     {
       "keyword": "샤브샤브육수",
-      "pc": 950,
-      "mobile": 12400,
-      "total": 13350
+      "pc": 960,
+      "mobile": 12500,
+      "total": 13460
     },
     {
       "keyword": "야끼소바",
-      "pc": 1600,
-      "mobile": 11700,
-      "total": 13300
+      "pc": 1570,
+      "mobile": 11800,
+      "total": 13370
     },
     {
       "keyword": "스리라차소스",
@@ -183,8 +183,8 @@
     {
       "keyword": "바쿠테",
       "pc": 1630,
-      "mobile": 9010,
-      "total": 10640
+      "mobile": 9000,
+      "total": 10630
     },
     {
       "keyword": "메밀국수",
@@ -201,32 +201,32 @@
     {
       "keyword": "카다이프",
       "pc": 1150,
-      "mobile": 8740,
-      "total": 9890
+      "mobile": 8750,
+      "total": 9900
     },
     {
       "keyword": "일본라멘",
       "pc": 950,
-      "mobile": 8360,
-      "total": 9310
+      "mobile": 8380,
+      "total": 9330
     },
     {
       "keyword": "짜조",
-      "pc": 1220,
-      "mobile": 8030,
-      "total": 9250
+      "pc": 1190,
+      "mobile": 7980,
+      "total": 9170
     },
     {
       "keyword": "중국당면",
       "pc": 710,
-      "mobile": 8120,
-      "total": 8830
+      "mobile": 8150,
+      "total": 8860
     },
     {
       "keyword": "당면",
-      "pc": 1150,
-      "mobile": 7650,
-      "total": 8800
+      "pc": 1130,
+      "mobile": 7540,
+      "total": 8670
     },
     {
       "keyword": "일본직구사이트",
@@ -236,9 +236,9 @@
     },
     {
       "keyword": "라이스페이퍼",
-      "pc": 900,
+      "pc": 910,
       "mobile": 7320,
-      "total": 8220
+      "total": 8230
     },
     {
       "keyword": "양조간장",
@@ -247,34 +247,34 @@
       "total": 8200
     },
     {
-      "keyword": "돈코츠라멘",
-      "pc": 1240,
-      "mobile": 6960,
-      "total": 8200
+      "keyword": "생생우동",
+      "pc": 1220,
+      "mobile": 6930,
+      "total": 8150
     },
     {
-      "keyword": "생생우동",
-      "pc": 1190,
-      "mobile": 6830,
-      "total": 8020
+      "keyword": "돈코츠라멘",
+      "pc": 1230,
+      "mobile": 6890,
+      "total": 8120
     },
     {
       "keyword": "쌀국수만드는법",
       "pc": 440,
-      "mobile": 7500,
-      "total": 7940
+      "mobile": 7470,
+      "total": 7910
     },
     {
       "keyword": "칸쵸",
-      "pc": 1180,
-      "mobile": 6450,
-      "total": 7630
+      "pc": 1160,
+      "mobile": 6430,
+      "total": 7590
     },
     {
       "keyword": "부산맛집추천",
-      "pc": 720,
-      "mobile": 6730,
-      "total": 7450
+      "pc": 730,
+      "mobile": 6760,
+      "total": 7490
     },
     {
       "keyword": "렌틸콩효능",
@@ -283,186 +283,186 @@
       "total": 7270
     },
     {
-      "keyword": "라면종류",
-      "pc": 900,
-      "mobile": 6010,
-      "total": 6910
-    },
-    {
       "keyword": "진간장",
       "pc": 820,
       "mobile": 6090,
       "total": 6910
     },
     {
+      "keyword": "라면종류",
+      "pc": 900,
+      "mobile": 6000,
+      "total": 6900
+    },
+    {
       "keyword": "초계국수",
-      "pc": 460,
-      "mobile": 6320,
-      "total": 6780
+      "pc": 450,
+      "mobile": 6210,
+      "total": 6660
     }
   ],
   "우동": [
     {
       "keyword": "김밥",
       "pc": 12200,
-      "mobile": 269300,
-      "total": 281500
+      "mobile": 269700,
+      "total": 281900
     },
     {
       "keyword": "칼국수",
-      "pc": 8270,
-      "mobile": 177900,
-      "total": 186170
+      "pc": 8310,
+      "mobile": 178300,
+      "total": 186610
     },
     {
       "keyword": "돈까스",
-      "pc": 15000,
-      "mobile": 136000,
+      "pc": 15100,
+      "mobile": 135900,
       "total": 151000
     },
     {
       "keyword": "콩나물국밥",
-      "pc": 4480,
-      "mobile": 124400,
-      "total": 128880
+      "pc": 4470,
+      "mobile": 124800,
+      "total": 129270
     },
     {
       "keyword": "쌀국수",
-      "pc": 9330,
-      "mobile": 119300,
-      "total": 128630
+      "pc": 9300,
+      "mobile": 119600,
+      "total": 128900
     },
     {
       "keyword": "떡볶이",
-      "pc": 9280,
-      "mobile": 97000,
-      "total": 106280
+      "pc": 9260,
+      "mobile": 97100,
+      "total": 106360
     },
     {
       "keyword": "제육볶음레시피",
-      "pc": 4260,
-      "mobile": 96500,
-      "total": 100760
-    },
-    {
-      "keyword": "돼지갈비찜",
-      "pc": 4270,
-      "mobile": 92400,
-      "total": 96670
+      "pc": 4230,
+      "mobile": 96100,
+      "total": 100330
     },
     {
       "keyword": "짬뽕",
-      "pc": 5150,
-      "mobile": 90900,
-      "total": 96050
+      "pc": 5170,
+      "mobile": 91100,
+      "total": 96270
+    },
+    {
+      "keyword": "돼지갈비찜",
+      "pc": 4130,
+      "mobile": 91500,
+      "total": 95630
     },
     {
       "keyword": "순두부찌개",
-      "pc": 4790,
-      "mobile": 83600,
-      "total": 88390
+      "pc": 4780,
+      "mobile": 83000,
+      "total": 87780
     },
     {
       "keyword": "갈비탕",
-      "pc": 6370,
-      "mobile": 80100,
-      "total": 86470
+      "pc": 6340,
+      "mobile": 79800,
+      "total": 86140
     },
     {
       "keyword": "라멘",
       "pc": 4880,
-      "mobile": 62400,
-      "total": 67280
+      "mobile": 62500,
+      "total": 67380
     },
     {
       "keyword": "짜장면",
-      "pc": 3770,
+      "pc": 3780,
       "mobile": 62400,
-      "total": 66170
+      "total": 66180
     },
     {
       "keyword": "청주가볼만한곳",
-      "pc": 5890,
-      "mobile": 58400,
-      "total": 64290
+      "pc": 5920,
+      "mobile": 59000,
+      "total": 64920
     },
     {
       "keyword": "동탄맛집",
-      "pc": 5490,
-      "mobile": 41300,
-      "total": 46790
+      "pc": 5520,
+      "mobile": 41400,
+      "total": 46920
     },
     {
       "keyword": "칼국수맛집",
-      "pc": 1110,
-      "mobile": 45100,
-      "total": 46210
+      "pc": 1130,
+      "mobile": 45200,
+      "total": 46330
     },
     {
       "keyword": "세종맛집",
-      "pc": 4120,
-      "mobile": 41800,
-      "total": 45920
+      "pc": 4140,
+      "mobile": 41900,
+      "total": 46040
     },
     {
       "keyword": "건대맛집",
-      "pc": 5330,
-      "mobile": 37800,
-      "total": 43130
+      "pc": 5400,
+      "mobile": 38000,
+      "total": 43400
     },
     {
       "keyword": "막국수",
       "pc": 1630,
-      "mobile": 40900,
-      "total": 42530
+      "mobile": 40700,
+      "total": 42330
     },
     {
       "keyword": "분모자",
-      "pc": 3360,
+      "pc": 3390,
       "mobile": 38500,
-      "total": 41860
+      "total": 41890
     },
     {
       "keyword": "성수동맛집",
-      "pc": 4480,
-      "mobile": 34500,
-      "total": 38980
+      "pc": 4500,
+      "mobile": 34700,
+      "total": 39200
     },
     {
       "keyword": "인천맛집",
-      "pc": 4420,
-      "mobile": 34100,
-      "total": 38520
+      "pc": 4430,
+      "mobile": 34200,
+      "total": 38630
     },
     {
       "keyword": "킹크랩",
-      "pc": 4270,
-      "mobile": 32800,
-      "total": 37070
+      "pc": 4240,
+      "mobile": 32700,
+      "total": 36940
     },
     {
       "keyword": "이태원맛집",
-      "pc": 3790,
-      "mobile": 28500,
-      "total": 32290
+      "pc": 3830,
+      "mobile": 28600,
+      "total": 32430
     },
     {
       "keyword": "우동",
-      "pc": 2670,
-      "mobile": 29500,
-      "total": 32170
+      "pc": 2680,
+      "mobile": 29700,
+      "total": 32380
     },
     {
       "keyword": "바지락칼국수",
-      "pc": 1510,
-      "mobile": 30300,
-      "total": 31810
+      "pc": 1500,
+      "mobile": 30400,
+      "total": 31900
     },
     {
       "keyword": "오산맛집",
-      "pc": 3280,
-      "mobile": 27100,
-      "total": 30380
+      "pc": 3310,
+      "mobile": 27300,
+      "total": 30610
     },
     {
       "keyword": "고추장찌개",
@@ -472,143 +472,143 @@
     },
     {
       "keyword": "텐동",
-      "pc": 2880,
+      "pc": 2870,
       "mobile": 27000,
-      "total": 29880
-    },
-    {
-      "keyword": "오징어초무침",
-      "pc": 1500,
-      "mobile": 28100,
-      "total": 29600
+      "total": 29870
     },
     {
       "keyword": "월남쌈",
-      "pc": 2560,
-      "mobile": 26900,
-      "total": 29460
+      "pc": 2580,
+      "mobile": 26700,
+      "total": 29280
+    },
+    {
+      "keyword": "오징어초무침",
+      "pc": 1490,
+      "mobile": 27600,
+      "total": 29090
     },
     {
       "keyword": "수제비",
-      "pc": 2190,
+      "pc": 2210,
       "mobile": 26100,
-      "total": 28290
+      "total": 28310
     },
     {
       "keyword": "돈까스맛집",
-      "pc": 1030,
-      "mobile": 26800,
-      "total": 27830
+      "pc": 1050,
+      "mobile": 26900,
+      "total": 27950
     },
     {
       "keyword": "송리단길맛집",
-      "pc": 2870,
+      "pc": 2890,
       "mobile": 24000,
-      "total": 26870
-    },
-    {
-      "keyword": "비빔밥",
-      "pc": 3440,
-      "mobile": 22500,
-      "total": 25940
+      "total": 26890
     },
     {
       "keyword": "닭칼국수",
-      "pc": 2010,
-      "mobile": 23900,
-      "total": 25910
+      "pc": 1990,
+      "mobile": 24300,
+      "total": 26290
+    },
+    {
+      "keyword": "비빔밥",
+      "pc": 3380,
+      "mobile": 22400,
+      "total": 25780
     },
     {
       "keyword": "도가니탕",
-      "pc": 2480,
-      "mobile": 22800,
-      "total": 25280
+      "pc": 2440,
+      "mobile": 22500,
+      "total": 24940
     },
     {
       "keyword": "소세지야채볶음",
       "pc": 900,
-      "mobile": 21200,
-      "total": 22100
+      "mobile": 21000,
+      "total": 21900
     },
     {
       "keyword": "낙지볶음레시피",
       "pc": 680,
-      "mobile": 21100,
-      "total": 21780
+      "mobile": 21200,
+      "total": 21880
     },
     {
       "keyword": "관평동맛집",
-      "pc": 3330,
+      "pc": 3320,
       "mobile": 18300,
-      "total": 21630
+      "total": 21620
     },
     {
       "keyword": "반쎄오",
-      "pc": 2010,
-      "mobile": 19300,
-      "total": 21310
+      "pc": 2000,
+      "mobile": 19400,
+      "total": 21400
     },
     {
       "keyword": "킹크랩시세",
       "pc": 2170,
-      "mobile": 18800,
-      "total": 20970
+      "mobile": 18900,
+      "total": 21070
     },
     {
       "keyword": "분짜",
-      "pc": 2280,
-      "mobile": 18400,
-      "total": 20680
+      "pc": 2270,
+      "mobile": 18200,
+      "total": 20470
     },
     {
       "keyword": "해물칼국수",
-      "pc": 770,
+      "pc": 780,
       "mobile": 18800,
-      "total": 19570
+      "total": 19580
     },
     {
       "keyword": "경양식돈까스",
-      "pc": 1330,
-      "mobile": 17400,
-      "total": 18730
+      "pc": 1340,
+      "mobile": 17500,
+      "total": 18840
     },
     {
       "keyword": "한식맛집",
-      "pc": 620,
+      "pc": 630,
       "mobile": 18000,
-      "total": 18620
+      "total": 18630
     },
     {
       "keyword": "세종시맛집",
-      "pc": 2130,
+      "pc": 2140,
       "mobile": 15600,
-      "total": 17730
+      "total": 17740
     },
     {
       "keyword": "아부라소바",
-      "pc": 2070,
-      "mobile": 15500,
-      "total": 17570
+      "pc": 2040,
+      "mobile": 15300,
+      "total": 17340
     },
     {
       "keyword": "비빔국수레시피",
-      "pc": 800,
-      "mobile": 16500,
-      "total": 17300
+      "pc": 790,
+      "mobile": 16400,
+      "total": 17190
     },
     {
       "keyword": "나시고랭",
-      "pc": 2370,
-      "mobile": 14400,
-      "total": 16770
+      "pc": 2330,
+      "mobile": 14200,
+      "total": 16530
     }
   ],
   "메추리알": [
     {
       "keyword": "계란",
-      "pc": 5610,
+      "pc": 5580,
       "mobile": 32100,
-      "total": 37710
+      "total": 37680
     },
     {
       "keyword": "난각번호1번",
@@ -884,15 +884,15 @@
     },
     {
       "keyword": "전복죽끓이는법",
-      "pc": 990,
-      "mobile": 44500,
-      "total": 45490
+      "pc": 970,
+      "mobile": 43400,
+      "total": 44370
     },
     {
       "keyword": "계란찜",
-      "pc": 2210,
-      "mobile": 41300,
-      "total": 43510
+      "pc": 2180,
+      "mobile": 41000,
+      "total": 43180
     },
     {
       "keyword": "표고버섯볶음",
@@ -908,9 +908,9 @@
     },
     {
       "keyword": "점심메뉴추천",
-      "pc": 6370,
+      "pc": 6360,
       "mobile": 27500,
-      "total": 33870
+      "total": 33860
     },
     {
       "keyword": "감자조림",
@@ -927,8 +927,8 @@
     {
       "keyword": "밀키트",
       "pc": 11900,
-      "mobile": 19300,
-      "total": 31200
+      "mobile": 19200,
+      "total": 31100
     },
     {
       "keyword": "닭갈비레시피",
@@ -974,9 +974,9 @@
     },
     {
       "keyword": "아침식사",
-      "pc": 730,
+      "pc": 710,
       "mobile": 18000,
-      "total": 18730
+      "total": 18710
     },
     {
       "keyword": "간장계란밥",
@@ -1003,16 +1003,16 @@
       "total": 16350
     },
     {
-      "keyword": "다이어트도시락",
-      "pc": 3640,
-      "mobile": 12400,
-      "total": 16040
-    },
-    {
       "keyword": "참나물무침",
       "pc": 670,
       "mobile": 15300,
       "total": 15970
+    },
+    {
+      "keyword": "다이어트도시락",
+      "pc": 3590,
+      "mobile": 12200,
+      "total": 15790
     },
     {
       "keyword": "참치마요주먹밥",
@@ -1040,9 +1040,9 @@
     },
     {
       "keyword": "주먹밥",
-      "pc": 1640,
-      "mobile": 9920,
-      "total": 11560
+      "pc": 1650,
+      "mobile": 9830,
+      "total": 11480
     },
     {
       "keyword": "오삼불고기",
@@ -1064,15 +1064,15 @@
     },
     {
       "keyword": "닭갈비맛집",
-      "pc": 390,
-      "mobile": 9200,
+      "pc": 380,
+      "mobile": 9210,
       "total": 9590
     },
     {
       "keyword": "새우회",
-      "pc": 980,
-      "mobile": 7990,
-      "total": 8970
+      "pc": 960,
+      "mobile": 7960,
+      "total": 8920
     },
     {
       "keyword": "참치김치볶음밥",
@@ -1117,16 +1117,16 @@
       "total": 7270
     },
     {
+      "keyword": "무조림",
+      "pc": 650,
+      "mobile": 6280,
+      "total": 6930
+    },
+    {
       "keyword": "진간장",
       "pc": 820,
       "mobile": 6090,
       "total": 6910
-    },
-    {
-      "keyword": "무조림",
-      "pc": 620,
-      "mobile": 6250,
-      "total": 6870
     },
     {
       "keyword": "화정역맛집",
@@ -1167,16 +1167,16 @@
       "total": 12250
     },
     {
-      "keyword": "근로자의날",
-      "pc": 2930,
-      "mobile": 9320,
-      "total": 12250
-    },
-    {
       "keyword": "연근효능",
       "pc": 540,
       "mobile": 11500,
       "total": 12040
+    },
+    {
+      "keyword": "근로자의날",
+      "pc": 2860,
+      "mobile": 9120,
+      "total": 11980
     },
     {
       "keyword": "뻥튀기",
@@ -1396,9 +1396,9 @@
     },
     {
       "keyword": "살안찌는간식",
-      "pc": 330,
-      "mobile": 1130,
-      "total": 1460
+      "pc": 320,
+      "mobile": 1110,
+      "total": 1430
     },
     {
       "keyword": "비건베이커리",
@@ -1407,21 +1407,21 @@
       "total": 1420
     },
     {
-      "keyword": "부산상견례",
-      "pc": 320,
-      "mobile": 1020,
-      "total": 1340
-    },
-    {
       "keyword": "간단한안주",
-      "pc": 570,
-      "mobile": 760,
-      "total": 1330
+      "pc": 600,
+      "mobile": 770,
+      "total": 1370
     },
     {
       "keyword": "살안찌는과자",
       "pc": 180,
       "mobile": 1150,
+      "total": 1330
+    },
+    {
+      "keyword": "부산상견례",
+      "pc": 320,
+      "mobile": 1010,
       "total": 1330
     },
     {
@@ -1464,21 +1464,21 @@
     },
     {
       "keyword": "10월축제",
-      "pc": 69500,
-      "mobile": 256000,
-      "total": 325500
+      "pc": 71700,
+      "mobile": 263400,
+      "total": 335100
     },
     {
       "keyword": "칼국수",
-      "pc": 8270,
-      "mobile": 177900,
-      "total": 186170
+      "pc": 8310,
+      "mobile": 178300,
+      "total": 186610
     },
     {
       "keyword": "근처가볼만한곳",
-      "pc": 980,
-      "mobile": 87600,
-      "total": 88580
+      "pc": 1010,
+      "mobile": 88100,
+      "total": 89110
     },
     {
       "keyword": "원주맛집",
@@ -1488,9 +1488,9 @@
     },
     {
       "keyword": "가을축제",
-      "pc": 14100,
-      "mobile": 65700,
-      "total": 79800
+      "pc": 14300,
+      "mobile": 66800,
+      "total": 81100
     },
     {
       "keyword": "제천가볼만한곳",
@@ -1512,45 +1512,45 @@
     },
     {
       "keyword": "칼국수맛집",
-      "pc": 1110,
-      "mobile": 45100,
-      "total": 46210
+      "pc": 1130,
+      "mobile": 45200,
+      "total": 46330
     },
     {
       "keyword": "제주공항근처맛집",
-      "pc": 4080,
-      "mobile": 38600,
-      "total": 42680
+      "pc": 4050,
+      "mobile": 38700,
+      "total": 42750
     },
     {
       "keyword": "막국수",
       "pc": 1630,
-      "mobile": 40900,
-      "total": 42530
+      "mobile": 40700,
+      "total": 42330
     },
     {
       "keyword": "전국축제",
-      "pc": 7230,
-      "mobile": 29600,
-      "total": 36830
+      "pc": 7430,
+      "mobile": 30300,
+      "total": 37730
     },
     {
       "keyword": "한식",
-      "pc": 2600,
-      "mobile": 34000,
-      "total": 36600
+      "pc": 2610,
+      "mobile": 33900,
+      "total": 36510
     },
     {
       "keyword": "예초기",
-      "pc": 7210,
-      "mobile": 28900,
-      "total": 36110
+      "pc": 6740,
+      "mobile": 27300,
+      "total": 34040
     },
     {
       "keyword": "바지락칼국수",
-      "pc": 1510,
-      "mobile": 30300,
-      "total": 31810
+      "pc": 1500,
+      "mobile": 30400,
+      "total": 31900
     },
     {
       "keyword": "이천가볼만한곳",
@@ -1560,9 +1560,9 @@
     },
     {
       "keyword": "국내여행지추천",
-      "pc": 4760,
-      "mobile": 25600,
-      "total": 30360
+      "pc": 4720,
+      "mobile": 25400,
+      "total": 30120
     },
     {
       "keyword": "만두전골",
@@ -1572,15 +1572,15 @@
     },
     {
       "keyword": "부산여행",
-      "pc": 7920,
+      "pc": 7870,
       "mobile": 20300,
-      "total": 28220
+      "total": 28170
     },
     {
       "keyword": "제주맛집",
-      "pc": 4080,
-      "mobile": 23900,
-      "total": 27980
+      "pc": 4040,
+      "mobile": 24000,
+      "total": 28040
     },
     {
       "keyword": "부산놀거리",
@@ -1596,33 +1596,33 @@
     },
     {
       "keyword": "지역축제",
-      "pc": 6300,
-      "mobile": 18100,
-      "total": 24400
+      "pc": 6480,
+      "mobile": 18600,
+      "total": 25080
     },
     {
       "keyword": "새우요리",
-      "pc": 1900,
-      "mobile": 20500,
-      "total": 22400
+      "pc": 1890,
+      "mobile": 20300,
+      "total": 22190
     },
     {
       "keyword": "강원도축제",
-      "pc": 3200,
-      "mobile": 14300,
-      "total": 17500
+      "pc": 3280,
+      "mobile": 14600,
+      "total": 17880
     },
     {
       "keyword": "서울행사",
-      "pc": 4040,
+      "pc": 4080,
       "mobile": 13200,
-      "total": 17240
+      "total": 17280
     },
     {
       "keyword": "강원도여행",
-      "pc": 3470,
-      "mobile": 13600,
-      "total": 17070
+      "pc": 3450,
+      "mobile": 13500,
+      "total": 16950
     },
     {
       "keyword": "오꼬노미야끼",
@@ -1632,15 +1632,15 @@
     },
     {
       "keyword": "감자옹심이",
-      "pc": 1580,
+      "pc": 1570,
       "mobile": 15200,
-      "total": 16780
+      "total": 16770
     },
     {
       "keyword": "10월가볼만한곳",
-      "pc": 3390,
-      "mobile": 13000,
-      "total": 16390
+      "pc": 3450,
+      "mobile": 13100,
+      "total": 16550
     },
     {
       "keyword": "감자채전",
@@ -1651,14 +1651,14 @@
     {
       "keyword": "감자전",
       "pc": 1220,
-      "mobile": 14800,
-      "total": 16020
+      "mobile": 14700,
+      "total": 15920
     },
     {
       "keyword": "제주공항맛집",
-      "pc": 1520,
+      "pc": 1530,
       "mobile": 14000,
-      "total": 15520
+      "total": 15530
     },
     {
       "keyword": "보말칼국수",
@@ -1698,9 +1698,9 @@
     },
     {
       "keyword": "가을여행지",
-      "pc": 2540,
-      "mobile": 10900,
-      "total": 13440
+      "pc": 2610,
+      "mobile": 11200,
+      "total": 13810
     },
     {
       "keyword": "딤섬",
@@ -1716,9 +1716,9 @@
     },
     {
       "keyword": "비비고",
-      "pc": 2560,
-      "mobile": 9420,
-      "total": 11980
+      "pc": 2500,
+      "mobile": 9320,
+      "total": 11820
     },
     {
       "keyword": "옹심이",
@@ -1728,15 +1728,15 @@
     },
     {
       "keyword": "만두국",
-      "pc": 1110,
+      "pc": 1100,
       "mobile": 10100,
-      "total": 11210
+      "total": 11200
     },
     {
       "keyword": "제주공항식당",
-      "pc": 560,
-      "mobile": 9400,
-      "total": 9960
+      "pc": 570,
+      "mobile": 9410,
+      "total": 9980
     },
     {
       "keyword": "비비고왕교자",
@@ -1778,9 +1778,9 @@
     },
     {
       "keyword": "암환자영양식",
-      "pc": 480,
-      "mobile": 4600,
-      "total": 5080
+      "pc": 470,
+      "mobile": 4580,
+      "total": 5050
     },
     {
       "keyword": "감자스프",
@@ -1815,14 +1815,14 @@
     {
       "keyword": "야채스프",
       "pc": 160,
-      "mobile": 1340,
-      "total": 1500
+      "mobile": 1330,
+      "total": 1490
     },
     {
       "keyword": "히포크라테스스프",
       "pc": 140,
-      "mobile": 1120,
-      "total": 1260
+      "mobile": 1100,
+      "total": 1240
     },
     {
       "keyword": "옥수수스프",
@@ -1838,14 +1838,14 @@
     },
     {
       "keyword": "암환자식단배달",
-      "pc": 90,
+      "pc": 80,
       "mobile": 880,
-      "total": 970
+      "total": 960
     },
     {
       "keyword": "암환자간식",
-      "pc": 90,
-      "mobile": 770,
+      "pc": 100,
+      "mobile": 760,
       "total": 860
     },
     {
@@ -2062,21 +2062,21 @@
   "냉동간식": [
     {
       "keyword": "쌀10KG",
-      "pc": 8630,
-      "mobile": 56000,
-      "total": 64630
+      "pc": 8480,
+      "mobile": 55300,
+      "total": 63780
     },
     {
       "keyword": "쌀20KG",
-      "pc": 6940,
+      "pc": 6950,
       "mobile": 44100,
-      "total": 51040
+      "total": 51050
     },
     {
       "keyword": "과자",
-      "pc": 10600,
-      "mobile": 29600,
-      "total": 40200
+      "pc": 10500,
+      "mobile": 29500,
+      "total": 40000
     },
     {
       "keyword": "계란",
@@ -2086,39 +2086,39 @@
     },
     {
       "keyword": "까페",
-      "pc": 820,
+      "pc": 810,
       "mobile": 36500,
-      "total": 37320
+      "total": 37310
     },
     {
       "keyword": "결혼식답례품",
-      "pc": 7560,
-      "mobile": 25300,
-      "total": 32860
+      "pc": 7660,
+      "mobile": 25400,
+      "total": 33060
     },
     {
       "keyword": "고구마맛탕",
-      "pc": 1900,
-      "mobile": 30500,
-      "total": 32400
+      "pc": 1930,
+      "mobile": 31000,
+      "total": 32930
     },
     {
       "keyword": "멸균우유",
-      "pc": 5570,
-      "mobile": 25400,
-      "total": 30970
+      "pc": 5490,
+      "mobile": 25100,
+      "total": 30590
     },
     {
       "keyword": "커피원두",
-      "pc": 5920,
-      "mobile": 20600,
-      "total": 26520
+      "pc": 5910,
+      "mobile": 20400,
+      "total": 26310
     },
     {
       "keyword": "냉동블루베리",
-      "pc": 4050,
-      "mobile": 22000,
-      "total": 26050
+      "pc": 3970,
+      "mobile": 21800,
+      "total": 25770
     },
     {
       "keyword": "코모치야리이까",
@@ -2128,27 +2128,27 @@
     },
     {
       "keyword": "부탄가스",
-      "pc": 4040,
-      "mobile": 19100,
-      "total": 23140
+      "pc": 4020,
+      "mobile": 19200,
+      "total": 23220
     },
     {
       "keyword": "콤부차",
-      "pc": 4560,
-      "mobile": 18000,
-      "total": 22560
+      "pc": 4510,
+      "mobile": 17800,
+      "total": 22310
     },
     {
       "keyword": "모짜렐라치즈",
-      "pc": 2410,
-      "mobile": 18200,
-      "total": 20610
+      "pc": 2400,
+      "mobile": 18100,
+      "total": 20500
     },
     {
       "keyword": "생수2L",
-      "pc": 2760,
-      "mobile": 17400,
-      "total": 20160
+      "pc": 2720,
+      "mobile": 17100,
+      "total": 19820
     },
     {
       "keyword": "오꼬노미야끼",
@@ -2157,28 +2157,28 @@
       "total": 16950
     },
     {
-      "keyword": "앵커버터",
-      "pc": 2740,
-      "mobile": 13300,
-      "total": 16040
+      "keyword": "요구르트",
+      "pc": 8530,
+      "mobile": 7570,
+      "total": 16100
     },
     {
-      "keyword": "요구르트",
-      "pc": 8400,
-      "mobile": 7590,
-      "total": 15990
+      "keyword": "앵커버터",
+      "pc": 2710,
+      "mobile": 13200,
+      "total": 15910
     },
     {
       "keyword": "냉동새우",
-      "pc": 2680,
-      "mobile": 12600,
-      "total": 15280
+      "pc": 2620,
+      "mobile": 12200,
+      "total": 14820
     },
     {
       "keyword": "생수500",
       "pc": 2050,
-      "mobile": 12300,
-      "total": 14350
+      "mobile": 12200,
+      "total": 14250
     },
     {
       "keyword": "딤섬",
@@ -2194,15 +2194,15 @@
     },
     {
       "keyword": "식용유",
-      "pc": 2040,
-      "mobile": 9630,
-      "total": 11670
+      "pc": 1940,
+      "mobile": 9410,
+      "total": 11350
     },
     {
       "keyword": "강황",
-      "pc": 1240,
-      "mobile": 9270,
-      "total": 10510
+      "pc": 1270,
+      "mobile": 9460,
+      "total": 10730
     },
     {
       "keyword": "삼각김밥",
@@ -2211,46 +2211,46 @@
       "total": 9860
     },
     {
-      "keyword": "사세버팔로윙",
-      "pc": 1260,
-      "mobile": 8510,
-      "total": 9770
-    },
-    {
       "keyword": "디저트맛집",
-      "pc": 820,
-      "mobile": 8890,
-      "total": 9710
-    },
-    {
-      "keyword": "음료수",
-      "pc": 2290,
-      "mobile": 7210,
-      "total": 9500
+      "pc": 770,
+      "mobile": 8930,
+      "total": 9700
     },
     {
       "keyword": "냉동피자",
-      "pc": 2450,
-      "mobile": 6980,
-      "total": 9430
+      "pc": 2430,
+      "mobile": 7170,
+      "total": 9600
+    },
+    {
+      "keyword": "음료수",
+      "pc": 2280,
+      "mobile": 7180,
+      "total": 9460
+    },
+    {
+      "keyword": "사세버팔로윙",
+      "pc": 1240,
+      "mobile": 8220,
+      "total": 9460
     },
     {
       "keyword": "야식",
       "pc": 870,
-      "mobile": 7570,
-      "total": 8440
+      "mobile": 7610,
+      "total": 8480
     },
     {
       "keyword": "어향동고",
-      "pc": 960,
-      "mobile": 7250,
-      "total": 8210
+      "pc": 950,
+      "mobile": 7180,
+      "total": 8130
     },
     {
       "keyword": "간식추천",
       "pc": 1580,
-      "mobile": 6530,
-      "total": 8110
+      "mobile": 6520,
+      "total": 8100
     },
     {
       "keyword": "고로케",
@@ -2260,21 +2260,21 @@
     },
     {
       "keyword": "고르곤졸라피자",
-      "pc": 420,
-      "mobile": 6050,
+      "pc": 410,
+      "mobile": 6060,
       "total": 6470
     },
     {
       "keyword": "대파",
-      "pc": 970,
-      "mobile": 5360,
-      "total": 6330
+      "pc": 960,
+      "mobile": 5270,
+      "total": 6230
     },
     {
       "keyword": "커피종류",
-      "pc": 450,
+      "pc": 440,
       "mobile": 5160,
-      "total": 5610
+      "total": 5600
     },
     {
       "keyword": "지파이",
@@ -2303,8 +2303,8 @@
     {
       "keyword": "냉동오징어",
       "pc": 880,
-      "mobile": 4170,
-      "total": 5050
+      "mobile": 4120,
+      "total": 5000
     },
     {
       "keyword": "키리모찌",
@@ -2313,22 +2313,22 @@
       "total": 4760
     },
     {
-      "keyword": "야채튀김",
-      "pc": 540,
-      "mobile": 4150,
-      "total": 4690
+      "keyword": "CAFE",
+      "pc": 1060,
+      "mobile": 3600,
+      "total": 4660
     },
     {
-      "keyword": "CAFE",
-      "pc": 1070,
-      "mobile": 3610,
-      "total": 4680
+      "keyword": "야채튀김",
+      "pc": 540,
+      "mobile": 4110,
+      "total": 4650
     },
     {
       "keyword": "닭요리",
-      "pc": 520,
-      "mobile": 3680,
-      "total": 4200
+      "pc": 490,
+      "mobile": 3660,
+      "total": 4150
     },
     {
       "keyword": "한입핫도그",
@@ -2337,10 +2337,10 @@
       "total": 4080
     },
     {
-      "keyword": "피자치즈",
-      "pc": 610,
-      "mobile": 3350,
-      "total": 3960
+      "keyword": "설탕15KG",
+      "pc": 550,
+      "mobile": 3440,
+      "total": 3990
     },
     {
       "keyword": "냉동생지",
@@ -2349,9 +2349,9 @@
       "total": 3960
     },
     {
-      "keyword": "설탕15KG",
-      "pc": 550,
-      "mobile": 3390,
+      "keyword": "피자치즈",
+      "pc": 600,
+      "mobile": 3340,
       "total": 3940
     },
     {
@@ -2371,8 +2371,8 @@
     {
       "keyword": "스키야키",
       "pc": 2730,
-      "mobile": 28100,
-      "total": 30830
+      "mobile": 28300,
+      "total": 31030
     },
     {
       "keyword": "오리고기",
@@ -2406,9 +2406,9 @@
     },
     {
       "keyword": "저녁",
-      "pc": 2070,
+      "pc": 2060,
       "mobile": 11500,
-      "total": 13570
+      "total": 13560
     },
     {
       "keyword": "누룽지백숙",
@@ -2430,8 +2430,8 @@
     },
     {
       "keyword": "오리탕",
-      "pc": 960,
-      "mobile": 8690,
+      "pc": 950,
+      "mobile": 8700,
       "total": 9650
     },
     {
@@ -2449,8 +2449,8 @@
     {
       "keyword": "훈제오리요리",
       "pc": 690,
-      "mobile": 7590,
-      "total": 8280
+      "mobile": 7530,
+      "total": 8220
     },
     {
       "keyword": "오리불고기",
@@ -2491,14 +2491,14 @@
     {
       "keyword": "오리로스",
       "pc": 920,
-      "mobile": 5770,
-      "total": 6690
+      "mobile": 5740,
+      "total": 6660
     },
     {
       "keyword": "닭백숙",
       "pc": 430,
-      "mobile": 6040,
-      "total": 6470
+      "mobile": 6080,
+      "total": 6510
     },
     {
       "keyword": "꿩",
@@ -2508,9 +2508,9 @@
     },
     {
       "keyword": "청둥오리",
-      "pc": 520,
-      "mobile": 5430,
-      "total": 5950
+      "pc": 530,
+      "mobile": 5450,
+      "total": 5980
     },
     {
       "keyword": "오리훈제요리",
@@ -2526,9 +2526,9 @@
     },
     {
       "keyword": "소시지",
-      "pc": 890,
-      "mobile": 3920,
-      "total": 4810
+      "pc": 870,
+      "mobile": 3860,
+      "total": 4730
     },
     {
       "keyword": "점심추천",
@@ -2541,12 +2541,6 @@
       "pc": 570,
       "mobile": 3740,
       "total": 4310
-    },
-    {
-      "keyword": "말복",
-      "pc": 810,
-      "mobile": 3490,
-      "total": 4300
     },
     {
       "keyword": "곤지암리조트맛집",
@@ -2567,6 +2561,12 @@
       "total": 4190
     },
     {
+      "keyword": "말복",
+      "pc": 750,
+      "mobile": 3260,
+      "total": 4010
+    },
+    {
       "keyword": "오리구이",
       "pc": 230,
       "mobile": 3700,
@@ -2575,8 +2575,8 @@
     {
       "keyword": "오리로스구이",
       "pc": 280,
-      "mobile": 3610,
-      "total": 3890
+      "mobile": 3600,
+      "total": 3880
     },
     {
       "keyword": "그라탕",
@@ -2598,9 +2598,9 @@
     },
     {
       "keyword": "한우불고기",
-      "pc": 470,
-      "mobile": 2670,
-      "total": 3140
+      "pc": 450,
+      "mobile": 2590,
+      "total": 3040
     },
     {
       "keyword": "목우촌햄",
@@ -2629,8 +2629,8 @@
     {
       "keyword": "누룽지닭백숙",
       "pc": 140,
-      "mobile": 2300,
-      "total": 2440
+      "mobile": 2320,
+      "total": 2460
     },
     {
       "keyword": "수제햄선물세트",
@@ -2672,9 +2672,9 @@
     },
     {
       "keyword": "점심메뉴추천",
-      "pc": 6370,
+      "pc": 6360,
       "mobile": 27500,
-      "total": 33870
+      "total": 33860
     },
     {
       "keyword": "치아씨드",
@@ -2714,9 +2714,9 @@
     },
     {
       "keyword": "파로효능",
-      "pc": 650,
-      "mobile": 13700,
-      "total": 14350
+      "pc": 630,
+      "mobile": 13600,
+      "total": 14230
     },
     {
       "keyword": "햇반작은공기",
@@ -2756,9 +2756,9 @@
     },
     {
       "keyword": "늙은호박죽",
-      "pc": 560,
-      "mobile": 7850,
-      "total": 8410
+      "pc": 570,
+      "mobile": 8000,
+      "total": 8570
     },
     {
       "keyword": "파로쌀",
@@ -2846,9 +2846,9 @@
     },
     {
       "keyword": "오뚜기햇반",
-      "pc": 770,
-      "mobile": 4290,
-      "total": 5060
+      "pc": 760,
+      "mobile": 4250,
+      "total": 5010
     },
     {
       "keyword": "채소",
@@ -2974,15 +2974,15 @@
     },
     {
       "keyword": "애견동반카페",
-      "pc": 820,
+      "pc": 830,
       "mobile": 44300,
-      "total": 45120
+      "total": 45130
     },
     {
       "keyword": "빵",
-      "pc": 3090,
-      "mobile": 28400,
-      "total": 31490
+      "pc": 3120,
+      "mobile": 28500,
+      "total": 31620
     },
     {
       "keyword": "둔산동맛집",
@@ -3004,9 +3004,9 @@
     },
     {
       "keyword": "진주카페",
-      "pc": 1050,
-      "mobile": 13800,
-      "total": 14850
+      "pc": 1070,
+      "mobile": 13900,
+      "total": 14970
     },
     {
       "keyword": "춘천감자빵",
@@ -3053,20 +3053,20 @@
     {
       "keyword": "빵맛집",
       "pc": 350,
-      "mobile": 9690,
-      "total": 10040
-    },
-    {
-      "keyword": "다이어트간식",
-      "pc": 2580,
-      "mobile": 7210,
-      "total": 9790
+      "mobile": 9730,
+      "total": 10080
     },
     {
       "keyword": "수수부꾸미",
       "pc": 930,
       "mobile": 8800,
       "total": 9730
+    },
+    {
+      "keyword": "다이어트간식",
+      "pc": 2520,
+      "mobile": 7130,
+      "total": 9650
     },
     {
       "keyword": "상투과자",
@@ -3117,6 +3117,12 @@
       "total": 6830
     },
     {
+      "keyword": "호빵",
+      "pc": 1340,
+      "mobile": 5240,
+      "total": 6580
+    },
+    {
       "keyword": "대전만년동맛집",
       "pc": 550,
       "mobile": 6010,
@@ -3127,12 +3133,6 @@
       "pc": 800,
       "mobile": 5600,
       "total": 6400
-    },
-    {
-      "keyword": "호빵",
-      "pc": 1270,
-      "mobile": 4970,
-      "total": 6240
     },
     {
       "keyword": "만둣국",
@@ -3215,13 +3215,13 @@
     {
       "keyword": "소금빵맛집",
       "pc": 330,
-      "mobile": 4460,
-      "total": 4790
+      "mobile": 4430,
+      "total": 4760
     },
     {
       "keyword": "강서구카페",
-      "pc": 250,
-      "mobile": 4320,
+      "pc": 260,
+      "mobile": 4310,
       "total": 4570
     },
     {
@@ -3256,9 +3256,9 @@
     },
     {
       "keyword": "보름달빵",
-      "pc": 600,
-      "mobile": 3400,
-      "total": 4000
+      "pc": 590,
+      "mobile": 3390,
+      "total": 3980
     },
     {
       "keyword": "물만두",
@@ -3270,105 +3270,105 @@
   "붕어빵": [
     {
       "keyword": "돈까스",
-      "pc": 15000,
-      "mobile": 136000,
+      "pc": 15100,
+      "mobile": 135900,
       "total": 151000
     },
     {
       "keyword": "꽈배기",
-      "pc": 2430,
-      "mobile": 48300,
-      "total": 50730
+      "pc": 2410,
+      "mobile": 48400,
+      "total": 50810
     },
     {
       "keyword": "대형카페",
-      "pc": 1010,
+      "pc": 1030,
       "mobile": 48300,
-      "total": 49310
+      "total": 49330
     },
     {
       "keyword": "헌트",
-      "pc": 4290,
-      "mobile": 36700,
-      "total": 40990
+      "pc": 4310,
+      "mobile": 36800,
+      "total": 41110
     },
     {
       "keyword": "돈가스",
-      "pc": 2410,
+      "pc": 2400,
       "mobile": 35000,
-      "total": 37410
+      "total": 37400
     },
     {
       "keyword": "결혼식답례품",
-      "pc": 7560,
-      "mobile": 25300,
-      "total": 32860
+      "pc": 7660,
+      "mobile": 25400,
+      "total": 33060
     },
     {
       "keyword": "돈까스맛집",
-      "pc": 1030,
-      "mobile": 26800,
-      "total": 27830
+      "pc": 1050,
+      "mobile": 26900,
+      "total": 27950
     },
     {
       "keyword": "박하사탕",
-      "pc": 3710,
-      "mobile": 21600,
-      "total": 25310
+      "pc": 3600,
+      "mobile": 21100,
+      "total": 24700
     },
     {
       "keyword": "빙수",
-      "pc": 500,
-      "mobile": 23200,
-      "total": 23700
-    },
-    {
-      "keyword": "새우요리",
-      "pc": 1900,
-      "mobile": 20500,
-      "total": 22400
+      "pc": 490,
+      "mobile": 23100,
+      "total": 23590
     },
     {
       "keyword": "붕어빵",
-      "pc": 3370,
-      "mobile": 17800,
-      "total": 21170
+      "pc": 3580,
+      "mobile": 18700,
+      "total": 22280
+    },
+    {
+      "keyword": "새우요리",
+      "pc": 1890,
+      "mobile": 20300,
+      "total": 22190
     },
     {
       "keyword": "경양식돈까스",
-      "pc": 1330,
-      "mobile": 17400,
-      "total": 18730
+      "pc": 1340,
+      "mobile": 17500,
+      "total": 18840
     },
     {
       "keyword": "천안호두과자",
-      "pc": 1560,
-      "mobile": 16500,
-      "total": 18060
-    },
-    {
-      "keyword": "도넛",
-      "pc": 1760,
-      "mobile": 15700,
-      "total": 17460
+      "pc": 1570,
+      "mobile": 16700,
+      "total": 18270
     },
     {
       "keyword": "굽네고추바사삭",
-      "pc": 1150,
-      "mobile": 16200,
-      "total": 17350
+      "pc": 1170,
+      "mobile": 16300,
+      "total": 17470
+    },
+    {
+      "keyword": "도넛",
+      "pc": 1730,
+      "mobile": 15600,
+      "total": 17330
     },
     {
       "keyword": "G7블랙커피",
-      "pc": 1920,
-      "mobile": 12700,
-      "total": 14620
+      "pc": 1890,
+      "mobile": 12600,
+      "total": 14490
     },
     {
       "keyword": "충주카페",
-      "pc": 860,
-      "mobile": 13400,
-      "total": 14260
+      "pc": 840,
+      "mobile": 13300,
+      "total": 14140
     },
     {
       "keyword": "돈가스맛집",
@@ -3378,195 +3378,195 @@
     },
     {
       "keyword": "돈카츠",
-      "pc": 790,
+      "pc": 800,
       "mobile": 10800,
-      "total": 11590
+      "total": 11600
     },
     {
       "keyword": "만두국",
-      "pc": 1110,
+      "pc": 1100,
       "mobile": 10100,
-      "total": 11210
+      "total": 11200
     },
     {
       "keyword": "팥빙수",
-      "pc": 650,
-      "mobile": 10200,
-      "total": 10850
+      "pc": 640,
+      "mobile": 10100,
+      "total": 10740
     },
     {
       "keyword": "붕어빵기계",
-      "pc": 1610,
-      "mobile": 8450,
-      "total": 10060
+      "pc": 1660,
+      "mobile": 8870,
+      "total": 10530
+    },
+    {
+      "keyword": "고추바사삭",
+      "pc": 1320,
+      "mobile": 8800,
+      "total": 10120
     },
     {
       "keyword": "빵맛집",
       "pc": 350,
-      "mobile": 9690,
-      "total": 10040
-    },
-    {
-      "keyword": "고추바사삭",
-      "pc": 1330,
-      "mobile": 8690,
-      "total": 10020
+      "mobile": 9730,
+      "total": 10080
     },
     {
       "keyword": "상봉역맛집",
-      "pc": 1370,
-      "mobile": 8480,
-      "total": 9850
+      "pc": 1400,
+      "mobile": 8540,
+      "total": 9940
     },
     {
       "keyword": "디저트맛집",
-      "pc": 820,
-      "mobile": 8890,
-      "total": 9710
+      "pc": 770,
+      "mobile": 8930,
+      "total": 9700
     },
     {
       "keyword": "찐빵",
-      "pc": 770,
-      "mobile": 7570,
-      "total": 8340
+      "pc": 780,
+      "mobile": 7600,
+      "total": 8380
     },
     {
       "keyword": "간식추천",
       "pc": 1580,
-      "mobile": 6530,
-      "total": 8110
+      "mobile": 6520,
+      "total": 8100
     },
     {
       "keyword": "금왕돈까스",
       "pc": 490,
-      "mobile": 7490,
-      "total": 7980
+      "mobile": 7480,
+      "total": 7970
     },
     {
       "keyword": "쌍문역맛집",
-      "pc": 770,
+      "pc": 760,
       "mobile": 6840,
-      "total": 7610
-    },
-    {
-      "keyword": "글레이즈드도넛",
-      "pc": 510,
-      "mobile": 6980,
-      "total": 7490
+      "total": 7600
     },
     {
       "keyword": "누텔라",
       "pc": 960,
-      "mobile": 6520,
-      "total": 7480
+      "mobile": 6540,
+      "total": 7500
+    },
+    {
+      "keyword": "과일주스",
+      "pc": 1790,
+      "mobile": 5700,
+      "total": 7490
     },
     {
       "keyword": "찹쌀꽈배기",
       "pc": 300,
-      "mobile": 7160,
-      "total": 7460
+      "mobile": 7180,
+      "total": 7480
     },
     {
-      "keyword": "과일주스",
-      "pc": 1830,
-      "mobile": 5520,
-      "total": 7350
+      "keyword": "글레이즈드도넛",
+      "pc": 480,
+      "mobile": 6800,
+      "total": 7280
     },
     {
       "keyword": "비스코프",
       "pc": 680,
-      "mobile": 6530,
-      "total": 7210
+      "mobile": 6470,
+      "total": 7150
     },
     {
       "keyword": "돈까스소스만들기",
       "pc": 270,
-      "mobile": 6760,
-      "total": 7030
-    },
-    {
-      "keyword": "코스트코과자",
-      "pc": 1050,
-      "mobile": 5600,
-      "total": 6650
+      "mobile": 6700,
+      "total": 6970
     },
     {
       "keyword": "몽블랑빵",
-      "pc": 600,
-      "mobile": 6000,
-      "total": 6600
+      "pc": 610,
+      "mobile": 6020,
+      "total": 6630
+    },
+    {
+      "keyword": "호빵",
+      "pc": 1340,
+      "mobile": 5240,
+      "total": 6580
+    },
+    {
+      "keyword": "코스트코과자",
+      "pc": 1040,
+      "mobile": 5530,
+      "total": 6570
     },
     {
       "keyword": "고로케",
       "pc": 750,
-      "mobile": 5810,
-      "total": 6560
-    },
-    {
-      "keyword": "호빵",
-      "pc": 1270,
-      "mobile": 4970,
-      "total": 6240
-    },
-    {
-      "keyword": "만둣국",
-      "pc": 700,
-      "mobile": 5420,
-      "total": 6120
+      "mobile": 5800,
+      "total": 6550
     },
     {
       "keyword": "십원빵",
-      "pc": 600,
-      "mobile": 5280,
-      "total": 5880
+      "pc": 610,
+      "mobile": 5590,
+      "total": 6200
+    },
+    {
+      "keyword": "만둣국",
+      "pc": 720,
+      "mobile": 5460,
+      "total": 6180
+    },
+    {
+      "keyword": "붕어빵기계대여",
+      "pc": 860,
+      "mobile": 4860,
+      "total": 5720
     },
     {
       "keyword": "초코과자",
       "pc": 1250,
-      "mobile": 4380,
-      "total": 5630
+      "mobile": 4390,
+      "total": 5640
     },
     {
       "keyword": "커피종류",
-      "pc": 450,
+      "pc": 440,
       "mobile": 5160,
-      "total": 5610
-    },
-    {
-      "keyword": "붕어빵기계대여",
-      "pc": 810,
-      "mobile": 4530,
-      "total": 5340
+      "total": 5600
     },
     {
       "keyword": "치킨텐더",
       "pc": 780,
-      "mobile": 4440,
-      "total": 5220
+      "mobile": 4370,
+      "total": 5150
     },
     {
       "keyword": "용궁에서온붕어빵",
-      "pc": 490,
-      "mobile": 4440,
-      "total": 4930
+      "pc": 520,
+      "mobile": 4560,
+      "total": 5080
+    },
+    {
+      "keyword": "LOTUS",
+      "pc": 590,
+      "mobile": 4320,
+      "total": 4910
     },
     {
       "keyword": "코스트코간식",
       "pc": 860,
-      "mobile": 4050,
-      "total": 4910
-    },
-    {
-      "keyword": "LOTUS",
-      "pc": 580,
-      "mobile": 4290,
-      "total": 4870
+      "mobile": 4030,
+      "total": 4890
     },
     {
       "keyword": "계란빵",
-      "pc": 700,
-      "mobile": 4060,
-      "total": 4760
+      "pc": 710,
+      "mobile": 4110,
+      "total": 4820
     }
   ],
   "구운란": [
@@ -3644,9 +3644,9 @@
     },
     {
       "keyword": "계란한판",
-      "pc": 620,
-      "mobile": 2190,
-      "total": 2810
+      "pc": 630,
+      "mobile": 2220,
+      "total": 2850
     },
     {
       "keyword": "훈제란",
@@ -3888,15 +3888,15 @@
     },
     {
       "keyword": "귀리",
-      "pc": 3210,
+      "pc": 3190,
       "mobile": 17000,
-      "total": 20210
+      "total": 20190
     },
     {
       "keyword": "그릭요거트효능",
-      "pc": 1360,
-      "mobile": 14700,
-      "total": 16060
+      "pc": 1330,
+      "mobile": 14400,
+      "total": 15730
     },
     {
       "keyword": "들깨",
@@ -3906,15 +3906,15 @@
     },
     {
       "keyword": "발렌타인데이",
-      "pc": 1250,
-      "mobile": 13100,
-      "total": 14350
+      "pc": 1260,
+      "mobile": 13300,
+      "total": 14560
     },
     {
       "keyword": "오트밀먹는법",
-      "pc": 1320,
-      "mobile": 12300,
-      "total": 13620
+      "pc": 1290,
+      "mobile": 12200,
+      "total": 13490
     },
     {
       "keyword": "면역력높이는방법",
@@ -3924,15 +3924,15 @@
     },
     {
       "keyword": "귀리효능",
-      "pc": 730,
+      "pc": 710,
       "mobile": 11500,
-      "total": 12230
+      "total": 12210
     },
     {
       "keyword": "퀴노아",
-      "pc": 1380,
+      "pc": 1400,
       "mobile": 10000,
-      "total": 11380
+      "total": 11400
     },
     {
       "keyword": "참깨",
@@ -3942,9 +3942,9 @@
     },
     {
       "keyword": "디저트맛집",
-      "pc": 820,
-      "mobile": 8890,
-      "total": 9710
+      "pc": 770,
+      "mobile": 8930,
+      "total": 9700
     },
     {
       "keyword": "프리바이오틱스",
@@ -3954,9 +3954,9 @@
     },
     {
       "keyword": "아몬드효능",
-      "pc": 780,
-      "mobile": 8570,
-      "total": 9350
+      "pc": 790,
+      "mobile": 8620,
+      "total": 9410
     },
     {
       "keyword": "시리얼",
@@ -3972,27 +3972,27 @@
     },
     {
       "keyword": "하겐다즈파인트",
-      "pc": 880,
-      "mobile": 7480,
-      "total": 8360
+      "pc": 870,
+      "mobile": 7380,
+      "total": 8250
     },
     {
       "keyword": "오트밀효능",
-      "pc": 630,
-      "mobile": 7650,
-      "total": 8280
+      "pc": 610,
+      "mobile": 7630,
+      "total": 8240
     },
     {
       "keyword": "간식추천",
       "pc": 1580,
-      "mobile": 6530,
-      "total": 8110
+      "mobile": 6520,
+      "total": 8100
     },
     {
       "keyword": "서리태가루",
-      "pc": 960,
-      "mobile": 6690,
-      "total": 7650
+      "pc": 950,
+      "mobile": 6630,
+      "total": 7580
     },
     {
       "keyword": "요거트아이스크림",
@@ -4002,21 +4002,21 @@
     },
     {
       "keyword": "사무실간식",
-      "pc": 3830,
-      "mobile": 2350,
-      "total": 6180
+      "pc": 3840,
+      "mobile": 2360,
+      "total": 6200
     },
     {
       "keyword": "그릭요거트먹는법",
       "pc": 470,
-      "mobile": 5250,
-      "total": 5720
+      "mobile": 5180,
+      "total": 5650
     },
     {
       "keyword": "피땅콩",
-      "pc": 590,
-      "mobile": 5050,
-      "total": 5640
+      "pc": 580,
+      "mobile": 5010,
+      "total": 5590
     },
     {
       "keyword": "콘푸라이트",
@@ -4031,16 +4031,16 @@
       "total": 4700
     },
     {
-      "keyword": "오버나이트오트밀",
-      "pc": 620,
-      "mobile": 4020,
-      "total": 4640
-    },
-    {
       "keyword": "그레놀라",
       "pc": 610,
       "mobile": 3990,
       "total": 4600
+    },
+    {
+      "keyword": "오버나이트오트밀",
+      "pc": 610,
+      "mobile": 3970,
+      "total": 4580
     },
     {
       "keyword": "아침간편식",
@@ -4051,26 +4051,26 @@
     {
       "keyword": "귀리오트밀",
       "pc": 420,
-      "mobile": 3890,
-      "total": 4310
+      "mobile": 3850,
+      "total": 4270
     },
     {
       "keyword": "아몬드하루섭취량",
       "pc": 400,
-      "mobile": 3800,
-      "total": 4200
+      "mobile": 3820,
+      "total": 4220
     },
     {
       "keyword": "아침밥",
       "pc": 300,
-      "mobile": 3880,
-      "total": 4180
+      "mobile": 3870,
+      "total": 4170
     },
     {
       "keyword": "당뇨간식",
       "pc": 600,
-      "mobile": 3500,
-      "total": 4100
+      "mobile": 3470,
+      "total": 4070
     },
     {
       "keyword": "알로에베라",
@@ -4092,9 +4092,9 @@
     },
     {
       "keyword": "구운아몬드",
-      "pc": 780,
-      "mobile": 3000,
-      "total": 3780
+      "pc": 750,
+      "mobile": 2950,
+      "total": 3700
     },
     {
       "keyword": "저탄고지식단",
@@ -4110,9 +4110,9 @@
     },
     {
       "keyword": "오트밀요리",
-      "pc": 430,
-      "mobile": 2950,
-      "total": 3380
+      "pc": 410,
+      "mobile": 2920,
+      "total": 3330
     },
     {
       "keyword": "알로에젤",
@@ -4139,10 +4139,16 @@
       "total": 3070
     },
     {
+      "keyword": "자취필수템",
+      "pc": 1370,
+      "mobile": 1640,
+      "total": 3010
+    },
+    {
       "keyword": "식사대용",
-      "pc": 810,
-      "mobile": 2230,
-      "total": 3040
+      "pc": 800,
+      "mobile": 2200,
+      "total": 3000
     },
     {
       "keyword": "콩국",
@@ -4157,12 +4163,6 @@
       "total": 2980
     },
     {
-      "keyword": "자취필수템",
-      "pc": 1350,
-      "mobile": 1630,
-      "total": 2980
-    },
-    {
       "keyword": "키토다이어트",
       "pc": 220,
       "mobile": 2750,
@@ -4170,23 +4170,23 @@
     },
     {
       "keyword": "건강간식",
-      "pc": 820,
-      "mobile": 2070,
-      "total": 2890
+      "pc": 790,
+      "mobile": 2040,
+      "total": 2830
     },
     {
       "keyword": "롤드오트",
-      "pc": 430,
-      "mobile": 2270,
+      "pc": 440,
+      "mobile": 2260,
       "total": 2700
     }
   ],
   "과자": [
     {
       "keyword": "코스트코추천상품",
-      "pc": 5980,
-      "mobile": 45100,
-      "total": 51080
+      "pc": 5930,
+      "mobile": 44800,
+      "total": 50730
     },
     {
       "keyword": "과자",
@@ -4209,8 +4209,8 @@
     {
       "keyword": "야식",
       "pc": 870,
-      "mobile": 7570,
-      "total": 8440
+      "mobile": 7610,
+      "total": 8480
     },
     {
       "keyword": "간식추천",
@@ -4226,9 +4226,9 @@
     },
     {
       "keyword": "사무실간식",
-      "pc": 3830,
-      "mobile": 2350,
-      "total": 6180
+      "pc": 3840,
+      "mobile": 2360,
+      "total": 6200
     },
     {
       "keyword": "간식꾸러미",
@@ -4286,9 +4286,9 @@
     },
     {
       "keyword": "자취필수템",
-      "pc": 1350,
-      "mobile": 1630,
-      "total": 2980
+      "pc": 1370,
+      "mobile": 1640,
+      "total": 3010
     },
     {
       "keyword": "과자순위",
@@ -4305,8 +4305,8 @@
     {
       "keyword": "오늘저녁뭐먹지",
       "pc": 780,
-      "mobile": 1970,
-      "total": 2750
+      "mobile": 1960,
+      "total": 2740
     },
     {
       "keyword": "편의점과자",
@@ -4316,9 +4316,9 @@
     },
     {
       "keyword": "탕비실간식",
-      "pc": 1050,
+      "pc": 1060,
       "mobile": 1230,
-      "total": 2280
+      "total": 2290
     },
     {
       "keyword": "브리또만들기",
@@ -4435,16 +4435,16 @@
       "total": 1290
     },
     {
+      "keyword": "직장인간식",
+      "pc": 1190,
+      "mobile": 90,
+      "total": 1280
+    },
+    {
       "keyword": "맛있는과자",
       "pc": 290,
       "mobile": 970,
       "total": 1260
-    },
-    {
-      "keyword": "직장인간식",
-      "pc": 1130,
-      "mobile": 90,
-      "total": 1220
     },
     {
       "keyword": "별뽀빠이",
@@ -4453,16 +4453,16 @@
       "total": 1190
     },
     {
-      "keyword": "탕비실과자",
-      "pc": 650,
-      "mobile": 490,
-      "total": 1140
-    },
-    {
       "keyword": "간식선물",
       "pc": 240,
       "mobile": 890,
       "total": 1130
+    },
+    {
+      "keyword": "탕비실과자",
+      "pc": 630,
+      "mobile": 470,
+      "total": 1100
     },
     {
       "keyword": "추러스",
@@ -4492,15 +4492,15 @@
     },
     {
       "keyword": "대구맛집",
-      "pc": 11500,
-      "mobile": 80800,
-      "total": 92300
+      "pc": 11600,
+      "mobile": 81200,
+      "total": 92800
     },
     {
       "keyword": "경주황리단길",
-      "pc": 9410,
-      "mobile": 81400,
-      "total": 90810
+      "pc": 9380,
+      "mobile": 82100,
+      "total": 91480
     },
     {
       "keyword": "가지무침",
@@ -4534,9 +4534,9 @@
     },
     {
       "keyword": "꽈리고추멸치볶음",
-      "pc": 720,
-      "mobile": 24300,
-      "total": 25020
+      "pc": 700,
+      "mobile": 23900,
+      "total": 24600
     },
     {
       "keyword": "감자채볶음",
@@ -4575,16 +4575,16 @@
       "total": 12780
     },
     {
+      "keyword": "잠실카페",
+      "pc": 1030,
+      "mobile": 11100,
+      "total": 12130
+    },
+    {
       "keyword": "근로자의날",
       "pc": 2860,
       "mobile": 9120,
       "total": 11980
-    },
-    {
-      "keyword": "잠실카페",
-      "pc": 1030,
-      "mobile": 10900,
-      "total": 11930
     },
     {
       "keyword": "한과선물세트",
@@ -4606,9 +4606,9 @@
     },
     {
       "keyword": "송리단길카페",
-      "pc": 790,
-      "mobile": 8140,
-      "total": 8930
+      "pc": 800,
+      "mobile": 8230,
+      "total": 9030
     },
     {
       "keyword": "구절판",
@@ -4618,15 +4618,15 @@
     },
     {
       "keyword": "집밥메뉴추천",
-      "pc": 1060,
-      "mobile": 5550,
-      "total": 6610
+      "pc": 1050,
+      "mobile": 5540,
+      "total": 6590
     },
     {
       "keyword": "석촌호수카페",
-      "pc": 510,
-      "mobile": 5730,
-      "total": 6240
+      "pc": 500,
+      "mobile": 5710,
+      "total": 6210
     },
     {
       "keyword": "약과선물세트",
@@ -4635,16 +4635,16 @@
       "total": 5930
     },
     {
+      "keyword": "만쥬",
+      "pc": 1110,
+      "mobile": 4420,
+      "total": 5530
+    },
+    {
       "keyword": "강릉한과",
       "pc": 640,
       "mobile": 4890,
       "total": 5530
-    },
-    {
-      "keyword": "만쥬",
-      "pc": 1110,
-      "mobile": 4390,
-      "total": 5500
     },
     {
       "keyword": "도라지정과선물세트",
@@ -4665,16 +4665,16 @@
       "total": 5180
     },
     {
+      "keyword": "경주여행코스",
+      "pc": 1210,
+      "mobile": 3910,
+      "total": 5120
+    },
+    {
       "keyword": "한과세트",
       "pc": 1080,
       "mobile": 4030,
       "total": 5110
-    },
-    {
-      "keyword": "경주여행코스",
-      "pc": 1220,
-      "mobile": 3870,
-      "total": 5090
     },
     {
       "keyword": "과즐",
@@ -4685,8 +4685,8 @@
     {
       "keyword": "둔촌동맛집",
       "pc": 570,
-      "mobile": 4340,
-      "total": 4910
+      "mobile": 4350,
+      "total": 4920
     },
     {
       "keyword": "호정가찹쌀약과",
@@ -4707,16 +4707,16 @@
       "total": 4780
     },
     {
-      "keyword": "곶감호두말이",
-      "pc": 620,
-      "mobile": 4030,
-      "total": 4650
+      "keyword": "곶감말이",
+      "pc": 670,
+      "mobile": 3610,
+      "total": 4280
     },
     {
-      "keyword": "곶감말이",
-      "pc": 760,
-      "mobile": 3880,
-      "total": 4640
+      "keyword": "곶감호두말이",
+      "pc": 540,
+      "mobile": 3680,
+      "total": 4220
     },
     {
       "keyword": "금귤정과",
@@ -4731,10 +4731,10 @@
       "total": 3860
     },
     {
-      "keyword": "수제한과",
-      "pc": 410,
-      "mobile": 3360,
-      "total": 3770
+      "keyword": "올림픽공원카페",
+      "pc": 320,
+      "mobile": 3410,
+      "total": 3730
     },
     {
       "keyword": "산자",
@@ -4743,28 +4743,28 @@
       "total": 3720
     },
     {
-      "keyword": "올림픽공원카페",
-      "pc": 320,
-      "mobile": 3380,
-      "total": 3700
-    },
-    {
-      "keyword": "크림치즈곶감말이",
-      "pc": 500,
-      "mobile": 3160,
-      "total": 3660
-    },
-    {
       "keyword": "호두정과선물세트",
       "pc": 440,
       "mobile": 3190,
       "total": 3630
     },
     {
+      "keyword": "크림치즈곶감말이",
+      "pc": 460,
+      "mobile": 3010,
+      "total": 3470
+    },
+    {
       "keyword": "피칸파이",
       "pc": 440,
       "mobile": 3000,
       "total": 3440
+    },
+    {
+      "keyword": "수제한과",
+      "pc": 340,
+      "mobile": 3040,
+      "total": 3380
     },
     {
       "keyword": "미니약과",
@@ -4780,9 +4780,9 @@
     },
     {
       "keyword": "강동구청맛집",
-      "pc": 400,
-      "mobile": 2590,
-      "total": 2990
+      "pc": 390,
+      "mobile": 2550,
+      "total": 2940
     }
   ],
   "두유": [
@@ -4836,9 +4836,9 @@
     },
     {
       "keyword": "아침식사",
-      "pc": 730,
+      "pc": 710,
       "mobile": 18000,
-      "total": 18730
+      "total": 18710
     },
     {
       "keyword": "서리태콩물두유",
@@ -4854,9 +4854,9 @@
     },
     {
       "keyword": "비빔국수",
-      "pc": 1210,
+      "pc": 1190,
       "mobile": 14900,
-      "total": 16110
+      "total": 16090
     },
     {
       "keyword": "여주효능",
@@ -4890,21 +4890,15 @@
     },
     {
       "keyword": "쌀과자",
-      "pc": 1960,
-      "mobile": 8490,
-      "total": 10450
+      "pc": 1930,
+      "mobile": 8380,
+      "total": 10310
     },
     {
       "keyword": "콩국수",
-      "pc": 640,
-      "mobile": 8810,
-      "total": 9450
-    },
-    {
-      "keyword": "서리태가루",
-      "pc": 960,
-      "mobile": 6690,
-      "total": 7650
+      "pc": 610,
+      "mobile": 8600,
+      "total": 9210
     },
     {
       "keyword": "여주환",
@@ -4913,10 +4907,16 @@
       "total": 7610
     },
     {
+      "keyword": "서리태가루",
+      "pc": 950,
+      "mobile": 6630,
+      "total": 7580
+    },
+    {
       "keyword": "당뇨관리",
-      "pc": 820,
-      "mobile": 6660,
-      "total": 7480
+      "pc": 810,
+      "mobile": 6630,
+      "total": 7440
     },
     {
       "keyword": "아몬드우유",
@@ -4944,9 +4944,9 @@
     },
     {
       "keyword": "검은콩",
-      "pc": 970,
-      "mobile": 5180,
-      "total": 6150
+      "pc": 950,
+      "mobile": 5170,
+      "total": 6120
     },
     {
       "keyword": "대두",
@@ -4986,9 +4986,9 @@
     },
     {
       "keyword": "흑임자라떼",
-      "pc": 520,
-      "mobile": 4270,
-      "total": 4790
+      "pc": 510,
+      "mobile": 4250,
+      "total": 4760
     },
     {
       "keyword": "식물여주",
@@ -5009,12 +5009,6 @@
       "total": 4410
     },
     {
-      "keyword": "콩물",
-      "pc": 790,
-      "mobile": 3530,
-      "total": 4320
-    },
-    {
       "keyword": "귀리먹는법",
       "pc": 330,
       "mobile": 3990,
@@ -5025,6 +5019,12 @@
       "pc": 710,
       "mobile": 3570,
       "total": 4280
+    },
+    {
+      "keyword": "콩물",
+      "pc": 780,
+      "mobile": 3460,
+      "total": 4240
     },
     {
       "keyword": "지방간에좋은음식",
@@ -5075,16 +5075,16 @@
       "total": 3490
     },
     {
-      "keyword": "검은콩서리태",
-      "pc": 290,
-      "mobile": 3140,
-      "total": 3430
-    },
-    {
       "keyword": "식물성단백질",
       "pc": 500,
       "mobile": 2910,
       "total": 3410
+    },
+    {
+      "keyword": "검은콩서리태",
+      "pc": 280,
+      "mobile": 3120,
+      "total": 3400
     }
   ],
   "착즙음료": [
@@ -5115,8 +5115,8 @@
     {
       "keyword": "CCA주스",
       "pc": 1530,
-      "mobile": 6060,
-      "total": 7590
+      "mobile": 6020,
+      "total": 7550
     },
     {
       "keyword": "클렌즈주스",
@@ -5144,9 +5144,9 @@
     },
     {
       "keyword": "디톡스다이어트",
-      "pc": 230,
-      "mobile": 1980,
-      "total": 2210
+      "pc": 240,
+      "mobile": 1960,
+      "total": 2200
     },
     {
       "keyword": "CCA주스효능",
@@ -5181,8 +5181,8 @@
     {
       "keyword": "현미차",
       "pc": 300,
-      "mobile": 1350,
-      "total": 1650
+      "mobile": 1320,
+      "total": 1620
     },
     {
       "keyword": "해독쥬스",
@@ -5203,16 +5203,16 @@
       "total": 1290
     },
     {
+      "keyword": "모과차만드는법",
+      "pc": 90,
+      "mobile": 1150,
+      "total": 1240
+    },
+    {
       "keyword": "CCA",
       "pc": 330,
       "mobile": 890,
       "total": 1220
-    },
-    {
-      "keyword": "모과차만드는법",
-      "pc": 70,
-      "mobile": 1030,
-      "total": 1100
     },
     {
       "keyword": "풀무원요거트",
@@ -5289,8 +5289,8 @@
     {
       "keyword": "요거트추천",
       "pc": 50,
-      "mobile": 330,
-      "total": 380
+      "mobile": 320,
+      "total": 370
     },
     {
       "keyword": "ACC주스",
@@ -5404,9 +5404,9 @@
     },
     {
       "keyword": "칠성사이다",
-      "pc": 2320,
-      "mobile": 9130,
-      "total": 11450
+      "pc": 2350,
+      "mobile": 9280,
+      "total": 11630
     },
     {
       "keyword": "수정과만드는법",
@@ -5525,8 +5525,8 @@
     {
       "keyword": "썬키스트",
       "pc": 370,
-      "mobile": 1910,
-      "total": 2280
+      "mobile": 1920,
+      "total": 2290
     },
     {
       "keyword": "단호박식혜",
@@ -5585,26 +5585,26 @@
     {
       "keyword": "콩물만들기",
       "pc": 80,
-      "mobile": 1300,
-      "total": 1380
-    },
-    {
-      "keyword": "식료품",
-      "pc": 540,
-      "mobile": 820,
-      "total": 1360
-    },
-    {
-      "keyword": "비타파워",
-      "pc": 300,
-      "mobile": 1040,
-      "total": 1340
+      "mobile": 1290,
+      "total": 1370
     },
     {
       "keyword": "서리태콩물만들기",
       "pc": 80,
       "mobile": 1260,
       "total": 1340
+    },
+    {
+      "keyword": "식료품",
+      "pc": 520,
+      "mobile": 810,
+      "total": 1330
+    },
+    {
+      "keyword": "비타파워",
+      "pc": 290,
+      "mobile": 1000,
+      "total": 1290
     },
     {
       "keyword": "코카콜라1.25",
@@ -5649,15 +5649,15 @@
       "total": 1040
     },
     {
-      "keyword": "아기두유",
-      "pc": 90,
-      "mobile": 940,
-      "total": 1030
-    },
-    {
       "keyword": "소이밀크",
       "pc": 90,
       "mobile": 920,
+      "total": 1010
+    },
+    {
+      "keyword": "아기두유",
+      "pc": 80,
+      "mobile": 930,
       "total": 1010
     },
     {
@@ -5732,9 +5732,9 @@
     },
     {
       "keyword": "요구르트",
-      "pc": 8400,
-      "mobile": 7590,
-      "total": 15990
+      "pc": 8530,
+      "mobile": 7570,
+      "total": 16100
     },
     {
       "keyword": "그릭요거트효능",
@@ -5756,9 +5756,9 @@
     },
     {
       "keyword": "다이어트간식",
-      "pc": 2580,
-      "mobile": 7210,
-      "total": 9790
+      "pc": 2520,
+      "mobile": 7130,
+      "total": 9650
     },
     {
       "keyword": "플레인요거트",
@@ -5816,9 +5816,9 @@
     },
     {
       "keyword": "카페추천",
-      "pc": 280,
-      "mobile": 5100,
-      "total": 5380
+      "pc": 290,
+      "mobile": 5190,
+      "total": 5480
     },
     {
       "keyword": "사코유산균",
@@ -5882,9 +5882,9 @@
     },
     {
       "keyword": "식사대용",
-      "pc": 810,
-      "mobile": 2230,
-      "total": 3040
+      "pc": 800,
+      "mobile": 2200,
+      "total": 3000
     },
     {
       "keyword": "간단아침메뉴",
@@ -5931,8 +5931,8 @@
     {
       "keyword": "그래놀라만들기",
       "pc": 210,
-      "mobile": 2120,
-      "total": 2330
+      "mobile": 2130,
+      "total": 2340
     },
     {
       "keyword": "무인아이스크림가게",
@@ -5984,9 +5984,9 @@
     },
     {
       "keyword": "막대아이스크림",
-      "pc": 490,
+      "pc": 480,
       "mobile": 1050,
-      "total": 1540
+      "total": 1530
     },
     {
       "keyword": "요쿠르트",
@@ -6029,8 +6029,8 @@
     {
       "keyword": "토마토퓨레",
       "pc": 910,
-      "mobile": 6220,
-      "total": 7130
+      "mobile": 6170,
+      "total": 7080
     },
     {
       "keyword": "구워먹는치즈",
@@ -6312,15 +6312,15 @@
     },
     {
       "keyword": "쌀20KG",
-      "pc": 6940,
+      "pc": 6950,
       "mobile": 44100,
-      "total": 51040
+      "total": 51050
     },
     {
       "keyword": "계란",
-      "pc": 5610,
+      "pc": 5580,
       "mobile": 32100,
-      "total": 37710
+      "total": 37680
     },
     {
       "keyword": "피자몰",
@@ -6329,22 +6329,22 @@
       "total": 34910
     },
     {
-      "keyword": "복숭아",
-      "pc": 5030,
-      "mobile": 26600,
-      "total": 31630
-    },
-    {
       "keyword": "멸균우유",
       "pc": 5490,
       "mobile": 25100,
       "total": 30590
     },
     {
+      "keyword": "복숭아",
+      "pc": 4830,
+      "mobile": 25700,
+      "total": 30530
+    },
+    {
       "keyword": "커피원두",
-      "pc": 5920,
-      "mobile": 20600,
-      "total": 26520
+      "pc": 5910,
+      "mobile": 20400,
+      "total": 26310
     },
     {
       "keyword": "냉동블루베리",
@@ -6353,16 +6353,16 @@
       "total": 25770
     },
     {
-      "keyword": "발사믹식초",
-      "pc": 2280,
-      "mobile": 22700,
-      "total": 24980
-    },
-    {
       "keyword": "키친타올",
       "pc": 3640,
       "mobile": 21100,
       "total": 24740
+    },
+    {
+      "keyword": "발사믹식초",
+      "pc": 2160,
+      "mobile": 22400,
+      "total": 24560
     },
     {
       "keyword": "부탄가스",
@@ -6371,16 +6371,16 @@
       "total": 23220
     },
     {
-      "keyword": "바질페스토",
-      "pc": 2520,
-      "mobile": 20600,
-      "total": 23120
-    },
-    {
       "keyword": "옥수수",
       "pc": 4290,
       "mobile": 18700,
       "total": 22990
+    },
+    {
+      "keyword": "바질페스토",
+      "pc": 2490,
+      "mobile": 20300,
+      "total": 22790
     },
     {
       "keyword": "콤부차",
@@ -6420,9 +6420,9 @@
     },
     {
       "keyword": "앵커버터",
-      "pc": 2740,
-      "mobile": 13300,
-      "total": 16040
+      "pc": 2710,
+      "mobile": 13200,
+      "total": 15910
     },
     {
       "keyword": "짜사이",
@@ -6431,16 +6431,16 @@
       "total": 15410
     },
     {
-      "keyword": "냉동새우",
-      "pc": 2680,
-      "mobile": 12600,
-      "total": 15280
-    },
-    {
       "keyword": "브리치즈",
       "pc": 1490,
       "mobile": 13700,
       "total": 15190
+    },
+    {
+      "keyword": "냉동새우",
+      "pc": 2620,
+      "mobile": 12200,
+      "total": 14820
     },
     {
       "keyword": "핸드타올",
@@ -6492,9 +6492,9 @@
     },
     {
       "keyword": "백합조개",
-      "pc": 880,
-      "mobile": 10400,
-      "total": 11280
+      "pc": 860,
+      "mobile": 10300,
+      "total": 11160
     },
     {
       "keyword": "이즈니버터",
@@ -6522,9 +6522,15 @@
     },
     {
       "keyword": "할라피뇨",
-      "pc": 1130,
-      "mobile": 8910,
-      "total": 10040
+      "pc": 1140,
+      "mobile": 8850,
+      "total": 9990
+    },
+    {
+      "keyword": "냉동피자",
+      "pc": 2430,
+      "mobile": 7170,
+      "total": 9600
     },
     {
       "keyword": "치킨너겟",
@@ -6543,12 +6549,6 @@
       "pc": 1240,
       "mobile": 8220,
       "total": 9460
-    },
-    {
-      "keyword": "냉동피자",
-      "pc": 2450,
-      "mobile": 6980,
-      "total": 9430
     },
     {
       "keyword": "체다치즈",
@@ -6570,15 +6570,15 @@
     },
     {
       "keyword": "파스타면",
-      "pc": 1440,
-      "mobile": 7530,
-      "total": 8970
+      "pc": 1430,
+      "mobile": 7490,
+      "total": 8920
     },
     {
       "keyword": "강황가루",
-      "pc": 2090,
-      "mobile": 6310,
-      "total": 8400
+      "pc": 2110,
+      "mobile": 6620,
+      "total": 8730
     },
     {
       "keyword": "날치알",
@@ -6626,9 +6626,9 @@
     },
     {
       "keyword": "오란다",
-      "pc": 5350,
-      "mobile": 27500,
-      "total": 32850
+      "pc": 5100,
+      "mobile": 26500,
+      "total": 31600
     },
     {
       "keyword": "도가니탕",
@@ -6650,9 +6650,9 @@
     },
     {
       "keyword": "충주카페",
-      "pc": 860,
-      "mobile": 13400,
-      "total": 14260
+      "pc": 840,
+      "mobile": 13300,
+      "total": 14140
     },
     {
       "keyword": "붕어빵기계",
@@ -6668,9 +6668,9 @@
     },
     {
       "keyword": "상봉역맛집",
-      "pc": 1370,
-      "mobile": 8480,
-      "total": 9850
+      "pc": 1400,
+      "mobile": 8540,
+      "total": 9940
     },
     {
       "keyword": "도너츠",
@@ -6680,21 +6680,21 @@
     },
     {
       "keyword": "쌍문역맛집",
-      "pc": 770,
+      "pc": 760,
       "mobile": 6840,
-      "total": 7610
-    },
-    {
-      "keyword": "글레이즈드도넛",
-      "pc": 510,
-      "mobile": 6980,
-      "total": 7490
+      "total": 7600
     },
     {
       "keyword": "찹쌀꽈배기",
       "pc": 300,
       "mobile": 7180,
       "total": 7480
+    },
+    {
+      "keyword": "글레이즈드도넛",
+      "pc": 480,
+      "mobile": 6800,
+      "total": 7280
     },
     {
       "keyword": "오란다과자",
@@ -6704,9 +6704,9 @@
     },
     {
       "keyword": "조개구이맛집",
-      "pc": 430,
-      "mobile": 6350,
-      "total": 6780
+      "pc": 440,
+      "mobile": 6430,
+      "total": 6870
     },
     {
       "keyword": "고로케",
@@ -6727,22 +6727,22 @@
       "total": 4860
     },
     {
+      "keyword": "휘낭시에만들기",
+      "pc": 540,
+      "mobile": 4080,
+      "total": 4620
+    },
+    {
       "keyword": "찹쌀도너츠",
       "pc": 310,
       "mobile": 4280,
       "total": 4590
     },
     {
-      "keyword": "휘낭시에만들기",
-      "pc": 530,
-      "mobile": 4040,
-      "total": 4570
-    },
-    {
       "keyword": "미아역맛집",
-      "pc": 530,
-      "mobile": 3790,
-      "total": 4320
+      "pc": 550,
+      "mobile": 3820,
+      "total": 4370
     },
     {
       "keyword": "붕어빵반죽",
@@ -6753,8 +6753,8 @@
     {
       "keyword": "저가커피",
       "pc": 350,
-      "mobile": 3270,
-      "total": 3620
+      "mobile": 3280,
+      "total": 3630
     },
     {
       "keyword": "붕어빵장사",
@@ -6771,8 +6771,8 @@
     {
       "keyword": "크로칸슈",
       "pc": 270,
-      "mobile": 2080,
-      "total": 2350
+      "mobile": 2090,
+      "total": 2360
     },
     {
       "keyword": "디저트선물",
@@ -6916,9 +6916,9 @@
     },
     {
       "keyword": "생강청",
-      "pc": 4320,
-      "mobile": 24800,
-      "total": 29120
+      "pc": 4370,
+      "mobile": 24900,
+      "total": 29270
     },
     {
       "keyword": "혈당스파이크",
@@ -6976,9 +6976,9 @@
     },
     {
       "keyword": "늙은호박효능",
-      "pc": 290,
-      "mobile": 6940,
-      "total": 7230
+      "pc": 300,
+      "mobile": 7030,
+      "total": 7330
     },
     {
       "keyword": "붓기빼는차",
@@ -6988,9 +6988,9 @@
     },
     {
       "keyword": "사무실간식",
-      "pc": 3830,
-      "mobile": 2350,
-      "total": 6180
+      "pc": 3840,
+      "mobile": 2360,
+      "total": 6200
     },
     {
       "keyword": "정읍쌍화차",
@@ -7001,8 +7001,8 @@
     {
       "keyword": "호박효능",
       "pc": 240,
-      "mobile": 5030,
-      "total": 5270
+      "mobile": 5050,
+      "total": 5290
     },
     {
       "keyword": "유자차",
@@ -7018,9 +7018,9 @@
     },
     {
       "keyword": "티백",
-      "pc": 1410,
-      "mobile": 3240,
-      "total": 4650
+      "pc": 1400,
+      "mobile": 3210,
+      "total": 4610
     },
     {
       "keyword": "쌍화차효능",
@@ -7077,22 +7077,22 @@
       "total": 2680
     },
     {
+      "keyword": "모과차",
+      "pc": 370,
+      "mobile": 2190,
+      "total": 2560
+    },
+    {
       "keyword": "십전대보탕효능",
       "pc": 190,
       "mobile": 2350,
       "total": 2540
     },
     {
-      "keyword": "모과차",
-      "pc": 360,
-      "mobile": 2110,
-      "total": 2470
-    },
-    {
       "keyword": "차티백",
       "pc": 560,
-      "mobile": 1870,
-      "total": 2430
+      "mobile": 1860,
+      "total": 2420
     },
     {
       "keyword": "다이어트차",
@@ -7126,8 +7126,8 @@
     },
     {
       "keyword": "허브티",
-      "pc": 370,
-      "mobile": 1350,
+      "pc": 390,
+      "mobile": 1330,
       "total": 1720
     },
     {
@@ -7144,15 +7144,15 @@
     },
     {
       "keyword": "생강진액",
-      "pc": 300,
-      "mobile": 1310,
+      "pc": 290,
+      "mobile": 1320,
       "total": 1610
     },
     {
       "keyword": "꿀생강차",
-      "pc": 620,
+      "pc": 630,
       "mobile": 950,
-      "total": 1570
+      "total": 1580
     },
     {
       "keyword": "출산후좋은음식",
@@ -7179,15 +7179,15 @@
       "total": 1460
     },
     {
+      "keyword": "편강",
+      "pc": 230,
+      "mobile": 1220,
+      "total": 1450
+    },
+    {
       "keyword": "수제쌍화차",
       "pc": 140,
       "mobile": 1300,
-      "total": 1440
-    },
-    {
-      "keyword": "편강",
-      "pc": 240,
-      "mobile": 1200,
       "total": 1440
     },
     {
@@ -7220,21 +7220,21 @@
   "고구마말랭이": [
     {
       "keyword": "고구마에어프라이어",
-      "pc": 1960,
-      "mobile": 38300,
-      "total": 40260
+      "pc": 2030,
+      "mobile": 38900,
+      "total": 40930
     },
     {
       "keyword": "고춧가루",
-      "pc": 4280,
-      "mobile": 26700,
-      "total": 30980
+      "pc": 4260,
+      "mobile": 26500,
+      "total": 30760
     },
     {
       "keyword": "고구마말랭이",
-      "pc": 3290,
-      "mobile": 25800,
-      "total": 29090
+      "pc": 3300,
+      "mobile": 26000,
+      "total": 29300
     },
     {
       "keyword": "카사바",
@@ -7250,9 +7250,9 @@
     },
     {
       "keyword": "에어프라이어고구마",
-      "pc": 1280,
-      "mobile": 19700,
-      "total": 20980
+      "pc": 1370,
+      "mobile": 20200,
+      "total": 21570
     },
     {
       "keyword": "마늘",
@@ -7274,15 +7274,15 @@
     },
     {
       "keyword": "돼지갈비양념",
-      "pc": 690,
-      "mobile": 16400,
-      "total": 17090
+      "pc": 670,
+      "mobile": 16200,
+      "total": 16870
     },
     {
       "keyword": "밤고구마",
-      "pc": 2460,
-      "mobile": 13000,
-      "total": 15460
+      "pc": 2410,
+      "mobile": 12800,
+      "total": 15210
     },
     {
       "keyword": "고구마10KG",
@@ -7292,9 +7292,9 @@
     },
     {
       "keyword": "꿀고구마",
-      "pc": 1930,
-      "mobile": 12300,
-      "total": 14230
+      "pc": 1940,
+      "mobile": 12400,
+      "total": 14340
     },
     {
       "keyword": "에너지바",
@@ -7304,9 +7304,9 @@
     },
     {
       "keyword": "고추가루",
-      "pc": 2170,
-      "mobile": 11500,
-      "total": 13670
+      "pc": 2160,
+      "mobile": 11400,
+      "total": 13560
     },
     {
       "keyword": "고구마말랭이만들기",
@@ -7472,15 +7472,15 @@
     },
     {
       "keyword": "사무실간식",
-      "pc": 3830,
-      "mobile": 2350,
-      "total": 6180
+      "pc": 3840,
+      "mobile": 2360,
+      "total": 6200
     },
     {
       "keyword": "고구마다이어트",
-      "pc": 700,
-      "mobile": 5450,
-      "total": 6150
+      "pc": 710,
+      "mobile": 5490,
+      "total": 6200
     },
     {
       "keyword": "베니하루카고구마",
@@ -7624,9 +7624,9 @@
     },
     {
       "keyword": "철쭉",
-      "pc": 810,
+      "pc": 830,
       "mobile": 3560,
-      "total": 4370
+      "total": 4390
     },
     {
       "keyword": "공주햇밤",
@@ -7641,16 +7641,16 @@
       "total": 4000
     },
     {
-      "keyword": "밤농장",
-      "pc": 310,
-      "mobile": 3310,
-      "total": 3620
-    },
-    {
       "keyword": "공주밤가격",
       "pc": 180,
       "mobile": 3410,
       "total": 3590
+    },
+    {
+      "keyword": "밤농장",
+      "pc": 300,
+      "mobile": 3250,
+      "total": 3550
     },
     {
       "keyword": "연산홍",
@@ -7817,8 +7817,8 @@
     {
       "keyword": "묘목시장",
       "pc": 250,
-      "mobile": 580,
-      "total": 830
+      "mobile": 570,
+      "total": 820
     }
   ],
   "두부": [
@@ -7830,27 +7830,27 @@
     },
     {
       "keyword": "소고기",
-      "pc": 7570,
-      "mobile": 67100,
-      "total": 74670
+      "pc": 7250,
+      "mobile": 66100,
+      "total": 73350
     },
     {
       "keyword": "한우",
-      "pc": 11900,
-      "mobile": 48500,
-      "total": 60400
+      "pc": 11200,
+      "mobile": 46200,
+      "total": 57400
     },
     {
       "keyword": "한우선물세트",
-      "pc": 12400,
-      "mobile": 38800,
-      "total": 51200
+      "pc": 10800,
+      "mobile": 34800,
+      "total": 45600
     },
     {
       "keyword": "갈비",
-      "pc": 2390,
-      "mobile": 41900,
-      "total": 44290
+      "pc": 2280,
+      "mobile": 41600,
+      "total": 43880
     },
     {
       "keyword": "돈가스",
@@ -7860,9 +7860,9 @@
     },
     {
       "keyword": "제육볶음",
-      "pc": 3410,
-      "mobile": 33900,
-      "total": 37310
+      "pc": 3390,
+      "mobile": 33800,
+      "total": 37190
     },
     {
       "keyword": "한식",
@@ -7884,9 +7884,9 @@
     },
     {
       "keyword": "돈까스맛집",
-      "pc": 1030,
-      "mobile": 26800,
-      "total": 27830
+      "pc": 1050,
+      "mobile": 26900,
+      "total": 27950
     },
     {
       "keyword": "함박스테이크",
@@ -7920,9 +7920,9 @@
     },
     {
       "keyword": "통닭",
-      "pc": 900,
-      "mobile": 18900,
-      "total": 19800
+      "pc": 890,
+      "mobile": 19100,
+      "total": 19990
     },
     {
       "keyword": "두부피",
@@ -7938,9 +7938,9 @@
     },
     {
       "keyword": "앵커버터",
-      "pc": 2740,
-      "mobile": 13300,
-      "total": 16040
+      "pc": 2710,
+      "mobile": 13200,
+      "total": 15910
     },
     {
       "keyword": "두부면",
@@ -7956,9 +7956,9 @@
     },
     {
       "keyword": "어묵",
-      "pc": 2110,
+      "pc": 2080,
       "mobile": 10000,
-      "total": 12110
+      "total": 12080
     },
     {
       "keyword": "오징어튀김",
@@ -7980,9 +7980,9 @@
     },
     {
       "keyword": "목전지",
-      "pc": 1430,
-      "mobile": 6080,
-      "total": 7510
+      "pc": 1420,
+      "mobile": 6010,
+      "total": 7430
     },
     {
       "keyword": "초당순두부",
@@ -7997,10 +7997,10 @@
       "total": 6850
     },
     {
-      "keyword": "휘핑크림",
-      "pc": 880,
-      "mobile": 5430,
-      "total": 6310
+      "keyword": "고구마샐러드",
+      "pc": 610,
+      "mobile": 5740,
+      "total": 6350
     },
     {
       "keyword": "닭안심",
@@ -8009,10 +8009,10 @@
       "total": 6310
     },
     {
-      "keyword": "고구마샐러드",
-      "pc": 590,
-      "mobile": 5650,
-      "total": 6240
+      "keyword": "휘핑크림",
+      "pc": 850,
+      "mobile": 5380,
+      "total": 6230
     },
     {
       "keyword": "오겹살",
@@ -8022,9 +8022,9 @@
     },
     {
       "keyword": "사태",
-      "pc": 880,
-      "mobile": 4480,
-      "total": 5360
+      "pc": 860,
+      "mobile": 4470,
+      "total": 5330
     },
     {
       "keyword": "치킨텐더",
@@ -8040,9 +8040,9 @@
     },
     {
       "keyword": "사골",
-      "pc": 630,
-      "mobile": 4350,
-      "total": 4980
+      "pc": 620,
+      "mobile": 4340,
+      "total": 4960
     },
     {
       "keyword": "한돈선물세트",
@@ -8064,21 +8064,21 @@
     },
     {
       "keyword": "샐러드맛집",
-      "pc": 320,
-      "mobile": 3770,
+      "pc": 310,
+      "mobile": 3780,
       "total": 4090
     },
     {
-      "keyword": "등심",
-      "pc": 580,
-      "mobile": 3310,
-      "total": 3890
+      "keyword": "물만두",
+      "pc": 480,
+      "mobile": 3360,
+      "total": 3840
     },
     {
-      "keyword": "물만두",
-      "pc": 490,
-      "mobile": 3380,
-      "total": 3870
+      "keyword": "등심",
+      "pc": 560,
+      "mobile": 3270,
+      "total": 3830
     },
     {
       "keyword": "맛살",
@@ -8118,9 +8118,9 @@
     },
     {
       "keyword": "한우갈비",
-      "pc": 350,
-      "mobile": 3010,
-      "total": 3360
+      "pc": 300,
+      "mobile": 2790,
+      "total": 3090
     }
   ],
   "콩나물": [
@@ -8138,9 +8138,9 @@
     },
     {
       "keyword": "생강",
-      "pc": 3520,
-      "mobile": 24600,
-      "total": 28120
+      "pc": 3640,
+      "mobile": 25100,
+      "total": 28740
     },
     {
       "keyword": "고추",
@@ -8265,8 +8265,8 @@
     {
       "keyword": "양파슬라이스",
       "pc": 60,
-      "mobile": 420,
-      "total": 480
+      "mobile": 410,
+      "total": 470
     },
     {
       "keyword": "두절콩나물",
@@ -8380,21 +8380,21 @@
     },
     {
       "keyword": "여수맛집",
-      "pc": 11700,
-      "mobile": 89200,
+      "pc": 11600,
+      "mobile": 89300,
       "total": 100900
     },
     {
       "keyword": "고추장아찌",
-      "pc": 1980,
-      "mobile": 71900,
-      "total": 73880
+      "pc": 1990,
+      "mobile": 72100,
+      "total": 74090
     },
     {
       "keyword": "김치",
-      "pc": 10200,
-      "mobile": 55500,
-      "total": 65700
+      "pc": 10100,
+      "mobile": 55000,
+      "total": 65100
     },
     {
       "keyword": "배추겉절이",
@@ -8416,21 +8416,21 @@
     },
     {
       "keyword": "총각김치",
-      "pc": 2520,
-      "mobile": 24300,
-      "total": 26820
+      "pc": 2550,
+      "mobile": 24600,
+      "total": 27150
     },
     {
       "keyword": "양념게장",
-      "pc": 2360,
-      "mobile": 24000,
-      "total": 26360
+      "pc": 2280,
+      "mobile": 23600,
+      "total": 25880
     },
     {
       "keyword": "배추김치",
-      "pc": 3010,
-      "mobile": 22800,
-      "total": 25810
+      "pc": 3020,
+      "mobile": 21900,
+      "total": 24920
     },
     {
       "keyword": "나박물김치",
@@ -8470,9 +8470,9 @@
     },
     {
       "keyword": "갓김치",
-      "pc": 2210,
-      "mobile": 17700,
-      "total": 19910
+      "pc": 2190,
+      "mobile": 18000,
+      "total": 20190
     },
     {
       "keyword": "여수카페",
@@ -8500,9 +8500,9 @@
     },
     {
       "keyword": "겉절이",
-      "pc": 1810,
+      "pc": 1800,
       "mobile": 14600,
-      "total": 16410
+      "total": 16400
     },
     {
       "keyword": "꽃게철",
@@ -8512,9 +8512,9 @@
     },
     {
       "keyword": "여수게장맛집",
-      "pc": 1350,
-      "mobile": 14600,
-      "total": 15950
+      "pc": 1340,
+      "mobile": 14500,
+      "total": 15840
     },
     {
       "keyword": "부추김치",
@@ -8530,21 +8530,21 @@
     },
     {
       "keyword": "게장",
-      "pc": 1190,
-      "mobile": 13000,
-      "total": 14190
+      "pc": 1160,
+      "mobile": 12800,
+      "total": 13960
     },
     {
       "keyword": "깍두기",
-      "pc": 1950,
-      "mobile": 12100,
-      "total": 14050
+      "pc": 1940,
+      "mobile": 12000,
+      "total": 13940
     },
     {
       "keyword": "꽃게무침",
-      "pc": 1210,
+      "pc": 1190,
       "mobile": 11900,
-      "total": 13110
+      "total": 13090
     },
     {
       "keyword": "석박지",
@@ -8554,15 +8554,21 @@
     },
     {
       "keyword": "여수이순신광장맛집",
-      "pc": 720,
+      "pc": 710,
       "mobile": 10900,
-      "total": 11620
+      "total": 11610
     },
     {
       "keyword": "알배기배추겉절이",
-      "pc": 380,
-      "mobile": 10800,
-      "total": 11180
+      "pc": 370,
+      "mobile": 10700,
+      "total": 11070
+    },
+    {
+      "keyword": "얼갈이겉절이",
+      "pc": 440,
+      "mobile": 10500,
+      "total": 10940
     },
     {
       "keyword": "백김치담그는방법",
@@ -8571,34 +8577,22 @@
       "total": 10810
     },
     {
-      "keyword": "얼갈이겉절이",
-      "pc": 430,
-      "mobile": 10300,
-      "total": 10730
-    },
-    {
       "keyword": "알타리김치",
-      "pc": 780,
-      "mobile": 9730,
-      "total": 10510
+      "pc": 800,
+      "mobile": 9810,
+      "total": 10610
     },
     {
       "keyword": "국산고추가루1KG",
-      "pc": 790,
-      "mobile": 9720,
-      "total": 10510
+      "pc": 780,
+      "mobile": 9480,
+      "total": 10260
     },
     {
       "keyword": "여수낭만포차거리",
       "pc": 1090,
       "mobile": 9140,
       "total": 10230
-    },
-    {
-      "keyword": "양배추김치",
-      "pc": 540,
-      "mobile": 9630,
-      "total": 10170
     },
     {
       "keyword": "로컬푸드직매장",
@@ -8611,6 +8605,12 @@
       "pc": 290,
       "mobile": 9690,
       "total": 9980
+    },
+    {
+      "keyword": "양배추김치",
+      "pc": 520,
+      "mobile": 9420,
+      "total": 9940
     },
     {
       "keyword": "얼갈이김치",
@@ -8631,22 +8631,16 @@
       "total": 9660
     },
     {
-      "keyword": "꽃게시세",
-      "pc": 1030,
-      "mobile": 8150,
-      "total": 9180
-    },
-    {
       "keyword": "여수간장게장",
-      "pc": 1040,
-      "mobile": 8000,
-      "total": 9040
+      "pc": 1030,
+      "mobile": 8080,
+      "total": 9110
     },
     {
-      "keyword": "가을꽃게",
-      "pc": 1050,
-      "mobile": 7940,
-      "total": 8990
+      "keyword": "꽃게시세",
+      "pc": 1000,
+      "mobile": 8010,
+      "total": 9010
     },
     {
       "keyword": "여수엑스포역",
@@ -8655,16 +8649,22 @@
       "total": 8810
     },
     {
-      "keyword": "김치주문",
-      "pc": 920,
-      "mobile": 7740,
-      "total": 8660
+      "keyword": "가을꽃게",
+      "pc": 1000,
+      "mobile": 7690,
+      "total": 8690
     },
     {
       "keyword": "게장맛집",
       "pc": 350,
-      "mobile": 8290,
-      "total": 8640
+      "mobile": 8270,
+      "total": 8620
+    },
+    {
+      "keyword": "김치주문",
+      "pc": 910,
+      "mobile": 7650,
+      "total": 8560
     },
     {
       "keyword": "얼갈이",
