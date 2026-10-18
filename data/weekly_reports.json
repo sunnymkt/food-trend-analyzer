@@ -1,5 +1,19 @@
 [
   {
+    "date": "2026-10-19",
+    "weekLabel": "2026년 10월 3주차",
+    "periodLabel": "2026-10-13 ~ 2026-10-19",
+    "generatedAt": "2026-10-19T04:15:15.812274+09:00",
+    "topUpKeyword": "제로슈거",
+    "topUpPct": 50,
+    "topDownKeyword": "로제",
+    "topDownPct": -18,
+    "topCategory": "음료",
+    "topCategoryCount": 13,
+    "totalProducts": 48,
+    "file": "data/weekly_reports/2026-10-19.html"
+  },
+  {
     "date": "2026-10-12",
     "weekLabel": "2026년 10월 2주차",
     "periodLabel": "2026-10-06 ~ 2026-10-12",
