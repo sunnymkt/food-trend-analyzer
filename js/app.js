@@ -11,7 +11,7 @@ let currentView = 'dashboard';
 let preSearchView = null;
 let productFilter = '전체';
 let productSearch = '';
-let compareKws = ['흑임자', '유자', '제로슈거'];
+let compareKws = []; // 데이터 로드 후 상승률 상위 3개로 채움 (추적 키워드가 매주 자동 갱신되므로 하드코딩 금지)
 let selectedCat = '전체';
 let selectedBrand = null;
 let ckModalRelated = [];
@@ -205,7 +205,8 @@ function renderMainChart() {
   const ctx = document.getElementById('mainChart');
   if(!ctx) return;
   destroyChart('main');
-  const KWS = ['흑임자','유자','제로슈거','마라','트러플'];
+  // 상승률 상위 5개 키워드 (추적 목록이 주 1회 자동 갱신되므로 이름을 하드코딩하지 않는다)
+  const KWS = topKeywordsByChange(5);
   charts.main = new Chart(ctx, {
     type:'line',
     data:{
@@ -955,8 +956,14 @@ function renderCatKeywordChart(cat) {
   destroyChart('catKw');
 
   const catData = CATEGORIES[cat];
-  const kwList = catData?.topKeywords?.filter(k => KEYWORD_DATA[k]).slice(0,8)
-    ?? Object.keys(KEYWORD_DATA).slice(0,8);
+  let kwList = (catData?.topKeywords || []).filter(k => KEYWORD_DATA[k]).slice(0,8);
+  if(kwList.length < 3) {
+    // 대표 키워드가 비었거나 추적 목록에서 빠진 경우: 같은 카테고리 키워드 → 상승률 상위 순으로 보충
+    const sameCat = Object.entries(KEYWORD_DATA)
+      .filter(([k,d]) => cat !== '전체' && (d.category || '').split('/').includes(cat) && !kwList.includes(k))
+      .map(([k]) => k);
+    kwList = [...kwList, ...sameCat, ...topKeywordsByChange(8).filter(k => !kwList.includes(k) && !sameCat.includes(k))].slice(0,8);
+  }
   const pairs = kwList.map(k => [k, KEYWORD_DATA[k]]);
 
   charts.catKw = new Chart(ctx, {
@@ -1632,7 +1639,12 @@ function renderKpiTooltips() {
   const kwEl = document.getElementById('kpi-kw-tooltip');
   if(kwEl) {
     const list = Object.keys(KEYWORD_DATA).join(', ');
-    kwEl.innerHTML = `<strong>추적 중인 키워드 ${Object.keys(KEYWORD_DATA).length}개</strong><br>${list}<br><br>출처: 네이버 데이터랩 검색어트렌드 (최근 3개월)`;
+    const added = (META && META.keywordsAdded) || [];
+    const discoveredAt = META && META.keywordsDiscoveredAt ? new Date(META.keywordsDiscoveredAt) : null;
+    const discoveryLine = discoveredAt
+      ? `<br><br>키워드 자동 갱신: ${discoveredAt.getMonth()+1}/${discoveredAt.getDate()} (주 1회)${added.length ? `<br>새로 추가: ${added.join(', ')}` : ''}`
+      : '';
+    kwEl.innerHTML = `<strong>추적 중인 키워드 ${Object.keys(KEYWORD_DATA).length}개</strong><br>${list}${discoveryLine}<br><br>출처: 네이버 데이터랩 검색어트렌드 (최근 3개월) · 변화율은 최근 7일 평균 vs 직전 7일 평균`;
   }
 
   const prodEl = document.getElementById('kpi-prod-tooltip');
@@ -1756,6 +1768,14 @@ function renderTopbarDate() {
   el.textContent = `📅 ${d.getFullYear()}년 ${d.getMonth() + 1}월 ${d.getDate()}일 (${days[d.getDay()]})`;
 }
 
+/* 상승률(최근 7일 평균 vs 직전 7일 평균) 상위 n개 키워드 이름 */
+function topKeywordsByChange(n) {
+  return Object.entries(KEYWORD_DATA || {})
+    .sort((a,b) => b[1].changeRate - a[1].changeRate)
+    .slice(0, n)
+    .map(([k]) => k);
+}
+
 async function init() {
   renderTopbarDate();
 
@@ -1774,6 +1794,7 @@ async function init() {
     ({ KEYWORD_DATA, NEW_PRODUCTS, CATEGORIES, BRAND_DATA, WEEKLY_SUMMARY, DATES_30, META,
        KEYWORD_OPPORTUNITY, BRAND_VELOCITY, CATEGORY_PRICE, HISTORY_META, NEWS, CUSTOM_KEYWORD_GROUPS, RELATED_KEYWORDS,
        WEEKLY_ARCHIVE, HISTORY, REVIEW_DATA } = data);
+    compareKws = topKeywordsByChange(3);
   } catch (err) {
     showDataError(err);
     return;

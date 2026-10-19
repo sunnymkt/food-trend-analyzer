@@ -36,8 +36,25 @@ scripts/fetch_related_keywords.py      ─▶ data/custom_keyword_related.json �
 data/categories.json (수동 큐레이션, 정적)                       ─┘
 ```
 
-- `data/keywords_config.json` — 추적할 키워드 목록과 색상/카테고리/설명 (수동 관리)
-- `data/categories.json` — 카테고리 이모지/색상/대표 키워드 (수동 관리, 상품 수는 런타임에 자동 집계)
+- `data/keywords_config.json` — 추적할 키워드 목록(최대 20개)과 색상/카테고리/설명. **주 1회 자동 갱신** (아래 참고)
+- `data/categories.json` — 카테고리 이모지/색상/대표 키워드 (대표 키워드는 자동 갱신 때 함께 갱신, 상품 수는 런타임에 자동 집계)
+
+### 트렌드 키워드 자동 발굴 (`scripts/discover_keywords.py`)
+
+네이버 데이터랩은 "넣어준 키워드"의 검색 추이만 알려주기 때문에, 키워드 목록이 고정돼 있으면
+급상승 키워드가 매번 같은 이름들 사이에서 순서만 바뀐다. 그래서 일별 워크플로 맨 앞에서 다음을 한다.
+
+1. **매일**: 식품저널 RSS·푸드투데이 최신 기사 제목/요약을 `data/news_archive.json`에 누적 (최근 28일 보관)
+2. **7일마다** (`data/keyword_discovery.json`의 `lastRun` 기준)
+   - 후보: 최근 14일 신제품 출시 기사의 따옴표 속 제품명에 나온 명사(2개 이상 회사가 사용한 것) +
+     `data/keyword_discovery_config.json`의 `seedKeywords`(식품 소재·맛 사전) + 현재 추적 중인 키워드
+   - 점수: 데이터랩 최근 4주 vs 직전 4주 검색량 증가율, 최근 7일 vs 직전 7일 증가율, 언급 회사 수, 기존 키워드 유지 가산점
+   - 검색량이 너무 적은 단어, 회사·브랜드명, 일반 명사는 제외 (`excludeKeywords`, `excludeBrands`)
+   - 상위 20개로 `keywords_config.json`을 갱신하고 전체 후보 점수는 `data/keyword_discovery.json`에 저장
+3. 꼭 계속 추적할 키워드는 `keywords_config.json`에서 `"pinned": true`를 넣으면 자동 교체에서 빠진다.
+4. 바로 다시 돌리려면 Actions → "일별 데이터 갱신" → Run workflow 에서 `force_discovery` 체크.
+
+변화율(`changeRate`)은 **최근 7일 평균 vs 직전 7일 평균**이다 (예전: 마지막 하루 vs 7일 전 하루 — 하루짜리 튀는 값에 순위가 크게 흔들렸음).
 - `data/keyword_trends.json` — **자동 생성**. 네이버 데이터랩 검색어트렌드 API 결과
 - `data/new_products.json` — **자동 생성**. 오늘 크롤링에서 발견한 신제품 (매일 덮어씀)
 - `data/product_history.json` — **자동 생성**. 크롤러가 발견한 모든 상품을 `firstSeenDate`

@@ -1,65 +1,137 @@
 {
-  "_comment": "키워드별 정적 메타데이터. color/category/description은 수동 큐레이션 값이며, 실제 검색 추이(data, changeRate)는 scripts/fetch_naver_trends.py가 네이버 데이터랩 API로 채워 data/keyword_trends.json을 생성합니다. 키워드를 추가/삭제하려면 이 파일만 수정하면 됩니다 (최대 20개, 네이버 API 호출은 5개씩 배치 처리).",
+  "_comment": "추적 키워드 목록 (최대 20개). scripts/discover_keywords.py 가 주 1회 식품 전문지 신제품 기사와 네이버 데이터랩 검색 추이를 보고 자동으로 교체한다. 반드시 계속 추적할 키워드는 \"pinned\": true 를 넣으면 자동 교체에서 빠진다. source: manual(사람이 넣음) / auto(자동 발굴). color/category/description 은 화면 표시용이며, 실제 검색 추이(data, changeRate)는 scripts/fetch_naver_trends.py 가 data/keyword_trends.json 에 채운다.",
   "keywords": {
-    "흑임자": {
-      "color": "#0ea5e9",
-      "category": "전체",
-      "description": "건강·고소한 맛 트렌드 핵심 키워드. 빙그레·파리바게뜨 등 대형 브랜드 동시 출시로 가속화."
-    },
-    "유자": {
-      "color": "#eab308",
-      "category": "음료",
-      "description": "상큼한 감귤계 과일 맛. 여름 시즌 수요와 함께 급부상, 음료·제과 전방위 확산 중."
-    },
     "제로슈거": {
       "color": "#16a34a",
       "category": "음료",
-      "description": "건강 의식 소비자의 설탕 대체 수요 폭발. 음료 카테고리 전체를 관통하는 메가 트렌드."
+      "description": "건강 의식 소비자의 설탕 대체 수요 폭발. 음료 카테고리 전체를 관통하는 메가 트렌드.",
+      "source": "manual"
     },
-    "마라": {
-      "color": "#2563eb",
-      "category": "라면/스낵",
-      "description": "매운 향신료 조합, 지속적 강세. 마라+크림, 마라+로제 등 하이브리드 변형이 새 기회."
-    },
-    "트러플": {
-      "color": "#22c55e",
-      "category": "스낵/빙과",
-      "description": "프리미엄 식재료의 대중화. 스낵·빙과 영역에서 고급화 포지셔닝 수단으로 각광."
-    },
-    "쑥": {
-      "color": "#65a30d",
-      "category": "베이커리/제과",
-      "description": "전통 한식 식재료의 현대적 재해석. 2세대 K-FOOD 트렌드의 핵심 키워드."
-    },
-    "얼그레이": {
-      "color": "#0284c7",
-      "category": "음료/제과",
-      "description": "홍차 향미, 고급스러운 이미지. 밀크티 붐과 함께 제과·스낵 전반으로 확산."
-    },
-    "로제": {
-      "color": "#facc15",
-      "category": "간편식",
-      "description": "크리미 토마토 소스, 간편식 주류. HMR·라면·스낵 전방위 적용 단계."
-    },
-    "할라피뇨": {
-      "color": "#059669",
-      "category": "스낵",
-      "description": "중강도 매운맛 트렌드. 초강렬 매운맛에서 조금 절제된 수준으로 수요 이동."
+    "흑임자": {
+      "color": "#0ea5e9",
+      "category": "전체",
+      "description": "건강·고소한 맛 트렌드 핵심 키워드. 가을 시즌 커피·베이커리 업계 제철 메뉴에 다시 등장.",
+      "source": "manual"
     },
     "말차": {
       "color": "#38bdf8",
       "category": "음료/제과",
-      "description": "안정적 성장세, 일본 프리미엄 맛 지속 인기. 음료·베이커리 전반 확산."
+      "description": "안정적 성장세, 일본 프리미엄 맛 지속 인기. 음료·베이커리 전반 확산.",
+      "source": "manual"
     },
-    "단짠": {
-      "color": "#ca8a04",
-      "category": "스낵",
-      "description": "단맛+짠맛 조합, 스낵 카테고리 영구 정착 키워드. 꾸준한 베이스 수요 유지."
-    },
-    "흑당": {
-      "color": "#0369a1",
+    "유자": {
+      "color": "#eab308",
       "category": "음료",
-      "description": "2024년 피크 이후 지속 하락. 소비자 피로도 증가, 신제품 출시 자제 필요."
+      "description": "상큼한 감귤계 과일 맛. 여름 시즌 수요와 함께 급부상, 음료·제과 전방위 확산 중.",
+      "source": "manual"
+    },
+    "마라": {
+      "color": "#2563eb",
+      "category": "라면/스낵",
+      "description": "매운 향신료 조합, 지속적 강세. 마라+크림, 마라+로제 등 하이브리드 변형이 새 기회.",
+      "source": "manual"
+    },
+    "쑥": {
+      "color": "#65a30d",
+      "category": "베이커리/제과",
+      "description": "전통 한식 식재료의 현대적 재해석. 2세대 K-FOOD 트렌드의 핵심 키워드.",
+      "source": "manual"
+    },
+    "얼그레이": {
+      "color": "#0284c7",
+      "category": "음료/제과",
+      "description": "홍차 향미, 고급스러운 이미지. 밀크티 붐과 함께 제과·스낵 전반으로 확산.",
+      "source": "manual"
+    },
+    "할라피뇨": {
+      "color": "#059669",
+      "category": "스낵",
+      "description": "중강도 매운맛 트렌드. 초강렬 매운맛에서 조금 절제된 수준으로 수요 이동.",
+      "source": "manual"
+    },
+    "피스타치오": {
+      "color": "#22c55e",
+      "category": "제과/빙과",
+      "description": "두바이 디저트 유행 이후 대표 소재로 정착. GS25 '한정선 피스타치오 찹쌀떡'(2026.10) 등 디저트·음료 신메뉴 확산.",
+      "source": "manual",
+      "addedAt": "2026-10-19"
+    },
+    "찹쌀떡": {
+      "color": "#facc15",
+      "category": "빙과/제과",
+      "description": "냉동 디저트 핵심 형태. GS25 떡·찹쌀떡류 매출 +312.6%(2026.1~9), '요거트 찹쌀떡' 누적 50만개 판매.",
+      "source": "manual",
+      "addedAt": "2026-10-19"
+    },
+    "요거트": {
+      "color": "#ca8a04",
+      "category": "유제품/빙과",
+      "description": "상큼한 발효유 맛. 요거트 찹쌀떡 품절 대란, 2026 가을 신메뉴에 4개 브랜드가 요거트 적용.",
+      "source": "manual",
+      "addedAt": "2026-10-19"
+    },
+    "고구마": {
+      "color": "#0369a1",
+      "category": "간편식/빙과",
+      "description": "가을 제철 소재. 이마트24 '아이스고구마맛탕'이 냉동식품 판매 1위(2026.9).",
+      "source": "manual",
+      "addedAt": "2026-10-19"
+    },
+    "무화과": {
+      "color": "#84cc16",
+      "category": "베이커리/제과",
+      "description": "가을 제철 과일. 식품·외식업계 시즌 신제품에 고구마·밤과 함께 자주 쓰임.",
+      "source": "manual",
+      "addedAt": "2026-10-19"
+    },
+    "브륄레": {
+      "color": "#14b8a6",
+      "category": "유제품/빙과",
+      "description": "설탕층을 깨 먹는 식감 디저트. 세븐일레븐 '오하요 브륄레 밀크' 40일 35만개 판매.",
+      "source": "manual",
+      "addedAt": "2026-10-19"
+    },
+    "카다이프": {
+      "color": "#f59e0b",
+      "category": "제과/베이커리",
+      "description": "두바이 초콜릿·쫀득쿠키 유행의 핵심 바삭 소재. 찹쌀떡·브라우니 등 변형 제품 계속 출시.",
+      "source": "manual",
+      "addedAt": "2026-10-19"
+    },
+    "버터떡": {
+      "color": "#0891b2",
+      "category": "베이커리/제과",
+      "description": "2026년 유행 디저트. 떡 + 버터의 쫀득·고소한 조합으로 베이커리·편의점 확산.",
+      "source": "manual",
+      "addedAt": "2026-10-19"
+    },
+    "시나몬": {
+      "color": "#4d7c0f",
+      "category": "음료/베이커리",
+      "description": "가을·겨울 시즌 향신료. 2026 가을 신메뉴(공차·쉐이크쉑 등)에 사과와 함께 등장.",
+      "source": "manual",
+      "addedAt": "2026-10-19"
+    },
+    "저당": {
+      "color": "#a16207",
+      "category": "간편식/음료",
+      "description": "제로슈거에 이어 당 줄이기 트렌드. 소스·간편식·음료 전반 '저당' 표기 제품 증가.",
+      "source": "manual",
+      "addedAt": "2026-10-19"
+    },
+    "프로틴": {
+      "color": "#06b6d4",
+      "category": "건강식품/음료",
+      "description": "고단백 건강 간식 수요. 음료·바·과자로 단백질 강화 제품 확대.",
+      "source": "manual",
+      "addedAt": "2026-10-19"
+    },
+    "황치즈": {
+      "color": "#15803d",
+      "category": "스낵/제과",
+      "description": "짭짤한 치즈 맛 스낵·쿠키. '촉촉한 황치즈칩' 등 2026년 유행 간식.",
+      "source": "manual",
+      "addedAt": "2026-10-19"
     }
   }
 }

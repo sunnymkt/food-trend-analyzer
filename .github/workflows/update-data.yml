@@ -4,7 +4,12 @@ on:
   schedule:
     # 매일 02:04 KST = 17:04 UTC(전날)
     - cron: "4 17 * * *"
-  workflow_dispatch: {}
+  workflow_dispatch:
+    inputs:
+      force_discovery:
+        description: "트렌드 키워드 자동 발굴을 7일 주기와 상관없이 지금 실행"
+        type: boolean
+        default: false
 
 permissions:
   contents: write
@@ -26,6 +31,20 @@ jobs:
 
       - name: Playwright 크로미움 설치
         run: playwright install --with-deps chromium
+
+      # 추적 키워드 자동 발굴 — 매일 돌지만 스크립트가 마지막 갱신 후 7일이 지났을 때만
+      # 실제로 keywords_config.json 을 바꾼다 (주 1회). 실패해도 기존 목록으로 계속 진행.
+      # 바로 다시 돌리고 싶으면 Actions 탭에서 이 워크플로를 수동 실행하면서 force_discovery 를 체크.
+      - name: 트렌드 키워드 자동 발굴 (주 1회)
+        id: discover
+        continue-on-error: true
+        env:
+          NAVER_CLIENT_ID: ${{ secrets.NAVER_CLIENT_ID }}
+          NAVER_CLIENT_SECRET: ${{ secrets.NAVER_CLIENT_SECRET }}
+          NAVER_AD_API_KEY: ${{ secrets.NAVER_AD_API_KEY }}
+          NAVER_AD_SECRET_KEY: ${{ secrets.NAVER_AD_SECRET_KEY }}
+          NAVER_AD_CUSTOMER_ID: ${{ secrets.NAVER_AD_CUSTOMER_ID }}
+        run: python scripts/discover_keywords.py ${{ github.event.inputs.force_discovery == 'true' && '--force' || '' }}
 
       - name: 네이버 데이터랩 검색 추이 수집
         id: naver
@@ -72,7 +91,7 @@ jobs:
           exit 1
 
       - name: 변경사항 커밋 & 푸시
-        if: always() && (steps.naver.outcome == 'success' || steps.kurly.outcome == 'success' || steps.news.outcome == 'success' || steps.custom-keywords.outcome == 'success' || steps.related-keywords.outcome == 'success')
+        if: always() && (steps.discover.outcome == 'success' || steps.naver.outcome == 'success' || steps.kurly.outcome == 'success' || steps.news.outcome == 'success' || steps.custom-keywords.outcome == 'success' || steps.related-keywords.outcome == 'success')
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"

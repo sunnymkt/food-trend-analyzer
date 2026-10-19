@@ -69,15 +69,22 @@ def align_to_range(data_points, start_date, end_date):
     return [by_period.get(d, 0.0) for d in all_dates(start_date, end_date)]
 
 
-def compute_change_rate(values):
-    """최신값 vs 7일 전 값 기준 전주 대비 변화율(%)."""
-    if len(values) < 8:
+def compute_change_rate(values, window=7):
+    """최근 7일 평균 vs 그 직전 7일 평균 기준 전주 대비 변화율(%).
+
+    예전에는 '마지막 하루 값 vs 정확히 7일 전 하루 값'을 비교해서, 하루짜리
+    튀는 값(이벤트·방송 노출, 집계 지연 등)에 순위가 크게 흔들렸다. 7일씩
+    묶어 평균을 내면 요일 효과도 상쇄되고 실제 주간 흐름에 가까워진다.
+    """
+    if len(values) < window * 2:
         return 0
-    latest = values[-1]
-    prior = values[-8]
-    if prior == 0:
-        return 100 if latest > 0 else 0
-    return round((latest - prior) / prior * 100)
+    recent = values[-window:]
+    prior = values[-window * 2:-window]
+    recent_avg = sum(recent) / window
+    prior_avg = sum(prior) / window
+    if prior_avg == 0:
+        return 100 if recent_avg > 0 else 0
+    return round((recent_avg - prior_avg) / prior_avg * 100)
 
 
 def trim_trailing_incomplete_days(trend_by_keyword, dates, threshold=0.9, max_trim=3):

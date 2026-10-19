@@ -1,7 +1,7 @@
 {
   "쌀국수": {
     "midCategory": "HMR면·떡",
-    "changeRate": 3,
+    "changeRate": -3,
     "data": [
       65.4,
       65.6,
@@ -97,7 +97,7 @@
   },
   "우동": {
     "midCategory": "HMR면·떡",
-    "changeRate": 20,
+    "changeRate": 0,
     "data": [
       14.8,
       14.9,
@@ -193,7 +193,7 @@
   },
   "메추리알": {
     "midCategory": "난가공",
-    "changeRate": -4,
+    "changeRate": 2,
     "data": [
       4.5,
       5.1,
@@ -289,7 +289,7 @@
   },
   "볶음밥": {
     "midCategory": "냉동밥",
-    "changeRate": 6,
+    "changeRate": -1,
     "data": [
       14.1,
       12.9,
@@ -385,7 +385,7 @@
   },
   "누룽지": {
     "midCategory": "누룽지",
-    "changeRate": 10,
+    "changeRate": 8,
     "data": [
       13.2,
       12.6,
@@ -481,7 +481,7 @@
   },
   "만두": {
     "midCategory": "만두",
-    "changeRate": 15,
+    "changeRate": 2,
     "data": [
       72.5,
       71.0,
@@ -577,7 +577,7 @@
   },
   "수프": {
     "midCategory": "수프",
-    "changeRate": 2,
+    "changeRate": 0,
     "data": [
       4.8,
       4.5,
@@ -673,7 +673,7 @@
   },
   "냉동간식": {
     "midCategory": "육가공",
-    "changeRate": 12,
+    "changeRate": 55,
     "data": [
       1.0,
       1.5,
@@ -769,7 +769,7 @@
   },
   "훈제오리": {
     "midCategory": "육가공",
-    "changeRate": -9,
+    "changeRate": -1,
     "data": [
       19.2,
       18.1,
@@ -865,7 +865,7 @@
   },
   "즉석밥": {
     "midCategory": "즉석밥",
-    "changeRate": -27,
+    "changeRate": -9,
     "data": [
       15.0,
       15.3,
@@ -961,7 +961,7 @@
   },
   "찐빵": {
     "midCategory": "냉동간식",
-    "changeRate": 25,
+    "changeRate": 21,
     "data": [
       9.4,
       8.2,
@@ -1057,7 +1057,7 @@
   },
   "붕어빵": {
     "midCategory": "냉동간식",
-    "changeRate": 137,
+    "changeRate": 61,
     "data": [
       16.5,
       11.0,
@@ -1153,7 +1153,7 @@
   },
   "구운란": {
     "midCategory": "계란",
-    "changeRate": -3,
+    "changeRate": 15,
     "data": [
       15.6,
       17.0,
@@ -1345,7 +1345,7 @@
   },
   "시리얼": {
     "midCategory": "시리얼",
-    "changeRate": 2,
+    "changeRate": 6,
     "data": [
       20.4,
       17.8,
@@ -1441,7 +1441,7 @@
   },
   "과자": {
     "midCategory": "제과",
-    "changeRate": -6,
+    "changeRate": 3,
     "data": [
       31.7,
       31.2,
@@ -1537,7 +1537,7 @@
   },
   "약과": {
     "midCategory": "제과",
-    "changeRate": -9,
+    "changeRate": -5,
     "data": [
       10.4,
       9.6,
@@ -1633,7 +1633,7 @@
   },
   "두유": {
     "midCategory": "음료",
-    "changeRate": -32,
+    "changeRate": -34,
     "data": [
       31.7,
       28.8,
@@ -1825,7 +1825,7 @@
   },
   "식혜": {
     "midCategory": "음료",
-    "changeRate": -12,
+    "changeRate": -5,
     "data": [
       7.5,
       6.8,
@@ -1921,7 +1921,7 @@
   },
   "발효유": {
     "midCategory": "음료",
-    "changeRate": -100,
+    "changeRate": 0,
     "data": [
       0.0,
       0.0,
@@ -2017,7 +2017,7 @@
   },
   "요거트": {
     "midCategory": "음료",
-    "changeRate": -2,
+    "changeRate": 1,
     "data": [
       37.9,
       35.8,
@@ -2113,7 +2113,7 @@
   },
   "스트링치즈": {
     "midCategory": "치즈",
-    "changeRate": 11,
+    "changeRate": 10,
     "data": [
       21.1,
       22.5,
@@ -2209,7 +2209,7 @@
   },
   "모짜렐라치즈": {
     "midCategory": "치즈",
-    "changeRate": -8,
+    "changeRate": 5,
     "data": [
       54.9,
       55.7,
@@ -2305,7 +2305,7 @@
   },
   "도너츠": {
     "midCategory": "빵",
-    "changeRate": 12,
+    "changeRate": 6,
     "data": [
       15.7,
       17.5,
@@ -2401,7 +2401,7 @@
   },
   "액상차": {
     "midCategory": "차",
-    "changeRate": 29,
+    "changeRate": 31,
     "data": [
       0.7,
       0.5,
@@ -2497,7 +2497,7 @@
   },
   "고형차": {
     "midCategory": "차",
-    "changeRate": 100,
+    "changeRate": -37,
     "data": [
       0.3,
       0.2,
@@ -2593,7 +2593,7 @@
   },
   "고구마말랭이": {
     "midCategory": "원물가공",
-    "changeRate": 8,
+    "changeRate": -3,
     "data": [
       15.4,
       16.8,
@@ -2689,7 +2689,7 @@
   },
   "밤": {
     "midCategory": "원물가공",
-    "changeRate": -8,
+    "changeRate": -22,
     "data": [
       11.6,
       11.9,
@@ -2785,7 +2785,7 @@
   },
   "두부": {
     "midCategory": "콩가공",
-    "changeRate": -6,
+    "changeRate": 0,
     "data": [
       22.9,
       20,
@@ -2881,7 +2881,7 @@
   },
   "콩나물": {
     "midCategory": "콩가공",
-    "changeRate": -4,
+    "changeRate": 5,
     "data": [
       9.2,
       8.2,
@@ -2977,7 +2977,7 @@
   },
   "김치": {
     "midCategory": "김치",
-    "changeRate": -2,
+    "changeRate": 3,
     "data": [
       63.9,
       59.0,
