@@ -1,0 +1,237 @@
+/* ============================================================
+   css/theme-editorial.css — 에디토리얼 테마 (2026-10 도입)
+   흑백 모노크롬 + 파스텔 컬러블록. styles.css 다음에 로드되어 덮어쓴다.
+   - 색: 잉크(#000) / 캔버스(#fff), 섹션 강조는 --block-* 파스텔만 사용
+   - 버튼·필터·뱃지는 모두 pill, 선택 상태 = 검정 배경
+   - 라벨·날짜·수치는 JetBrains Mono, 본문은 Pretendard
+   레이아웃 재배치(컬러블록, 상승률 띠)와 차트 색은 js/theme-editorial.js 가 담당.
+   주간 리포트 이메일(generate_weekly_report.py)은 styles.css 만 읽으므로 영향 없음.
+   ============================================================ */
+@import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable.min.css');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300..700&family=JetBrains+Mono:wght@400;500&display=swap');
+
+:root {
+  --ink:#000; --canvas:#fff; --hairline:#e6e6e6; --hairline-soft:#f1f1f1; --surface-soft:#f7f7f5;
+  --block-lime:#dceeb1; --block-lilac:#c5b0f4; --block-cream:#f4ecd6; --block-pink:#efd4d4;
+  --block-mint:#c8e6cd; --block-coral:#f3c9b6; --block-navy:#1f1d3d; --magenta:#ff3d8b; --success:#1ea64a;
+  --sans:'Pretendard Variable','Inter',system-ui,sans-serif;
+  --mono:'JetBrains Mono','SF Mono',menlo,monospace;
+
+  --bg-primary:#fff; --bg-card:#fff; --bg-card-hover:var(--surface-soft);
+  --border:var(--hairline); --border-hover:#cfcfcf;
+  --primary:#000; --primary-text:#000; --accent:#000; --rose:#000;
+  --text-primary:#000; --text-secondary:#000; --text-muted:#000;
+  --radius:24px; --radius-sm:8px; --shadow:none;
+}
+body { font-family:var(--sans); background:#fff; color:#000; font-weight:330; letter-spacing:-.14px; }
+body::before { display:none; }
+
+/* 사이드바 */
+.sidebar { background:#fff; border-right:1px solid var(--hairline); backdrop-filter:none; }
+.sidebar-logo { border-bottom:1px solid var(--hairline); }
+.logo-emoji { filter:none; animation:none; }
+.logo-name { color:#000; font-weight:700; letter-spacing:-.3px; font-size:18px; }
+.logo-sub { font-family:var(--mono); font-size:10.5px; letter-spacing:.6px; color:#000; text-transform:uppercase; }
+.nav-group-title { font-family:var(--mono); font-weight:400; font-size:11px; letter-spacing:.6px; color:#000; opacity:1; padding:18px 14px 8px; }
+.nav-item { border-radius:50px; color:#000; font-weight:400; font-size:14px; padding:10px 16px; border:none; }
+.nav-item::after { display:none; }
+.nav-item:hover { background:var(--surface-soft); }
+.nav-item.active { background:#000; color:#fff; font-weight:480; border:none; }
+.nav-badge { background:var(--block-lime); color:#000; font-family:var(--mono); font-weight:500; }
+.nav-item.active .nav-badge { background:#fff; }
+.sidebar-footer { border-top:1px solid var(--hairline); }
+.status-dot { background:var(--success); box-shadow:none; }
+.status-dot::after { display:none; }
+.status-label { color:#000; font-weight:480; }
+.status-date { font-family:var(--mono); font-size:10.5px; letter-spacing:.4px; color:#000; }
+
+/* 탑바 */
+.topbar { background:#fff; backdrop-filter:none; border-bottom:1px solid var(--hairline); height:64px; }
+.topbar-title { font-size:22px; font-weight:540; letter-spacing:-.26px; }
+.topbar-sub { color:#000; font-weight:330; }
+.topbar-date { font-family:var(--mono); font-weight:400; font-size:11px; letter-spacing:.6px; background:#fff; border:1px solid var(--hairline); color:#000; padding:5px 12px; }
+.search-bar { background:var(--surface-soft); border:1px solid transparent; border-radius:50px; padding:0 18px; }
+.search-bar:focus-within { box-shadow:0 0 0 2px #000; border-color:transparent; }
+.topbar-links { border-left:1px solid var(--hairline); }
+.topbar-link-icon { border-radius:9999px; width:40px; height:40px; border:none; background:var(--surface-soft); }
+
+/* 마퀴 스트립 */
+.mk-strip { height:36px; background:#000; color:#fff; overflow:hidden; display:flex; align-items:center; position:sticky; top:64px; z-index:90; }
+.mk-track { display:flex; gap:40px; white-space:nowrap; padding-left:26px; font-size:14px; font-weight:400; }
+.mk-track b { font-weight:540; }
+.mk-track .mono { font-family:var(--mono); font-size:12px; letter-spacing:.6px; }
+
+/* 콘텐츠 */
+.content { padding:32px 40px 96px; }
+.card { background:#fff; border:1px solid var(--hairline); border-radius:24px; box-shadow:none; padding:24px; }
+.card:hover { transform:none; box-shadow:none; border-color:var(--hairline); }
+.card-glow-orange,.card-glow-teal,.card-glow-rose { background:#fff; border-color:var(--hairline); }
+.card-title { font-size:20px; font-weight:540; letter-spacing:-.2px; }
+.card-icon { display:none; }
+.card-meta { font-family:var(--mono); font-size:11px; letter-spacing:.6px; color:#000; text-transform:uppercase; }
+.g4,.g2,.g3,.g73 { gap:20px; margin-bottom:24px; }
+
+/* 버튼: 전부 pill */
+.btn { border-radius:50px !important; font-weight:480; font-family:var(--sans); }
+.btn-primary { background:#000; color:#fff; box-shadow:none; }
+.btn-secondary { background:#fff; color:#000 !important; border:1px solid var(--hairline); padding:7px 16px !important; font-size:13px !important; }
+.btn-secondary:hover { background:#000; color:#fff !important; border-color:#000; }
+
+/* 컬러블록: 오늘의 요약 */
+.cb { border-radius:24px; padding:48px; margin-bottom:24px; }
+.cb-lime { background:var(--block-lime); }
+.cb-cream { background:var(--block-cream); }
+.cb-eyebrow { font-family:var(--mono); font-size:13px; letter-spacing:.54px; text-transform:uppercase; margin-bottom:18px; }
+.cb-headline { font-size:52px; font-weight:340; letter-spacing:-1.2px; line-height:1.08; max-width:880px; }
+.cb-headline b { font-weight:540; }
+.cb-stats { display:grid; grid-template-columns:repeat(3,1fr); margin-top:44px; border-top:1px solid rgba(0,0,0,.18); }
+.cb-stat { padding:22px 24px 0 0; cursor:pointer; }
+.cb-stat + .cb-stat { padding-left:24px; border-left:1px solid rgba(0,0,0,.18); }
+.cb-stat .lbl { font-family:var(--mono); font-size:11.5px; letter-spacing:.6px; text-transform:uppercase; }
+.cb-stat .name { font-size:24px; font-weight:540; margin-top:10px; letter-spacing:-.2px; }
+.cb-stat .val { font-size:56px; font-weight:340; letter-spacing:-1.6px; line-height:1; margin-top:6px; font-feature-settings:'tnum'; }
+.cb-actions { display:flex; gap:10px; margin-top:36px; }
+.cb-actions .btn { font-size:16px; padding:10px 22px; }
+
+/* KPI */
+.kpi-card { padding:24px; }
+.kpi-top { flex-direction:column; align-items:flex-start; gap:18px; }
+.kpi-icon { width:40px; height:40px; border-radius:9999px; background:var(--surface-soft); display:flex; align-items:center; justify-content:center; font-size:17px; }
+.kpi-value { font-size:48px !important; font-weight:340; letter-spacing:-1.4px; line-height:1 !important; }
+.kpi-label { font-family:var(--mono); font-size:11.5px; letter-spacing:.6px; color:#000; margin-top:10px; text-transform:uppercase; }
+.kpi-change { color:#000 !important; font-weight:400; font-size:13px; margin-top:16px; padding-top:14px; border-top:1px solid var(--hairline-soft); }
+
+/* 키워드 pill */
+.kw-grid { gap:10px; }
+.kw-badge { border-radius:50px; padding:10px 18px; font-size:16px; font-weight:480; gap:10px; background:#fff !important; border:1px solid var(--hairline) !important; color:#000 !important; }
+.kw-badge:hover { transform:none; border-color:#000 !important; }
+.kw-badge.t1 { background:#000 !important; color:#fff !important; border-color:#000 !important; }
+.kw-badge .rank, .kw-badge .pct { font-family:var(--mono); font-size:11.5px; letter-spacing:.4px; opacity:1; }
+
+/* 랭킹 */
+.rank-item { border-bottom:1px solid var(--hairline-soft); padding:12px 0; }
+.rank-num { font-family:var(--mono); font-weight:400; color:#000; }
+.rank-num.gold { -webkit-text-fill-color:#000; background:none; }
+.rank-name { font-size:15px; font-weight:480; }
+.rank-bar { background:var(--hairline-soft); height:6px; border-radius:50px; }
+.rank-fill { background:#000; border-radius:50px; }
+.rank-val { font-family:var(--mono); font-weight:500; color:#000; font-size:12.5px; }
+
+/* 태그·뉴스·리스트 */
+.tag,[class*="tag-"] { background:#fff !important; color:#000 !important; border:1px solid var(--hairline); font-family:var(--mono); font-weight:400; font-size:10.5px; letter-spacing:.4px; border-radius:50px; }
+#db-reportNewsProduct > *, #db-reportNewsRegulatory > * { border-color:var(--hairline-soft) !important; }
+.mini-row { border-color:var(--hairline-soft); }
+.mini-name { font-weight:480; }
+.mini-brand, .p-date { font-family:var(--mono); font-size:11px; color:#000; letter-spacing:.4px; }
+.mini-emoji { width:40px; height:40px; border-radius:9999px; background:var(--surface-soft); display:flex; align-items:center; justify-content:center; }
+
+/* 하단 크림 블록 */
+.cb-cream .card { background:transparent; border:none; padding:0; }
+.cb-cream .g2 { margin-bottom:0; gap:48px; }
+.main-content { min-width:0; }
+.mk-strip { min-width:0; width:100%; max-width:100%; }
+.mk-track { flex:none; animation:mk-scroll 60s linear infinite; }
+.mk-strip:hover .mk-track { animation-play-state:paused; }
+@keyframes mk-scroll { from { transform:translateX(0); } to { transform:translateX(-50%); } }
+@media (prefers-reduced-motion: reduce) { .mk-track { animation:none; } }
+.tag,[class*="tag-"] { white-space:nowrap; }
+
+/* ── 메뉴별 화면 보강 ── */
+.cb-lilac { background:var(--block-lilac); }
+.cb-mint { background:var(--block-mint); }
+.cb-pink { background:var(--block-pink); }
+.cb-coral { background:var(--block-coral); }
+.cb-navy { background:var(--block-navy); color:#fff; }
+.cb-navy .cb-stats { border-top-color:rgba(255,255,255,.25); }
+.cb-navy .cb-stat + .cb-stat { border-left-color:rgba(255,255,255,.25); }
+.cb-navy .btn-secondary { background:rgba(255,255,255,.16); color:#fff !important; border-color:transparent; }
+.cb-navy .btn-primary { background:#fff; color:#000; }
+.cb.cb-intro .cb-headline { font-size:44px; }
+.cb.cb-intro .cb-stat .val { font-size:44px; }
+.cb.cb-intro { padding:44px 48px; }
+
+/* 필터·선택 pill: 선택 = 검정 */
+.filter-btn { border-radius:50px; padding:9px 18px; font-size:14px; font-weight:400; color:#000; border:1px solid var(--hairline); background:#fff; }
+.filter-btn:hover { background:var(--surface-soft); border-color:var(--hairline); color:#000; font-weight:400; }
+.filter-btn.active { background:#000 !important; border-color:#000 !important; color:#fff !important; font-weight:480; }
+.filter-btn.active .t-up, .filter-btn.active .t-down { color:#fff !important; }
+.t-up, .t-down { font-family:var(--mono); font-size:12px; color:#000 !important; }
+
+/* 신제품 카드 */
+.products-grid { gap:20px; }
+.product-card { border-radius:24px; border:1px solid var(--hairline); box-shadow:none; padding:24px; gap:12px; }
+.product-card:hover { transform:none; box-shadow:none; border-color:#000; }
+.p-name { font-size:16px; font-weight:540; letter-spacing:-.2px; }
+.p-brand { font-size:14px; font-weight:400; color:#000; }
+.p-price { font-family:var(--mono); color:#000; font-weight:500; font-size:14px; }
+.p-rating { font-family:var(--mono); color:#000; }
+
+/* 카테고리 카드 */
+.cat-card { border-radius:24px; border:1px solid var(--hairline); box-shadow:none; padding:22px 12px; }
+.cat-card:hover { background:var(--surface-soft); border-color:var(--hairline); }
+.cat-card.active { background:#000 !important; border-color:#000 !important; }
+.cat-card.active .cat-name, .cat-card.active .cat-count { color:#fff; }
+.cat-name { font-size:15px; font-weight:540; }
+.cat-count { font-family:var(--mono); font-size:11px; color:#000; letter-spacing:.4px; }
+
+/* 지정 키워드 */
+.ck-cat-badge { background:#fff; border:1px solid #000; color:#000; font-weight:480; font-size:13px; padding:5px 14px; border-radius:50px; }
+.ck-row { border-bottom:1px solid var(--hairline-soft); }
+.ck-name { font-weight:480; font-size:14px; }
+.ck-pct { font-family:var(--mono); font-weight:500; color:#000 !important; }
+
+/* 위클리 아카이브 */
+.wa-month-badge { font-family:var(--mono); font-weight:400; letter-spacing:.6px; font-size:12px; padding:6px 16px; }
+.wa-card { border-radius:24px !important; border:1px solid var(--hairline) !important; box-shadow:none !important; }
+.wa-card:hover { transform:none; border-color:#000 !important; }
+.wa-card-eyebrow { font-family:var(--mono); font-weight:400; color:#000; letter-spacing:.6px; }
+.wa-card-title { font-weight:540; font-size:18px; }
+.wa-card-period, .wa-card-stat-label { color:#000; }
+.wa-card-period { font-family:var(--mono); font-size:11.5px; }
+.wa-card-stat-value { font-family:var(--mono); font-weight:500; }
+.wa-card-stat-value.up, .wa-card-stat-value.down { color:#000; }
+.wa-card-cta { color:#000; font-weight:480; text-decoration:underline; text-underline-offset:3px; }
+
+/* 리뷰 */
+.hl-mini-label { font-family:var(--mono); font-size:11.5px; letter-spacing:.6px; color:#000; text-transform:uppercase; }
+.hl-mini-value { font-size:40px; font-weight:340; letter-spacing:-1px; }
+.review-row { border-bottom:1px solid var(--hairline-soft) !important; }
+.review-row-name { font-weight:480; font-size:15px; }
+.review-row-meta { font-family:var(--mono); font-size:11px; color:#000; letter-spacing:.3px; }
+.review-row-rating { color:#000; font-family:var(--mono); font-weight:500; }
+.review-search-input-big, .review-select, .review-search-input { border-radius:50px !important; border:1px solid var(--hairline) !important; }
+
+/* 기타 강조 */
+.prog-fill { background:#000 !important; }
+.prog { background:var(--hairline-soft) !important; border-radius:50px; }
+.report-title { background:none; -webkit-text-fill-color:#000; color:#000; font-weight:540; }
+.insight-card { border-radius:16px; }
+.insight-card:hover { transform:none; border-color:#000; }
+
+/* ── 반응형 ── */
+@media(max-width:1024px) {
+  .cb { padding:36px; }
+  .cb-headline, .cb.cb-intro .cb-headline { font-size:36px; letter-spacing:-.8px; }
+  .cb-stat .val, .cb.cb-intro .cb-stat .val { font-size:40px; }
+  .content { padding:24px; }
+}
+@media(max-width:768px) {
+  .topbar { height:auto; }
+  .mk-strip { position:static; }
+  .cb, .cb.cb-intro { padding:28px 20px; border-radius:20px; }
+  .cb-headline, .cb.cb-intro .cb-headline { font-size:28px; letter-spacing:-.5px; line-height:1.15; }
+  /* styles.css 에서 기본값 .mobile-menu-btn{display:none} 이 미디어쿼리보다 뒤에 있어 모바일에서도 숨겨지던 버그 보정 */
+  .mobile-menu-btn { display:flex; border-radius:9999px; width:40px; height:40px; border:none; background:var(--surface-soft); color:#000; }
+  .kpi-tooltip { display:none; }   /* 호버 전용 툴팁: 터치 화면에선 쓸 수 없고 가로 넘침만 만든다 */
+  .cb-stats { grid-template-columns:1fr; margin-top:24px; }
+  .cb-stat, .cb-stat + .cb-stat { padding:16px 0; border-left:none !important; border-bottom:1px solid rgba(0,0,0,.14); }
+  .cb-navy .cb-stat { border-bottom-color:rgba(255,255,255,.2); }
+  .cb-stat .val, .cb.cb-intro .cb-stat .val { font-size:34px; }
+  .cb-actions { flex-wrap:wrap; }
+  .kpi-value { font-size:36px !important; }
+  .cb-cream .g2 { gap:24px; }
+  .content { padding:16px; }
+}
+@media print {
+  .mk-strip { display:none; }
+}
