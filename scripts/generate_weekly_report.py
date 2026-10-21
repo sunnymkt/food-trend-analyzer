@@ -48,6 +48,8 @@ KST = timezone(timedelta(hours=9))
 HISTORY_AVG_WINDOW = 30  # product_history.json 이 이미 30일 롤링이라 그대로 씀
 
 
+NEWS_PER_SECTION = 5  # 메일의 '신제품 관련' · '법규·제도 변화' 뉴스를 각각 최신순 몇 건까지 넣을지
+
 def load_json(path, fallback=None):
     if not path.exists():
         return fallback
@@ -155,7 +157,7 @@ def build_context():
         if len(representative_products) >= 4:
             break
 
-    def news_of(category, n=3):
+    def news_of(category, n=NEWS_PER_SECTION):
         items = [a for a in news if a.get("category", "product") == category]
         items.sort(key=lambda a: a.get("pubDate") or "", reverse=True)
         return items[:n]
