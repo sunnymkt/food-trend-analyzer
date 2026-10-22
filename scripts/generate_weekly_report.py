@@ -194,80 +194,79 @@ def build_context():
 
 CSS = """
   :root {
-    --paper:#fdfcfb; --card:#ffffff; --ink:#1c1917; --muted:#78716c; --faint:#a8a29e;
-    --rule:#e7e2da; --accent:#ea580c; --accent-ink:#9a3412; --accent-bg:#fdf1e9;
-    --gold:#b45309; --good:#15803d; --bad:#be123c;
-    --compliance-ink:#1e3a5f; --compliance-bg:#eef2f7; --compliance-rule:#ccd8e4;
+    --ink:#000000; --paper:#ffffff; --hair:#e6e6e6; --hair-soft:#f1f1f1; --soft:#f7f7f5;
+    --lime:#dceeb1; --cream:#f4ecd6; --pink:#efd4d4; --lilac:#c5b0f4; --navy:#1f1d3d; --neg:#eb6b89;
+    --sans:Pretendard,"Apple SD Gothic Neo","Malgun Gothic","Segoe UI",sans-serif;
+    --mono:"JetBrains Mono",Consolas,Menlo,"Courier New",monospace;
   }
   * { box-sizing:border-box; }
-  body { background:var(--paper); color:var(--ink); font-family:-apple-system,"Malgun Gothic","Apple SD Gothic Neo","Segoe UI",sans-serif; line-height:1.6; margin:0; }
-  .sheet { max-width:640px; margin:0 auto; padding:8px 4px 48px; }
+  body { background:#ffffff; color:var(--ink); font-family:var(--sans); line-height:1.55; margin:0; word-break:keep-all; }
+  .sheet { max-width:640px; margin:0 auto; padding:16px 12px 40px; }
   .num { font-variant-numeric:tabular-nums; }
-  .masthead { padding:36px 28px 28px; border-bottom:3px solid var(--ink); display:flex; justify-content:space-between; align-items:flex-start; gap:16px; }
-  .masthead-text { flex:1; min-width:0; }
-  .masthead-logo { height:26px; width:auto; flex-shrink:0; margin-top:2px; }
-  .masthead-eyebrow { font-size:12px; font-weight:700; letter-spacing:.12em; text-transform:uppercase; color:var(--accent); margin-bottom:10px; }
-  .masthead h1 { font-size:22px; font-weight:900; letter-spacing:-.02em; line-height:1.35; margin:0 0 12px; }
-  .masthead h1 .wk-title-main { display:block; white-space:nowrap; }
-  .masthead h1 .wk-title-sub { display:block; font-size:18px; font-weight:800; color:var(--muted); margin-top:2px; white-space:nowrap; }
-  .masthead-meta { font-size:12.5px; color:var(--muted); }
-  .masthead-meta div { white-space:nowrap; }
-  .masthead-meta div + div { margin-top:3px; }
-  .masthead-meta b { color:var(--ink); font-weight:700; }
-  section { padding:26px 28px; border-bottom:1px solid var(--rule); }
-  .label {
-    display:inline-block; font-size:11.5px; font-weight:800; letter-spacing:.06em; text-transform:uppercase;
-    color:#fff; background:var(--ink); padding:5px 13px; border-radius:20px; margin-bottom:16px;
-  }
-  h2 { font-size:17px; font-weight:800; letter-spacing:-.01em; margin:0 0 4px; }
-  .section-sub { font-size:12.5px; color:var(--muted); margin-bottom:18px; }
-  .hl-grid { display:flex; flex-wrap:wrap; gap:20px 28px; }
-  .hl-item { flex:1 1 130px; min-width:130px; }
-  .hl-value { font-size:23px; font-weight:900; letter-spacing:-.02em; margin-top:4px; }
-  .hl-value.up { color:var(--good); } .hl-value.down { color:var(--bad); }
-  .hl-value .unit { font-size:14px; font-weight:700; }
-  .hl-label { font-size:12px; color:var(--muted); }
-  .hl-sub { font-size:11.5px; color:var(--faint); margin-top:2px; }
-  .kw-cols { display:flex; gap:24px; flex-wrap:wrap; }
-  .kw-col { flex:1 1 240px; min-width:220px; }
-  .kw-col-title { font-size:12px; font-weight:700; margin-bottom:8px; }
-  .kw-col-title.up { color:var(--good); } .kw-col-title.down { color:var(--bad); }
-  .kw-row { display:flex; align-items:baseline; justify-content:space-between; padding:7px 0; border-bottom:1px solid var(--rule); font-size:13.5px; }
-  a.kw-row { text-decoration:none; color:inherit; }
-  a.kw-row .kw-name { text-decoration:underline; text-decoration-style:dotted; text-underline-offset:3px; }
+  .topline { display:flex; justify-content:space-between; align-items:center; padding:8px 4px 16px; }
+  .topline-brand { font-size:15px; font-weight:700; letter-spacing:-.2px; }
+  .topline-meta { font-family:var(--mono); font-size:11px; letter-spacing:.6px; text-transform:uppercase; }
+  .masthead-logo { height:22px; width:auto; }
+  .hero { background:var(--lime); border-radius:24px; padding:36px 32px 32px; }
+  .eyebrow { font-family:var(--mono); font-size:11.5px; letter-spacing:.6px; text-transform:uppercase; margin-bottom:14px; }
+  .hero h1 { font-size:34px; font-weight:400; letter-spacing:-.8px; line-height:1.15; margin:0 0 6px; }
+  .hero h1 b { font-weight:700; }
+  .hero-sub { font-size:14px; margin-bottom:22px; }
+  .hero-stats { display:flex; border-top:1px solid rgba(0,0,0,.18); }
+  .hero-stat { flex:1; padding:16px 12px 0 0; }
+  .hero-stat + .hero-stat { padding-left:14px; border-left:1px solid rgba(0,0,0,.18); }
+  .hero-stat .lbl { font-family:var(--mono); font-size:10.5px; letter-spacing:.5px; text-transform:uppercase; }
+  .hero-stat .name { font-size:16px; font-weight:700; margin-top:6px; }
+  .hero-stat .val { font-size:30px; font-weight:300; letter-spacing:-1px; line-height:1.1; margin-top:2px; }
+  .hero-stat .val.down { color:var(--neg); }
+  .hero-btns { margin-top:24px; }
+  .pill { display:inline-block; font-size:14px; font-weight:600; padding:10px 20px; border-radius:50px; text-decoration:none; margin-right:6px; }
+  .pill-black { background:#000000; color:#ffffff; }
+  .pill-white { background:#ffffff; color:#000000; }
+  section { padding:32px 8px 8px; }
+  .label { font-family:var(--mono); font-size:11.5px; letter-spacing:.6px; text-transform:uppercase; margin-bottom:10px; display:block; }
+  h2 { font-size:22px; font-weight:600; letter-spacing:-.3px; margin:0 0 4px; line-height:1.3; }
+  .section-sub { font-size:13px; margin-bottom:16px; }
+  .news-block { border:1px solid var(--hair); border-radius:20px; padding:20px 22px 8px; }
+  .news-block + .news-block { margin-top:14px; }
+  .news-head-title { font-family:var(--mono); font-size:11px; letter-spacing:.6px; text-transform:uppercase; display:block; margin-bottom:4px; }
+  .news-item { padding:12px 0; border-bottom:1px solid var(--hair-soft); }
+  .news-item:last-child { border-bottom:none; }
+  .news-item a { color:#000000; text-decoration:none; font-size:14.5px; font-weight:500; line-height:1.5; }
+  .news-item-meta { font-family:var(--mono); font-size:10.5px; letter-spacing:.4px; margin-top:4px; }
+  .compliance-panel { background:var(--pink); border:none; }
+  .compliance-panel .news-item { border-bottom-color:rgba(0,0,0,.1); }
+  .kw-cols { display:flex; gap:20px; flex-wrap:wrap; }
+  .kw-col { flex:1 1 240px; min-width:220px; border:1px solid var(--hair); border-radius:20px; padding:16px 20px 6px; }
+  .kw-col-title { font-family:var(--mono); font-size:11px; letter-spacing:.6px; margin-bottom:4px; }
+  .kw-col-title.down { color:var(--neg); }
+  .kw-row { display:flex; align-items:baseline; justify-content:space-between; padding:10px 0; border-bottom:1px solid var(--hair-soft); font-size:15px; }
+  a.kw-row { text-decoration:none; color:#000000; }
   .kw-row:last-child { border-bottom:none; }
   .kw-name { font-weight:600; }
-  .kw-cat { font-size:11px; color:var(--faint); font-weight:400; margin-left:6px; }
-  .kw-pct { font-weight:800; font-size:13px; }
-  .kw-pct.up { color:var(--good); } .kw-pct.down { color:var(--bad); }
-  .opp-box { background:var(--accent-bg); border:1px solid var(--accent); border-radius:10px; padding:18px 20px; }
-  .opp-kw { font-size:15px; font-weight:800; color:var(--accent-ink); }
-  .opp-note { font-size:13px; color:var(--ink); margin-top:10px; line-height:1.7; }
-  .news-block + .news-block { margin-top:22px; }
-  .news-head-title { font-size:13.5px; font-weight:800; margin-bottom:10px; display:block; }
-  .news-item { padding:10px 0; border-bottom:1px solid var(--rule); }
-  .news-item:last-child { border-bottom:none; }
-  .news-item a { color:var(--ink); text-decoration:none; font-size:13.5px; font-weight:600; line-height:1.5; }
-  .news-item-meta { font-size:11px; color:var(--faint); margin-top:3px; }
-  .compliance-panel { background:var(--compliance-bg); border:1px solid var(--compliance-rule); border-radius:10px; padding:16px 18px; }
-  .compliance-panel .news-head-title { color:var(--compliance-ink); }
-  .compliance-panel .news-item { border-bottom-color:var(--compliance-rule); }
-  .compliance-panel .news-item a { color:var(--compliance-ink); }
-  .compliance-panel .news-item-meta { color:var(--compliance-ink); opacity:.7; }
-  .cat-bars { display:flex; flex-direction:column; gap:10px; margin-bottom:20px; }
-  .cat-bar-row { display:flex; align-items:center; gap:10px; font-size:13px; }
+  .kw-cat { font-family:var(--mono); font-size:10px; font-weight:400; margin-left:6px; letter-spacing:.3px; }
+  .kw-pct { font-family:var(--mono); font-weight:500; font-size:13px; }
+  .kw-pct.down { color:var(--neg); }
+  .opp-box { background:var(--cream); border-radius:24px; padding:28px 28px; }
+  .opp-kw { display:inline-block; font-size:15px; font-weight:600; background:#000000; color:#ffffff; padding:8px 16px; border-radius:50px; margin:0 6px 6px 0; }
+  .opp-note { font-size:14px; margin-top:12px; line-height:1.7; }
+  .cat-bars { border:1px solid var(--hair); border-radius:20px; padding:20px 22px; margin-bottom:14px; }
+  .cat-bar-row { display:flex; align-items:center; gap:12px; font-size:14px; padding:5px 0; }
   .cat-bar-name { width:64px; flex-shrink:0; font-weight:600; }
-  .cat-bar-track { flex:1; height:8px; background:var(--rule); border-radius:4px; overflow:hidden; }
-  .cat-bar-fill { height:100%; background:var(--accent); border-radius:4px; }
-  .cat-bar-count { width:30px; flex-shrink:0; text-align:right; font-weight:700; }
-  .prod-grid { display:flex; flex-direction:column; gap:12px; }
-  .prod-row { display:flex; align-items:center; gap:12px; padding:10px 12px; background:var(--card); border:1px solid var(--rule); border-radius:8px; }
-  a.prod-row { text-decoration:none; color:inherit; }
-  .prod-emoji { font-size:22px; flex-shrink:0; }
-  .prod-name { font-size:13.5px; font-weight:700; }
-  .prod-meta { font-size:11.5px; color:var(--muted); margin-top:1px; }
-  .prod-price { margin-left:auto; font-size:13px; font-weight:800; color:var(--gold); white-space:nowrap; }
-  .footer { padding:22px 28px 4px; font-size:11px; color:var(--faint); line-height:1.7; }
+  .cat-bar-track { flex:1; height:8px; background:var(--hair-soft); border-radius:50px; overflow:hidden; }
+  .cat-bar-fill { height:8px; background:#000000; border-radius:50px; }
+  .cat-bar-count { width:30px; flex-shrink:0; text-align:right; font-family:var(--mono); font-size:12.5px; }
+  .prod-grid { border:1px solid var(--hair); border-radius:20px; padding:6px 22px; }
+  .prod-row { display:flex; align-items:center; gap:12px; padding:12px 0; border-bottom:1px solid var(--hair-soft); }
+  .prod-row:last-child { border-bottom:none; }
+  a.prod-row { text-decoration:none; color:#000000; }
+  .prod-emoji { font-size:18px; width:36px; height:36px; line-height:36px; text-align:center; border-radius:50%; background:var(--soft); flex-shrink:0; }
+  .prod-name { font-size:14.5px; font-weight:600; }
+  .prod-meta { font-family:var(--mono); font-size:10.5px; letter-spacing:.4px; margin-top:2px; }
+  .prod-price { margin-left:auto; font-family:var(--mono); font-size:13px; font-weight:500; white-space:nowrap; }
+  .footer-block { background:var(--navy); color:#ffffff; border-radius:24px; padding:28px 28px; margin-top:32px; font-size:12px; line-height:1.7; }
+  .footer-block .eyebrow { color:#ffffff; }
+  .footer-block a { color:#ffffff; }
 """
 
 
@@ -346,56 +345,38 @@ def render_html(ctx):
 <style>{CSS}</style></head>
 <body><div class="sheet">
 
-  <header class="masthead">
-    <div class="masthead-text">
-      <div class="masthead-eyebrow">농협식품 마케팅부 · 주간 발행</div>
-      <h1><span class="wk-title-main">푸드 트렌드 위클리</span><span class="wk-title-sub">{esc(ctx["week_label"])}</span></h1>
-      <div class="masthead-meta">
-        <div>조사 기간 <b class="num">{esc(ctx["period_label"])}</b></div>
-        <div>발행 <b class="num">{ctx["generated_at"].strftime("%Y.%m.%d(%a) %H:%M")}</b></div>
-      </div>
-    </div>
+  <div class="topline">
+    <div><div class="topline-brand">푸드 트렌드 위클리</div><div class="topline-meta">농협식품 마케팅부 · {esc(ctx["week_label"])}</div></div>
     {logo_img}
-  </header>
+  </div>
+
+  <div class="hero">
+    <div class="eyebrow">This week · {esc(ctx["period_label"])}</div>
+    <h1>이번 주 가장 빠르게 오른 키워드는 <b>{esc(top_up_kw or "-")}</b>.</h1>
+    <div class="hero-sub">신제품은 <b>{esc(top_cat_name or "-")}</b>에서 가장 많이 나왔고, <b>{esc(top_brand_name or "-")}</b>가 가장 활발했어요.</div>
+    <div class="hero-stats">
+      <div class="hero-stat"><div class="lbl">Top keyword</div><div class="name">{esc(top_up_kw or "-")}</div><div class="val num">{fmt_pct(top_up_d["changeRate"]) if top_up_d else "-"}</div></div>
+      <div class="hero-stat"><div class="lbl">Watch out</div><div class="name">{esc(top_down_kw or "-")}</div><div class="val down num">{fmt_pct(top_down_d["changeRate"]) if top_down_d else "-"}</div></div>
+      <div class="hero-stat"><div class="lbl">Top category</div><div class="name">{esc(top_cat_name or "-")}</div><div class="val num">{top_cat_count}건</div></div>
+    </div>
+    <div class="hero-btns"><a class="pill pill-black" href="{dashboard_url("dashboard")}">대시보드 열기</a><a class="pill pill-white" href="{dashboard_url("trends")}">키워드 비교분석</a></div>
+  </div>
 
   <section>
-    <div class="label">업계 뉴스</div>
+    <div class="label">Industry news</div>
+    <h2>이번 주 업계 소식</h2><div class="section-sub">신제품 5건 · 법규·제도 5건</div>
     <div class="news-block">
-      <span class="news-head-title">📰 신제품 관련</span>
+      <span class="news-head-title">New products · 신제품 관련</span>
       {news_items(ctx["product_news"])}
     </div>
     <div class="news-block compliance-panel">
-      <span class="news-head-title">⚖️ 법규·제도 변화 — 미리 확인하세요</span>
+      <span class="news-head-title">Regulation · 법규·제도 변화 — 미리 확인하세요</span>
       {news_items(ctx["regulatory_news"])}
     </div>
   </section>
 
   <section>
-    <div class="label">한눈에 보기</div>
-    <div class="hl-grid">
-      <div class="hl-item">
-        <div class="hl-label">이번 주 최고 상승 키워드</div>
-        <div class="hl-value up">{f'<a href="{dashboard_url("trends")}" target="_blank" rel="noopener noreferrer" style="color:inherit;text-decoration:underline;text-decoration-style:dotted;text-underline-offset:3px;">{esc(top_up_kw)}</a>' if top_up_kw else "-"} <span class="unit num">{fmt_pct(top_up_d["changeRate"]) if top_up_d else ""}</span></div>
-      </div>
-      <div class="hl-item">
-        <div class="hl-label">주의가 필요한 하락 키워드</div>
-        <div class="hl-value down">{f'<a href="{dashboard_url("trends")}" target="_blank" rel="noopener noreferrer" style="color:inherit;text-decoration:underline;text-decoration-style:dotted;text-underline-offset:3px;">{esc(top_down_kw)}</a>' if top_down_kw else "-"} <span class="unit num">{fmt_pct(top_down_d["changeRate"]) if top_down_d else ""}</span></div>
-      </div>
-      <div class="hl-item">
-        <div class="hl-label">신제품 최다 카테고리</div>
-        <div class="hl-value"><a href="{dashboard_url("category")}" target="_blank" rel="noopener noreferrer" style="color:inherit;text-decoration:underline;text-decoration-style:dotted;text-underline-offset:3px;">{esc(top_cat_name or "-")}</a> <span class="unit num">{top_cat_count}건</span></div>
-        <div class="hl-sub num">전체 {ctx["total_products"]}건 중</div>
-      </div>
-      <div class="hl-item">
-        <div class="hl-label">최다 신제품 출시 브랜드</div>
-        <div class="hl-value"><a href="{dashboard_url("category")}" target="_blank" rel="noopener noreferrer" style="color:inherit;text-decoration:underline;text-decoration-style:dotted;text-underline-offset:3px;">{esc(top_brand_name or "-")}</a> <span class="unit num">{top_brand_count}건</span></div>
-        <div class="hl-sub">최근 30일 누적</div>
-      </div>
-    </div>
-  </section>
-
-  <section>
-    <div class="label">키워드 트렌드</div>
+    <div class="label">Keyword trend</div>
     <h2>검색 지수 상승·하락 TOP 5</h2>
     <div class="section-sub">네이버 데이터랩 기준, 전주 대비 변화율</div>
     <div class="kw-cols">
@@ -405,7 +386,7 @@ def render_html(ctx):
   </section>
 
   <section>
-    <div class="label">기회 키워드</div>
+    <div class="label">Opportunity</div>
     <h2>수요는 오르는데, 아직 제품은 적은 자리</h2>
     <div class="opp-box">
       <div>{opp_kw_html}</div>
@@ -413,16 +394,17 @@ def render_html(ctx):
     </div>
   </section>
 
-  <section style="border-bottom:none;">
-    <div class="label">신제품 동향</div>
+  <section>
+    <div class="label">New products</div>
     <h2>카테고리별 신제품 {ctx["total_products"]}건</h2>
     <div class="section-sub">마켓컬리 검색결과 기준, 최근 1일 발견분</div>
     <div class="cat-bars">{cat_bar_html}</div>
     <div class="prod-grid">{prod_html}</div>
   </section>
 
-  <div class="footer">
-    본 리포트는 네이버 데이터랩 검색어트렌드, 마켓컬리 검색결과, 네이버 뉴스 검색 결과를 자동 수집·집계하여
+  <div class="footer-block">
+    <div class="eyebrow">About this report</div>
+    본 리포트는 네이버 데이터랩 검색어트렌드, 마켓컬리 검색결과, 식품 전문지 기사를 자동 수집·집계하여
     작성되었습니다. 수치는 조사 기준일의 스냅샷이며, 실제 시장 상황과 차이가 있을 수 있습니다.<br>
     문의 · 마케팅부 데이터 담당자
   </div>
