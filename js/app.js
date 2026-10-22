@@ -466,6 +466,49 @@ function toggleKw(kw) {
 /* ════════════════════════════════════════════════════════════
    PRODUCTS (신제품 트래킹)
    ════════════════════════════════════════════════════════════ */
+/* 신제품 화면 보기 방식: 'keyword'(키워드별 묶음, 기본) | 'card'(기존 카드 나열) */
+let productView = (() => { try { return localStorage.getItem('productView') || 'keyword'; } catch(e) { return 'keyword'; } })();
+const expandedRails = new Set();
+const RAIL_PREVIEW = 4;
+
+function setProductView(v) {
+  productView = v;
+  try { localStorage.setItem('productView', v); } catch(e) {}
+  renderProducts();
+}
+function toggleRail(kw) {
+  expandedRails.has(kw) ? expandedRails.delete(kw) : expandedRails.add(kw);
+  renderProducts();
+}
+
+function productPriceNum(p) { return Number(String(p.price || '').replace(/[^0-9]/g, '')) || 0; }
+
+function productFirstSeenMap() {
+  const m = {};
+  (HISTORY || []).forEach(e => { if (e.id) m[e.id] = e.firstSeenDate; });
+  return m;
+}
+
+function railSparkSvg(data, color) {
+  const d = (data || []).slice(-28);
+  if (d.length < 2) return '';
+  const w = 132, h = 32, mn = Math.min(...d), mx = Math.max(...d), r = (mx - mn) || 1;
+  const pts = d.map((v, i) => `${(i / (d.length - 1) * w).toFixed(1)},${(h - 3 - (v - mn) / r * (h - 6)).toFixed(1)}`).join(' ');
+  return `<svg class="kr-spark" width="${w}" height="${h}" viewBox="0 0 ${w} ${h}" aria-hidden="true"><polyline points="${pts}" fill="none" stroke="${color}" stroke-width="1.7" stroke-linejoin="round" stroke-linecap="round"/></svg>`;
+}
+
+function productTileHtml(p, isNew) {
+  const brand = isRealBrand(p.brand) ? p.brand : '브랜드 없음';
+  const inner = `
+      ${isNew ? '<span class="kr-new">NEW</span>' : ''}
+      <span class="kr-tile-brand">${brand}</span>
+      <span class="kr-tile-name">${p.name}</span>
+      <span class="kr-tile-foot"><span class="kr-tile-cat">${p.category}</span><span class="kr-tile-price">${p.price}</span></span>`;
+  return p.url
+    ? `<a class="kr-tile" href="${p.url}" target="_blank" rel="noopener noreferrer">${inner}</a>`
+    : `<div class="kr-tile">${inner}</div>`;
+}
+
 function renderProducts() {
   const el = document.getElementById('productsGrid');
   if(!el) return;
@@ -473,7 +516,6 @@ function renderProducts() {
   let list = [...NEW_PRODUCTS];
   if(productFilter !== '전체') list = list.filter(p => p.category === productFilter);
   if(productSearch) {
-    const q = productSearch.trim().toLowerCase();
     list = list.filter(p =>
       p.name.includes(productSearch) ||
       p.brand.includes(productSearch) ||
@@ -482,12 +524,41 @@ function renderProducts() {
     );
   }
 
+  // 카테고리 필터 카드의 "총 N개 신제품" (예전엔 20으로 고정돼 있었음)
+  const countEl = document.getElementById('productCount');
+  if (countEl) countEl.textContent = list.length;
+
+  const firstSeen = productFirstSeenMap();
+  const today = (META && (META.kurlyUpdated || META.lastUpdated) || '').slice(0, 10);
+  const isNew = p => !!today && firstSeen[p.id] === today;
+
+  const toolbarEl = document.getElementById('productsToolbar');
+  if (toolbarEl) {
+    const prices = list.map(productPriceNum).filter(Boolean).sort((a, b) => a - b);
+    const median = prices.length ? prices[Math.floor(prices.length / 2)] : 0;
+    const brands = new Set(list.map(p => p.brand).filter(isRealBrand)).size;
+    toolbarEl.innerHTML = `
+      <div class="kr-seg" role="tablist" aria-label="신제품 보기 방식">
+        <button role="tab" class="${productView === 'keyword' ? 'on' : ''}" onclick="setProductView('keyword')">키워드별</button>
+        <button role="tab" class="${productView === 'card' ? 'on' : ''}" onclick="setProductView('card')">카드</button>
+      </div>
+      <div class="kr-chips">
+        <span class="kr-chip kr-chip-new">오늘 처음 등장 <b>${list.filter(isNew).length}</b></span>
+        <span class="kr-chip">전체 <b>${list.length}</b>개</span>
+        ${median ? `<span class="kr-chip">가격 중앙값 <b>${median.toLocaleString()}원</b></span>` : ''}
+        <span class="kr-chip">브랜드 <b>${brands}</b>곳</span>
+      </div>`;
+  }
+
   if(!list.length) {
+    el.className = 'products-grid';
     el.innerHTML = `<div class="empty" style="grid-column:1/-1"><div class="empty-icon">🔍</div><h3>검색 결과 없음</h3><p>다른 키워드로 검색해보세요</p></div>`;
     return;
   }
 
-  el.innerHTML = list.map(p => `
+  if (productView === 'card') {
+    el.className = 'products-grid';
+    el.innerHTML = list.map(p => `
     <div class="product-card">
       ${p.url
         ? `<a href="${p.url}" target="_blank" rel="noopener noreferrer" class="p-name">${p.name}</a>`
@@ -504,6 +575,41 @@ function renderProducts() {
       <div class="p-rating">${p.rating != null ? `⭐ ${p.rating} · ` : ''}${p.origin && p.origin !== '-' ? p.origin : p.channel}</div>
     </div>
   `).join('');
+    return;
+  }
+
+  // ── 키워드별 묶음: 추적 키워드를 상승률 순으로, 각 줄에 그 키워드로 잡힌 신제품 ──
+  el.className = 'kr-rails';
+  const filtered = productFilter !== '전체' || !!productSearch;
+  const rows = Object.entries(KEYWORD_DATA)
+    .sort((a, b) => b[1].changeRate - a[1].changeRate)
+    .map(([kw, d]) => ({ kw, d, items: list.filter(p => p.keywords.includes(kw)) }))
+    .filter(r => r.items.length || !filtered);
+  const orphan = list.filter(p => !p.keywords.some(k => KEYWORD_DATA[k]));
+  if (orphan.length) rows.push({ kw: '기타', d: null, items: orphan });
+
+  el.innerHTML = rows.map(({ kw, d, items }) => {
+    items = [...items].sort((a, b) => isNew(b) - isNew(a));
+    const dir = !d ? 'flat' : d.changeRate > 0 ? 'up' : d.changeRate < 0 ? 'down' : 'flat';
+    const open = expandedRails.has(kw);
+    const shown = open ? items : items.slice(0, RAIL_PREVIEW);
+    const head = d ? `
+        <div class="kr-name">${kw}</div>
+        <div class="kr-meta">${d.category} · 신제품 ${items.length}개</div>
+        <div class="kr-pct">${dir === 'up' ? '▲' : dir === 'down' ? '▼' : '–'} ${Math.abs(d.changeRate)}%</div>
+        ${railSparkSvg(d.data, '#000')}` : `
+        <div class="kr-name">기타</div>
+        <div class="kr-meta">추적이 끝난 키워드 · ${items.length}개</div>`;
+    const kwArg = kw.replace(/'/g, "\\'");
+    return `
+      <div class="kr-row">
+        <div class="kr-head kr-${dir}">${head}</div>
+        <div class="kr-body">
+          <div class="kr-tiles">${shown.length ? shown.map(p => productTileHtml(p, isNew(p))).join('') : '<div class="kr-empty">아직 신제품이 없어요 — 기회 키워드</div>'}</div>
+          ${items.length > RAIL_PREVIEW ? `<button class="kr-more" onclick="toggleRail('${kwArg}')">${open ? '접기' : `${items.length - RAIL_PREVIEW}개 더보기`}</button>` : ''}
+        </div>
+      </div>`;
+  }).join('');
 }
 
 function setProductFilter(f) {

@@ -242,3 +242,20 @@ body::before { display:none; }
 :root { --neg:#eb6b89; }   /* rgb(235,107,137) */
 #customKeywords, #searchResults, .ck-modal { --rose:var(--neg); }
 .ck-pct.down, .ck-modal-pct.down { color:var(--neg) !important; }
+
+/* 신제품 키워드별 묶음 — 에디토리얼 톤 */
+.kr-seg { background:var(--surface-soft); }
+.kr-seg button { color:#000; font-weight:480; }
+.kr-seg button.on { background:#000; color:#fff; }
+.kr-chip { border-color:var(--hairline); }
+.kr-chip-new { background:var(--block-lime); }
+.kr-up { background:var(--block-lime); }
+.kr-down { background:var(--block-pink); }
+.kr-flat { background:var(--surface-soft); }
+.kr-meta { font-family:var(--mono); font-size:11px; letter-spacing:.4px; opacity:1; }
+.kr-pct { font-weight:340; font-family:var(--sans); }
+.kr-tile { border-color:var(--hairline); }
+.kr-tile-brand, .kr-tile-cat { font-family:var(--mono); font-size:11px; color:#000; letter-spacing:.3px; }
+.kr-tile-name { font-weight:540; }
+.kr-tile-price { font-family:var(--mono); font-weight:500; }
+.kr-new { background:var(--block-lime); font-family:var(--mono); font-weight:400; letter-spacing:.6px; }

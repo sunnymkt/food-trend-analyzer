@@ -359,7 +359,7 @@
           <div class="card" style="margin-bottom:18px;">
             <div class="card-header">
               <div class="card-title"><span class="card-icon">🗂️</span>카테고리 필터</div>
-              <div class="card-meta">총 <strong style="color:var(--primary)">20</strong>개 신제품</div>
+              <div class="card-meta">총 <strong style="color:var(--primary)" id="productCount">-</strong>개 신제품</div>
             </div>
             <div class="filter-bar">
               <button class="filter-btn pf-btn active" data-f="전체">🍽️ 전체</button>
@@ -375,6 +375,7 @@
             </div>
           </div>
 
+          <div id="productsToolbar" class="kr-toolbar"></div>
           <div id="productsGrid" class="products-grid"></div>
 
         </section><!-- /products -->

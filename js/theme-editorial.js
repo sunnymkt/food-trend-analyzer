@@ -85,9 +85,14 @@
   function intro(view){
     const kd = Object.entries(KEYWORD_DATA).sort((a,b)=>b[1].changeRate-a[1].changeRate);
     if (view==='products') {
-      const cat=countBy(NEW_PRODUCTS,p=>p.category)[0]||['-',0], kw=countBy(NEW_PRODUCTS,p=>p.keywords)[0]||['-',0];
-      return {c:'lilac', eb:'New products · 마켓컬리 자동 수집', h:`오늘 찾은 신제품 <b>${NEW_PRODUCTS.length}개</b>.<br>가장 많이 나온 맛은 <b>${kw[0]}</b>.`,
-        s:[['Total',`신제품`,NEW_PRODUCTS.length+'개'],['Top category',cat[0],cat[1]+'개'],['Top keyword','#'+kw[0],kw[1]+'개']]};
+      // 수집기가 키워드마다 최대 4개씩 가져오므로 '가장 많이 나온 맛'은 의미가 없어 '오늘 처음 등장'을 보여준다
+      const tracked=NEW_PRODUCTS.filter(p=>p.keywords.some(k=>KEYWORD_DATA[k]));
+      const cat=countBy(tracked,p=>p.category)[0]||['-',0];
+      const fsd={}; (HISTORY||[]).forEach(e=>{ fsd[e.id]=e.firstSeenDate; });
+      const today=(META&&META.kurlyUpdated||'').slice(0,10);
+      const nw=tracked.filter(p=>fsd[p.id]===today).length;
+      return {c:'lilac', eb:'New products · 마켓컬리 자동 수집', h:`추적 키워드로 찾은 신제품 <b>${tracked.length}개</b>.<br>그중 <b>${nw}개</b>는 오늘 처음 등장했어요.`,
+        s:[['Total','신제품',tracked.length+'개'],['New today','오늘 처음 등장',nw+'개'],['Top category',cat[0],cat[1]+'개']]};
     }
     if (view==='news') {
       const pr=NEWS.filter(n=>n.category==='product').length, rg=NEWS.filter(n=>n.category==='regulatory').length;
