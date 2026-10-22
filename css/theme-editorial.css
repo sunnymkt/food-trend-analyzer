@@ -235,3 +235,10 @@ body::before { display:none; }
 @media print {
   .mk-strip { display:none; }
 }
+
+/* ── 카테고리별 인기검색어: 하락(마이너스) 키워드는 탁한 분홍 ──
+   스파크라인은 app.js 에서 stroke="var(--rose)" 로 그려지므로 이 영역에서만 --rose 를 바꾼다.
+   (대시보드 등 다른 화면의 --rose 는 흑백 그대로) */
+:root { --neg:#eb6b89; }   /* rgb(235,107,137) */
+#customKeywords, #searchResults, .ck-modal { --rose:var(--neg); }
+.ck-pct.down, .ck-modal-pct.down { color:var(--neg) !important; }

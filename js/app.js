@@ -1210,7 +1210,7 @@ function openCkModal(keyword) {
   pctEl.textContent = `${item.changeRate >= 0 ? '+' : ''}${item.changeRate}%`;
   pctEl.className = `ck-modal-pct ${item.changeRate >= 0 ? 'up' : 'down'}`;
 
-  const color = item.changeRate >= 0 ? '#0d9488' : '#e11d48';
+  const color = item.changeRate >= 0 ? '#000000' : '#eb6b89'; // 하락 = 탁한 분홍 rgb(235,107,137)
   destroyChart('ckModal');
   charts.ckModal = new Chart(document.getElementById('ckModalChart'), {
     type: 'line',
