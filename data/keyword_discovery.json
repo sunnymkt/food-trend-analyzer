@@ -1,5 +1,5 @@
 {
-  "lastRun": "2026-10-22T05:33:25.144949+09:00",
+  "lastRun": "2026-10-14T05:00:00+09:00",
   "articlesScanned": 364,
   "newsLookbackDays": 14,
   "selected": [
@@ -1210,5 +1210,6 @@
       "excludedReason": null,
       "examples": []
     }
-  ]
+  ],
+  "_note": "2026-10-22: 캪틴큐(주류 브랜드)·파리(브랜드 조각) 오탐으로 로직 수정 후 재실행 예약 — lastRun 을 앞당겨 다음 일별 실행에서 다시 분석"
 }

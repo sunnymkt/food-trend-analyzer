@@ -268,7 +268,10 @@ PRODUCT_NAME_NOISE = {
 }
 
 
+COMPOUND_OK = set()  # 필요 시 '앞부분 조각' 필터에서 예외로 둘 단어
+
 PLACE_NAMES = {
+    "파리", "런던", "뉴욕", "도쿄", "오사카", "교토", "하와이", "LA", "홍콩", "대만", "싱가포르", "스페인", "독일", "영국",
     "서울", "부산", "대구", "인천", "광주", "대전", "울산", "세종", "경기", "강원", "충북", "충남", "전북", "전남",
     "경북", "경남", "제주", "한국", "일본", "중국", "미국", "프랑스", "이탈리아", "베트남", "태국",
 }
@@ -284,10 +287,10 @@ TITLE_TAG_RE = re.compile(r"^\s*(\[[^\]]{1,12}\]\s*)+")
 
 def article_company(art):
     """기사 1건 = 회사 1곳으로 본다. '오리온, ‘초코파이 피스타치오’ 출시' 처럼 제목 앞 쉼표 앞부분이
-    있으면 그게 회사(또는 '빙그레 따옴' 같은 회사+브랜드), 없으면 기사 링크 자체를 식별자로 쓴다."""
+    있으면 그게 회사(또는 '빙그레 따옴' 같은 회사+브랜드), 없으면 None (회사를 알 수 없음)."""
     head = TITLE_TAG_RE.sub("", art["title"])
     m = re.match(r"^([^,…·'‘“\"]{2,20}),", head)
-    return m.group(1).strip() if m else art.get("link") or art["title"]
+    return m.group(1).strip() if m else None
 
 
 def news_candidates(articles, kiwi, exclude, min_mentions, extra_signals=()):
@@ -319,9 +322,15 @@ def news_candidates(articles, kiwi, exclude, min_mentions, extra_signals=()):
                 # 형태소 분석이 '클렌즈'를 '클+렌즈'로 쪼개는 식의 오분할 방지: 단어 시작 위치에 있어야 함
                 if not re.search(rf"(?<![가-힣]){re.escape(w)}", name):
                     continue
-                if w in comp:   # 회사·브랜드명 자체 ('빙그레 따옴' → '따옴')
+                if comp and w in comp:   # 회사·브랜드명 자체 ('빙그레 따옴' → '따옴')
                     continue
-                companies[w].add(comp)
+                # '파리바게뜨' → '파리' 처럼 더 긴 고유명사의 앞부분만 잘린 조각은 버린다:
+                # 제품명 안에서 최소 한 번은 단어 끝(뒤에 한글이 안 붙음)으로 나와야 한다.
+                if w not in COMPOUND_OK and not re.search(rf"(?<![가-힣]){re.escape(w)}(?![가-힣])", name):
+                    continue
+                # 회사를 알 수 없는 기사는 서로 다른 회사로 세지 않는다 (같은 브랜드 기사 여러 건이
+                # '여러 회사'로 부풀려지는 것 방지) — 전부 합쳐 '미확인 1곳'으로만 친다.
+                companies[w].add(comp or "?")
                 texts[w].append(name)
                 if len(examples[w]) < 2 and title not in examples[w]:
                     examples[w].append(title)
@@ -389,9 +398,21 @@ def fetch_monthly_volumes(keywords):
     return volumes
 
 
+def winsorize(series, window=56, factor=3.0):
+    """광고·방송 노출 같은 하루이틀짜리 폭증이 4주 증가율을 수천 %로 만드는 것을 막기 위해,
+    최근 56일 중앙값의 3배를 넘는 날은 그 값으로 눌러서 계산한다."""
+    recent = sorted(v for v in series[-window:] if v > 0)
+    if not recent:
+        return series
+    med = recent[len(recent) // 2]
+    cap = med * factor
+    return [min(v, cap) for v in series]
+
+
 def score_candidate(series, mentions, tracked, cfg):
-    g28 = window_growth(series, 28)
-    g7 = compute_change_rate(series)
+    smooth = winsorize(series)
+    g28 = window_growth(smooth, 28)
+    g7 = compute_change_rate(smooth)
     last28 = series[-28:]
     active_ratio = sum(1 for v in last28 if v > 0) / max(len(last28), 1)
     clip = lambda v: max(-100, min(300, v))
@@ -409,16 +430,35 @@ def overlaps(a, b):
     return a != b and (a in b or b in a)
 
 
-def select_keywords(scored, pinned, max_keywords):
-    selected = list(pinned)
-    for c in sorted(scored, key=lambda c: -c["score"]):
-        if len(selected) >= max_keywords:
-            break
-        if not c["eligible"] or c["keyword"] in selected:
-            continue
-        if any(overlaps(c["keyword"], s) for s in selected):
-            continue
-        selected.append(c["keyword"])
+def select_keywords(scored, pinned, max_keywords, current=(), max_replace=None):
+    """pinned → 점수 순으로 max_keywords 개를 고른다.
+    max_replace 가 있으면 한 번에 교체되는 기존 키워드 수를 그 이하로 제한한다
+    (제외 사유가 있는 기존 키워드는 제한과 상관없이 빠진다)."""
+    ranked = sorted(scored, key=lambda c: -c["score"])
+    def pick(pool, selected):
+        for c in pool:
+            if len(selected) >= max_keywords:
+                break
+            if not c["eligible"] or c["keyword"] in selected:
+                continue
+            if any(overlaps(c["keyword"], s) for s in selected):
+                continue
+            selected.append(c["keyword"])
+        return selected
+    selected = pick(ranked, list(pinned))
+    if max_replace is not None and current:
+        removed = [k for k in current if k not in selected]
+        keep_n = max(0, len(removed) - max_replace)
+        if keep_n:
+            # 빠질 예정이던 기존 키워드 중 점수 높은 순으로 keep_n 개를 되살리고, 그만큼 신규를 뺀다
+            by_kw = {c["keyword"]: c for c in scored}
+            revive = [by_kw[k] for k in removed if k in by_kw and by_kw[k]["eligible"]]
+            revive.sort(key=lambda c: -c["score"])
+            revive = [c["keyword"] for c in revive[:keep_n]]
+            newcomers = [k for k in selected if k not in current and k not in pinned]
+            newcomers.sort(key=lambda k: by_kw[k]["score"])           # 점수 낮은 신규부터 양보
+            drop = set(newcomers[:len(revive)])
+            selected = [k for k in selected if k not in drop] + revive
     return selected
 
 
@@ -529,6 +569,8 @@ def main():
         mentions = news_terms.get(w) or count_mentions(w, articles)
         s = score_candidate(series, mentions, w in current, cfg)
         reasons = []
+        if w in exclude or w in PLACE_NAMES:
+            reasons.append("제외 목록(브랜드·지명·일반어)")
         if s["activeDayRatio"] < cfg["minActiveDayRatio"]:
             reasons.append("검색량 너무 적음")
         if volumes is not None and volumes.get(w, 0) < cfg["minMonthlySearch"]:
@@ -541,7 +583,7 @@ def main():
             "examples": examples.get(w, [])[:2],
         })
 
-    selected = select_keywords(scored, pinned, cfg["maxKeywords"])
+    selected = select_keywords(scored, pinned, cfg["maxKeywords"], list(current), cfg.get("maxReplacePerRun"))
     if len(selected) < 10:
         print(f"ERROR: 선정된 키워드가 {len(selected)}개뿐이라 기존 목록을 유지합니다.", file=sys.stderr)
         sys.exit(1)

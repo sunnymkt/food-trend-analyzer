@@ -1,20 +1,6 @@
 {
   "_comment": "추적 키워드 목록 (최대 20개). scripts/discover_keywords.py 가 주 1회 식품 전문지 신제품 기사와 네이버 데이터랩 검색 추이를 보고 자동으로 교체한다. 반드시 계속 추적할 키워드는 \"pinned\": true 를 넣으면 자동 교체에서 빠진다. source: manual(사람이 넣음) / auto(자동 발굴). color/category/description 은 화면 표시용이며, 실제 검색 추이(data, changeRate)는 scripts/fetch_naver_trends.py 가 data/keyword_trends.json 에 채운다.",
   "keywords": {
-    "캪틴큐": {
-      "color": "#16a34a",
-      "category": "전체",
-      "source": "auto",
-      "addedAt": "2026-10-22",
-      "description": "자동 발굴 키워드 · 최근 14일 신제품 기사에서 2개 회사가 제품명에 사용 · 최근 4주 검색량 +7219% (직전 4주 대비). 관련 기사: '추억의 양주 ‘캪틴큐’의 매력, 코미디언 이선민이 알려준다'"
-    },
-    "파리": {
-      "color": "#2563eb",
-      "category": "전체",
-      "source": "auto",
-      "addedAt": "2026-10-22",
-      "description": "자동 발굴 키워드 · 최근 14일 신제품 기사에서 2개 회사가 제품명에 사용 · 최근 4주 검색량 +147% (직전 4주 대비). 관련 기사: '샘표, 파리서 콩 발효 기술 집약 K-소스 알려'"
-    },
     "생딸기": {
       "color": "#22c55e",
       "category": "전체",
