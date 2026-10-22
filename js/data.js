@@ -92,9 +92,12 @@ function buildCategories(categoriesRaw, products) {
   return out;
 }
 
+// 브랜드 표기가 없는 상품(컬리 직매입 농산물 등)은 브랜드 순위에서 뺀다
+function isRealBrand(b) { return !!b && b !== '-' && b !== '브랜드 없음'; }
+
 function buildBrandData(products) {
   const counts = {};
-  products.forEach(p => { counts[p.brand] = (counts[p.brand] || 0) + 1; });
+  products.forEach(p => { if (isRealBrand(p.brand)) counts[p.brand] = (counts[p.brand] || 0) + 1; });
   const palette = ['#ea580c', '#2563eb', '#7c3aed', '#0d9488', '#e11d48', '#15803d', '#b45309', '#db2777'];
   return Object.entries(counts)
     .sort((a, b) => b[1] - a[1])
@@ -191,7 +194,7 @@ function buildKeywordOpportunity(keywordData, history) {
 function buildBrandVelocity(history) {
   const counts = {};
   history.forEach(p => {
-    if (!p.brand || p.brand === '-') return;
+    if (!isRealBrand(p.brand)) return;
     counts[p.brand] = (counts[p.brand] || 0) + 1;
   });
   return Object.entries(counts)

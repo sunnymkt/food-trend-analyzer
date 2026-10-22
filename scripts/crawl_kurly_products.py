@@ -109,6 +109,59 @@ def parse_brand_name(raw_name):
     return "-", raw_name.strip()
 
 
+NO_BRAND = "브랜드 없음"   # 컬리 직매입 농산물 등 브랜드 표기가 아예 없는 상품
+DETAIL_UA = ("Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 "
+             "(KHTML, like Gecko) Chrome/130.0 Safari/537.36")
+LD_BRAND_RE = re.compile(r'"brand"\s*:\s*\{[^{}]*?"name"\s*:\s*"([^"]+)"')
+
+
+def fetch_detail_brand(url):
+    """상품명 앞에 [브랜드] 표기가 없는 상품은 상세 페이지의 구조화 데이터(JSON-LD)에서
+    브랜드를 읽는다. (예: '겨울향기 유자청 1kg' → 겨울향기)  없으면 None."""
+    import requests
+    try:
+        resp = requests.get(url, headers={"User-Agent": DETAIL_UA}, timeout=20)
+        resp.raise_for_status()
+    except Exception as e:
+        print(f"  -> 상세 페이지 브랜드 조회 실패 ({url}): {e}", file=sys.stderr)
+        return None
+    for block in re.findall(r'<script type="application/ld\+json"[^>]*>(.*?)</script>', resp.text, re.S):
+        m = LD_BRAND_RE.search(block)
+        if m and m.group(1).strip():
+            return m.group(1).strip()
+    return None
+
+
+def fill_missing_brands(products):
+    """[브랜드] 표기가 없어 brand 가 '-' 인 상품의 브랜드를 채운다.
+    한 번 확인한 상품은 product_history.json 의 값을 재사용해 매일 다시 조회하지 않는다.
+    끝까지 브랜드가 없으면 NO_BRAND 로 표시한다 (브랜드 순위 집계에서는 제외됨)."""
+    known = {}
+    if HISTORY_PATH.exists():
+        try:
+            for pid, e in json.loads(HISTORY_PATH.read_text(encoding="utf-8")).items():
+                if e.get("brand") and e["brand"] != "-":
+                    known[pid] = e["brand"]
+        except json.JSONDecodeError:
+            pass
+    filled = 0
+    for p in products:
+        if p.get("brand") not in ("-", "", None):
+            continue
+        brand = known.get(p["id"])
+        if not brand:
+            brand = fetch_detail_brand(p["url"]) or NO_BRAND
+            time.sleep(0.5)
+        p["brand"] = brand
+        # 상품명이 브랜드로 시작하면 중복 표기 제거 ('겨울향기 겨울향기 유자청' 방지)
+        if brand != NO_BRAND and p["name"].startswith(brand) and len(p["name"]) > len(brand):
+            p["name"] = p["name"][len(brand):].strip()
+        filled += 1
+    if filled:
+        print(f"[crawl_kurly_products] [브랜드] 표기 없는 상품 {filled}건 브랜드 보완")
+    return products
+
+
 def primary_category(compound_category):
     return compound_category.split("/")[0]
 
@@ -249,7 +302,7 @@ def main():
 
         browser.close()
 
-    products = list(products_by_href.values())
+    products = fill_missing_brands(list(products_by_href.values()))
 
     if not products:
         print("ERROR: 수집된 상품이 0건입니다 (사이트 구조 변경 또는 차단 가능성). "

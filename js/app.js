@@ -991,7 +991,8 @@ function renderCatBrandStats(cat) {
   if(!el) return;
   let list = cat === '전체' ? NEW_PRODUCTS : NEW_PRODUCTS.filter(p => p.category === cat);
   const counts = {};
-  list.forEach(p => { counts[p.brand] = (counts[p.brand]||0)+1; });
+  list.forEach(p => { if (isRealBrand(p.brand)) counts[p.brand] = (counts[p.brand]||0)+1; });
+  const noBrandCount = list.filter(p => !isRealBrand(p.brand)).length;
   const sorted = Object.entries(counts).sort((a,b) => b[1]-a[1]).slice(0,8);
   const max = sorted[0]?.[1] || 1;
   el.innerHTML = `
@@ -1023,7 +1024,7 @@ function renderCatBrandStats(cat) {
       </div>
     `;
     }).join('')}
-  `;
+  ${noBrandCount ? `<p style="font-size:12px;margin-top:12px;">브랜드 표기 없는 상품(컬리 직매입 농산물 등) ${noBrandCount}개는 순위에서 제외</p>` : ''}`;
   setTimeout(() => {
     el.querySelectorAll('.rank-fill').forEach(b => { b.style.width = b.dataset.w + '%'; });
   }, 120);

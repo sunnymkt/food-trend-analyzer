@@ -143,7 +143,7 @@ def build_context():
     brand_counts = {}
     for p in history:
         b = p.get("brand")
-        if b and b != "-":
+        if b and b not in ("-", "브랜드 없음"):
             brand_counts[b] = brand_counts.get(b, 0) + 1
     brand_sorted = sorted(brand_counts.items(), key=lambda kv: -kv[1])
     top_brand = brand_sorted[0] if brand_sorted else (None, 0)

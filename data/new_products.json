@@ -173,7 +173,7 @@
     "id": "kurly-5054884",
     "emoji": "🍱",
     "name": "GAP 냉동 청도 산딸기 250g",
-    "brand": "-",
+    "brand": "브랜드 없음",
     "category": "간편식",
     "keywords": [
       "생딸기"
@@ -190,7 +190,7 @@
     "id": "kurly-5059717",
     "emoji": "🍱",
     "name": "칠레산 유레카 블루베리 125g 3종 (택1)",
-    "brand": "-",
+    "brand": "브랜드 없음",
     "category": "간편식",
     "keywords": [
       "생딸기"
@@ -224,7 +224,7 @@
     "id": "kurly-1002186304",
     "emoji": "🍱",
     "name": "약밤 320g (40g x 8봉)",
-    "brand": "-",
+    "brand": "브랜드 없음",
     "category": "간편식",
     "keywords": [
       "군밤",
@@ -309,8 +309,8 @@
   {
     "id": "kurly-5030744",
     "emoji": "🧃",
-    "name": "겨울향기 유자청 1kg",
-    "brand": "-",
+    "name": "유자청 1kg",
+    "brand": "겨울향기",
     "category": "음료",
     "keywords": [
       "유자"
@@ -497,7 +497,7 @@
     "id": "kurly-5095800",
     "emoji": "🍱",
     "name": "한입 꿀고구마 1kg",
-    "brand": "-",
+    "brand": "브랜드 없음",
     "category": "간편식",
     "keywords": [
       "고구마"
@@ -700,8 +700,8 @@
   {
     "id": "kurly-1002330978",
     "emoji": "🍦",
-    "name": "제주 성이시돌목장 젤라또 아이스크림 473mL 4종",
-    "brand": "-",
+    "name": "젤라또 아이스크림 473mL 4종",
+    "brand": "제주 성이시돌목장",
     "category": "빙과",
     "keywords": [
       "요아정"
