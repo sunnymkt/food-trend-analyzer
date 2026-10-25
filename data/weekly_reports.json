@@ -1,5 +1,19 @@
 [
   {
+    "date": "2026-10-26",
+    "weekLabel": "2026년 10월 4주차",
+    "periodLabel": "2026-10-20 ~ 2026-10-26",
+    "generatedAt": "2026-10-26T04:27:40.699654+09:00",
+    "topUpKeyword": "카다이프",
+    "topUpPct": 179,
+    "topDownKeyword": "프로틴",
+    "topDownPct": -12,
+    "topCategory": "간편식",
+    "topCategoryCount": 30,
+    "totalProducts": 79,
+    "file": "data/weekly_reports/2026-10-26.html"
+  },
+  {
     "date": "2026-10-19",
     "weekLabel": "2026년 10월 3주차",
     "periodLabel": "2026-10-13 ~ 2026-10-19",
