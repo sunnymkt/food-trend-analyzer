@@ -103,7 +103,7 @@
     "keywords": [
       "유자"
     ],
-    "launchDate": "2026-10-30",
+    "launchDate": "2026-10-31",
     "channel": "마켓컬리",
     "origin": "-",
     "price": "15,900원",
@@ -111,7 +111,7 @@
     "source": "kurly-crawler",
     "url": "https://www.kurly.com/goods/1000172525",
     "firstSeenDate": "2026-07-12",
-    "lastSeenDate": "2026-10-30"
+    "lastSeenDate": "2026-10-31"
   },
   "kurly-5061691": {
     "id": "kurly-5061691",
@@ -122,7 +122,7 @@
     "keywords": [
       "유자"
     ],
-    "launchDate": "2026-10-30",
+    "launchDate": "2026-10-31",
     "channel": "마켓컬리",
     "origin": "-",
     "price": "8,900원",
@@ -130,7 +130,7 @@
     "source": "kurly-crawler",
     "url": "https://www.kurly.com/goods/5061691",
     "firstSeenDate": "2026-07-12",
-    "lastSeenDate": "2026-10-30"
+    "lastSeenDate": "2026-10-31"
   },
   "kurly-1000097237": {
     "id": "kurly-1000097237",
@@ -169,25 +169,6 @@
     "url": "https://www.kurly.com/goods/1001325610",
     "firstSeenDate": "2026-07-12",
     "lastSeenDate": "2026-10-21"
-  },
-  "kurly-1001105458": {
-    "id": "kurly-1001105458",
-    "emoji": "🧃",
-    "name": "모카골드 제로슈가 커피믹스 2종 (택1)",
-    "brand": "맥심",
-    "category": "음료",
-    "keywords": [
-      "제로슈거"
-    ],
-    "launchDate": "2026-09-30",
-    "channel": "마켓컬리",
-    "origin": "-",
-    "price": "5,780원",
-    "rating": null,
-    "source": "kurly-crawler",
-    "url": "https://www.kurly.com/goods/1001105458",
-    "firstSeenDate": "2026-07-12",
-    "lastSeenDate": "2026-09-30"
   },
   "kurly-1000114264": {
     "id": "kurly-1000114264",
@@ -844,7 +825,7 @@
     "keywords": [
       "유자"
     ],
-    "launchDate": "2026-10-30",
+    "launchDate": "2026-10-31",
     "channel": "마켓컬리",
     "origin": "-",
     "price": "9,800원",
@@ -852,7 +833,7 @@
     "source": "kurly-crawler",
     "url": "https://www.kurly.com/goods/5030744",
     "firstSeenDate": "2026-07-15",
-    "lastSeenDate": "2026-10-30"
+    "lastSeenDate": "2026-10-31"
   },
   "kurly-1000127380": {
     "id": "kurly-1000127380",
@@ -1234,25 +1215,6 @@
     "firstSeenDate": "2026-08-23",
     "lastSeenDate": "2026-10-21"
   },
-  "kurly-1002370282": {
-    "id": "kurly-1002370282",
-    "emoji": "🧃",
-    "name": "흑임자 밥알찹쌀떡 (60g X 6개)",
-    "brand": "청년떡집",
-    "category": "음료",
-    "keywords": [
-      "흑당"
-    ],
-    "launchDate": "2026-09-30",
-    "channel": "마켓컬리",
-    "origin": "-",
-    "price": "12,500원",
-    "rating": null,
-    "source": "kurly-crawler",
-    "url": "https://www.kurly.com/goods/1002370282",
-    "firstSeenDate": "2026-08-28",
-    "lastSeenDate": "2026-09-30"
-  },
   "kurly-1002462485": {
     "id": "kurly-1002462485",
     "emoji": "🍜",
@@ -1519,25 +1481,6 @@
     "firstSeenDate": "2026-09-25",
     "lastSeenDate": "2026-10-12"
   },
-  "kurly-1002297836": {
-    "id": "kurly-1002297836",
-    "emoji": "🧃",
-    "name": "당솔브 호두맛 200ml 18입",
-    "brand": "메디웰",
-    "category": "음료",
-    "keywords": [
-      "흑당"
-    ],
-    "launchDate": "2026-09-30",
-    "channel": "마켓컬리",
-    "origin": "-",
-    "price": "64,800원",
-    "rating": null,
-    "source": "kurly-crawler",
-    "url": "https://www.kurly.com/goods/1002297836",
-    "firstSeenDate": "2026-09-25",
-    "lastSeenDate": "2026-09-30"
-  },
   "kurly-1002152962": {
     "id": "kurly-1002152962",
     "emoji": "🧃",
@@ -1575,25 +1518,6 @@
     "url": "https://www.kurly.com/goods/1001900401",
     "firstSeenDate": "2026-09-27",
     "lastSeenDate": "2026-10-03"
-  },
-  "kurly-1002404854": {
-    "id": "kurly-1002404854",
-    "emoji": "🥐",
-    "name": "십원빵 (120g X 3개) 2종 (택1)",
-    "brand": "화정당",
-    "category": "베이커리",
-    "keywords": [
-      "흑당"
-    ],
-    "launchDate": "2026-09-30",
-    "channel": "마켓컬리",
-    "origin": "-",
-    "price": "9,790원",
-    "rating": null,
-    "source": "kurly-crawler",
-    "url": "https://www.kurly.com/goods/1002404854",
-    "firstSeenDate": "2026-09-30",
-    "lastSeenDate": "2026-09-30"
   },
   "kurly-1001584435": {
     "id": "kurly-1001584435",
@@ -1661,7 +1585,7 @@
     "keywords": [
       "유자"
     ],
-    "launchDate": "2026-10-24",
+    "launchDate": "2026-10-31",
     "channel": "마켓컬리",
     "origin": "-",
     "price": "8,400원",
@@ -1669,7 +1593,7 @@
     "source": "kurly-crawler",
     "url": "https://www.kurly.com/goods/5042220",
     "firstSeenDate": "2026-10-02",
-    "lastSeenDate": "2026-10-24"
+    "lastSeenDate": "2026-10-31"
   },
   "kurly-1001382646": {
     "id": "kurly-1001382646",
@@ -2079,7 +2003,7 @@
     "keywords": [
       "저당"
     ],
-    "launchDate": "2026-10-30",
+    "launchDate": "2026-10-31",
     "channel": "마켓컬리",
     "origin": "-",
     "price": "12,900원",
@@ -2087,7 +2011,7 @@
     "source": "kurly-crawler",
     "url": "https://www.kurly.com/goods/1002521694",
     "firstSeenDate": "2026-10-15",
-    "lastSeenDate": "2026-10-30"
+    "lastSeenDate": "2026-10-31"
   },
   "kurly-1001320024": {
     "id": "kurly-1001320024",
@@ -2478,7 +2402,7 @@
     "keywords": [
       "생딸기"
     ],
-    "launchDate": "2026-10-30",
+    "launchDate": "2026-10-31",
     "channel": "마켓컬리",
     "origin": "-",
     "price": "5,600원",
@@ -2486,7 +2410,7 @@
     "source": "kurly-crawler",
     "url": "https://www.kurly.com/goods/1000394275",
     "firstSeenDate": "2026-10-22",
-    "lastSeenDate": "2026-10-30"
+    "lastSeenDate": "2026-10-31"
   },
   "kurly-1002273839": {
     "id": "kurly-1002273839",
@@ -2497,15 +2421,15 @@
     "keywords": [
       "생딸기"
     ],
-    "launchDate": "2026-10-29",
+    "launchDate": "2026-10-31",
     "channel": "마켓컬리",
     "origin": "-",
-    "price": "3,680원",
+    "price": "9,980원",
     "rating": null,
     "source": "kurly-crawler",
     "url": "https://www.kurly.com/goods/1002273839",
     "firstSeenDate": "2026-10-22",
-    "lastSeenDate": "2026-10-29"
+    "lastSeenDate": "2026-10-31"
   },
   "kurly-5054884": {
     "id": "kurly-5054884",
@@ -2554,7 +2478,7 @@
     "keywords": [
       "군밤"
     ],
-    "launchDate": "2026-10-30",
+    "launchDate": "2026-10-31",
     "channel": "마켓컬리",
     "origin": "-",
     "price": "9,150원",
@@ -2562,7 +2486,7 @@
     "source": "kurly-crawler",
     "url": "https://www.kurly.com/goods/5077641",
     "firstSeenDate": "2026-10-22",
-    "lastSeenDate": "2026-10-30"
+    "lastSeenDate": "2026-10-31"
   },
   "kurly-1002186304": {
     "id": "kurly-1002186304",
@@ -2612,7 +2536,7 @@
     "keywords": [
       "군밤"
     ],
-    "launchDate": "2026-10-27",
+    "launchDate": "2026-10-31",
     "channel": "마켓컬리",
     "origin": "-",
     "price": "8,250원",
@@ -2620,7 +2544,7 @@
     "source": "kurly-crawler",
     "url": "https://www.kurly.com/goods/5077640",
     "firstSeenDate": "2026-10-22",
-    "lastSeenDate": "2026-10-27"
+    "lastSeenDate": "2026-10-31"
   },
   "kurly-1002188427": {
     "id": "kurly-1002188427",
@@ -2631,7 +2555,7 @@
     "keywords": [
       "맛탕"
     ],
-    "launchDate": "2026-10-30",
+    "launchDate": "2026-10-31",
     "channel": "마켓컬리",
     "origin": "-",
     "price": "4,900원",
@@ -2639,7 +2563,7 @@
     "source": "kurly-crawler",
     "url": "https://www.kurly.com/goods/1002188427",
     "firstSeenDate": "2026-10-22",
-    "lastSeenDate": "2026-10-30"
+    "lastSeenDate": "2026-10-31"
   },
   "kurly-1000239341": {
     "id": "kurly-1000239341",
@@ -2650,7 +2574,7 @@
     "keywords": [
       "맛탕"
     ],
-    "launchDate": "2026-10-30",
+    "launchDate": "2026-10-31",
     "channel": "마켓컬리",
     "origin": "-",
     "price": "10,900원",
@@ -2658,7 +2582,7 @@
     "source": "kurly-crawler",
     "url": "https://www.kurly.com/goods/1000239341",
     "firstSeenDate": "2026-10-22",
-    "lastSeenDate": "2026-10-30"
+    "lastSeenDate": "2026-10-31"
   },
   "kurly-5132102": {
     "id": "kurly-5132102",
@@ -2669,7 +2593,7 @@
     "keywords": [
       "맛탕"
     ],
-    "launchDate": "2026-10-30",
+    "launchDate": "2026-10-31",
     "channel": "마켓컬리",
     "origin": "-",
     "price": "4,000원",
@@ -2677,7 +2601,7 @@
     "source": "kurly-crawler",
     "url": "https://www.kurly.com/goods/5132102",
     "firstSeenDate": "2026-10-22",
-    "lastSeenDate": "2026-10-30"
+    "lastSeenDate": "2026-10-31"
   },
   "kurly-1001391075": {
     "id": "kurly-1001391075",
@@ -2745,7 +2669,7 @@
     "keywords": [
       "밤라떼"
     ],
-    "launchDate": "2026-10-23",
+    "launchDate": "2026-10-31",
     "channel": "마켓컬리",
     "origin": "-",
     "price": "3,500원",
@@ -2753,7 +2677,7 @@
     "source": "kurly-crawler",
     "url": "https://www.kurly.com/goods/1000658278",
     "firstSeenDate": "2026-10-22",
-    "lastSeenDate": "2026-10-23"
+    "lastSeenDate": "2026-10-31"
   },
   "kurly-5061435": {
     "id": "kurly-5061435",
@@ -2764,7 +2688,7 @@
     "keywords": [
       "고구마"
     ],
-    "launchDate": "2026-10-30",
+    "launchDate": "2026-10-31",
     "channel": "마켓컬리",
     "origin": "-",
     "price": "9,990원",
@@ -2772,7 +2696,7 @@
     "source": "kurly-crawler",
     "url": "https://www.kurly.com/goods/5061435",
     "firstSeenDate": "2026-10-22",
-    "lastSeenDate": "2026-10-30"
+    "lastSeenDate": "2026-10-31"
   },
   "kurly-5026449": {
     "id": "kurly-5026449",
@@ -2783,7 +2707,7 @@
     "keywords": [
       "고구마"
     ],
-    "launchDate": "2026-10-30",
+    "launchDate": "2026-10-31",
     "channel": "마켓컬리",
     "origin": "-",
     "price": "7,990원",
@@ -2791,7 +2715,7 @@
     "source": "kurly-crawler",
     "url": "https://www.kurly.com/goods/5026449",
     "firstSeenDate": "2026-10-22",
-    "lastSeenDate": "2026-10-30"
+    "lastSeenDate": "2026-10-31"
   },
   "kurly-5095800": {
     "id": "kurly-5095800",
@@ -2802,7 +2726,7 @@
     "keywords": [
       "고구마"
     ],
-    "launchDate": "2026-10-30",
+    "launchDate": "2026-10-31",
     "channel": "마켓컬리",
     "origin": "-",
     "price": "4,990원",
@@ -2810,7 +2734,7 @@
     "source": "kurly-crawler",
     "url": "https://www.kurly.com/goods/5095800",
     "firstSeenDate": "2026-10-22",
-    "lastSeenDate": "2026-10-30"
+    "lastSeenDate": "2026-10-31"
   },
   "kurly-5026450": {
     "id": "kurly-5026450",
@@ -2821,7 +2745,7 @@
     "keywords": [
       "고구마"
     ],
-    "launchDate": "2026-10-30",
+    "launchDate": "2026-10-31",
     "channel": "마켓컬리",
     "origin": "-",
     "price": "7,990원",
@@ -2829,7 +2753,7 @@
     "source": "kurly-crawler",
     "url": "https://www.kurly.com/goods/5026450",
     "firstSeenDate": "2026-10-22",
-    "lastSeenDate": "2026-10-30"
+    "lastSeenDate": "2026-10-31"
   },
   "kurly-1002501187": {
     "id": "kurly-1002501187",
@@ -2840,7 +2764,7 @@
     "keywords": [
       "찹쌀떡"
     ],
-    "launchDate": "2026-10-30",
+    "launchDate": "2026-10-31",
     "channel": "마켓컬리",
     "origin": "-",
     "price": "11,400원",
@@ -2848,7 +2772,7 @@
     "source": "kurly-crawler",
     "url": "https://www.kurly.com/goods/1002501187",
     "firstSeenDate": "2026-10-22",
-    "lastSeenDate": "2026-10-30"
+    "lastSeenDate": "2026-10-31"
   },
   "kurly-5128370": {
     "id": "kurly-5128370",
@@ -2859,7 +2783,7 @@
     "keywords": [
       "찹쌀떡"
     ],
-    "launchDate": "2026-10-30",
+    "launchDate": "2026-10-31",
     "channel": "마켓컬리",
     "origin": "-",
     "price": "17,500원",
@@ -2867,7 +2791,7 @@
     "source": "kurly-crawler",
     "url": "https://www.kurly.com/goods/5128370",
     "firstSeenDate": "2026-10-22",
-    "lastSeenDate": "2026-10-30"
+    "lastSeenDate": "2026-10-31"
   },
   "kurly-5062426": {
     "id": "kurly-5062426",
@@ -2897,7 +2821,7 @@
     "keywords": [
       "찹쌀떡"
     ],
-    "launchDate": "2026-10-30",
+    "launchDate": "2026-10-31",
     "channel": "마켓컬리",
     "origin": "-",
     "price": "1,800원",
@@ -2905,7 +2829,7 @@
     "source": "kurly-crawler",
     "url": "https://www.kurly.com/goods/1002471239",
     "firstSeenDate": "2026-10-22",
-    "lastSeenDate": "2026-10-30"
+    "lastSeenDate": "2026-10-31"
   },
   "kurly-1002059350": {
     "id": "kurly-1002059350",
@@ -2916,7 +2840,7 @@
     "keywords": [
       "카다이프"
     ],
-    "launchDate": "2026-10-30",
+    "launchDate": "2026-10-31",
     "channel": "마켓컬리",
     "origin": "-",
     "price": "6,490원",
@@ -2924,7 +2848,7 @@
     "source": "kurly-crawler",
     "url": "https://www.kurly.com/goods/1002059350",
     "firstSeenDate": "2026-10-22",
-    "lastSeenDate": "2026-10-30"
+    "lastSeenDate": "2026-10-31"
   },
   "kurly-1002054527": {
     "id": "kurly-1002054527",
@@ -2954,7 +2878,7 @@
     "keywords": [
       "카다이프"
     ],
-    "launchDate": "2026-10-30",
+    "launchDate": "2026-10-31",
     "channel": "마켓컬리",
     "origin": "-",
     "price": "19,800원",
@@ -2962,7 +2886,7 @@
     "source": "kurly-crawler",
     "url": "https://www.kurly.com/goods/1000588182",
     "firstSeenDate": "2026-10-22",
-    "lastSeenDate": "2026-10-30"
+    "lastSeenDate": "2026-10-31"
   },
   "kurly-1000621259": {
     "id": "kurly-1000621259",
@@ -2973,7 +2897,7 @@
     "keywords": [
       "카다이프"
     ],
-    "launchDate": "2026-10-30",
+    "launchDate": "2026-10-31",
     "channel": "마켓컬리",
     "origin": "-",
     "price": "19,900원",
@@ -2981,7 +2905,7 @@
     "source": "kurly-crawler",
     "url": "https://www.kurly.com/goods/1000621259",
     "firstSeenDate": "2026-10-22",
-    "lastSeenDate": "2026-10-30"
+    "lastSeenDate": "2026-10-31"
   },
   "kurly-5121286": {
     "id": "kurly-5121286",
@@ -3068,7 +2992,7 @@
     "keywords": [
       "요거트"
     ],
-    "launchDate": "2026-10-30",
+    "launchDate": "2026-10-31",
     "channel": "마켓컬리",
     "origin": "-",
     "price": "4,680원",
@@ -3076,7 +3000,7 @@
     "source": "kurly-crawler",
     "url": "https://www.kurly.com/goods/5097217",
     "firstSeenDate": "2026-10-22",
-    "lastSeenDate": "2026-10-30"
+    "lastSeenDate": "2026-10-31"
   },
   "kurly-1000638604": {
     "id": "kurly-1000638604",
@@ -3087,7 +3011,7 @@
     "keywords": [
       "요거트"
     ],
-    "launchDate": "2026-10-30",
+    "launchDate": "2026-10-31",
     "channel": "마켓컬리",
     "origin": "-",
     "price": "7,980원",
@@ -3095,7 +3019,7 @@
     "source": "kurly-crawler",
     "url": "https://www.kurly.com/goods/1000638604",
     "firstSeenDate": "2026-10-22",
-    "lastSeenDate": "2026-10-30"
+    "lastSeenDate": "2026-10-31"
   },
   "kurly-1001574311": {
     "id": "kurly-1001574311",
@@ -3106,7 +3030,7 @@
     "keywords": [
       "요거트"
     ],
-    "launchDate": "2026-10-30",
+    "launchDate": "2026-10-31",
     "channel": "마켓컬리",
     "origin": "-",
     "price": "5,700원",
@@ -3114,7 +3038,7 @@
     "source": "kurly-crawler",
     "url": "https://www.kurly.com/goods/1001574311",
     "firstSeenDate": "2026-10-22",
-    "lastSeenDate": "2026-10-30"
+    "lastSeenDate": "2026-10-31"
   },
   "kurly-1000319350": {
     "id": "kurly-1000319350",
@@ -3125,7 +3049,7 @@
     "keywords": [
       "요거트"
     ],
-    "launchDate": "2026-10-30",
+    "launchDate": "2026-10-31",
     "channel": "마켓컬리",
     "origin": "-",
     "price": "7,480원",
@@ -3133,7 +3057,7 @@
     "source": "kurly-crawler",
     "url": "https://www.kurly.com/goods/1000319350",
     "firstSeenDate": "2026-10-22",
-    "lastSeenDate": "2026-10-30"
+    "lastSeenDate": "2026-10-31"
   },
   "kurly-1002530999": {
     "id": "kurly-1002530999",
@@ -3277,7 +3201,7 @@
     "keywords": [
       "프로틴"
     ],
-    "launchDate": "2026-10-28",
+    "launchDate": "2026-10-31",
     "channel": "마켓컬리",
     "origin": "-",
     "price": "15,000원",
@@ -3285,7 +3209,7 @@
     "source": "kurly-crawler",
     "url": "https://www.kurly.com/goods/1000499727",
     "firstSeenDate": "2026-10-22",
-    "lastSeenDate": "2026-10-28"
+    "lastSeenDate": "2026-10-31"
   },
   "kurly-5037604": {
     "id": "kurly-5037604",
@@ -3296,7 +3220,7 @@
     "keywords": [
       "프로틴"
     ],
-    "launchDate": "2026-10-30",
+    "launchDate": "2026-10-31",
     "channel": "마켓컬리",
     "origin": "-",
     "price": "4,850원",
@@ -3304,7 +3228,7 @@
     "source": "kurly-crawler",
     "url": "https://www.kurly.com/goods/5037604",
     "firstSeenDate": "2026-10-22",
-    "lastSeenDate": "2026-10-30"
+    "lastSeenDate": "2026-10-31"
   },
   "kurly-1002468294": {
     "id": "kurly-1002468294",
@@ -3505,7 +3429,7 @@
     "keywords": [
       "누룽지"
     ],
-    "launchDate": "2026-10-30",
+    "launchDate": "2026-10-31",
     "channel": "마켓컬리",
     "origin": "-",
     "price": "11,200원",
@@ -3513,7 +3437,7 @@
     "source": "kurly-crawler",
     "url": "https://www.kurly.com/goods/5145685",
     "firstSeenDate": "2026-10-22",
-    "lastSeenDate": "2026-10-30"
+    "lastSeenDate": "2026-10-31"
   },
   "kurly-1001584429": {
     "id": "kurly-1001584429",
@@ -3524,7 +3448,7 @@
     "keywords": [
       "누룽지"
     ],
-    "launchDate": "2026-10-30",
+    "launchDate": "2026-10-31",
     "channel": "마켓컬리",
     "origin": "-",
     "price": "10,900원",
@@ -3532,7 +3456,7 @@
     "source": "kurly-crawler",
     "url": "https://www.kurly.com/goods/1001584429",
     "firstSeenDate": "2026-10-22",
-    "lastSeenDate": "2026-10-30"
+    "lastSeenDate": "2026-10-31"
   },
   "kurly-5034573": {
     "id": "kurly-5034573",
@@ -3543,7 +3467,7 @@
     "keywords": [
       "누룽지"
     ],
-    "launchDate": "2026-10-30",
+    "launchDate": "2026-10-31",
     "channel": "마켓컬리",
     "origin": "-",
     "price": "3,900원",
@@ -3551,7 +3475,7 @@
     "source": "kurly-crawler",
     "url": "https://www.kurly.com/goods/5034573",
     "firstSeenDate": "2026-10-22",
-    "lastSeenDate": "2026-10-30"
+    "lastSeenDate": "2026-10-31"
   },
   "kurly-5110300": {
     "id": "kurly-5110300",
@@ -3562,7 +3486,7 @@
     "keywords": [
       "누룽지"
     ],
-    "launchDate": "2026-10-30",
+    "launchDate": "2026-10-31",
     "channel": "마켓컬리",
     "origin": "-",
     "price": "5,580원",
@@ -3570,7 +3494,7 @@
     "source": "kurly-crawler",
     "url": "https://www.kurly.com/goods/5110300",
     "firstSeenDate": "2026-10-22",
-    "lastSeenDate": "2026-10-30"
+    "lastSeenDate": "2026-10-31"
   },
   "kurly-5081598": {
     "id": "kurly-5081598",
@@ -3581,7 +3505,7 @@
     "keywords": [
       "치즈"
     ],
-    "launchDate": "2026-10-30",
+    "launchDate": "2026-10-31",
     "channel": "마켓컬리",
     "origin": "-",
     "price": "3,980원",
@@ -3589,7 +3513,7 @@
     "source": "kurly-crawler",
     "url": "https://www.kurly.com/goods/5081598",
     "firstSeenDate": "2026-10-22",
-    "lastSeenDate": "2026-10-30"
+    "lastSeenDate": "2026-10-31"
   },
   "kurly-5030775": {
     "id": "kurly-5030775",
@@ -3600,7 +3524,7 @@
     "keywords": [
       "치즈"
     ],
-    "launchDate": "2026-10-30",
+    "launchDate": "2026-10-31",
     "channel": "마켓컬리",
     "origin": "-",
     "price": "6,780원",
@@ -3608,7 +3532,7 @@
     "source": "kurly-crawler",
     "url": "https://www.kurly.com/goods/5030775",
     "firstSeenDate": "2026-10-22",
-    "lastSeenDate": "2026-10-30"
+    "lastSeenDate": "2026-10-31"
   },
   "kurly-1000412499": {
     "id": "kurly-1000412499",
@@ -3619,7 +3543,7 @@
     "keywords": [
       "치즈"
     ],
-    "launchDate": "2026-10-30",
+    "launchDate": "2026-10-31",
     "channel": "마켓컬리",
     "origin": "-",
     "price": "11,280원",
@@ -3627,7 +3551,7 @@
     "source": "kurly-crawler",
     "url": "https://www.kurly.com/goods/1000412499",
     "firstSeenDate": "2026-10-22",
-    "lastSeenDate": "2026-10-30"
+    "lastSeenDate": "2026-10-31"
   },
   "kurly-1001558672": {
     "id": "kurly-1001558672",
@@ -3638,7 +3562,7 @@
     "keywords": [
       "치즈"
     ],
-    "launchDate": "2026-10-30",
+    "launchDate": "2026-10-31",
     "channel": "마켓컬리",
     "origin": "-",
     "price": "7,780원",
@@ -3646,7 +3570,7 @@
     "source": "kurly-crawler",
     "url": "https://www.kurly.com/goods/1001558672",
     "firstSeenDate": "2026-10-22",
-    "lastSeenDate": "2026-10-30"
+    "lastSeenDate": "2026-10-31"
   },
   "kurly-1001029405": {
     "id": "kurly-1001029405",
@@ -3695,7 +3619,7 @@
     "keywords": [
       "맛탕"
     ],
-    "launchDate": "2026-10-30",
+    "launchDate": "2026-10-31",
     "channel": "마켓컬리",
     "origin": "-",
     "price": "2,600원",
@@ -3703,7 +3627,7 @@
     "source": "kurly-crawler",
     "url": "https://www.kurly.com/goods/1000114433",
     "firstSeenDate": "2026-10-23",
-    "lastSeenDate": "2026-10-30"
+    "lastSeenDate": "2026-10-31"
   },
   "kurly-1001328039": {
     "id": "kurly-1001328039",
@@ -3771,7 +3695,7 @@
     "keywords": [
       "저당"
     ],
-    "launchDate": "2026-10-30",
+    "launchDate": "2026-10-31",
     "channel": "마켓컬리",
     "origin": "-",
     "price": "1,900원",
@@ -3779,7 +3703,7 @@
     "source": "kurly-crawler",
     "url": "https://www.kurly.com/goods/1002096066",
     "firstSeenDate": "2026-10-23",
-    "lastSeenDate": "2026-10-30"
+    "lastSeenDate": "2026-10-31"
   },
   "kurly-1001574638": {
     "id": "kurly-1001574638",
@@ -3790,7 +3714,7 @@
     "keywords": [
       "저당"
     ],
-    "launchDate": "2026-10-23",
+    "launchDate": "2026-10-31",
     "channel": "마켓컬리",
     "origin": "-",
     "price": "31,500원",
@@ -3798,7 +3722,7 @@
     "source": "kurly-crawler",
     "url": "https://www.kurly.com/goods/1001574638",
     "firstSeenDate": "2026-10-23",
-    "lastSeenDate": "2026-10-23"
+    "lastSeenDate": "2026-10-31"
   },
   "kurly-5138486": {
     "id": "kurly-5138486",
@@ -3809,7 +3733,7 @@
     "keywords": [
       "프로틴"
     ],
-    "launchDate": "2026-10-30",
+    "launchDate": "2026-10-31",
     "channel": "마켓컬리",
     "origin": "-",
     "price": "17,400원",
@@ -3817,7 +3741,7 @@
     "source": "kurly-crawler",
     "url": "https://www.kurly.com/goods/5138486",
     "firstSeenDate": "2026-10-23",
-    "lastSeenDate": "2026-10-30"
+    "lastSeenDate": "2026-10-31"
   },
   "kurly-5063521": {
     "id": "kurly-5063521",
@@ -3828,7 +3752,7 @@
     "keywords": [
       "토마토퓨레"
     ],
-    "launchDate": "2026-10-30",
+    "launchDate": "2026-10-31",
     "channel": "마켓컬리",
     "origin": "-",
     "price": "5,530원",
@@ -3836,7 +3760,7 @@
     "source": "kurly-crawler",
     "url": "https://www.kurly.com/goods/5063521",
     "firstSeenDate": "2026-10-23",
-    "lastSeenDate": "2026-10-30"
+    "lastSeenDate": "2026-10-31"
   },
   "kurly-1001421260": {
     "id": "kurly-1001421260",
@@ -3847,7 +3771,7 @@
     "keywords": [
       "토마토퓨레"
     ],
-    "launchDate": "2026-10-30",
+    "launchDate": "2026-10-31",
     "channel": "마켓컬리",
     "origin": "-",
     "price": "4,500원",
@@ -3855,7 +3779,7 @@
     "source": "kurly-crawler",
     "url": "https://www.kurly.com/goods/1001421260",
     "firstSeenDate": "2026-10-23",
-    "lastSeenDate": "2026-10-30"
+    "lastSeenDate": "2026-10-31"
   },
   "kurly-1000830800": {
     "id": "kurly-1000830800",
@@ -3866,7 +3790,7 @@
     "keywords": [
       "토마토퓨레"
     ],
-    "launchDate": "2026-10-30",
+    "launchDate": "2026-10-31",
     "channel": "마켓컬리",
     "origin": "-",
     "price": "4,500원",
@@ -3874,7 +3798,7 @@
     "source": "kurly-crawler",
     "url": "https://www.kurly.com/goods/1000830800",
     "firstSeenDate": "2026-10-23",
-    "lastSeenDate": "2026-10-30"
+    "lastSeenDate": "2026-10-31"
   },
   "kurly-1000977529": {
     "id": "kurly-1000977529",
@@ -3923,7 +3847,7 @@
     "keywords": [
       "닭가슴살"
     ],
-    "launchDate": "2026-10-30",
+    "launchDate": "2026-10-31",
     "channel": "마켓컬리",
     "origin": "-",
     "price": "2,900원",
@@ -3931,7 +3855,7 @@
     "source": "kurly-crawler",
     "url": "https://www.kurly.com/goods/1001384157",
     "firstSeenDate": "2026-10-23",
-    "lastSeenDate": "2026-10-30"
+    "lastSeenDate": "2026-10-31"
   },
   "kurly-1000358249": {
     "id": "kurly-1000358249",
@@ -3942,7 +3866,7 @@
     "keywords": [
       "닭가슴살"
     ],
-    "launchDate": "2026-10-29",
+    "launchDate": "2026-10-31",
     "channel": "마켓컬리",
     "origin": "-",
     "price": "3,300원",
@@ -3950,7 +3874,7 @@
     "source": "kurly-crawler",
     "url": "https://www.kurly.com/goods/1000358249",
     "firstSeenDate": "2026-10-23",
-    "lastSeenDate": "2026-10-29"
+    "lastSeenDate": "2026-10-31"
   },
   "kurly-1000133658": {
     "id": "kurly-1000133658",
@@ -3961,7 +3885,7 @@
     "keywords": [
       "닭가슴살"
     ],
-    "launchDate": "2026-10-30",
+    "launchDate": "2026-10-31",
     "channel": "마켓컬리",
     "origin": "-",
     "price": "3,200원",
@@ -3969,7 +3893,7 @@
     "source": "kurly-crawler",
     "url": "https://www.kurly.com/goods/1000133658",
     "firstSeenDate": "2026-10-23",
-    "lastSeenDate": "2026-10-30"
+    "lastSeenDate": "2026-10-31"
   },
   "kurly-1001956095": {
     "id": "kurly-1001956095",
@@ -3999,7 +3923,7 @@
     "keywords": [
       "불닭"
     ],
-    "launchDate": "2026-10-30",
+    "launchDate": "2026-10-31",
     "channel": "마켓컬리",
     "origin": "-",
     "price": "4,480원",
@@ -4007,7 +3931,7 @@
     "source": "kurly-crawler",
     "url": "https://www.kurly.com/goods/5069819",
     "firstSeenDate": "2026-10-23",
-    "lastSeenDate": "2026-10-30"
+    "lastSeenDate": "2026-10-31"
   },
   "kurly-5069816": {
     "id": "kurly-5069816",
@@ -4018,7 +3942,7 @@
     "keywords": [
       "불닭"
     ],
-    "launchDate": "2026-10-30",
+    "launchDate": "2026-10-31",
     "channel": "마켓컬리",
     "origin": "-",
     "price": "5,100원",
@@ -4026,7 +3950,7 @@
     "source": "kurly-crawler",
     "url": "https://www.kurly.com/goods/5069816",
     "firstSeenDate": "2026-10-23",
-    "lastSeenDate": "2026-10-30"
+    "lastSeenDate": "2026-10-31"
   },
   "kurly-5069815": {
     "id": "kurly-5069815",
@@ -4037,7 +3961,7 @@
     "keywords": [
       "불닭"
     ],
-    "launchDate": "2026-10-30",
+    "launchDate": "2026-10-31",
     "channel": "마켓컬리",
     "origin": "-",
     "price": "6,240원",
@@ -4045,7 +3969,7 @@
     "source": "kurly-crawler",
     "url": "https://www.kurly.com/goods/5069815",
     "firstSeenDate": "2026-10-23",
-    "lastSeenDate": "2026-10-30"
+    "lastSeenDate": "2026-10-31"
   },
   "kurly-1000202927": {
     "id": "kurly-1000202927",
@@ -4056,7 +3980,7 @@
     "keywords": [
       "불닭"
     ],
-    "launchDate": "2026-10-30",
+    "launchDate": "2026-10-31",
     "channel": "마켓컬리",
     "origin": "-",
     "price": "5,980원",
@@ -4064,7 +3988,7 @@
     "source": "kurly-crawler",
     "url": "https://www.kurly.com/goods/1000202927",
     "firstSeenDate": "2026-10-23",
-    "lastSeenDate": "2026-10-30"
+    "lastSeenDate": "2026-10-31"
   },
   "kurly-5049917": {
     "id": "kurly-5049917",
@@ -4075,7 +3999,7 @@
     "keywords": [
       "군밤"
     ],
-    "launchDate": "2026-10-30",
+    "launchDate": "2026-10-31",
     "channel": "마켓컬리",
     "origin": "-",
     "price": "12,900원",
@@ -4083,7 +4007,7 @@
     "source": "kurly-crawler",
     "url": "https://www.kurly.com/goods/5049917",
     "firstSeenDate": "2026-10-24",
-    "lastSeenDate": "2026-10-30"
+    "lastSeenDate": "2026-10-31"
   },
   "kurly-1000475133": {
     "id": "kurly-1000475133",
@@ -4094,7 +4018,7 @@
     "keywords": [
       "군밤"
     ],
-    "launchDate": "2026-10-30",
+    "launchDate": "2026-10-31",
     "channel": "마켓컬리",
     "origin": "-",
     "price": "12,900원",
@@ -4102,7 +4026,7 @@
     "source": "kurly-crawler",
     "url": "https://www.kurly.com/goods/1000475133",
     "firstSeenDate": "2026-10-24",
-    "lastSeenDate": "2026-10-30"
+    "lastSeenDate": "2026-10-31"
   },
   "kurly-5081611": {
     "id": "kurly-5081611",
@@ -4132,7 +4056,7 @@
     "keywords": [
       "카다이프"
     ],
-    "launchDate": "2026-10-30",
+    "launchDate": "2026-10-31",
     "channel": "마켓컬리",
     "origin": "-",
     "price": "12,300원",
@@ -4140,7 +4064,7 @@
     "source": "kurly-crawler",
     "url": "https://www.kurly.com/goods/1000635372",
     "firstSeenDate": "2026-10-24",
-    "lastSeenDate": "2026-10-30"
+    "lastSeenDate": "2026-10-31"
   },
   "kurly-1001320028": {
     "id": "kurly-1001320028",
@@ -4151,7 +4075,7 @@
     "keywords": [
       "찹쌀떡"
     ],
-    "launchDate": "2026-10-30",
+    "launchDate": "2026-10-31",
     "channel": "마켓컬리",
     "origin": "-",
     "price": "13,500원",
@@ -4159,7 +4083,7 @@
     "source": "kurly-crawler",
     "url": "https://www.kurly.com/goods/1001320028",
     "firstSeenDate": "2026-10-24",
-    "lastSeenDate": "2026-10-30"
+    "lastSeenDate": "2026-10-31"
   },
   "kurly-1001454214": {
     "id": "kurly-1001454214",
@@ -4208,7 +4132,7 @@
     "keywords": [
       "프로틴"
     ],
-    "launchDate": "2026-10-30",
+    "launchDate": "2026-10-31",
     "channel": "마켓컬리",
     "origin": "-",
     "price": "52,200원",
@@ -4216,7 +4140,7 @@
     "source": "kurly-crawler",
     "url": "https://www.kurly.com/goods/1000926358",
     "firstSeenDate": "2026-10-24",
-    "lastSeenDate": "2026-10-30"
+    "lastSeenDate": "2026-10-31"
   },
   "kurly-1002169726": {
     "id": "kurly-1002169726",
@@ -4246,7 +4170,7 @@
     "keywords": [
       "토마토퓨레"
     ],
-    "launchDate": "2026-10-30",
+    "launchDate": "2026-10-31",
     "channel": "마켓컬리",
     "origin": "-",
     "price": "3,980원",
@@ -4254,7 +4178,7 @@
     "source": "kurly-crawler",
     "url": "https://www.kurly.com/goods/1000832142",
     "firstSeenDate": "2026-10-24",
-    "lastSeenDate": "2026-10-30"
+    "lastSeenDate": "2026-10-31"
   },
   "kurly-1001137097": {
     "id": "kurly-1001137097",
@@ -4265,7 +4189,7 @@
     "keywords": [
       "생딸기"
     ],
-    "launchDate": "2026-10-30",
+    "launchDate": "2026-10-31",
     "channel": "마켓컬리",
     "origin": "-",
     "price": "4,780원",
@@ -4273,7 +4197,7 @@
     "source": "kurly-crawler",
     "url": "https://www.kurly.com/goods/1001137097",
     "firstSeenDate": "2026-10-25",
-    "lastSeenDate": "2026-10-30"
+    "lastSeenDate": "2026-10-31"
   },
   "kurly-1000426281": {
     "id": "kurly-1000426281",
@@ -4341,7 +4265,7 @@
     "keywords": [
       "밤라떼"
     ],
-    "launchDate": "2026-10-30",
+    "launchDate": "2026-10-31",
     "channel": "마켓컬리",
     "origin": "-",
     "price": "2,980원",
@@ -4349,7 +4273,7 @@
     "source": "kurly-crawler",
     "url": "https://www.kurly.com/goods/5067820",
     "firstSeenDate": "2026-10-26",
-    "lastSeenDate": "2026-10-30"
+    "lastSeenDate": "2026-10-31"
   },
   "kurly-1000087294": {
     "id": "kurly-1000087294",
@@ -4398,7 +4322,7 @@
     "keywords": [
       "닭가슴살"
     ],
-    "launchDate": "2026-10-30",
+    "launchDate": "2026-10-31",
     "channel": "마켓컬리",
     "origin": "-",
     "price": "10,280원",
@@ -4406,7 +4330,7 @@
     "source": "kurly-crawler",
     "url": "https://www.kurly.com/goods/1000086665",
     "firstSeenDate": "2026-10-26",
-    "lastSeenDate": "2026-10-30"
+    "lastSeenDate": "2026-10-31"
   },
   "kurly-1001343698": {
     "id": "kurly-1001343698",
@@ -4417,7 +4341,7 @@
     "keywords": [
       "생딸기"
     ],
-    "launchDate": "2026-10-30",
+    "launchDate": "2026-10-31",
     "channel": "마켓컬리",
     "origin": "-",
     "price": "11,900원",
@@ -4425,7 +4349,7 @@
     "source": "kurly-crawler",
     "url": "https://www.kurly.com/goods/1001343698",
     "firstSeenDate": "2026-10-27",
-    "lastSeenDate": "2026-10-30"
+    "lastSeenDate": "2026-10-31"
   },
   "kurly-5097090": {
     "id": "kurly-5097090",
@@ -4512,7 +4436,7 @@
     "keywords": [
       "저당"
     ],
-    "launchDate": "2026-10-29",
+    "launchDate": "2026-10-31",
     "channel": "마켓컬리",
     "origin": "-",
     "price": "2,900원",
@@ -4520,7 +4444,7 @@
     "source": "kurly-crawler",
     "url": "https://www.kurly.com/goods/1002591301",
     "firstSeenDate": "2026-10-29",
-    "lastSeenDate": "2026-10-29"
+    "lastSeenDate": "2026-10-31"
   },
   "kurly-1002468258": {
     "id": "kurly-1002468258",
@@ -4569,7 +4493,7 @@
     "keywords": [
       "디자인밀"
     ],
-    "launchDate": "2026-10-30",
+    "launchDate": "2026-10-31",
     "channel": "마켓컬리",
     "origin": "-",
     "price": "65,800원",
@@ -4577,7 +4501,7 @@
     "source": "kurly-crawler",
     "url": "https://www.kurly.com/goods/1000776530",
     "firstSeenDate": "2026-10-30",
-    "lastSeenDate": "2026-10-30"
+    "lastSeenDate": "2026-10-31"
   },
   "kurly-1000776519": {
     "id": "kurly-1000776519",
@@ -4588,7 +4512,7 @@
     "keywords": [
       "디자인밀"
     ],
-    "launchDate": "2026-10-30",
+    "launchDate": "2026-10-31",
     "channel": "마켓컬리",
     "origin": "-",
     "price": "89,800원",
@@ -4596,7 +4520,7 @@
     "source": "kurly-crawler",
     "url": "https://www.kurly.com/goods/1000776519",
     "firstSeenDate": "2026-10-30",
-    "lastSeenDate": "2026-10-30"
+    "lastSeenDate": "2026-10-31"
   },
   "kurly-1001718641": {
     "id": "kurly-1001718641",
@@ -4607,7 +4531,7 @@
     "keywords": [
       "바지락"
     ],
-    "launchDate": "2026-10-30",
+    "launchDate": "2026-10-31",
     "channel": "마켓컬리",
     "origin": "-",
     "price": "10,500원",
@@ -4615,7 +4539,7 @@
     "source": "kurly-crawler",
     "url": "https://www.kurly.com/goods/1001718641",
     "firstSeenDate": "2026-10-30",
-    "lastSeenDate": "2026-10-30"
+    "lastSeenDate": "2026-10-31"
   },
   "kurly-1000490544": {
     "id": "kurly-1000490544",
@@ -4626,7 +4550,7 @@
     "keywords": [
       "바지락"
     ],
-    "launchDate": "2026-10-30",
+    "launchDate": "2026-10-31",
     "channel": "마켓컬리",
     "origin": "-",
     "price": "10,500원",
@@ -4634,7 +4558,7 @@
     "source": "kurly-crawler",
     "url": "https://www.kurly.com/goods/1000490544",
     "firstSeenDate": "2026-10-30",
-    "lastSeenDate": "2026-10-30"
+    "lastSeenDate": "2026-10-31"
   },
   "kurly-1000068572": {
     "id": "kurly-1000068572",
@@ -4645,7 +4569,7 @@
     "keywords": [
       "바지락"
     ],
-    "launchDate": "2026-10-30",
+    "launchDate": "2026-10-31",
     "channel": "마켓컬리",
     "origin": "-",
     "price": "7,690원",
@@ -4653,7 +4577,7 @@
     "source": "kurly-crawler",
     "url": "https://www.kurly.com/goods/1000068572",
     "firstSeenDate": "2026-10-30",
-    "lastSeenDate": "2026-10-30"
+    "lastSeenDate": "2026-10-31"
   },
   "kurly-1000066025": {
     "id": "kurly-1000066025",
@@ -4664,7 +4588,7 @@
     "keywords": [
       "바지락"
     ],
-    "launchDate": "2026-10-30",
+    "launchDate": "2026-10-31",
     "channel": "마켓컬리",
     "origin": "-",
     "price": "12,900원",
@@ -4672,7 +4596,7 @@
     "source": "kurly-crawler",
     "url": "https://www.kurly.com/goods/1000066025",
     "firstSeenDate": "2026-10-30",
-    "lastSeenDate": "2026-10-30"
+    "lastSeenDate": "2026-10-31"
   },
   "kurly-1001177248": {
     "id": "kurly-1001177248",
@@ -4778,7 +4702,7 @@
     "keywords": [
       "돈카츠"
     ],
-    "launchDate": "2026-10-30",
+    "launchDate": "2026-10-31",
     "channel": "마켓컬리",
     "origin": "-",
     "price": "10,980원",
@@ -4786,7 +4710,7 @@
     "source": "kurly-crawler",
     "url": "https://www.kurly.com/goods/5041236",
     "firstSeenDate": "2026-10-30",
-    "lastSeenDate": "2026-10-30"
+    "lastSeenDate": "2026-10-31"
   },
   "kurly-1000391155": {
     "id": "kurly-1000391155",
@@ -4797,7 +4721,7 @@
     "keywords": [
       "돈카츠"
     ],
-    "launchDate": "2026-10-30",
+    "launchDate": "2026-10-31",
     "channel": "마켓컬리",
     "origin": "-",
     "price": "9,990원",
@@ -4805,7 +4729,7 @@
     "source": "kurly-crawler",
     "url": "https://www.kurly.com/goods/1000391155",
     "firstSeenDate": "2026-10-30",
-    "lastSeenDate": "2026-10-30"
+    "lastSeenDate": "2026-10-31"
   },
   "kurly-5135994": {
     "id": "kurly-5135994",
@@ -4816,7 +4740,7 @@
     "keywords": [
       "돈카츠"
     ],
-    "launchDate": "2026-10-30",
+    "launchDate": "2026-10-31",
     "channel": "마켓컬리",
     "origin": "-",
     "price": "12,590원",
@@ -4824,7 +4748,7 @@
     "source": "kurly-crawler",
     "url": "https://www.kurly.com/goods/5135994",
     "firstSeenDate": "2026-10-30",
-    "lastSeenDate": "2026-10-30"
+    "lastSeenDate": "2026-10-31"
   },
   "kurly-5072939": {
     "id": "kurly-5072939",
@@ -4844,5 +4768,138 @@
     "url": "https://www.kurly.com/goods/5072939",
     "firstSeenDate": "2026-10-30",
     "lastSeenDate": "2026-10-30"
+  },
+  "kurly-1001762944": {
+    "id": "kurly-1001762944",
+    "emoji": "🧃",
+    "name": "스틱밀크티 (4g X 4개)",
+    "brand": "메이토",
+    "category": "음료",
+    "keywords": [
+      "밤라떼"
+    ],
+    "launchDate": "2026-10-31",
+    "channel": "마켓컬리",
+    "origin": "-",
+    "price": "2,480원",
+    "rating": null,
+    "source": "kurly-crawler",
+    "url": "https://www.kurly.com/goods/1001762944",
+    "firstSeenDate": "2026-10-31",
+    "lastSeenDate": "2026-10-31"
+  },
+  "kurly-1002172388": {
+    "id": "kurly-1002172388",
+    "emoji": "🥛",
+    "name": "초코파이 망고라씨맛 408g",
+    "brand": "오리온",
+    "category": "유제품",
+    "keywords": [
+      "밤라떼"
+    ],
+    "launchDate": "2026-10-31",
+    "channel": "마켓컬리",
+    "origin": "-",
+    "price": "4,800원",
+    "rating": null,
+    "source": "kurly-crawler",
+    "url": "https://www.kurly.com/goods/1002172388",
+    "firstSeenDate": "2026-10-31",
+    "lastSeenDate": "2026-10-31"
+  },
+  "kurly-1000844496": {
+    "id": "kurly-1000844496",
+    "emoji": "🍱",
+    "name": "샐러드 5종 (택1)",
+    "brand": "콜린스 다이닝",
+    "category": "간편식",
+    "keywords": [
+      "다이닝"
+    ],
+    "launchDate": "2026-10-31",
+    "channel": "마켓컬리",
+    "origin": "-",
+    "price": "7,200원",
+    "rating": null,
+    "source": "kurly-crawler",
+    "url": "https://www.kurly.com/goods/1000844496",
+    "firstSeenDate": "2026-10-31",
+    "lastSeenDate": "2026-10-31"
+  },
+  "kurly-5093551": {
+    "id": "kurly-5093551",
+    "emoji": "🍱",
+    "name": "구운 채소 샐러드",
+    "brand": "콜린스 다이닝",
+    "category": "간편식",
+    "keywords": [
+      "다이닝"
+    ],
+    "launchDate": "2026-10-31",
+    "channel": "마켓컬리",
+    "origin": "-",
+    "price": "8,400원",
+    "rating": null,
+    "source": "kurly-crawler",
+    "url": "https://www.kurly.com/goods/5093551",
+    "firstSeenDate": "2026-10-31",
+    "lastSeenDate": "2026-10-31"
+  },
+  "kurly-1001740698": {
+    "id": "kurly-1001740698",
+    "emoji": "🍱",
+    "name": "바지락 술찜 파스타",
+    "brand": "콜린스 다이닝",
+    "category": "간편식",
+    "keywords": [
+      "다이닝"
+    ],
+    "launchDate": "2026-10-31",
+    "channel": "마켓컬리",
+    "origin": "-",
+    "price": "11,900원",
+    "rating": null,
+    "source": "kurly-crawler",
+    "url": "https://www.kurly.com/goods/1001740698",
+    "firstSeenDate": "2026-10-31",
+    "lastSeenDate": "2026-10-31"
+  },
+  "kurly-1000951625": {
+    "id": "kurly-1000951625",
+    "emoji": "🍱",
+    "name": "클래식 미트라구 파스타",
+    "brand": "콜린스 다이닝",
+    "category": "간편식",
+    "keywords": [
+      "다이닝"
+    ],
+    "launchDate": "2026-10-31",
+    "channel": "마켓컬리",
+    "origin": "-",
+    "price": "7,980원",
+    "rating": null,
+    "source": "kurly-crawler",
+    "url": "https://www.kurly.com/goods/1000951625",
+    "firstSeenDate": "2026-10-31",
+    "lastSeenDate": "2026-10-31"
+  },
+  "kurly-1001476737": {
+    "id": "kurly-1001476737",
+    "emoji": "🍱",
+    "name": "생 돈까스 4종 모음 (택1)",
+    "brand": "KF365",
+    "category": "간편식",
+    "keywords": [
+      "돈카츠"
+    ],
+    "launchDate": "2026-10-31",
+    "channel": "마켓컬리",
+    "origin": "-",
+    "price": "11,000원",
+    "rating": null,
+    "source": "kurly-crawler",
+    "url": "https://www.kurly.com/goods/1001476737",
+    "firstSeenDate": "2026-10-31",
+    "lastSeenDate": "2026-10-31"
   }
 }
