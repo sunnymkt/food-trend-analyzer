@@ -1,5 +1,19 @@
 [
   {
+    "date": "2026-11-02",
+    "weekLabel": "2026년 11월 1주차",
+    "periodLabel": "2026-10-27 ~ 2026-11-02",
+    "generatedAt": "2026-11-02T05:58:23.466388+09:00",
+    "topUpKeyword": "누룽지",
+    "topUpPct": 17,
+    "topDownKeyword": "밤라떼",
+    "topDownPct": -19,
+    "topCategory": "간편식",
+    "topCategoryCount": 33,
+    "totalProducts": 78,
+    "file": "data/weekly_reports/2026-11-02.html"
+  },
+  {
     "date": "2026-10-26",
     "weekLabel": "2026년 10월 4주차",
     "periodLabel": "2026-10-20 ~ 2026-10-26",
