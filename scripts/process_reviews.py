@@ -11,7 +11,13 @@
      리뷰 작성자 아이디 등 개인정보가 섞여 있어 리포에 남기지 않는 편이 안전하다)
 
 사용법:
-  python scripts/process_reviews.py --input data/raw_reviews.xlsx
+  python scripts/process_reviews.py --input data/raw_reviews.xlsx            # 이 파일만으로 새로 만들기
+  python scripts/process_reviews.py --input 새기간.xlsx --append              # 기존 데이터에 이어 붙이기
+
+--append: 이미 있는 data/product_reviews.json 에 새 기간 리뷰를 상품번호 기준으로 합친다.
+  예전 원본 엑셀이 없어도 되도록, 저장돼 있는 상품별 집계(건수·평점 분포·신호 건수·예시)를
+  더해서 합친다. 기간이 겹치는 엑셀을 넣으면 같은 리뷰가 두 번 세지므로, 직전 periodEnd
+  이후 리뷰만 자동으로 골라 쓴다.
 """
 
 import argparse
@@ -159,12 +165,77 @@ def build_product_entry(product_id, group, positive_signals, negative_signals):
     }
 
 
+def _take(items, n, key=None, reverse=False):
+    items = sorted(items, key=key, reverse=reverse) if key else items
+    return items[:n]
+
+
+def merge_product(old, new):
+    """같은 상품의 이전 집계(old)와 새 기간 집계(new)를 합친다."""
+    dist = {k: old["ratingDistribution"].get(k, 0) + new["ratingDistribution"].get(k, 0) for k in map(str, range(1, 6))}
+    n_rated = sum(dist.values())
+    avg = round(sum(int(k) * v for k, v in dist.items()) / n_rated, 2) if n_rated else None
+    sig, ex = {}, {}
+    for side in ("positive", "negative"):
+        labels = set(old["signals"].get(side, {})) | set(new["signals"].get(side, {}))
+        sig[side] = {l: old["signals"].get(side, {}).get(l, 0) + new["signals"].get(side, {}).get(l, 0) for l in labels}
+        ex[side] = {}
+        for l in labels:   # 최신순 → 새 기간 예시가 앞, 모자라면 이전 예시로 채움
+            merged = new.get("signalExamples", {}).get(side, {}).get(l, []) + old.get("signalExamples", {}).get(side, {}).get(l, [])
+            ex[side][l] = merged[:MAX_SIGNAL_EXAMPLES]
+    # 부정: 평점 낮은 순 → 최신순 / 호평: 베스트 우선 → 최신순 (이전 집계엔 도움수가 없어 날짜로 대신)
+    neg = _take(new["topNegative"] + old["topNegative"], TOP_N_SNIPPETS,
+                key=lambda r: (r["rating"], "" if r["date"] is None else "".join(chr(255 - ord(c)) for c in r["date"])))
+    pos = sorted(new["topPositive"] + old["topPositive"], key=lambda r: (r.get("date") or ""), reverse=True)
+    pos = sorted(pos, key=lambda r: not r.get("best"))[:TOP_N_SNIPPETS]
+    dates_first = [d for d in (old["firstReviewDate"], new["firstReviewDate"]) if d]
+    dates_last = [d for d in (old["lastReviewDate"], new["lastReviewDate"]) if d]
+    return {
+        "productId": new["productId"],
+        "productName": new["productName"],          # 최신 상품명 사용
+        "reviewCount": old["reviewCount"] + new["reviewCount"],
+        "avgRating": avg,
+        "ratingDistribution": dist,
+        "photoReviewCount": old["photoReviewCount"] + new["photoReviewCount"],
+        "bestReviewCount": old["bestReviewCount"] + new["bestReviewCount"],
+        "firstReviewDate": min(dates_first) if dates_first else None,
+        "lastReviewDate": max(dates_last) if dates_last else None,
+        "signals": sig,
+        "signalExamples": ex,
+        "topNegative": neg,
+        "topPositive": pos,
+    }
+
+
+def merge_outputs(old, new):
+    by_id = {p["productId"]: p for p in old["products"]}
+    for p in new["products"]:
+        by_id[p["productId"]] = merge_product(by_id[p["productId"]], p) if p["productId"] in by_id else p
+    products = sorted(by_id.values(), key=lambda p: -p["reviewCount"])
+    dist_total = {k: sum(p["ratingDistribution"].get(k, 0) for p in products) for k in map(str, range(1, 6))}
+    n = sum(dist_total.values())
+    sources = old.get("sourceFiles") or [old.get("sourceFile")]
+    return {
+        "generatedAt": new["generatedAt"],
+        "sourceFile": new["sourceFile"],
+        "sourceFiles": [s for s in sources if s] + [new["sourceFile"]],
+        "totalReviews": old["totalReviews"] + new["totalReviews"],
+        "totalProducts": len(products),
+        "avgRatingOverall": round(sum(int(k) * v for k, v in dist_total.items()) / n, 2) if n else None,
+        "periodStart": min(d for d in (old["periodStart"], new["periodStart"]) if d),
+        "periodEnd": max(d for d in (old["periodEnd"], new["periodEnd"]) if d),
+        "products": products,
+    }
+
+
 def main():
     parser = argparse.ArgumentParser()
     parser.add_argument("--input", default=str(DATA_DIR / "raw_reviews.xlsx"),
                          help="네이버 브랜드관에서 내려받은 리뷰 원본 엑셀 경로")
     parser.add_argument("--min-reviews", type=int, default=1,
                          help="이 건수 미만인 상품은 결과에서 제외 (기본 1 = 전부 포함)")
+    parser.add_argument("--append", action="store_true",
+                         help="기존 data/product_reviews.json 에 이 파일의 새 기간 리뷰를 합침")
     args = parser.parse_args()
 
     input_path = Path(args.input)
@@ -191,6 +262,21 @@ def main():
 
     df["_parsedDate"] = df["리뷰등록일"].map(parse_dt)
 
+    old = None
+    if args.append:
+        if not OUTPUT_PATH.exists():
+            print("ERROR: --append 인데 기존 data/product_reviews.json 이 없습니다.", file=sys.stderr)
+            sys.exit(1)
+        old = json.loads(OUTPUT_PATH.read_text(encoding="utf-8"))
+        cutoff = pd.Timestamp(old["periodEnd"]) + pd.Timedelta(days=1)
+        overlap = int((df["_parsedDate"] < cutoff).sum())
+        if overlap:
+            print(f"[process_reviews] 기존 데이터 기간({old['periodEnd']})과 겹치는 리뷰 {overlap}건 제외 (중복 방지)")
+        df = df[df["_parsedDate"] >= cutoff].copy()
+        if df.empty:
+            print("ERROR: 기존 데이터 이후 기간의 리뷰가 없습니다.", file=sys.stderr)
+            sys.exit(1)
+
     products = []
     for product_id, group in df.groupby("상품번호"):
         if len(group) < args.min_reviews:
@@ -212,11 +298,20 @@ def main():
         "products": products,
     }
 
+    if old is not None:
+        print(f"[process_reviews] 새 기간: 상품 {len(products)}개, 리뷰 {len(df)}건 → 기존 데이터에 합치는 중")
+        output = merge_outputs(old, output)
+        products = output["products"]
+        df_count = output["totalReviews"]
+    else:
+        df_count = len(df)
+
     DATA_DIR.mkdir(exist_ok=True)
     with open(OUTPUT_PATH, "w", encoding="utf-8") as f:
         json.dump(output, f, ensure_ascii=False, indent=2)
 
-    print(f"[process_reviews] 완료: 상품 {len(products)}개, 리뷰 {len(df)}건 → {OUTPUT_PATH}")
+    print(f"[process_reviews] 완료: 상품 {len(products)}개, 리뷰 {df_count}건 "
+          f"({output['periodStart']} ~ {output['periodEnd']}) → {OUTPUT_PATH}")
 
 
 if __name__ == "__main__":
