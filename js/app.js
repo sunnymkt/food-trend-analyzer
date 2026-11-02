@@ -829,6 +829,38 @@ function renderReviews() {
   renderReviewList();
 }
 
+/* ── 상품별 리뷰 현황: 제품군별 묶음 ──
+   상품명에 들어간 단어로 제품군을 나눈다. 위에서부터 먼저 맞는 그룹으로 들어가므로 순서가 중요하다
+   (예: '쌀국수'는 '쌀·곡물'보다 '면류'가 먼저 잡히도록 면류를 위에 둔다). */
+const REVIEW_GROUPS = [
+  ['김치', ['김치', '묵은지', '깍두기', '총각', '열무', '석박지']],
+  ['면류', ['국수', '짬뽕', '라면', '우동', '냉면', '칼국수', '소면', '당면', '포포면']],
+  ['밥·누룽지', ['누룽지', '숭늉', '즉석밥', '백미밥', '흑미밥', '잡곡밥', '볶음밥', '죽']],
+  ['국·탕·간편식', ['삼계탕', '곰탕', '국밥', '육개장', '추어탕', '미역국', '수프', '동그랑땡', '완자', '만두', '순대', '너겟', '돈까스', '오리훈제', '계란', '메추리알']],
+  ['두유·음료·차', ['두유', '음료', '식혜', '주스', '미숫가루', '선식', '율무차', '유자차', '생강차', '레몬차', '과일차', '한라봉차', '사과 포도', '비니거', '차 ']],
+  ['과자·간식', ['칩', '과자', '약과', '롤', '스낵', '강정', '뻥튀기', '쿠키', '젤리', '양갱', '떡', '크룽지', '바게트', '붕어빵', '찐빵', '밤', '말랭이', '전병', '채소미각']],
+  ['가루·부침', ['가루', '부침', '튀김', '프리믹스', '믹스']],
+  ['장류·양념·소스', ['소금', '천일염', '고추장', '된장', '간장', '참기름', '들기름', '양념', '쌈장', '식초', '청국장', '액젓', '다시', '국물', '한알', '육수', '새우젓', '후추', '솔트', '마늘', '비책', '잼']],
+  ['김·반찬', ['김자반', '김밥김', '광천김', '감태김', '쌈무', '단무지', '황태', '명이', '나물', '반찬']],
+  ['쌀·곡물', ['쌀', '현미', '잡곡', '찹쌀', '보리', '곡', '흑미', '기장', '귀리']],
+];
+const REVIEW_PREVIEW = 5;
+const expandedReviewGroups = new Set();
+
+function reviewGroupOf(name) {
+  const n = (name || '') + ' ';
+  for (const [g, words] of REVIEW_GROUPS) if (words.some(w => n.includes(w))) return g;
+  return '기타';
+}
+// 표시용 상품명: 모든 상품에 붙는 '농협식품' 접두어는 뺀다 (검색·모달은 원래 이름 그대로)
+function shortProductName(name) {
+  return (name || '').replace(/^농협\s*식품\s*(X\S+\s*)?/, '').replace(/^농협\s+/, '') || name;
+}
+function toggleReviewGroup(g) {
+  expandedReviewGroups.has(g) ? expandedReviewGroups.delete(g) : expandedReviewGroups.add(g);
+  renderReviewList();
+}
+
 function renderReviewList() {
   const listWrap = document.getElementById('reviewListWrap');
   if (!listWrap || !REVIEW_DATA) return;
@@ -863,26 +895,66 @@ function renderReviewList() {
     return;
   }
 
-  listWrap.innerHTML = items.map(p => reviewRowHtml(p)).join('');
+  // 제품군별로 묶기 — 그룹 순서는 리뷰 많은 제품군 먼저, '기타'는 맨 끝. 그룹 안은 선택한 정렬 순서.
+  const groups = {};
+  items.forEach(p => { (groups[reviewGroupOf(p.productName)] ||= []).push(p); });
+  const maxCount = Math.max(...REVIEW_DATA.products.map(p => p.reviewCount), 1);
+  const ordered = Object.entries(groups).sort((a, b) =>
+    (a[0] === '기타') - (b[0] === '기타') ||
+    b[1].reduce((s, p) => s + p.reviewCount, 0) - a[1].reduce((s, p) => s + p.reviewCount, 0));
+
+  const legend = `
+    <div class="rv-legend">
+      <span><i class="rv-c5"></i>5점</span><span><i class="rv-c4"></i>4점</span><span><i class="rv-c3"></i>3점</span><span><i class="rv-c1"></i>1~2점</span>
+      <span class="rv-legend-gap"><i class="rv-cpos"></i>긍정 신호</span><span><i class="rv-cneg"></i>부정 신호</span>
+    </div>`;
+
+  listWrap.innerHTML = legend + ordered.map(([g, ps]) => {
+    const reviews = ps.reduce((s, p) => s + p.reviewCount, 0);
+    const rated = ps.filter(p => p.avgRating != null);
+    const ratedN = rated.reduce((s, p) => s + p.reviewCount, 0) || 1;
+    const avg = (rated.reduce((s, p) => s + p.avgRating * p.reviewCount, 0) / ratedN).toFixed(2);
+    const negRate = (ps.reduce((s, p) => s + negativeSignalSum(p), 0) / (reviews || 1) * 100).toFixed(1);
+    const open = expandedReviewGroups.has(g) || !!query;   // 검색 중엔 전부 펼침
+    const shown = open ? ps : ps.slice(0, REVIEW_PREVIEW);
+    const gArg = g.replace(/'/g, "\\'");
+    return `
+      <div class="rv-group">
+        <div class="rv-group-head">
+          <div class="rv-group-name">${g}</div>
+          <div class="rv-group-meta">상품 ${ps.length}개 · 리뷰 ${reviews.toLocaleString()}건</div>
+          <div class="rv-group-rating">★ ${avg}</div>
+          <div class="rv-group-sub">부정 신호 비율 ${negRate}%</div>
+        </div>
+        <div class="rv-group-body">
+          <div class="rv-thead"><span>제품</span><span>리뷰 수</span><span>평점 분포</span><span>긍정 · 부정 신호</span><span>평점</span></div>
+          ${shown.map(p => reviewRowHtml(p, maxCount)).join('')}
+          ${ps.length > REVIEW_PREVIEW && !query ? `<button class="rv-more" onclick="toggleReviewGroup('${gArg}')">${open ? '접기' : `${ps.length - REVIEW_PREVIEW}개 더보기`}</button>` : ''}
+        </div>
+      </div>`;
+  }).join('');
 }
 
-function reviewRowHtml(p) {
+function reviewRowHtml(p, maxCount) {
   const negSum = negativeSignalSum(p);
   const posSum = positiveSignalSum(p);
-  const badges = [
-    p.photoReviewCount ? `<span class="review-badge pos">📷 포토 ${p.photoReviewCount}</span>` : '',
-    posSum ? `<span class="review-badge pos">👍 긍정신호 ${posSum}</span>` : '',
-    negSum ? `<span class="review-badge neg">⚠️ 부정신호 ${negSum}</span>` : '',
-  ].join('');
-
+  const d = p.ratingDistribution || {};
+  const total = ['1','2','3','4','5'].reduce((s, k) => s + (d[k] || 0), 0) || 1;
+  const seg = (n, cls) => n ? `<i class="${cls}" style="width:${(n / total * 100).toFixed(1)}%"></i>` : '';
+  const dist = seg(d['5'], 'rv-c5') + seg(d['4'], 'rv-c4') + seg(d['3'], 'rv-c3') + seg((d['2'] || 0) + (d['1'] || 0), 'rv-c1');
+  const sigTotal = (posSum + negSum) || 1;
+  const sent = (posSum ? `<i class="rv-cpos" style="width:${(posSum / sigTotal * 100).toFixed(1)}%"></i>` : '') +
+               (negSum ? `<i class="rv-cneg" style="width:${(negSum / sigTotal * 100).toFixed(1)}%"></i>` : '');
+  const barW = Math.max(4, Math.round(p.reviewCount / (maxCount || p.reviewCount || 1) * 72));
+  const low = p.avgRating != null && p.avgRating < 4.6;
   return `
-    <div class="review-row" onclick="openReviewModal(${p.productId})">
-      <div style="flex:1;min-width:0;">
-        <div class="review-row-name">${escHtml(p.productName)}</div>
-        <div class="review-row-meta">리뷰 ${p.reviewCount.toLocaleString()}건 · ${p.firstReviewDate || '-'} ~ ${p.lastReviewDate || '-'}</div>
-      </div>
-      <div class="review-row-badges">${badges}</div>
-      <div class="review-row-rating num">⭐ ${p.avgRating ?? '-'}</div>
+    <div class="rv-row" role="button" tabindex="0" onclick="openReviewModal(${p.productId})"
+         onkeydown="if(event.key==='Enter'){openReviewModal(${p.productId})}" title="${escHtml(p.productName)}">
+      <span class="rv-name">${escHtml(shortProductName(p.productName))}</span>
+      <span class="rv-count"><i style="width:${barW}px"></i>${p.reviewCount.toLocaleString()}</span>
+      <span class="rv-bar" title="5점 ${d['5']||0} · 4점 ${d['4']||0} · 3점 ${d['3']||0} · 1~2점 ${(d['2']||0)+(d['1']||0)}">${dist}</span>
+      <span class="rv-bar" title="긍정 ${posSum} · 부정 ${negSum}">${sent}</span>
+      <span class="rv-rating num ${low ? 'low' : ''}">${p.avgRating ?? '-'}</span>
     </div>
   `;
 }

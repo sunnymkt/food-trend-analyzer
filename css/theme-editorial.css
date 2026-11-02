@@ -259,3 +259,17 @@ body::before { display:none; }
 .kr-tile-name { font-weight:540; }
 .kr-tile-price { font-family:var(--mono); font-weight:500; }
 .kr-new { background:var(--block-lime); font-family:var(--mono); font-weight:400; letter-spacing:.6px; }
+
+/* 상품 리뷰 제품군별 묶음 — 에디토리얼 톤 */
+.rv-group { border-top-color:var(--hairline); }
+.rv-group-head { background:var(--surface-soft); }
+.rv-group-name { font-weight:700; }
+.rv-group-meta { font-family:var(--mono); font-size:11px; letter-spacing:.4px; color:#000; }
+.rv-group-rating { font-weight:340; }
+.rv-group-sub { color:#000; }
+.rv-thead { font-family:var(--mono); text-transform:uppercase; letter-spacing:.6px; color:#000; border-bottom-color:#000; }
+.rv-row { border-bottom-color:var(--hairline-soft); }
+.rv-name { font-weight:500; }
+.rv-count, .rv-rating { font-family:var(--mono); }
+.rv-rating { font-weight:500; }
+.rv-cpos { background:var(--block-lime); }
