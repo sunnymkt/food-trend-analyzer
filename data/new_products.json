@@ -1,71 +1,71 @@
 [
   {
-    "id": "kurly-1000394275",
+    "id": "kurly-1000068999",
+    "emoji": "🍱",
+    "name": "특제육수 배추김치 4kg",
+    "brand": "조선호텔",
+    "category": "간편식",
+    "keywords": [
+      "푸드위크"
+    ],
+    "launchDate": "2026-11-06",
+    "channel": "마켓컬리",
+    "origin": "-",
+    "price": "43,800원",
+    "rating": null,
+    "source": "kurly-crawler",
+    "url": "https://www.kurly.com/goods/1000068999"
+  },
+  {
+    "id": "kurly-1000908651",
     "emoji": "🥐",
-    "name": "몽쉘 딸기 생크림 케이크 408g",
-    "brand": "롯데",
+    "name": "저당 통밀브레드 700g",
+    "brand": "브로드카세",
     "category": "베이커리",
     "keywords": [
-      "생딸기"
+      "푸드위크"
     ],
-    "launchDate": "2026-11-05",
+    "launchDate": "2026-11-06",
     "channel": "마켓컬리",
     "origin": "-",
-    "price": "5,600원",
+    "price": "9,800원",
     "rating": null,
     "source": "kurly-crawler",
-    "url": "https://www.kurly.com/goods/1000394275"
+    "url": "https://www.kurly.com/goods/1000908651"
   },
   {
-    "id": "kurly-1001343698",
+    "id": "kurly-5031703",
     "emoji": "🍱",
-    "name": "유명산지 국산 냉동 딸기 1kg",
-    "brand": "브랜드 없음",
+    "name": "슈퍼크런치 치킨텐더",
+    "brand": "올바르고 반듯한",
     "category": "간편식",
     "keywords": [
-      "생딸기"
+      "푸드위크"
     ],
-    "launchDate": "2026-11-05",
+    "launchDate": "2026-11-06",
     "channel": "마켓컬리",
     "origin": "-",
-    "price": "11,900원",
+    "price": "8,960원",
     "rating": null,
     "source": "kurly-crawler",
-    "url": "https://www.kurly.com/goods/1001343698"
+    "url": "https://www.kurly.com/goods/5031703"
   },
   {
-    "id": "kurly-1001137097",
+    "id": "kurly-5156418",
     "emoji": "🍱",
-    "name": "카스타드 딸기 생크림 276g",
-    "brand": "오리온",
+    "name": "특제육수 포기김치 3kg",
+    "brand": "조선호텔",
     "category": "간편식",
     "keywords": [
-      "생딸기"
+      "푸드위크"
     ],
-    "launchDate": "2026-11-05",
+    "launchDate": "2026-11-06",
     "channel": "마켓컬리",
     "origin": "-",
-    "price": "4,780원",
+    "price": "46,800원",
     "rating": null,
     "source": "kurly-crawler",
-    "url": "https://www.kurly.com/goods/1001137097"
-  },
-  {
-    "id": "kurly-1001029405",
-    "emoji": "🍱",
-    "name": "냉동 유기농 딸기 500g (미국산)",
-    "brand": "자연원",
-    "category": "간편식",
-    "keywords": [
-      "생딸기"
-    ],
-    "launchDate": "2026-11-05",
-    "channel": "마켓컬리",
-    "origin": "-",
-    "price": "12,900원",
-    "rating": null,
-    "source": "kurly-crawler",
-    "url": "https://www.kurly.com/goods/1001029405"
+    "url": "https://www.kurly.com/goods/5156418"
   },
   {
     "id": "kurly-1000172525",
@@ -76,30 +76,13 @@
     "keywords": [
       "유자"
     ],
-    "launchDate": "2026-11-05",
+    "launchDate": "2026-11-06",
     "channel": "마켓컬리",
     "origin": "-",
     "price": "15,900원",
     "rating": null,
     "source": "kurly-crawler",
     "url": "https://www.kurly.com/goods/1000172525"
-  },
-  {
-    "id": "kurly-5061691",
-    "emoji": "🧃",
-    "name": "유자청 580g",
-    "brand": "자임",
-    "category": "음료",
-    "keywords": [
-      "유자"
-    ],
-    "launchDate": "2026-11-05",
-    "channel": "마켓컬리",
-    "origin": "-",
-    "price": "8,900원",
-    "rating": null,
-    "source": "kurly-crawler",
-    "url": "https://www.kurly.com/goods/5061691"
   },
   {
     "id": "kurly-5030744",
@@ -110,13 +93,30 @@
     "keywords": [
       "유자"
     ],
-    "launchDate": "2026-11-05",
+    "launchDate": "2026-11-06",
     "channel": "마켓컬리",
     "origin": "-",
     "price": "9,800원",
     "rating": null,
     "source": "kurly-crawler",
     "url": "https://www.kurly.com/goods/5030744"
+  },
+  {
+    "id": "kurly-5061691",
+    "emoji": "🧃",
+    "name": "유자청 580g",
+    "brand": "자임",
+    "category": "음료",
+    "keywords": [
+      "유자"
+    ],
+    "launchDate": "2026-11-06",
+    "channel": "마켓컬리",
+    "origin": "-",
+    "price": "8,900원",
+    "rating": null,
+    "source": "kurly-crawler",
+    "url": "https://www.kurly.com/goods/5061691"
   },
   {
     "id": "kurly-1001873814",
@@ -127,149 +127,13 @@
     "keywords": [
       "유자"
     ],
-    "launchDate": "2026-11-05",
+    "launchDate": "2026-11-06",
     "channel": "마켓컬리",
     "origin": "-",
     "price": "9,500원",
     "rating": null,
     "source": "kurly-crawler",
     "url": "https://www.kurly.com/goods/1001873814"
-  },
-  {
-    "id": "kurly-1000239341",
-    "emoji": "🍱",
-    "name": "한돈감자탕",
-    "brand": "설성목장x참이맛",
-    "category": "간편식",
-    "keywords": [
-      "맛탕"
-    ],
-    "launchDate": "2026-11-05",
-    "channel": "마켓컬리",
-    "origin": "-",
-    "price": "10,900원",
-    "rating": null,
-    "source": "kurly-crawler",
-    "url": "https://www.kurly.com/goods/1000239341"
-  },
-  {
-    "id": "kurly-1002188427",
-    "emoji": "🍱",
-    "name": "한끼든든 어묵탕 2종 (가쓰오/매운맛)",
-    "brand": "삼진어묵",
-    "category": "간편식",
-    "keywords": [
-      "맛탕"
-    ],
-    "launchDate": "2026-11-05",
-    "channel": "마켓컬리",
-    "origin": "-",
-    "price": "4,900원",
-    "rating": null,
-    "source": "kurly-crawler",
-    "url": "https://www.kurly.com/goods/1002188427"
-  },
-  {
-    "id": "kurly-1002184943",
-    "emoji": "🍱",
-    "name": "맛김치(배추김치+깍두기) 360g",
-    "brand": "거대곰탕",
-    "category": "간편식",
-    "keywords": [
-      "맛탕"
-    ],
-    "launchDate": "2026-11-05",
-    "channel": "마켓컬리",
-    "origin": "-",
-    "price": "6,700원",
-    "rating": null,
-    "source": "kurly-crawler",
-    "url": "https://www.kurly.com/goods/1002184943"
-  },
-  {
-    "id": "kurly-1000114260",
-    "emoji": "🍱",
-    "name": "훠궈소스 110g (마라맛 탕용)",
-    "brand": "하이디라오",
-    "category": "간편식",
-    "keywords": [
-      "맛탕"
-    ],
-    "launchDate": "2026-11-05",
-    "channel": "마켓컬리",
-    "origin": "-",
-    "price": "2,600원",
-    "rating": null,
-    "source": "kurly-crawler",
-    "url": "https://www.kurly.com/goods/1000114260"
-  },
-  {
-    "id": "kurly-1002059350",
-    "emoji": "🍪",
-    "name": "구운 카다이프 200g",
-    "brand": "브레드가든",
-    "category": "제과",
-    "keywords": [
-      "카다이프"
-    ],
-    "launchDate": "2026-11-05",
-    "channel": "마켓컬리",
-    "origin": "-",
-    "price": "6,490원",
-    "rating": null,
-    "source": "kurly-crawler",
-    "url": "https://www.kurly.com/goods/1002059350"
-  },
-  {
-    "id": "kurly-1000621259",
-    "emoji": "🍪",
-    "name": "프랑스산 카다이프면 500g",
-    "brand": "소프라브릭",
-    "category": "제과",
-    "keywords": [
-      "카다이프"
-    ],
-    "launchDate": "2026-11-05",
-    "channel": "마켓컬리",
-    "origin": "-",
-    "price": "19,900원",
-    "rating": null,
-    "source": "kurly-crawler",
-    "url": "https://www.kurly.com/goods/1000621259"
-  },
-  {
-    "id": "kurly-1000588182",
-    "emoji": "🍪",
-    "name": "카다이프면 500g",
-    "brand": "지미",
-    "category": "제과",
-    "keywords": [
-      "카다이프"
-    ],
-    "launchDate": "2026-11-05",
-    "channel": "마켓컬리",
-    "origin": "-",
-    "price": "19,800원",
-    "rating": null,
-    "source": "kurly-crawler",
-    "url": "https://www.kurly.com/goods/1000588182"
-  },
-  {
-    "id": "kurly-1000635372",
-    "emoji": "🍪",
-    "name": "피스타치오 스프레드 2종 (택1)",
-    "brand": "오넛티",
-    "category": "제과",
-    "keywords": [
-      "카다이프"
-    ],
-    "launchDate": "2026-11-05",
-    "channel": "마켓컬리",
-    "origin": "-",
-    "price": "12,300원",
-    "rating": null,
-    "source": "kurly-crawler",
-    "url": "https://www.kurly.com/goods/1000635372"
   },
   {
     "id": "kurly-1002501187",
@@ -280,7 +144,7 @@
     "keywords": [
       "찹쌀떡"
     ],
-    "launchDate": "2026-11-05",
+    "launchDate": "2026-11-06",
     "channel": "마켓컬리",
     "origin": "-",
     "price": "11,400원",
@@ -297,7 +161,7 @@
     "keywords": [
       "찹쌀떡"
     ],
-    "launchDate": "2026-11-05",
+    "launchDate": "2026-11-06",
     "channel": "마켓컬리",
     "origin": "-",
     "price": "17,500원",
@@ -314,7 +178,7 @@
     "keywords": [
       "찹쌀떡"
     ],
-    "launchDate": "2026-11-05",
+    "launchDate": "2026-11-06",
     "channel": "마켓컬리",
     "origin": "-",
     "price": "13,500원",
@@ -331,7 +195,7 @@
     "keywords": [
       "찹쌀떡"
     ],
-    "launchDate": "2026-11-05",
+    "launchDate": "2026-11-06",
     "channel": "마켓컬리",
     "origin": "-",
     "price": "1,800원",
@@ -340,140 +204,208 @@
     "url": "https://www.kurly.com/goods/1002471239"
   },
   {
-    "id": "kurly-5061435",
-    "emoji": "🍱",
-    "name": "영암 꿀고구마 1kg(26년 햇)",
-    "brand": "바름팜",
-    "category": "간편식",
+    "id": "kurly-1000394275",
+    "emoji": "🥐",
+    "name": "몽쉘 딸기 생크림 케이크 408g",
+    "brand": "롯데",
+    "category": "베이커리",
     "keywords": [
-      "고구마"
+      "생딸기"
     ],
-    "launchDate": "2026-11-05",
+    "launchDate": "2026-11-06",
     "channel": "마켓컬리",
     "origin": "-",
-    "price": "9,990원",
+    "price": "5,600원",
     "rating": null,
     "source": "kurly-crawler",
-    "url": "https://www.kurly.com/goods/5061435"
+    "url": "https://www.kurly.com/goods/1000394275"
   },
   {
-    "id": "kurly-5095800",
+    "id": "kurly-1001343698",
     "emoji": "🍱",
-    "name": "한입 꿀고구마 1kg",
+    "name": "유명산지 국산 냉동 딸기 1kg",
     "brand": "브랜드 없음",
     "category": "간편식",
     "keywords": [
-      "고구마"
+      "생딸기"
     ],
-    "launchDate": "2026-11-05",
+    "launchDate": "2026-11-06",
     "channel": "마켓컬리",
     "origin": "-",
-    "price": "4,990원",
+    "price": "11,900원",
     "rating": null,
     "source": "kurly-crawler",
-    "url": "https://www.kurly.com/goods/5095800"
+    "url": "https://www.kurly.com/goods/1001343698"
   },
   {
-    "id": "kurly-5026449",
+    "id": "kurly-1001137097",
     "emoji": "🍱",
-    "name": "호박고구마 800g (26년 햇)",
-    "brand": "KF365",
+    "name": "카스타드 딸기 생크림 276g",
+    "brand": "오리온",
     "category": "간편식",
     "keywords": [
-      "고구마"
+      "생딸기"
     ],
-    "launchDate": "2026-11-05",
+    "launchDate": "2026-11-06",
     "channel": "마켓컬리",
     "origin": "-",
-    "price": "7,990원",
+    "price": "4,780원",
     "rating": null,
     "source": "kurly-crawler",
-    "url": "https://www.kurly.com/goods/5026449"
+    "url": "https://www.kurly.com/goods/1001137097"
   },
   {
-    "id": "kurly-5026450",
+    "id": "kurly-1001029405",
     "emoji": "🍱",
-    "name": "밤고구마 800g (26년 햇)",
-    "brand": "KF365",
+    "name": "냉동 유기농 딸기 500g (미국산)",
+    "brand": "자연원",
     "category": "간편식",
     "keywords": [
-      "고구마"
+      "생딸기"
     ],
-    "launchDate": "2026-11-05",
-    "channel": "마켓컬리",
-    "origin": "-",
-    "price": "7,990원",
-    "rating": null,
-    "source": "kurly-crawler",
-    "url": "https://www.kurly.com/goods/5026450"
-  },
-  {
-    "id": "kurly-5049917",
-    "emoji": "🍱",
-    "name": "칼집낸 공주 처음밤 400g 2종(택1) (품종: 포르단밤)",
-    "brand": "브랜드 없음",
-    "category": "간편식",
-    "keywords": [
-      "군밤"
-    ],
-    "launchDate": "2026-11-05",
+    "launchDate": "2026-11-06",
     "channel": "마켓컬리",
     "origin": "-",
     "price": "12,900원",
     "rating": null,
     "source": "kurly-crawler",
-    "url": "https://www.kurly.com/goods/5049917"
+    "url": "https://www.kurly.com/goods/1001029405"
   },
   {
-    "id": "kurly-1000475133",
-    "emoji": "🍱",
-    "name": "군밤용 칼집 약단밤 500g",
-    "brand": "브랜드 없음",
-    "category": "간편식",
+    "id": "kurly-5058898",
+    "emoji": "🥐",
+    "name": "쌀로 만든 식빵 3종 (택1)",
+    "brand": "그녀의빵공장",
+    "category": "베이커리",
     "keywords": [
-      "군밤"
+      "쌀빵"
     ],
-    "launchDate": "2026-11-05",
+    "launchDate": "2026-11-06",
     "channel": "마켓컬리",
     "origin": "-",
-    "price": "12,900원",
+    "price": "5,200원",
     "rating": null,
     "source": "kurly-crawler",
-    "url": "https://www.kurly.com/goods/1000475133"
+    "url": "https://www.kurly.com/goods/5058898"
   },
   {
-    "id": "kurly-5077641",
-    "emoji": "🍱",
-    "name": "맛군밤 4개입",
-    "brand": "CJ",
-    "category": "간편식",
+    "id": "kurly-5155187",
+    "emoji": "🥐",
+    "name": "우리쌀 모닝빵 400g 3종 (택1)",
+    "brand": "라이스핏",
+    "category": "베이커리",
     "keywords": [
-      "군밤"
+      "쌀빵"
     ],
-    "launchDate": "2026-11-05",
+    "launchDate": "2026-11-06",
     "channel": "마켓컬리",
     "origin": "-",
-    "price": "9,150원",
+    "price": "7,500원",
     "rating": null,
     "source": "kurly-crawler",
-    "url": "https://www.kurly.com/goods/5077641"
+    "url": "https://www.kurly.com/goods/5155187"
   },
   {
-    "id": "kurly-5077640",
-    "emoji": "🍱",
-    "name": "맛밤 4개입",
-    "brand": "CJ",
-    "category": "간편식",
+    "id": "kurly-5128369",
+    "emoji": "🥐",
+    "name": "현미 쌀찐빵 (100g X 4개입)",
+    "brand": "군산 이성당",
+    "category": "베이커리",
     "keywords": [
-      "군밤"
+      "쌀빵"
     ],
-    "launchDate": "2026-11-05",
+    "launchDate": "2026-11-06",
     "channel": "마켓컬리",
     "origin": "-",
-    "price": "8,250원",
+    "price": "7,500원",
     "rating": null,
     "source": "kurly-crawler",
-    "url": "https://www.kurly.com/goods/5077640"
+    "url": "https://www.kurly.com/goods/5128369"
+  },
+  {
+    "id": "kurly-5062902",
+    "emoji": "🥐",
+    "name": "건강한 쌀식빵",
+    "brand": "바비브레드",
+    "category": "베이커리",
+    "keywords": [
+      "쌀빵"
+    ],
+    "launchDate": "2026-11-06",
+    "channel": "마켓컬리",
+    "origin": "-",
+    "price": "7,590원",
+    "rating": null,
+    "source": "kurly-crawler",
+    "url": "https://www.kurly.com/goods/5062902"
+  },
+  {
+    "id": "kurly-1001950905",
+    "emoji": "🍜",
+    "name": "가정용 라면조리기 한강라면기계 1구 인덕션 ZL-262HN",
+    "brand": "자일렉",
+    "category": "라면",
+    "keywords": [
+      "한강라면"
+    ],
+    "launchDate": "2026-11-06",
+    "channel": "마켓컬리",
+    "origin": "-",
+    "price": "300,000원",
+    "rating": null,
+    "source": "kurly-crawler",
+    "url": "https://www.kurly.com/goods/1001950905"
+  },
+  {
+    "id": "kurly-5054833",
+    "emoji": "🍜",
+    "name": "신라면 건면 5입",
+    "brand": "농심",
+    "category": "라면",
+    "keywords": [
+      "한강라면"
+    ],
+    "launchDate": "2026-11-06",
+    "channel": "마켓컬리",
+    "origin": "-",
+    "price": "5,180원",
+    "rating": null,
+    "source": "kurly-crawler",
+    "url": "https://www.kurly.com/goods/5054833"
+  },
+  {
+    "id": "kurly-5061317",
+    "emoji": "🍜",
+    "name": "안성탕면 5입",
+    "brand": "농심",
+    "category": "라면",
+    "keywords": [
+      "한강라면"
+    ],
+    "launchDate": "2026-11-06",
+    "channel": "마켓컬리",
+    "origin": "-",
+    "price": "3,750원",
+    "rating": null,
+    "source": "kurly-crawler",
+    "url": "https://www.kurly.com/goods/5061317"
+  },
+  {
+    "id": "kurly-1000975179",
+    "emoji": "🍜",
+    "name": "즉석 라면 조리기(ez100)/신애라 한강라면 끓이는 기계",
+    "brand": "마이어",
+    "category": "라면",
+    "keywords": [
+      "한강라면"
+    ],
+    "launchDate": "2026-11-06",
+    "channel": "마켓컬리",
+    "origin": "-",
+    "price": "259,000원",
+    "rating": null,
+    "source": "kurly-crawler",
+    "url": "https://www.kurly.com/goods/1000975179"
   },
   {
     "id": "kurly-5081598",
@@ -484,7 +416,7 @@
     "keywords": [
       "치즈"
     ],
-    "launchDate": "2026-11-05",
+    "launchDate": "2026-11-06",
     "channel": "마켓컬리",
     "origin": "-",
     "price": "3,980원",
@@ -501,7 +433,7 @@
     "keywords": [
       "치즈"
     ],
-    "launchDate": "2026-11-05",
+    "launchDate": "2026-11-06",
     "channel": "마켓컬리",
     "origin": "-",
     "price": "6,780원",
@@ -518,7 +450,7 @@
     "keywords": [
       "치즈"
     ],
-    "launchDate": "2026-11-05",
+    "launchDate": "2026-11-06",
     "channel": "마켓컬리",
     "origin": "-",
     "price": "11,280원",
@@ -535,13 +467,81 @@
     "keywords": [
       "치즈"
     ],
-    "launchDate": "2026-11-05",
+    "launchDate": "2026-11-06",
     "channel": "마켓컬리",
     "origin": "-",
     "price": "7,780원",
     "rating": null,
     "source": "kurly-crawler",
     "url": "https://www.kurly.com/goods/1001558672"
+  },
+  {
+    "id": "kurly-1000763360",
+    "emoji": "🍱",
+    "name": "유명산지 샤인머스캣 500g",
+    "brand": "KF365",
+    "category": "간편식",
+    "keywords": [
+      "샤인머스캣"
+    ],
+    "launchDate": "2026-11-06",
+    "channel": "마켓컬리",
+    "origin": "-",
+    "price": "10,900원",
+    "rating": null,
+    "source": "kurly-crawler",
+    "url": "https://www.kurly.com/goods/1000763360"
+  },
+  {
+    "id": "kurly-5048580",
+    "emoji": "🍱",
+    "name": "16brix이상 고당도 상주 샤인머스캣 1.5kg (박스)",
+    "brand": "브랜드 없음",
+    "category": "간편식",
+    "keywords": [
+      "샤인머스캣"
+    ],
+    "launchDate": "2026-11-06",
+    "channel": "마켓컬리",
+    "origin": "-",
+    "price": "24,900원",
+    "rating": null,
+    "source": "kurly-crawler",
+    "url": "https://www.kurly.com/goods/5048580"
+  },
+  {
+    "id": "kurly-1000338161",
+    "emoji": "🍱",
+    "name": "16brix이상 고당도 상주 샤인머스켓 600g",
+    "brand": "KF365",
+    "category": "간편식",
+    "keywords": [
+      "샤인머스캣"
+    ],
+    "launchDate": "2026-11-06",
+    "channel": "마켓컬리",
+    "origin": "-",
+    "price": "14,900원",
+    "rating": null,
+    "source": "kurly-crawler",
+    "url": "https://www.kurly.com/goods/1000338161"
+  },
+  {
+    "id": "kurly-1001534770",
+    "emoji": "🍱",
+    "name": "레드 샤인머스캣 포도 (2종)",
+    "brand": "브랜드 없음",
+    "category": "간편식",
+    "keywords": [
+      "샤인머스캣"
+    ],
+    "launchDate": "2026-11-06",
+    "channel": "마켓컬리",
+    "origin": "-",
+    "price": "17,900원",
+    "rating": null,
+    "source": "kurly-crawler",
+    "url": "https://www.kurly.com/goods/1001534770"
   },
   {
     "id": "kurly-1002591301",
@@ -552,13 +552,47 @@
     "keywords": [
       "저당"
     ],
-    "launchDate": "2026-11-05",
+    "launchDate": "2026-11-06",
     "channel": "마켓컬리",
     "origin": "-",
     "price": "2,900원",
     "rating": null,
     "source": "kurly-crawler",
     "url": "https://www.kurly.com/goods/1002591301"
+  },
+  {
+    "id": "kurly-1002096066",
+    "emoji": "🥜",
+    "name": "저당 팝콘 5종, 택1",
+    "brand": "라라스윗",
+    "category": "스낵",
+    "keywords": [
+      "저당"
+    ],
+    "launchDate": "2026-11-06",
+    "channel": "마켓컬리",
+    "origin": "-",
+    "price": "1,900원",
+    "rating": null,
+    "source": "kurly-crawler",
+    "url": "https://www.kurly.com/goods/1002096066"
+  },
+  {
+    "id": "kurly-1000570038",
+    "emoji": "🍱",
+    "name": "저당 케찹 290g",
+    "brand": "오뚜기",
+    "category": "간편식",
+    "keywords": [
+      "저당"
+    ],
+    "launchDate": "2026-11-06",
+    "channel": "마켓컬리",
+    "origin": "-",
+    "price": "3,480원",
+    "rating": null,
+    "source": "kurly-crawler",
+    "url": "https://www.kurly.com/goods/1000570038"
   },
   {
     "id": "kurly-1002635801",
@@ -569,7 +603,7 @@
     "keywords": [
       "저당"
     ],
-    "launchDate": "2026-11-05",
+    "launchDate": "2026-11-06",
     "channel": "마켓컬리",
     "origin": "-",
     "price": "1,500원",
@@ -578,242 +612,208 @@
     "url": "https://www.kurly.com/goods/1002635801"
   },
   {
-    "id": "kurly-1002096066",
-    "emoji": "🥜",
-    "name": "저당 팝콘 5종, 택2",
-    "brand": "라라스윗",
-    "category": "스낵",
+    "id": "kurly-5097217",
+    "emoji": "🥛",
+    "name": "바이오 그릭 요거트 무가당 플레인 400g",
+    "brand": "매일",
+    "category": "유제품",
     "keywords": [
-      "저당"
+      "요거트"
     ],
-    "launchDate": "2026-11-05",
+    "launchDate": "2026-11-06",
     "channel": "마켓컬리",
     "origin": "-",
-    "price": "1,900원",
+    "price": "4,680원",
     "rating": null,
     "source": "kurly-crawler",
-    "url": "https://www.kurly.com/goods/1002096066"
+    "url": "https://www.kurly.com/goods/5097217"
   },
   {
-    "id": "kurly-1001574638",
-    "emoji": "🥐",
-    "name": "저당 바스크치즈케이크 530g",
-    "brand": "무화당",
-    "category": "베이커리",
+    "id": "kurly-1001574311",
+    "emoji": "🥛",
+    "name": "플레인 요거트 900mL",
+    "brand": "그릭데이",
+    "category": "유제품",
     "keywords": [
-      "저당"
+      "요거트"
     ],
-    "launchDate": "2026-11-05",
+    "launchDate": "2026-11-06",
     "channel": "마켓컬리",
     "origin": "-",
-    "price": "31,500원",
+    "price": "5,700원",
     "rating": null,
     "source": "kurly-crawler",
-    "url": "https://www.kurly.com/goods/1001574638"
+    "url": "https://www.kurly.com/goods/1001574311"
   },
   {
-    "id": "kurly-5063521",
-    "emoji": "🧃",
-    "name": "토마토 퓨레 680g 2종",
-    "brand": "디벨라",
-    "category": "음료",
+    "id": "kurly-1000638604",
+    "emoji": "🥛",
+    "name": "플레인 요거트 1.8L",
+    "brand": "그릭데이",
+    "category": "유제품",
     "keywords": [
-      "토마토퓨레"
+      "요거트"
     ],
-    "launchDate": "2026-11-05",
+    "launchDate": "2026-11-06",
     "channel": "마켓컬리",
     "origin": "-",
-    "price": "4,580원",
+    "price": "7,980원",
     "rating": null,
     "source": "kurly-crawler",
-    "url": "https://www.kurly.com/goods/5063521"
+    "url": "https://www.kurly.com/goods/1000638604"
   },
   {
-    "id": "kurly-1001421260",
+    "id": "kurly-1000319350",
+    "emoji": "🥛",
+    "name": "더 진한 순수 플레인 요거트 1.8L",
+    "brand": "서울우유",
+    "category": "유제품",
+    "keywords": [
+      "요거트"
+    ],
+    "launchDate": "2026-11-06",
+    "channel": "마켓컬리",
+    "origin": "-",
+    "price": "7,480원",
+    "rating": null,
+    "source": "kurly-crawler",
+    "url": "https://www.kurly.com/goods/1000319350"
+  },
+  {
+    "id": "kurly-5131363",
     "emoji": "🍱",
-    "name": "이탈리아 토마토 퓨레 2종 (700g)",
-    "brand": "포미",
+    "name": "트러플소스 90g (트러플함량 1%)",
+    "brand": "아르티지아니",
     "category": "간편식",
     "keywords": [
-      "토마토퓨레"
+      "트러플"
     ],
-    "launchDate": "2026-11-05",
+    "launchDate": "2026-11-06",
     "channel": "마켓컬리",
     "origin": "-",
-    "price": "4,500원",
+    "price": "6,600원",
     "rating": null,
     "source": "kurly-crawler",
-    "url": "https://www.kurly.com/goods/1001421260"
+    "url": "https://www.kurly.com/goods/5131363"
   },
   {
-    "id": "kurly-1000830800",
+    "id": "kurly-5012344",
     "emoji": "🍱",
-    "name": "파사타 토마토 퓨레 750g",
-    "brand": "포미",
+    "name": "트러플 제스트",
+    "brand": "사바티노 타르투피",
     "category": "간편식",
     "keywords": [
-      "토마토퓨레"
+      "트러플"
     ],
-    "launchDate": "2026-11-05",
+    "launchDate": "2026-11-06",
     "channel": "마켓컬리",
     "origin": "-",
-    "price": "4,500원",
+    "price": "21,620원",
     "rating": null,
     "source": "kurly-crawler",
-    "url": "https://www.kurly.com/goods/1000830800"
+    "url": "https://www.kurly.com/goods/5012344"
   },
   {
-    "id": "kurly-1000832142",
+    "id": "kurly-1001228038",
     "emoji": "🍱",
-    "name": "이탈리아 토마토 퓨레  690g",
-    "brand": "카스텔로",
+    "name": "트러플 카르파초 75g  (트러플함량 60%)",
+    "brand": "셀렉티아",
     "category": "간편식",
     "keywords": [
-      "토마토퓨레"
+      "트러플"
     ],
-    "launchDate": "2026-11-05",
+    "launchDate": "2026-11-06",
     "channel": "마켓컬리",
     "origin": "-",
-    "price": "3,980원",
+    "price": "43,480원",
     "rating": null,
     "source": "kurly-crawler",
-    "url": "https://www.kurly.com/goods/1000832142"
+    "url": "https://www.kurly.com/goods/1001228038"
   },
   {
-    "id": "kurly-1000499727",
-    "emoji": "💊",
-    "name": "프로틴 단백질 버라이어티 기획팩 세트 6개입",
-    "brand": "더단백",
-    "category": "건강식품",
-    "keywords": [
-      "프로틴"
-    ],
-    "launchDate": "2026-11-05",
-    "channel": "마켓컬리",
-    "origin": "-",
-    "price": "15,000원",
-    "rating": null,
-    "source": "kurly-crawler",
-    "url": "https://www.kurly.com/goods/1000499727"
-  },
-  {
-    "id": "kurly-5138486",
-    "emoji": "💊",
-    "name": "프로틴 단백질 드링크 8종 (6개입), 택1",
-    "brand": "더단백",
-    "category": "건강식품",
-    "keywords": [
-      "프로틴"
-    ],
-    "launchDate": "2026-11-05",
-    "channel": "마켓컬리",
-    "origin": "-",
-    "price": "15,000원",
-    "rating": null,
-    "source": "kurly-crawler",
-    "url": "https://www.kurly.com/goods/5138486"
-  },
-  {
-    "id": "kurly-5037604",
-    "emoji": "🥐",
-    "name": "프로틴 케이크 6종 (택1)",
-    "brand": "프로틴플러스프로젝트",
-    "category": "베이커리",
-    "keywords": [
-      "프로틴"
-    ],
-    "launchDate": "2026-11-05",
-    "channel": "마켓컬리",
-    "origin": "-",
-    "price": "4,850원",
-    "rating": null,
-    "source": "kurly-crawler",
-    "url": "https://www.kurly.com/goods/5037604"
-  },
-  {
-    "id": "kurly-1000489763",
-    "emoji": "💊",
-    "name": "프로틴 단백질 쉐이크 630g 13종 (택1)",
-    "brand": "플라이밀",
-    "category": "건강식품",
-    "keywords": [
-      "프로틴"
-    ],
-    "launchDate": "2026-11-05",
-    "channel": "마켓컬리",
-    "origin": "-",
-    "price": "45,900원",
-    "rating": null,
-    "source": "kurly-crawler",
-    "url": "https://www.kurly.com/goods/1000489763"
-  },
-  {
-    "id": "kurly-5069816",
-    "emoji": "🍜",
-    "name": "불닭볶음면 5입",
-    "brand": "삼양",
-    "category": "라면",
-    "keywords": [
-      "불닭"
-    ],
-    "launchDate": "2026-11-05",
-    "channel": "마켓컬리",
-    "origin": "-",
-    "price": "5,100원",
-    "rating": null,
-    "source": "kurly-crawler",
-    "url": "https://www.kurly.com/goods/5069816"
-  },
-  {
-    "id": "kurly-5069819",
+    "id": "kurly-1000127380",
     "emoji": "🍱",
-    "name": "불닭소스",
-    "brand": "삼양",
+    "name": "블랙 트러플 소스 (트러플 함량 8%)",
+    "brand": "멜끼오리",
     "category": "간편식",
     "keywords": [
-      "불닭"
+      "트러플"
     ],
-    "launchDate": "2026-11-05",
+    "launchDate": "2026-11-06",
     "channel": "마켓컬리",
     "origin": "-",
-    "price": "4,480원",
+    "price": "22,000원",
     "rating": null,
     "source": "kurly-crawler",
-    "url": "https://www.kurly.com/goods/5069819"
+    "url": "https://www.kurly.com/goods/1000127380"
   },
   {
-    "id": "kurly-5069815",
-    "emoji": "🍜",
-    "name": "불닭볶음면 소컵 6입",
-    "brand": "삼양",
-    "category": "라면",
-    "keywords": [
-      "불닭"
-    ],
-    "launchDate": "2026-11-05",
-    "channel": "마켓컬리",
-    "origin": "-",
-    "price": "6,240원",
-    "rating": null,
-    "source": "kurly-crawler",
-    "url": "https://www.kurly.com/goods/5069815"
-  },
-  {
-    "id": "kurly-1001417723",
+    "id": "kurly-1000239341",
     "emoji": "🍱",
-    "name": "불닭 납작당면 2종 (택1)",
-    "brand": "삼양",
+    "name": "한돈감자탕",
+    "brand": "설성목장x참이맛",
     "category": "간편식",
     "keywords": [
-      "불닭"
+      "맛탕"
     ],
-    "launchDate": "2026-11-05",
+    "launchDate": "2026-11-06",
     "channel": "마켓컬리",
     "origin": "-",
-    "price": "2,980원",
+    "price": "10,900원",
     "rating": null,
     "source": "kurly-crawler",
-    "url": "https://www.kurly.com/goods/1001417723"
+    "url": "https://www.kurly.com/goods/1000239341"
+  },
+  {
+    "id": "kurly-1002188427",
+    "emoji": "🍱",
+    "name": "한끼든든 어묵탕 2종 (가쓰오/매운맛)",
+    "brand": "삼진어묵",
+    "category": "간편식",
+    "keywords": [
+      "맛탕"
+    ],
+    "launchDate": "2026-11-06",
+    "channel": "마켓컬리",
+    "origin": "-",
+    "price": "4,900원",
+    "rating": null,
+    "source": "kurly-crawler",
+    "url": "https://www.kurly.com/goods/1002188427"
+  },
+  {
+    "id": "kurly-1002184943",
+    "emoji": "🍱",
+    "name": "맛김치(배추김치+깍두기) 360g",
+    "brand": "거대곰탕",
+    "category": "간편식",
+    "keywords": [
+      "맛탕"
+    ],
+    "launchDate": "2026-11-06",
+    "channel": "마켓컬리",
+    "origin": "-",
+    "price": "6,700원",
+    "rating": null,
+    "source": "kurly-crawler",
+    "url": "https://www.kurly.com/goods/1002184943"
+  },
+  {
+    "id": "kurly-1000114260",
+    "emoji": "🍱",
+    "name": "훠궈소스 110g (마라맛 탕용)",
+    "brand": "하이디라오",
+    "category": "간편식",
+    "keywords": [
+      "맛탕"
+    ],
+    "launchDate": "2026-11-06",
+    "channel": "마켓컬리",
+    "origin": "-",
+    "price": "2,600원",
+    "rating": null,
+    "source": "kurly-crawler",
+    "url": "https://www.kurly.com/goods/1000114260"
   },
   {
     "id": "kurly-5145685",
@@ -824,7 +824,7 @@
     "keywords": [
       "누룽지"
     ],
-    "launchDate": "2026-11-05",
+    "launchDate": "2026-11-06",
     "channel": "마켓컬리",
     "origin": "-",
     "price": "11,200원",
@@ -841,7 +841,7 @@
     "keywords": [
       "누룽지"
     ],
-    "launchDate": "2026-11-05",
+    "launchDate": "2026-11-06",
     "channel": "마켓컬리",
     "origin": "-",
     "price": "10,900원",
@@ -858,7 +858,7 @@
     "keywords": [
       "누룽지"
     ],
-    "launchDate": "2026-11-05",
+    "launchDate": "2026-11-06",
     "channel": "마켓컬리",
     "origin": "-",
     "price": "3,900원",
@@ -875,7 +875,7 @@
     "keywords": [
       "누룽지"
     ],
-    "launchDate": "2026-11-05",
+    "launchDate": "2026-11-06",
     "channel": "마켓컬리",
     "origin": "-",
     "price": "5,580원",
@@ -892,7 +892,7 @@
     "keywords": [
       "디자인밀"
     ],
-    "launchDate": "2026-11-05",
+    "launchDate": "2026-11-06",
     "channel": "마켓컬리",
     "origin": "-",
     "price": "89,800원",
@@ -909,13 +909,353 @@
     "keywords": [
       "디자인밀"
     ],
-    "launchDate": "2026-11-05",
+    "launchDate": "2026-11-06",
     "channel": "마켓컬리",
     "origin": "-",
     "price": "65,800원",
     "rating": null,
     "source": "kurly-crawler",
     "url": "https://www.kurly.com/goods/1000776530"
+  },
+  {
+    "id": "kurly-5138486",
+    "emoji": "💊",
+    "name": "프로틴 단백질 드링크 8종 (6개입), 택1",
+    "brand": "더단백",
+    "category": "건강식품",
+    "keywords": [
+      "프로틴"
+    ],
+    "launchDate": "2026-11-06",
+    "channel": "마켓컬리",
+    "origin": "-",
+    "price": "17,400원",
+    "rating": null,
+    "source": "kurly-crawler",
+    "url": "https://www.kurly.com/goods/5138486"
+  },
+  {
+    "id": "kurly-1000489763",
+    "emoji": "💊",
+    "name": "프로틴 단백질 쉐이크 630g 13종 (택1)",
+    "brand": "플라이밀",
+    "category": "건강식품",
+    "keywords": [
+      "프로틴"
+    ],
+    "launchDate": "2026-11-06",
+    "channel": "마켓컬리",
+    "origin": "-",
+    "price": "45,900원",
+    "rating": null,
+    "source": "kurly-crawler",
+    "url": "https://www.kurly.com/goods/1000489763"
+  },
+  {
+    "id": "kurly-1000499727",
+    "emoji": "💊",
+    "name": "프로틴 단백질 버라이어티 기획팩 세트 6개입",
+    "brand": "더단백",
+    "category": "건강식품",
+    "keywords": [
+      "프로틴"
+    ],
+    "launchDate": "2026-11-06",
+    "channel": "마켓컬리",
+    "origin": "-",
+    "price": "15,000원",
+    "rating": null,
+    "source": "kurly-crawler",
+    "url": "https://www.kurly.com/goods/1000499727"
+  },
+  {
+    "id": "kurly-1000926358",
+    "emoji": "💊",
+    "name": "프로틴 단백질 250mL 18입 5종, 택1",
+    "brand": "얼티브",
+    "category": "건강식품",
+    "keywords": [
+      "프로틴"
+    ],
+    "launchDate": "2026-11-06",
+    "channel": "마켓컬리",
+    "origin": "-",
+    "price": "52,200원",
+    "rating": null,
+    "source": "kurly-crawler",
+    "url": "https://www.kurly.com/goods/1000926358"
+  },
+  {
+    "id": "kurly-1002059350",
+    "emoji": "🍪",
+    "name": "구운 카다이프 200g",
+    "brand": "브레드가든",
+    "category": "제과",
+    "keywords": [
+      "카다이프"
+    ],
+    "launchDate": "2026-11-06",
+    "channel": "마켓컬리",
+    "origin": "-",
+    "price": "6,490원",
+    "rating": null,
+    "source": "kurly-crawler",
+    "url": "https://www.kurly.com/goods/1002059350"
+  },
+  {
+    "id": "kurly-1000621259",
+    "emoji": "🍪",
+    "name": "프랑스산 카다이프면 500g",
+    "brand": "소프라브릭",
+    "category": "제과",
+    "keywords": [
+      "카다이프"
+    ],
+    "launchDate": "2026-11-06",
+    "channel": "마켓컬리",
+    "origin": "-",
+    "price": "19,900원",
+    "rating": null,
+    "source": "kurly-crawler",
+    "url": "https://www.kurly.com/goods/1000621259"
+  },
+  {
+    "id": "kurly-1000588182",
+    "emoji": "🍪",
+    "name": "카다이프면 500g",
+    "brand": "지미",
+    "category": "제과",
+    "keywords": [
+      "카다이프"
+    ],
+    "launchDate": "2026-11-06",
+    "channel": "마켓컬리",
+    "origin": "-",
+    "price": "19,800원",
+    "rating": null,
+    "source": "kurly-crawler",
+    "url": "https://www.kurly.com/goods/1000588182"
+  },
+  {
+    "id": "kurly-1001895555",
+    "emoji": "🍪",
+    "name": "두바이식 스프레드 80g",
+    "brand": "오넛티",
+    "category": "제과",
+    "keywords": [
+      "카다이프"
+    ],
+    "launchDate": "2026-11-06",
+    "channel": "마켓컬리",
+    "origin": "-",
+    "price": "11,900원",
+    "rating": null,
+    "source": "kurly-crawler",
+    "url": "https://www.kurly.com/goods/1001895555"
+  },
+  {
+    "id": "kurly-5061435",
+    "emoji": "🍱",
+    "name": "영암 꿀고구마 1kg(26년 햇)",
+    "brand": "바름팜",
+    "category": "간편식",
+    "keywords": [
+      "고구마"
+    ],
+    "launchDate": "2026-11-06",
+    "channel": "마켓컬리",
+    "origin": "-",
+    "price": "9,990원",
+    "rating": null,
+    "source": "kurly-crawler",
+    "url": "https://www.kurly.com/goods/5061435"
+  },
+  {
+    "id": "kurly-5095800",
+    "emoji": "🍱",
+    "name": "한입 꿀고구마 1kg",
+    "brand": "브랜드 없음",
+    "category": "간편식",
+    "keywords": [
+      "고구마"
+    ],
+    "launchDate": "2026-11-06",
+    "channel": "마켓컬리",
+    "origin": "-",
+    "price": "4,990원",
+    "rating": null,
+    "source": "kurly-crawler",
+    "url": "https://www.kurly.com/goods/5095800"
+  },
+  {
+    "id": "kurly-5026449",
+    "emoji": "🍱",
+    "name": "호박고구마 800g (26년 햇)",
+    "brand": "KF365",
+    "category": "간편식",
+    "keywords": [
+      "고구마"
+    ],
+    "launchDate": "2026-11-06",
+    "channel": "마켓컬리",
+    "origin": "-",
+    "price": "7,990원",
+    "rating": null,
+    "source": "kurly-crawler",
+    "url": "https://www.kurly.com/goods/5026449"
+  },
+  {
+    "id": "kurly-5026450",
+    "emoji": "🍱",
+    "name": "밤고구마 800g (26년 햇)",
+    "brand": "KF365",
+    "category": "간편식",
+    "keywords": [
+      "고구마"
+    ],
+    "launchDate": "2026-11-06",
+    "channel": "마켓컬리",
+    "origin": "-",
+    "price": "7,990원",
+    "rating": null,
+    "source": "kurly-crawler",
+    "url": "https://www.kurly.com/goods/5026450"
+  },
+  {
+    "id": "kurly-1000902954",
+    "emoji": "🥛",
+    "name": "제로콜라 라임 1.25L",
+    "brand": "펩시",
+    "category": "유제품",
+    "keywords": [
+      "펩시"
+    ],
+    "launchDate": "2026-11-06",
+    "channel": "마켓컬리",
+    "origin": "-",
+    "price": "3,510원",
+    "rating": null,
+    "source": "kurly-crawler",
+    "url": "https://www.kurly.com/goods/1000902954"
+  },
+  {
+    "id": "kurly-1002028680",
+    "emoji": "🥛",
+    "name": "제로 콜라 라임향 1.5L*12개",
+    "brand": "펩시",
+    "category": "유제품",
+    "keywords": [
+      "펩시"
+    ],
+    "launchDate": "2026-11-06",
+    "channel": "마켓컬리",
+    "origin": "-",
+    "price": "25,600원",
+    "rating": null,
+    "source": "kurly-crawler",
+    "url": "https://www.kurly.com/goods/1002028680"
+  },
+  {
+    "id": "kurly-1002028674",
+    "emoji": "🥛",
+    "name": "제로 콜라 라임향 355mL*24개",
+    "brand": "펩시",
+    "category": "유제품",
+    "keywords": [
+      "펩시"
+    ],
+    "launchDate": "2026-11-06",
+    "channel": "마켓컬리",
+    "origin": "-",
+    "price": "21,600원",
+    "rating": null,
+    "source": "kurly-crawler",
+    "url": "https://www.kurly.com/goods/1002028674"
+  },
+  {
+    "id": "kurly-5122588",
+    "emoji": "🥛",
+    "name": "제로 콜라 500mL*6개",
+    "brand": "펩시",
+    "category": "유제품",
+    "keywords": [
+      "펩시"
+    ],
+    "launchDate": "2026-11-06",
+    "channel": "마켓컬리",
+    "origin": "-",
+    "price": "9,180원",
+    "rating": null,
+    "source": "kurly-crawler",
+    "url": "https://www.kurly.com/goods/5122588"
+  },
+  {
+    "id": "kurly-5069816",
+    "emoji": "🍜",
+    "name": "불닭볶음면 5입",
+    "brand": "삼양",
+    "category": "라면",
+    "keywords": [
+      "불닭"
+    ],
+    "launchDate": "2026-11-06",
+    "channel": "마켓컬리",
+    "origin": "-",
+    "price": "5,100원",
+    "rating": null,
+    "source": "kurly-crawler",
+    "url": "https://www.kurly.com/goods/5069816"
+  },
+  {
+    "id": "kurly-5069819",
+    "emoji": "🍱",
+    "name": "불닭소스",
+    "brand": "삼양",
+    "category": "간편식",
+    "keywords": [
+      "불닭"
+    ],
+    "launchDate": "2026-11-06",
+    "channel": "마켓컬리",
+    "origin": "-",
+    "price": "4,480원",
+    "rating": null,
+    "source": "kurly-crawler",
+    "url": "https://www.kurly.com/goods/5069819"
+  },
+  {
+    "id": "kurly-5069815",
+    "emoji": "🍜",
+    "name": "불닭볶음면 소컵 6입",
+    "brand": "삼양",
+    "category": "라면",
+    "keywords": [
+      "불닭"
+    ],
+    "launchDate": "2026-11-06",
+    "channel": "마켓컬리",
+    "origin": "-",
+    "price": "6,240원",
+    "rating": null,
+    "source": "kurly-crawler",
+    "url": "https://www.kurly.com/goods/5069815"
+  },
+  {
+    "id": "kurly-1001417723",
+    "emoji": "🍱",
+    "name": "불닭 납작당면 2종 (택1)",
+    "brand": "삼양",
+    "category": "간편식",
+    "keywords": [
+      "불닭"
+    ],
+    "launchDate": "2026-11-06",
+    "channel": "마켓컬리",
+    "origin": "-",
+    "price": "2,980원",
+    "rating": null,
+    "source": "kurly-crawler",
+    "url": "https://www.kurly.com/goods/1001417723"
   },
   {
     "id": "kurly-1001718641",
@@ -926,7 +1266,7 @@
     "keywords": [
       "바지락"
     ],
-    "launchDate": "2026-11-05",
+    "launchDate": "2026-11-06",
     "channel": "마켓컬리",
     "origin": "-",
     "price": "10,500원",
@@ -943,7 +1283,7 @@
     "keywords": [
       "바지락"
     ],
-    "launchDate": "2026-11-05",
+    "launchDate": "2026-11-06",
     "channel": "마켓컬리",
     "origin": "-",
     "price": "10,500원",
@@ -960,7 +1300,7 @@
     "keywords": [
       "바지락"
     ],
-    "launchDate": "2026-11-05",
+    "launchDate": "2026-11-06",
     "channel": "마켓컬리",
     "origin": "-",
     "price": "7,690원",
@@ -969,360 +1309,20 @@
     "url": "https://www.kurly.com/goods/1000068572"
   },
   {
-    "id": "kurly-1000066027",
+    "id": "kurly-1001502491",
     "emoji": "🍜",
-    "name": "남해안 바지락 500g (생물)",
-    "brand": "만선",
+    "name": "국산 바지락살 150g (생물)",
+    "brand": "포트'럭",
     "category": "라면",
     "keywords": [
       "바지락"
     ],
-    "launchDate": "2026-11-05",
+    "launchDate": "2026-11-06",
     "channel": "마켓컬리",
     "origin": "-",
-    "price": "10,900원",
+    "price": "8,290원",
     "rating": null,
     "source": "kurly-crawler",
-    "url": "https://www.kurly.com/goods/1000066027"
-  },
-  {
-    "id": "kurly-5067820",
-    "emoji": "🧃",
-    "name": "우리나라 맛밤 50g",
-    "brand": "밤뜨래",
-    "category": "음료",
-    "keywords": [
-      "밤라떼"
-    ],
-    "launchDate": "2026-11-05",
-    "channel": "마켓컬리",
-    "origin": "-",
-    "price": "2,980원",
-    "rating": null,
-    "source": "kurly-crawler",
-    "url": "https://www.kurly.com/goods/5067820"
-  },
-  {
-    "id": "kurly-5061939",
-    "emoji": "🥐",
-    "name": "카스타드 오리지널 230g",
-    "brand": "롯데제과",
-    "category": "베이커리",
-    "keywords": [
-      "밤라떼"
-    ],
-    "launchDate": "2026-11-05",
-    "channel": "마켓컬리",
-    "origin": "-",
-    "price": "4,780원",
-    "rating": null,
-    "source": "kurly-crawler",
-    "url": "https://www.kurly.com/goods/5061939"
-  },
-  {
-    "id": "kurly-5134483",
-    "emoji": "🍪",
-    "name": "제주 우도 땅콩 찰떡파이 12개입",
-    "brand": "브랜드 없음",
-    "category": "제과",
-    "keywords": [
-      "밤라떼"
-    ],
-    "launchDate": "2026-11-05",
-    "channel": "마켓컬리",
-    "origin": "-",
-    "price": "6,000원",
-    "rating": null,
-    "source": "kurly-crawler",
-    "url": "https://www.kurly.com/goods/5134483"
-  },
-  {
-    "id": "kurly-1000658278",
-    "emoji": "🧃",
-    "name": "앤 고 52g",
-    "brand": "누텔라",
-    "category": "음료",
-    "keywords": [
-      "밤라떼"
-    ],
-    "launchDate": "2026-11-05",
-    "channel": "마켓컬리",
-    "origin": "-",
-    "price": "3,500원",
-    "rating": null,
-    "source": "kurly-crawler",
-    "url": "https://www.kurly.com/goods/1000658278"
-  },
-  {
-    "id": "kurly-1001384157",
-    "emoji": "🥛",
-    "name": "냉장 닭가슴살 2종 100g (1/4/10개입)",
-    "brand": "모두의식단",
-    "category": "유제품",
-    "keywords": [
-      "닭가슴살"
-    ],
-    "launchDate": "2026-11-05",
-    "channel": "마켓컬리",
-    "origin": "-",
-    "price": "2,900원",
-    "rating": null,
-    "source": "kurly-crawler",
-    "url": "https://www.kurly.com/goods/1001384157"
-  },
-  {
-    "id": "kurly-1000133658",
-    "emoji": "🥛",
-    "name": "그릴드 닭가슴살 13종 (1입/4입)",
-    "brand": "한끼통살",
-    "category": "유제품",
-    "keywords": [
-      "닭가슴살"
-    ],
-    "launchDate": "2026-11-05",
-    "channel": "마켓컬리",
-    "origin": "-",
-    "price": "3,200원",
-    "rating": null,
-    "source": "kurly-crawler",
-    "url": "https://www.kurly.com/goods/1000133658"
-  },
-  {
-    "id": "kurly-1000358249",
-    "emoji": "🥛",
-    "name": "소스 닭가슴살 13종 (1입/4입) (택1)",
-    "brand": "한끼통살",
-    "category": "유제품",
-    "keywords": [
-      "닭가슴살"
-    ],
-    "launchDate": "2026-11-05",
-    "channel": "마켓컬리",
-    "origin": "-",
-    "price": "3,300원",
-    "rating": null,
-    "source": "kurly-crawler",
-    "url": "https://www.kurly.com/goods/1000358249"
-  },
-  {
-    "id": "kurly-1000086665",
-    "emoji": "🥛",
-    "name": "냉장 닭가슴살 4종 (4개입)",
-    "brand": "하림",
-    "category": "유제품",
-    "keywords": [
-      "닭가슴살"
-    ],
-    "launchDate": "2026-11-05",
-    "channel": "마켓컬리",
-    "origin": "-",
-    "price": "10,280원",
-    "rating": null,
-    "source": "kurly-crawler",
-    "url": "https://www.kurly.com/goods/1000086665"
-  },
-  {
-    "id": "kurly-1001847695",
-    "emoji": "🍱",
-    "name": "파로 쉬라즈 샐러드",
-    "brand": "콜린스 다이닝",
-    "category": "간편식",
-    "keywords": [
-      "다이닝"
-    ],
-    "launchDate": "2026-11-05",
-    "channel": "마켓컬리",
-    "origin": "-",
-    "price": "7,900원",
-    "rating": null,
-    "source": "kurly-crawler",
-    "url": "https://www.kurly.com/goods/1001847695"
-  },
-  {
-    "id": "kurly-1002184174",
-    "emoji": "🍱",
-    "name": "쿠스쿠스 콩 샐러드",
-    "brand": "콜린스 다이닝",
-    "category": "간편식",
-    "keywords": [
-      "다이닝"
-    ],
-    "launchDate": "2026-11-05",
-    "channel": "마켓컬리",
-    "origin": "-",
-    "price": "7,900원",
-    "rating": null,
-    "source": "kurly-crawler",
-    "url": "https://www.kurly.com/goods/1002184174"
-  },
-  {
-    "id": "kurly-1002569369",
-    "emoji": "🍱",
-    "name": "슈퍼 그레인 샐러드 4종 (택1)",
-    "brand": "콜린스 다이닝",
-    "category": "간편식",
-    "keywords": [
-      "다이닝"
-    ],
-    "launchDate": "2026-11-05",
-    "channel": "마켓컬리",
-    "origin": "-",
-    "price": "6,900원",
-    "rating": null,
-    "source": "kurly-crawler",
-    "url": "https://www.kurly.com/goods/1002569369"
-  },
-  {
-    "id": "kurly-1001322076",
-    "emoji": "🍱",
-    "name": "이베리코 14종 골라담기",
-    "brand": "6다이닝",
-    "category": "간편식",
-    "keywords": [
-      "다이닝"
-    ],
-    "launchDate": "2026-11-05",
-    "channel": "마켓컬리",
-    "origin": "-",
-    "price": "10,900원",
-    "rating": null,
-    "source": "kurly-crawler",
-    "url": "https://www.kurly.com/goods/1001322076"
-  },
-  {
-    "id": "kurly-5097217",
-    "emoji": "🥛",
-    "name": "바이오 그릭 요거트 무가당 플레인 400g",
-    "brand": "매일",
-    "category": "유제품",
-    "keywords": [
-      "요거트"
-    ],
-    "launchDate": "2026-11-05",
-    "channel": "마켓컬리",
-    "origin": "-",
-    "price": "4,680원",
-    "rating": null,
-    "source": "kurly-crawler",
-    "url": "https://www.kurly.com/goods/5097217"
-  },
-  {
-    "id": "kurly-1000638604",
-    "emoji": "🥛",
-    "name": "플레인 요거트 1.8L",
-    "brand": "그릭데이",
-    "category": "유제품",
-    "keywords": [
-      "요거트"
-    ],
-    "launchDate": "2026-11-05",
-    "channel": "마켓컬리",
-    "origin": "-",
-    "price": "7,980원",
-    "rating": null,
-    "source": "kurly-crawler",
-    "url": "https://www.kurly.com/goods/1000638604"
-  },
-  {
-    "id": "kurly-1001574311",
-    "emoji": "🥛",
-    "name": "플레인 요거트 900mL",
-    "brand": "그릭데이",
-    "category": "유제품",
-    "keywords": [
-      "요거트"
-    ],
-    "launchDate": "2026-11-05",
-    "channel": "마켓컬리",
-    "origin": "-",
-    "price": "5,700원",
-    "rating": null,
-    "source": "kurly-crawler",
-    "url": "https://www.kurly.com/goods/1001574311"
-  },
-  {
-    "id": "kurly-1000319350",
-    "emoji": "🥛",
-    "name": "더 진한 순수 플레인 요거트 1.8L",
-    "brand": "서울우유",
-    "category": "유제품",
-    "keywords": [
-      "요거트"
-    ],
-    "launchDate": "2026-11-05",
-    "channel": "마켓컬리",
-    "origin": "-",
-    "price": "7,480원",
-    "rating": null,
-    "source": "kurly-crawler",
-    "url": "https://www.kurly.com/goods/1000319350"
-  },
-  {
-    "id": "kurly-1001476737",
-    "emoji": "🍱",
-    "name": "생 돈까스 4종 모음 (택1)",
-    "brand": "KF365",
-    "category": "간편식",
-    "keywords": [
-      "돈카츠"
-    ],
-    "launchDate": "2026-11-05",
-    "channel": "마켓컬리",
-    "origin": "-",
-    "price": "10,590원",
-    "rating": null,
-    "source": "kurly-crawler",
-    "url": "https://www.kurly.com/goods/1001476737"
-  },
-  {
-    "id": "kurly-5041236",
-    "emoji": "🍱",
-    "name": "통등심 돈카츠",
-    "brand": "고메",
-    "category": "간편식",
-    "keywords": [
-      "돈카츠"
-    ],
-    "launchDate": "2026-11-05",
-    "channel": "마켓컬리",
-    "origin": "-",
-    "price": "10,980원",
-    "rating": null,
-    "source": "kurly-crawler",
-    "url": "https://www.kurly.com/goods/5041236"
-  },
-  {
-    "id": "kurly-5135994",
-    "emoji": "🍱",
-    "name": "에어프라이어용 통등심 돈까스 2종",
-    "brand": "KF365",
-    "category": "간편식",
-    "keywords": [
-      "돈카츠"
-    ],
-    "launchDate": "2026-11-05",
-    "channel": "마켓컬리",
-    "origin": "-",
-    "price": "21,590원",
-    "rating": null,
-    "source": "kurly-crawler",
-    "url": "https://www.kurly.com/goods/5135994"
-  },
-  {
-    "id": "kurly-1001029618",
-    "emoji": "🍱",
-    "name": "덮밥용 돈카츠 (가츠동 소스 포함)",
-    "brand": "미식당",
-    "category": "간편식",
-    "keywords": [
-      "돈카츠"
-    ],
-    "launchDate": "2026-11-05",
-    "channel": "마켓컬리",
-    "origin": "-",
-    "price": "9,990원",
-    "rating": null,
-    "source": "kurly-crawler",
-    "url": "https://www.kurly.com/goods/1001029618"
+    "url": "https://www.kurly.com/goods/1001502491"
   }
 ]

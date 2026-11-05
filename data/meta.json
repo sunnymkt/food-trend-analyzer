@@ -1,27 +1,31 @@
 {
-  "lastUpdated": "2026-11-05T07:33:34.769592+09:00",
+  "lastUpdated": "2026-11-06T07:43:51.066942+09:00",
   "keywordSource": "naver_datalab",
   "productSource": "kurly-search-crawler",
-  "trendStartDate": "2026-08-06",
-  "trendEndDate": "2026-11-03",
-  "newsUpdated": "2026-11-05T07:36:07.604443+09:00",
-  "naverUpdated": "2026-11-05T07:31:27.337331+09:00",
-  "kurlyUpdated": "2026-11-05T07:33:34.769592+09:00",
-  "customKeywordsUpdated": "2026-11-05T07:36:15.925509+09:00",
-  "customKeywordsTrendStartDate": "2026-08-06",
-  "customKeywordsTrendEndDate": "2026-11-03",
-  "relatedKeywordsUpdated": "2026-11-05T07:37:03.555365+09:00",
-  "keywordsDiscoveredAt": "2026-10-30T06:46:07.083823+09:00",
+  "trendStartDate": "2026-08-07",
+  "trendEndDate": "2026-11-04",
+  "newsUpdated": "2026-11-06T07:46:06.350892+09:00",
+  "naverUpdated": "2026-11-06T07:41:37.041917+09:00",
+  "kurlyUpdated": "2026-11-06T07:43:51.066942+09:00",
+  "customKeywordsUpdated": "2026-11-06T07:46:13.573121+09:00",
+  "customKeywordsTrendStartDate": "2026-08-07",
+  "customKeywordsTrendEndDate": "2026-11-04",
+  "relatedKeywordsUpdated": "2026-11-06T07:46:56.259888+09:00",
+  "keywordsDiscoveredAt": "2026-11-06T07:41:32.430436+09:00",
   "keywordsAdded": [
-    "디자인밀",
-    "바지락",
-    "다이닝",
-    "돈카츠"
+    "푸드위크",
+    "쌀빵",
+    "한강라면",
+    "샤인머스캣",
+    "트러플",
+    "펩시"
   ],
   "keywordsRemoved": [
-    "치플레",
-    "티라미수",
-    "요아정",
-    "흑임자"
+    "군밤",
+    "토마토퓨레",
+    "밤라떼",
+    "닭가슴살",
+    "다이닝",
+    "돈카츠"
   ]
 }
