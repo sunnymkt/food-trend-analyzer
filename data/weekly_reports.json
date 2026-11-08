@@ -1,5 +1,19 @@
 [
   {
+    "date": "2026-11-09",
+    "weekLabel": "2026년 11월 2주차",
+    "periodLabel": "2026-11-03 ~ 2026-11-09",
+    "generatedAt": "2026-11-09T05:58:04.994877+09:00",
+    "topUpKeyword": "푸드위크",
+    "topUpPct": 257,
+    "topDownKeyword": "카다이프",
+    "topDownPct": -41,
+    "topCategory": "간편식",
+    "topCategoryCount": 30,
+    "totalProducts": 78,
+    "file": "data/weekly_reports/2026-11-09.html"
+  },
+  {
     "date": "2026-11-02",
     "weekLabel": "2026년 11월 1주차",
     "periodLabel": "2026-10-27 ~ 2026-11-02",
