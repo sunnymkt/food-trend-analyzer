@@ -1,5 +1,19 @@
 [
   {
+    "date": "2026-11-16",
+    "weekLabel": "2026년 11월 3주차",
+    "periodLabel": "2026-11-10 ~ 2026-11-16",
+    "generatedAt": "2026-11-16T06:29:57.656142+09:00",
+    "topUpKeyword": "로제",
+    "topUpPct": 56,
+    "topDownKeyword": "푸드위크",
+    "topDownPct": -85,
+    "topCategory": "간편식",
+    "topCategoryCount": 23,
+    "totalProducts": 78,
+    "file": "data/weekly_reports/2026-11-16.html"
+  },
+  {
     "date": "2026-11-09",
     "weekLabel": "2026년 11월 2주차",
     "periodLabel": "2026-11-03 ~ 2026-11-09",
