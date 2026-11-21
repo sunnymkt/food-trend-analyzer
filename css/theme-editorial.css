@@ -273,3 +273,40 @@ body::before { display:none; }
 .rv-count, .rv-rating { font-family:var(--mono); }
 .rv-rating { font-weight:500; }
 .rv-cpos { background:var(--block-lime); }
+
+/* ── 대시보드 균형: 요약 블록은 낮게, 뉴스는 크게 ── */
+.cb-compact { display:grid; grid-template-columns:minmax(0,1.25fr) minmax(0,1fr); gap:36px; align-items:center; padding:30px 36px; margin-bottom:28px; }
+.cb-compact .cb-eyebrow { font-size:11.5px; margin-bottom:12px; }
+.cb-compact .cb-headline { font-size:30px; letter-spacing:-.6px; line-height:1.25; max-width:none; }
+.cb-headline, .db-news-title { word-break:keep-all; }   /* 한글 단어 중간 줄바꿈 방지 */
+.cb-compact .cb-actions { margin-top:20px; }
+.cb-compact .cb-actions .btn { font-size:14px; padding:9px 18px; }
+.cb-compact .cb-stats { margin-top:0; border-top:none; grid-template-columns:repeat(3,minmax(0,1fr)); }
+.cb-compact .cb-stat { padding:4px 16px 4px 0; }
+.cb-compact .cb-stat + .cb-stat { padding-left:16px; }
+.cb-compact .cb-stat .name { font-size:16px; margin-top:6px; }
+.cb-compact .cb-stat .val { font-size:34px; letter-spacing:-1px; margin-top:4px; }
+.cb-compact .cb-stat .val.neg { color:#c2416a; }
+
+.db-news { gap:24px; margin-bottom:28px; }
+.db-news .card { padding:28px 30px 20px; }
+.db-news .card-title { font-size:22px; font-weight:600; letter-spacing:-.3px; }
+.db-news .card-header { margin-bottom:6px; padding-bottom:14px; border-bottom:1px solid #000; }
+.db-news .card:last-child .card-header { border-bottom-color:var(--neg); }
+.db-news-item { border-bottom-color:var(--hairline-soft); }
+.db-news-title { font-weight:500; color:#000; }
+.db-news-meta { font-family:var(--mono); font-size:11px; letter-spacing:.3px; color:#000; }
+
+@media(max-width:1024px) {
+  .cb-compact { grid-template-columns:1fr; gap:20px; }
+  .cb-compact .cb-headline { font-size:26px; }
+}
+@media(max-width:768px) {
+  .cb-compact { padding:24px 20px; }
+  .cb-compact .cb-headline { font-size:22px; }
+  .cb-compact .cb-stats { grid-template-columns:repeat(3,minmax(0,1fr)); }
+  .cb-compact .cb-stat, .cb-compact .cb-stat + .cb-stat { padding:0 8px 0 0; border-bottom:none; }
+  .cb-compact .cb-stat .val { font-size:24px; }
+  .db-news .card { padding:20px; }
+  .db-news-title { font-size:14.5px; }
+}

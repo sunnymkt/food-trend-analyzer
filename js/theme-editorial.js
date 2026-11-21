@@ -33,18 +33,24 @@
     const worst = txt('db-hl-worst-kw'), worstV = txt('db-hl-worst-kw-val');
     const meta = txt('db-summaryMeta');
     const block = document.createElement('section');
-    block.className = 'cb cb-lime';
+    // 대시보드 첫 화면에서 아래 뉴스가 바로 보이도록, 요약 블록은 왼쪽 문장 + 오른쪽 숫자 3개의 낮은 2단으로 둔다
+    block.className = 'cb cb-lime cb-compact';
+    const worstNeg = String(worstV).trim().startsWith('-');
     block.innerHTML = `
-      <div class="cb-eyebrow">Today's summary · ${meta}</div>
-      <div class="cb-headline">이번 주 가장 빠르게 오른 키워드는 <b>${top}</b>.<br>신제품은 <b>${cat}</b>에서 가장 많이 나왔어요.</div>
+      <div class="cbc-main">
+        <div class="cb-eyebrow">Today's summary · ${meta}</div>
+        <div class="cb-headline">이번 주 가장 빠르게 오른 키워드는 <b>${top}</b>.<br>신제품은 <b>${cat}</b>에서 가장 많이 나왔어요.</div>
+        <div class="cb-actions"><button class="btn btn-primary" onclick="navigate('trends')">키워드 비교분석</button><button class="btn btn-secondary" onclick="navigate('weeklyArchive')">위클리 리포트</button></div>
+      </div>
       <div class="cb-stats">
         <div class="cb-stat" onclick="navigate('trends')"><div class="lbl">Top keyword</div><div class="name">${top}</div><div class="val">${topV}</div></div>
         <div class="cb-stat" onclick="navigate('category')"><div class="lbl">Top category</div><div class="name">${cat}</div><div class="val">${catV}</div></div>
-        <div class="cb-stat" onclick="navigate('trends')"><div class="lbl">Watch out</div><div class="name">${worst}</div><div class="val">${worstV}</div></div>
-      </div>
-      <div class="cb-actions"><button class="btn btn-primary" onclick="navigate('trends')">키워드 비교분석</button><button class="btn btn-secondary" onclick="navigate('weeklyArchive')">위클리 리포트</button></div>`;
+        <div class="cb-stat" onclick="navigate('trends')"><div class="lbl">Watch out</div><div class="name">${worst}</div><div class="val ${worstNeg ? 'neg' : ''}">${worstV}</div></div>
+      </div>`;
     summaryCard.replaceWith(block);
     g3.remove();
+    const newsRow = dash.querySelector(':scope > .g2');
+    if (newsRow) newsRow.classList.add('db-news');
     // 2) 하단 카테고리+신제품 → 크림 컬러블록 (중간은 흰 캔버스로 분리)
     const lastG2 = dash.querySelectorAll(':scope > .g2');
     const bottom = lastG2[lastG2.length-1];

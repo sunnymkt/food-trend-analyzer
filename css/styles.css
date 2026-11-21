@@ -774,3 +774,11 @@ select option { background:var(--bg-secondary); color:var(--text-primary); }
   .rv-row .rv-count { grid-column:1 / -1; }
   .rv-row .rv-bar { grid-column:1 / -1; }
 }
+
+/* ── 대시보드 뉴스 카드 (신제품·법규) ───────────────────────── */
+.db-news-item { display:flex; flex-direction:column; gap:6px; padding:14px 0; border-bottom:1px solid rgba(15,23,42,.07); color:inherit; text-decoration:none; }
+.db-news-item:last-child { border-bottom:none; padding-bottom:4px; }
+.db-news-item:hover .db-news-title { text-decoration:underline; text-underline-offset:3px; }
+.db-news-title { font-size:15.5px; font-weight:600; line-height:1.5; color:var(--text-primary); display:-webkit-box; -webkit-line-clamp:2; -webkit-box-orient:vertical; overflow:hidden; }
+.db-news-meta { display:flex; align-items:center; gap:10px; font-size:12px; color:var(--text-muted); }
+.db-news-meta .tag { margin-left:auto; }

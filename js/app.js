@@ -1905,6 +1905,16 @@ function renderReportNews() {
   renderReportNewsSection(NEWS.filter(n => n.category === 'regulatory'), 'reportNewsRegulatory', 'tag-r');
 }
 
+const DB_NEWS_COUNT = 5;   // 대시보드 뉴스 카드에 보여줄 기사 수 (신제품·법규 각각)
+
+function newsSourceOf(n) {
+  const m = (n.title || '').match(/^\[(푸드투데이|식품저널)\]\s*/);
+  if (m) return m[1];
+  if (/foodtoday/.test(n.link || '')) return '푸드투데이';
+  if (/foodnews/.test(n.link || '')) return '식품저널';
+  return '';
+}
+
 function renderReportNewsSection(items, elId, tagClass) {
   const el = document.getElementById(elId);
   if(!el) return;
@@ -1912,19 +1922,16 @@ function renderReportNewsSection(items, elId, tagClass) {
     el.innerHTML = `<p style="font-size:12.5px;color:var(--text-muted);">수집된 뉴스가 없습니다.</p>`;
     return;
   }
-  const top3 = [...items].sort((a,b) => new Date(b.pubDate) - new Date(a.pubDate)).slice(0,3);
-  el.innerHTML = top3.map(n => `
-    <div class="mini-row">
-      <div class="mini-left" style="min-width:0;">
-        <span class="mini-emoji">📰</span>
-        <div style="min-width:0;">
-          <a href="${n.link}" target="_blank" rel="noopener noreferrer" class="mini-name" style="color:var(--text-primary);display:block;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;">${n.title}</a>
-          <div class="mini-brand">${fmt(n.pubDate)}</div>
-        </div>
-      </div>
-      <span class="tag ${tagClass}">#${n.keyword}</span>
-    </div>
-  `).join('');
+  const top = [...items].sort((a,b) => new Date(b.pubDate) - new Date(a.pubDate)).slice(0, DB_NEWS_COUNT);
+  el.innerHTML = top.map(n => {
+    const source = newsSourceOf(n);
+    const title = (n.title || '').replace(/^\[(푸드투데이|식품저널)\]\s*/, '');
+    return `
+    <a class="db-news-item" href="${n.link}" target="_blank" rel="noopener noreferrer">
+      <span class="db-news-title">${title}</span>
+      <span class="db-news-meta">${source ? `<span>${source}</span>` : ''}<span>${fmt(n.pubDate)}</span><span class="tag ${tagClass}">#${n.keyword}</span></span>
+    </a>`;
+  }).join('');
 }
 
 function showDataError(err) {
