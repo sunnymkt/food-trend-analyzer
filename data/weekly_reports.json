@@ -1,5 +1,19 @@
 [
   {
+    "date": "2026-11-23",
+    "weekLabel": "2026년 11월 4주차",
+    "periodLabel": "2026-11-17 ~ 2026-11-23",
+    "generatedAt": "2026-11-23T07:18:38.646478+09:00",
+    "topUpKeyword": "카누",
+    "topUpPct": 29,
+    "topDownKeyword": "푸드위크",
+    "topDownPct": -89,
+    "topCategory": "간편식",
+    "topCategoryCount": 37,
+    "totalProducts": 80,
+    "file": "data/weekly_reports/2026-11-23.html"
+  },
+  {
     "date": "2026-11-16",
     "weekLabel": "2026년 11월 3주차",
     "periodLabel": "2026-11-10 ~ 2026-11-16",
